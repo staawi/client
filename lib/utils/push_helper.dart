@@ -283,9 +283,7 @@ Future<void> _tryPushHelper(
       AndroidNotificationAction(
         FluffyChatNotificationActions.reply.name,
         l10n.reply,
-        inputs: [
-          const AndroidNotificationActionInput(),
-        ],
+        inputs: [const AndroidNotificationActionInput()],
       ),
     ],
   );

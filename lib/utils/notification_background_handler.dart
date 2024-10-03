@@ -10,11 +10,20 @@ import 'package:fluffychat/utils/client_manager.dart';
 void notificationTapBackground(
   NotificationResponse notificationResponse,
 ) async {
+  Logs().i('Notification tap in background');
   final client = (await ClientManager.getClients(
     initialize: false,
     store: await SharedPreferences.getInstance(),
   ))
       .first;
+  await client.abortSync();
+  await client.init(
+    waitForFirstSync: false,
+    waitUntilLoadCompletedLoaded: false,
+  );
+  if (!client.isLogged()) {
+    throw Exception('Notification tab in background but not logged in!');
+  }
   notificationTap(notificationResponse, client: client);
 }
 
@@ -23,6 +32,10 @@ void notificationTap(
   GoRouter? router,
   required Client client,
 }) async {
+  Logs().d(
+    'Notification action handler started',
+    notificationResponse.notificationResponseType.name,
+  );
   switch (notificationResponse.notificationResponseType) {
     case NotificationResponseType.selectedNotification:
       final roomId = notificationResponse.payload;
