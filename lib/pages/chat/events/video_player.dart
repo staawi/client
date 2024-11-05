@@ -10,12 +10,12 @@ import 'package:path_provider/path_provider.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:video_player/video_player.dart';
 
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/pages/chat/events/image_bubble.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/widgets/blur_hash.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/pages/chat/events/image_bubble.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/blur_hash.dart';
 import '../../../utils/error_reporter.dart';
 
 class EventVideoPlayer extends StatefulWidget {

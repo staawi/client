@@ -6,12 +6,12 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/utils/error_reporter.dart';
-import 'package:fluffychat/utils/fluffy_share.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/utils/error_reporter.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../../utils/adaptive_bottom_sheet.dart';
 import '../key_verification/key_verification_dialog.dart';
 

@@ -4,13 +4,13 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/utils/date_time_extension.dart';
-import 'package:fluffychat/utils/fluffy_share.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/url_launcher.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/presence_builder.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/date_time_extension.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/utils/url_launcher.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/presence_builder.dart';
 import '../../widgets/matrix.dart';
 import 'user_bottom_sheet.dart';
 

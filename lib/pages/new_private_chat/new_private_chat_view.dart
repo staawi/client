@@ -5,15 +5,15 @@ import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';
 
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/pages/new_private_chat/new_private_chat.dart';
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/utils/url_launcher.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/new_private_chat/new_private_chat.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/url_launcher.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
+import 'package:stawi/widgets/matrix.dart';
 
 class NewPrivateChatView extends StatelessWidget {
   final NewPrivateChatController controller;

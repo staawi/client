@@ -4,9 +4,9 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/pages/archive/archive.dart';
-import 'package:fluffychat/pages/chat_list/chat_list_item.dart';
-import 'package:fluffychat/widgets/layouts/max_width_body.dart';
+import 'package:stawi/pages/archive/archive.dart';
+import 'package:stawi/pages/chat_list/chat_list_item.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
 
 class ArchiveView extends StatelessWidget {
   final ArchiveController controller;

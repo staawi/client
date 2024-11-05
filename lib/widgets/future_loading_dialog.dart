@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:async/async.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 
-import 'package:fluffychat/utils/localized_exception_extension.dart';
-import 'package:fluffychat/widgets/adaptive_dialog_action.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/widgets/adaptive_dialog_action.dart';
 
 /// Displays a loading dialog which reacts to the given [future]. The dialog
 /// will be dismissed and the value will be returned when the future completes.

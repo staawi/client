@@ -1,4 +1,4 @@
-name: fluffychat
+name: stawi
 description: Chat with your friends.
 publish_to: none
 # On version bump also increase the build number for F-Droid
@@ -140,15 +140,15 @@ flutter:
         - asset: fonts/NotoEmoji/NotoColorEmoji.ttf
 
 msix_config:
-  display_name: FluffyChat
-  publisher_display_name: FluffyChat
+  display_name: Stawi
+  publisher_display_name: Stawi
   publisher: CN=FluffyChat, O=Head of bad integration tests, L=Matrix, S=Internet, C=EU
   identity_name: chat.fluffy.fluffychat
   logo_path: assets\logo.png
   capabilities: internetClient, location, microphone, webcam
   protocol_activation: https
-  app_uri_handler_hosts: fluffychat.im, matrix.to
-  execution_alias: fluffychat
+  app_uri_handler_hosts: stawi.io
+  execution_alias: stawi
   sign_msix: false
   install_certificate: false
 

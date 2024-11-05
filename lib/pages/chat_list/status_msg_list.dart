@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/config/app_config.dart';
-import 'package:fluffychat/config/themes.dart';
-import 'package:fluffychat/pages/user_bottom_sheet/user_bottom_sheet.dart';
-import 'package:fluffychat/utils/adaptive_bottom_sheet.dart';
-import 'package:fluffychat/utils/stream_extension.dart';
-import 'package:fluffychat/widgets/avatar.dart';
-import 'package:fluffychat/widgets/hover_builder.dart';
-import 'package:fluffychat/widgets/matrix.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/user_bottom_sheet/user_bottom_sheet.dart';
+import 'package:stawi/utils/adaptive_bottom_sheet.dart';
+import 'package:stawi/utils/stream_extension.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/hover_builder.dart';
+import 'package:stawi/widgets/matrix.dart';
 
 class StatusMessageList extends StatelessWidget {
   final void Function() onStatusEdit;

@@ -8,9 +8,9 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/utils/file_selector.dart';
-import 'package:fluffychat/utils/platform_infos.dart';
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:stawi/utils/file_selector.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../../widgets/matrix.dart';
 import '../bootstrap/bootstrap_dialog.dart';
 import 'settings_view.dart';

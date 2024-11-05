@@ -9,7 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:keyboard_shortcuts/keyboard_shortcuts.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:fluffychat/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'matrix.dart';
 
 enum ChatPopupMenuActions { details, mute, unmute, leave, search }
