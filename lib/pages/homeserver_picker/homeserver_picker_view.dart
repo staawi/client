@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/widgets/adaptive_dialog_action.dart';
 import 'package:stawi/widgets/layouts/login_scaffold.dart';
 import 'package:stawi/widgets/matrix.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+
 import '../../config/themes.dart';
 import 'homeserver_picker.dart';
 
@@ -25,47 +21,6 @@ class HomeserverPickerView extends StatelessWidget {
       enforceMobileMode: Matrix.of(context).client.isLogged(),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(L10n.of(context).addAccount),
-        actions: [
-          PopupMenuButton<MoreLoginActions>(
-            onSelected: controller.onMoreAction,
-            itemBuilder: (_) => [
-              PopupMenuItem(
-                value: MoreLoginActions.passwordLogin,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.login_outlined),
-                    const SizedBox(width: 12),
-                    Text(L10n.of(context).loginWithMatrixId),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: MoreLoginActions.privacy,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.privacy_tip_outlined),
-                    const SizedBox(width: 12),
-                    Text(L10n.of(context).privacy),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
-                value: MoreLoginActions.about,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.info_outlined),
-                    const SizedBox(width: 12),
-                    Text(L10n.of(context).about),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ],
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {
@@ -134,78 +89,6 @@ class HomeserverPickerView extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          TextField(
-                            onChanged:
-                                controller.tryCheckHomeserverActionWithCooldown,
-                            onSubmitted: controller.onSubmitted,
-                            onTap:
-                                controller.tryCheckHomeserverActionWithCooldown,
-                            controller: controller.homeserverController,
-                            autocorrect: false,
-                            keyboardType: TextInputType.url,
-                            decoration: InputDecoration(
-                              prefixIcon: controller.isLoading
-                                  ? Container(
-                                      width: 16,
-                                      height: 16,
-                                      alignment: Alignment.center,
-                                      child: const SizedBox(
-                                        width: 16,
-                                        height: 16,
-                                        child:
-                                            CircularProgressIndicator.adaptive(
-                                          strokeWidth: 2,
-                                        ),
-                                      ),
-                                    )
-                                  : const Icon(Icons.search_outlined),
-                              filled: false,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(
-                                  AppConfig.borderRadius,
-                                ),
-                              ),
-                              hintText: AppConfig.defaultHomeserver,
-                              hintStyle: TextStyle(
-                                color: theme.colorScheme.surfaceTint,
-                              ),
-                              labelText: 'Sign in with:',
-                              errorText: controller.error,
-                              errorMaxLines: 4,
-                              suffixIcon: IconButton(
-                                onPressed: () {
-                                  showDialog(
-                                    context: context,
-                                    builder: (context) => AlertDialog.adaptive(
-                                      title: Text(
-                                        L10n.of(context).whatIsAHomeserver,
-                                      ),
-                                      content: Linkify(
-                                        text: L10n.of(context)
-                                            .homeserverDescription,
-                                      ),
-                                      actions: [
-                                        AdaptiveDialogAction(
-                                          onPressed: () => launchUrl(
-                                            Uri.https('servers.joinmatrix.org'),
-                                          ),
-                                          child: Text(
-                                            L10n.of(context)
-                                                .discoverHomeservers,
-                                          ),
-                                        ),
-                                        AdaptiveDialogAction(
-                                          onPressed: Navigator.of(context).pop,
-                                          child: Text(L10n.of(context).close),
-                                        ),
-                                      ],
-                                    ),
-                                  );
-                                },
-                                icon: const Icon(Icons.info_outlined),
-                              ),
-                            ),
-                          ),
                           const SizedBox(height: 32),
                           ElevatedButton(
                             style: ElevatedButton.styleFrom(
@@ -215,11 +98,7 @@ class HomeserverPickerView extends StatelessWidget {
                             onPressed:
                                 controller.isLoggingIn || controller.isLoading
                                     ? null
-                                    : controller.supportsSso
-                                        ? controller.ssoLoginAction
-                                        : controller.supportsPasswordLogin
-                                            ? controller.login
-                                            : null,
+                                    : controller.ssoLoginAction,
                             child: Text(L10n.of(context).continueText),
                           ),
                           TextButton(

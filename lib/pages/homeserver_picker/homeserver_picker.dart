@@ -1,27 +1,24 @@
 import 'dart:async';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:matrix/matrix.dart';
-import 'package:universal_html/html.dart' as html;
-import 'package:url_launcher/url_launcher_string.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/pages/homeserver_picker/homeserver_picker_view.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/matrix.dart';
-import '../../utils/localized_exception_extension.dart';
-
 import 'package:stawi/utils/tor_stub.dart'
     if (dart.library.html) 'package:tor_detector_web/tor_detector_web.dart';
+import 'package:stawi/widgets/matrix.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:url_launcher/url_launcher_string.dart';
+
+import '../../utils/localized_exception_extension.dart';
 
 class HomeserverPicker extends StatefulWidget {
   final bool addMultiAccount;
@@ -62,28 +59,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   }
 
   String? _lastCheckedUrl;
-
-  Timer? _checkHomeserverCooldown;
-
-  tryCheckHomeserverActionWithCooldown([_]) {
-    _checkHomeserverCooldown?.cancel();
-    _checkHomeserverCooldown = Timer(
-      const Duration(milliseconds: 500),
-      checkHomeserverAction,
-    );
-  }
-
-  void tryCheckHomeserverActionWithoutCooldown([_]) {
-    _checkHomeserverCooldown?.cancel();
-    _lastCheckedUrl = null;
-    checkHomeserverAction();
-  }
-
-  void onSubmitted([_]) {
-    if (supportsSso) return ssoLoginAction();
-    if (supportsPasswordLogin) return login();
-    return tryCheckHomeserverActionWithoutCooldown();
-  }
 
   /// Starts an analysis of the given homeserver. It uses the current domain and
   /// makes sure that it is prefixed with https. Then it searches for the
@@ -134,15 +109,8 @@ class HomeserverPickerController extends State<HomeserverPicker> {
 
   List<LoginFlow>? loginFlows;
 
-  bool _supportsFlow(String flowType) =>
-      loginFlows?.any((flow) => flow.type == flowType) ?? false;
-
-  bool get supportsSso => _supportsFlow('m.login.sso');
-
   bool isDefaultPlatform =
       (PlatformInfos.isMobile || PlatformInfos.isWeb || PlatformInfos.isMacOS);
-
-  bool get supportsPasswordLogin => _supportsFlow('m.login.password');
 
   void ssoLoginAction() async {
     final redirectUrl = kIsWeb
@@ -194,16 +162,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     }
   }
 
-  void login() async {
-    if (!supportsPasswordLogin) {
-      homeserverController.text = AppConfig.defaultHomeserver;
-      await checkHomeserverAction();
-    }
-    context.push(
-      '${GoRouter.of(context).routeInformationProvider.value.uri.path}/login',
-    );
-  }
-
   @override
   void initState() {
     _checkTorBrowser();
@@ -241,8 +199,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
 
   void onMoreAction(MoreLoginActions action) {
     switch (action) {
-      case MoreLoginActions.passwordLogin:
-        login();
       case MoreLoginActions.privacy:
         launchUrlString(AppConfig.privacyUrl);
       case MoreLoginActions.about:
@@ -251,7 +207,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   }
 }
 
-enum MoreLoginActions { passwordLogin, privacy, about }
+enum MoreLoginActions { privacy, about }
 
 class IdentityProvider {
   final String? id;

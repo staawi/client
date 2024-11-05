@@ -1,13 +1,11 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/utils/platform_infos.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginScaffold extends StatelessWidget {
   final Widget body;
@@ -43,15 +41,12 @@ class LoginScaffold extends StatelessWidget {
             ),
       body: SafeArea(child: body),
       backgroundColor:
-          isMobileMode ? null : theme.colorScheme.surface.withOpacity(0.8),
+          isMobileMode ? null : theme.colorScheme.surface.withOpacity(0.4),
     );
     if (isMobileMode) return scaffold;
     return Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage('assets/login_wallpaper.png'),
-        ),
+      decoration: BoxDecoration(
+        color: theme.colorScheme.primary,
       ),
       child: Column(
         children: [
