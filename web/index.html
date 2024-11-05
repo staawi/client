@@ -19,12 +19,12 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="The cutest messenger in the Matrix network.">
+  <meta name="description" content="simple group savings and credit app">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="FluffyChat">
+  <meta name="apple-mobile-web-app-title" content="Stawi">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -47,7 +47,7 @@
         serviceWorker: {
           serviceWorkerVersion: {{flutter_service_worker_version}},
         },
-        onEntrypointLoaded: function (engineInitializer) {
+        onEntrypointLoaded: function(engineInitializer) {
           engineInitializer.initializeEngine({ useColorEmoji: true }).then(function (appRunner) {
             appRunner.runApp();
           });
