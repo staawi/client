@@ -85,9 +85,7 @@ cloudflare:
     flutter clean && \
     flutter config --enable-web && \
     flutter pub get && \
-    flutter build web --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/ --release --source-maps && \
-    echo "CLIENT_ID=$(CLIENT_ID)" > build/web/assets/.env && \
-	echo "Environment variable CLIENT_ID: $(CLIENT_ID)"
+    flutter build web --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/ --release --source-maps
 
 # Default target
 prepare_web:
