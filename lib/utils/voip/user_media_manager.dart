@@ -1,9 +1,7 @@
+import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter_ringtone_player/flutter_ringtone_player.dart';
 import 'package:just_audio/just_audio.dart';
-
-import 'package:stawi/utils/platform_infos.dart';
 
 class UserMediaManager {
   factory UserMediaManager() {

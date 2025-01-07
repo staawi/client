@@ -1,16 +1,15 @@
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/chat/events/room_creation_state_event.dart';
+import 'package:chamamobile/utils/date_time_extension.dart';
+import 'package:chamamobile/utils/string_color.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:swipe_to_action/swipe_to_action.dart';
 
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/chat/events/room_creation_state_event.dart';
-import 'package:stawi/utils/date_time_extension.dart';
-import 'package:stawi/utils/string_color.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/matrix.dart';
 import '../../../config/app_config.dart';
 import 'message_content.dart';
 import 'message_reactions.dart';
@@ -106,8 +105,11 @@ class Message extends StatelessWidget {
         previousEvent!.senderId == event.senderId &&
         previousEvent!.originServerTs.sameEnvironment(event.originServerTs);
 
-    final textColor =
-        ownMessage ? theme.colorScheme.onPrimary : theme.colorScheme.onSurface;
+    final textColor = ownMessage
+        ? theme.brightness == Brightness.light
+            ? theme.colorScheme.onPrimary
+            : theme.colorScheme.onPrimaryContainer
+        : theme.colorScheme.onSurface;
     final rowMainAxisAlignment =
         ownMessage ? MainAxisAlignment.end : MainAxisAlignment.start;
 
@@ -141,7 +143,9 @@ class Message extends StatelessWidget {
     if (ownMessage) {
       color = displayEvent.status.isError
           ? Colors.redAccent
-          : theme.colorScheme.primary;
+          : theme.brightness == Brightness.light
+              ? theme.colorScheme.primary
+              : theme.colorScheme.primaryContainer;
     }
 
     final resetAnimateIn = this.resetAnimateIn;
@@ -391,6 +395,7 @@ class Message extends StatelessWidget {
                                               textColor: textColor,
                                               onInfoTab: onInfoTab,
                                               borderRadius: borderRadius,
+                                              timeline: timeline,
                                             ),
                                             if (event.hasAggregatedEvents(
                                               timeline,

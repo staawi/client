@@ -1,10 +1,9 @@
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/pages/image_viewer/image_viewer.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:flutter/material.dart';
-
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/pages/image_viewer/image_viewer.dart';
-import 'package:stawi/widgets/mxc_image.dart';
 import '../../../widgets/blur_hash.dart';
 
 class ImageBubble extends StatelessWidget {
@@ -19,6 +18,7 @@ class ImageBubble extends StatelessWidget {
   final double height;
   final void Function()? onTap;
   final BorderRadius? borderRadius;
+  final Timeline? timeline;
 
   const ImageBubble(
     this.event, {
@@ -32,6 +32,7 @@ class ImageBubble extends StatelessWidget {
     this.animated = false,
     this.onTap,
     this.borderRadius,
+    this.timeline,
     super.key,
   });
 
@@ -62,6 +63,7 @@ class ImageBubble extends StatelessWidget {
       context: context,
       builder: (_) => ImageViewer(
         event,
+        timeline: timeline,
         outerContext: context,
       ),
     );

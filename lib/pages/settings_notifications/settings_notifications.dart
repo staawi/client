@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../../widgets/matrix.dart';
 import 'settings_notifications_view.dart';
 
@@ -138,15 +137,16 @@ class SettingsNotificationsController extends State<SettingsNotifications> {
   }
 
   void onPusherTap(Pusher pusher) async {
-    final delete = await showModalActionSheet<bool>(
+    final delete = await showModalActionPopup<bool>(
       context: context,
       title: pusher.deviceDisplayName,
       message: '${pusher.appDisplayName} (${pusher.appId})',
+      cancelLabel: L10n.of(context).cancel,
       actions: [
-        SheetAction(
+        AdaptiveModalAction(
           label: L10n.of(context).delete,
-          isDestructiveAction: true,
-          key: true,
+          isDestructive: true,
+          value: true,
         ),
       ],
     );

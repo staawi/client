@@ -1,6 +1,5 @@
+import 'package:chamamobile/config/themes.dart';
 import 'package:flutter/material.dart';
-
-import 'package:stawi/config/themes.dart';
 
 class TwoColumnLayout extends StatelessWidget {
   final Widget mainView;

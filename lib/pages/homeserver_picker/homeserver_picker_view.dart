@@ -1,8 +1,8 @@
+import 'package:chamamobile/widgets/layouts/login_scaffold.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:stawi/widgets/layouts/login_scaffold.dart';
-import 'package:stawi/widgets/matrix.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../../config/themes.dart';
@@ -11,7 +11,10 @@ import 'homeserver_picker.dart';
 class HomeserverPickerView extends StatelessWidget {
   final HomeserverPickerController controller;
 
-  const HomeserverPickerView(this.controller, {super.key});
+  const HomeserverPickerView(
+    this.controller, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +24,51 @@ class HomeserverPickerView extends StatelessWidget {
       enforceMobileMode: Matrix.of(context).client.isLogged(),
       appBar: AppBar(
         centerTitle: true,
+        title: Text(
+          controller.widget.addMultiAccount
+              ? L10n.of(context).addAccount
+              : L10n.of(context).login,
+        ),
+        actions: [
+          PopupMenuButton<MoreLoginActions>(
+            onSelected: controller.onMoreAction,
+            itemBuilder: (_) => [
+              PopupMenuItem(
+                value: MoreLoginActions.passwordLogin,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.login_outlined),
+                    const SizedBox(width: 12),
+                    Text(L10n.of(context).loginWithMatrixId),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: MoreLoginActions.privacy,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.privacy_tip_outlined),
+                    const SizedBox(width: 12),
+                    Text(L10n.of(context).privacy),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
+                value: MoreLoginActions.about,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.info_outlined),
+                    const SizedBox(width: 12),
+                    Text(L10n.of(context).about),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ],
       ),
       body: LayoutBuilder(
         builder: (context, constraints) {

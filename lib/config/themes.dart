@@ -1,7 +1,7 @@
+import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:stawi/utils/platform_infos.dart';
 import 'app_config.dart';
 
 abstract class FluffyThemes {
@@ -20,7 +20,6 @@ abstract class FluffyThemes {
 
   static const fallbackTextStyle = TextStyle(
     fontFamily: 'Roboto',
-    fontFamilyFallback: ['NotoEmoji'],
   );
 
   static var fallbackTextTheme = const TextTheme(
@@ -97,7 +96,7 @@ abstract class FluffyThemes {
       appBarTheme: AppBarTheme(
         toolbarHeight: FluffyThemes.isColumnMode(context) ? 72 : 56,
         shadowColor: FluffyThemes.isColumnMode(context)
-            ? Colors.grey.withAlpha(64)
+            ? colorScheme.surfaceContainer.withAlpha(128)
             : null,
         surfaceTintColor:
             FluffyThemes.isColumnMode(context) ? colorScheme.surface : null,
@@ -121,11 +120,6 @@ abstract class FluffyThemes {
             side: BorderSide(color: colorScheme.primary),
             borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
           ),
-        ),
-      ),
-      dialogTheme: DialogTheme(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(AppConfig.borderRadius),
         ),
       ),
       snackBarTheme: const SnackBarThemeData(

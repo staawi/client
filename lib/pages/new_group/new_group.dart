@@ -1,14 +1,12 @@
 import 'dart:typed_data';
 
+import 'package:chamamobile/pages/new_group/new_group_view.dart';
+import 'package:chamamobile/utils/file_selector.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/new_group/new_group_view.dart';
-import 'package:stawi/utils/file_selector.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class NewGroup extends StatefulWidget {
   final CreateGroupType createGroupType;
@@ -25,7 +23,7 @@ class NewGroupController extends State<NewGroup> {
   TextEditingController nameController = TextEditingController();
 
   bool publicGroup = false;
-  bool groupCanBeFound = true;
+  bool groupCanBeFound = false;
 
   Uint8List? avatar;
 
@@ -43,7 +41,8 @@ class NewGroupController extends State<NewGroup> {
   void setCreateGroupType(Set<CreateGroupType> b) =>
       setState(() => _createGroupType = b.single);
 
-  void setPublicGroup(bool b) => setState(() => publicGroup = b);
+  void setPublicGroup(bool b) =>
+      setState(() => publicGroup = groupCanBeFound = b);
 
   void setGroupCanBeFound(bool b) => setState(() => groupCanBeFound = b);
 

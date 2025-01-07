@@ -1689,6 +1689,13 @@
     "type": "text",
     "placeholders": {}
   },
+  "sendImages": "Send {count} image",
+  "@sendImages": {
+    "type": "text",
+    "placeholders": {
+      "count": {}
+    }
+  },
   "sendMessages": "Send messages",
   "@sendMessages": {
     "type": "text",
@@ -2793,7 +2800,7 @@
   "oneOfYourDevicesIsNotVerified": "One of your devices is not verified",
   "noticeChatBackupDeviceVerification": "Note: When you connect all your devices to the chat backup, they are automatically verified.",
   "continueText": "Continue",
-  "welcomeText": "Hey Hey 👋 Welcome to Stawi. You can create or join groups with the aim of saving, getting credit or offering loans to other members",
+  "welcomeText": "Hey Hey 👋 Welcome to Chamamobile. Create or join groups with the aim of saving, getting credit or offering loans to other members",
   "blur": "Blur:",
   "opacity": "Opacity:",
   "setWallpaper": "Set wallpaper",
@@ -2804,5 +2811,15 @@
   "supportPage": "Support page",
   "serverInformation": "Server information:",
   "name": "Name",
-  "version": "Version"
+  "version": "Version",
+  "website": "Website",
+  "compress": "Compress",
+  "boldText": "Bold text",
+  "italicText": "Italic text",
+  "strikeThrough": "Strikethrough",
+  "pleaseFillOut": "Please fill out",
+  "invalidUrl": "Invalid url",
+  "addLink": "Add link",
+  "unableToJoinChat": "Unable to join chat. Maybe the other party has already closed the conversation.",
+  "previous": "Previous"
 }

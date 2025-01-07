@@ -1,40 +1,39 @@
 import 'dart:async';
 
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/archive/archive.dart';
+import 'package:chamamobile/pages/chat/chat.dart';
+import 'package:chamamobile/pages/chat_access_settings/chat_access_settings_controller.dart';
+import 'package:chamamobile/pages/chat_details/chat_details.dart';
+import 'package:chamamobile/pages/chat_encryption_settings/chat_encryption_settings.dart';
+import 'package:chamamobile/pages/chat_list/chat_list.dart';
+import 'package:chamamobile/pages/chat_members/chat_members.dart';
+import 'package:chamamobile/pages/chat_permissions_settings/chat_permissions_settings.dart';
+import 'package:chamamobile/pages/chat_search/chat_search_page.dart';
+import 'package:chamamobile/pages/device_settings/device_settings.dart';
+import 'package:chamamobile/pages/homeserver_picker/homeserver_picker.dart';
+import 'package:chamamobile/pages/invitation_selection/invitation_selection.dart';
+import 'package:chamamobile/pages/login/login.dart';
+import 'package:chamamobile/pages/new_group/new_group.dart';
+import 'package:chamamobile/pages/new_private_chat/new_private_chat.dart';
+import 'package:chamamobile/pages/settings/settings.dart';
+import 'package:chamamobile/pages/settings_3pid/settings_3pid.dart';
+import 'package:chamamobile/pages/settings_chat/settings_chat.dart';
+import 'package:chamamobile/pages/settings_emotes/settings_emotes.dart';
+import 'package:chamamobile/pages/settings_homeserver/settings_homeserver.dart';
+import 'package:chamamobile/pages/settings_ignore_list/settings_ignore_list.dart';
+import 'package:chamamobile/pages/settings_multiple_emotes/settings_multiple_emotes.dart';
+import 'package:chamamobile/pages/settings_notifications/settings_notifications.dart';
+import 'package:chamamobile/pages/settings_password/settings_password.dart';
+import 'package:chamamobile/pages/settings_security/settings_security.dart';
+import 'package:chamamobile/pages/settings_style/settings_style.dart';
+import 'package:chamamobile/widgets/layouts/empty_page.dart';
+import 'package:chamamobile/widgets/layouts/two_column_layout.dart';
+import 'package:chamamobile/widgets/log_view.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
-
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/archive/archive.dart';
-import 'package:stawi/pages/chat/chat.dart';
-import 'package:stawi/pages/chat_access_settings/chat_access_settings_controller.dart';
-import 'package:stawi/pages/chat_details/chat_details.dart';
-import 'package:stawi/pages/chat_encryption_settings/chat_encryption_settings.dart';
-import 'package:stawi/pages/chat_list/chat_list.dart';
-import 'package:stawi/pages/chat_members/chat_members.dart';
-import 'package:stawi/pages/chat_permissions_settings/chat_permissions_settings.dart';
-import 'package:stawi/pages/chat_search/chat_search_page.dart';
-import 'package:stawi/pages/device_settings/device_settings.dart';
-import 'package:stawi/pages/homeserver_picker/homeserver_picker.dart';
-import 'package:stawi/pages/invitation_selection/invitation_selection.dart';
-import 'package:stawi/pages/login/login.dart';
-import 'package:stawi/pages/new_group/new_group.dart';
-import 'package:stawi/pages/new_private_chat/new_private_chat.dart';
-import 'package:stawi/pages/settings/settings.dart';
-import 'package:stawi/pages/settings_3pid/settings_3pid.dart';
-import 'package:stawi/pages/settings_chat/settings_chat.dart';
-import 'package:stawi/pages/settings_emotes/settings_emotes.dart';
-import 'package:stawi/pages/settings_homeserver/settings_homeserver.dart';
-import 'package:stawi/pages/settings_ignore_list/settings_ignore_list.dart';
-import 'package:stawi/pages/settings_multiple_emotes/settings_multiple_emotes.dart';
-import 'package:stawi/pages/settings_notifications/settings_notifications.dart';
-import 'package:stawi/pages/settings_password/settings_password.dart';
-import 'package:stawi/pages/settings_security/settings_security.dart';
-import 'package:stawi/pages/settings_style/settings_style.dart';
-import 'package:stawi/widgets/layouts/empty_page.dart';
-import 'package:stawi/widgets/layouts/two_column_layout.dart';
-import 'package:stawi/widgets/log_view.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 abstract class AppRoutes {
   static FutureOr<String?> loggedInRedirect(
@@ -318,15 +317,25 @@ abstract class AppRoutes {
             ),
             GoRoute(
               path: ':roomid',
-              pageBuilder: (context, state) => defaultPageBuilder(
-                context,
-                state,
-                ChatPage(
-                  roomId: state.pathParameters['roomid']!,
-                  shareText: state.uri.queryParameters['body'],
-                  eventId: state.uri.queryParameters['event'],
-                ),
-              ),
+              pageBuilder: (context, state) {
+                final body = state.uri.queryParameters['body'];
+                var shareItems = state.extra is List<ShareItem>
+                    ? state.extra as List<ShareItem>
+                    : null;
+                if (body != null && body.isNotEmpty) {
+                  shareItems ??= [];
+                  shareItems.add(TextShareItem(body));
+                }
+                return defaultPageBuilder(
+                  context,
+                  state,
+                  ChatPage(
+                    roomId: state.pathParameters['roomid']!,
+                    shareItems: shareItems,
+                    eventId: state.uri.queryParameters['event'],
+                  ),
+                );
+              },
               redirect: loggedOutRedirect,
               routes: [
                 GoRoute(

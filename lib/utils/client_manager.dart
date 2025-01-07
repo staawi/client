@@ -1,8 +1,13 @@
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
-
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/custom_http_client.dart';
+import 'package:chamamobile/utils/custom_image_resizer.dart';
+import 'package:chamamobile/utils/init_with_restore.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -12,12 +17,6 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_html/html.dart' as html;
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/custom_http_client.dart';
-import 'package:stawi/utils/custom_image_resizer.dart';
-import 'package:stawi/utils/init_with_restore.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
-import 'package:stawi/utils/platform_infos.dart';
 import 'matrix_sdk_extensions/flutter_matrix_dart_sdk_database/builder.dart';
 
 abstract class ClientManager {

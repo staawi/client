@@ -1,9 +1,8 @@
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 import '../../../config/app_config.dart';
 
 class ReplyContent extends StatelessWidget {
@@ -39,7 +38,7 @@ class ReplyContent extends StatelessWidget {
 
     return Material(
       color: backgroundColor ??
-          theme.colorScheme.surface.withOpacity(ownMessage ? 0.2 : 0.33),
+          theme.colorScheme.surface.withAlpha(ownMessage ? 50 : 80),
       borderRadius: borderRadius,
       child: Row(
         mainAxisSize: MainAxisSize.min,

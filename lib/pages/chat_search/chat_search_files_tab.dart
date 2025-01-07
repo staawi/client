@@ -1,12 +1,10 @@
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/date_time_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/date_time_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 
 class ChatSearchFilesTab extends StatelessWidget {
   final Room room;

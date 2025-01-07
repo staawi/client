@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/utils/error_reporter.dart';
+import 'package:chamamobile/utils/fluffy_share.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/utils/error_reporter.dart';
-import 'package:stawi/utils/fluffy_share.dart';
-import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../../utils/adaptive_bottom_sheet.dart';
 import '../key_verification/key_verification_dialog.dart';
 
@@ -27,7 +26,6 @@ class BootstrapDialog extends StatefulWidget {
   Future<bool?> show(BuildContext context) => showAdaptiveBottomSheet(
         context: context,
         builder: (context) => this,
-        maxHeight: 600,
       );
 
   @override
@@ -366,7 +364,6 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                                     .verifyOtherDeviceDescription,
                                 okLabel: L10n.of(context).ok,
                                 cancelLabel: L10n.of(context).cancel,
-                                fullyCapitalizedForMaterial: false,
                               );
                               if (consent != OkCancelResult.ok) return;
                               final req = await showFutureLoadingDialog(
@@ -404,7 +401,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                                     message: L10n.of(context).wipeChatBackup,
                                     okLabel: L10n.of(context).ok,
                                     cancelLabel: L10n.of(context).cancel,
-                                    isDestructiveAction: true,
+                                    isDestructive: true,
                                   )) {
                                 setState(() => _createBootstrap(true));
                               }

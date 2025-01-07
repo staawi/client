@@ -1,15 +1,13 @@
 import 'dart:async';
 
+import 'package:chamamobile/pages/chat/chat.dart';
+import 'package:chamamobile/pages/chat/chat_app_bar_list_tile.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/chat/chat.dart';
-import 'package:stawi/pages/chat/chat_app_bar_list_tile.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
 
 class PinnedEvents extends StatelessWidget {
   final ChatController controller;
@@ -30,13 +28,15 @@ class PinnedEvents extends StatelessWidget {
 
     final eventId = events.length == 1
         ? events.single?.eventId
-        : await showConfirmationDialog<String>(
+        : await showModalActionPopup<String>(
             context: context,
-            title: L10n.of(context).pinMessage,
+            title: L10n.of(context).pin,
+            cancelLabel: L10n.of(context).cancel,
             actions: events
                 .map(
-                  (event) => AlertDialogAction(
-                    key: event?.eventId ?? '',
+                  (event) => AdaptiveModalAction(
+                    value: event?.eventId ?? '',
+                    icon: const Icon(Icons.push_pin_outlined),
                     label: event?.calcLocalizedBodyFallback(
                           MatrixLocals(L10n.of(context)),
                           withSenderNamePrefix: true,

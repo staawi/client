@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-
+import 'package:chamamobile/utils/color_value.dart';
 import 'package:collection/collection.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -72,7 +72,7 @@ class ThemeController extends State<ThemeBuilder> {
     } else {
       await preferences.setInt(
         widget.primaryColorSettingsKey,
-        newPrimaryColor.value,
+        newPrimaryColor.hexValue,
       );
     }
     setState(() {

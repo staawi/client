@@ -1,15 +1,14 @@
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/fluffy_share.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/fluffy_share.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/matrix.dart';
 import 'settings.dart';
 
 class SettingsView extends StatelessWidget {

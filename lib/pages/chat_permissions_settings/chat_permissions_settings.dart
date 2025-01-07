@@ -1,15 +1,13 @@
 import 'dart:developer';
 
+import 'package:chamamobile/pages/chat_permissions_settings/chat_permissions_settings_view.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/permission_slider_dialog.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/chat_permissions_settings/chat_permissions_settings_view.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
-import 'package:stawi/widgets/permission_slider_dialog.dart';
 
 class ChatPermissionsSettings extends StatefulWidget {
   const ChatPermissionsSettings({super.key});

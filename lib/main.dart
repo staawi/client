@@ -1,14 +1,13 @@
-import 'package:flutter/material.dart';
-
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/widgets/error_widget.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/error_widget.dart';
 import 'config/setting_keys.dart';
 import 'utils/background_push.dart';
 import 'widgets/fluffy_chat_app.dart';

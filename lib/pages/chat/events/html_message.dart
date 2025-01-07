@@ -1,18 +1,16 @@
-import 'package:flutter/material.dart';
-
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_highlighter/flutter_highlighter.dart';
 import 'package:flutter_highlighter/themes/shades-of-purple.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_html_table/flutter_html_table.dart';
-import 'package:flutter_math_fork/flutter_math.dart';
 import 'package:html/dom.dart' as dom;
 import 'package:linkify/linkify.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/mxc_image.dart';
 import '../../../utils/url_launcher.dart';
 
 class HtmlMessage extends StatelessWidget {
@@ -133,9 +131,6 @@ class HtmlMessage extends StatelessWidget {
       extensions: [
         RoomPillExtension(context, room, fontSize, linkColor),
         CodeExtension(fontSize: fontSize),
-        MatrixMathExtension(
-          style: TextStyle(fontSize: fontSize, color: textColor),
-        ),
         const TableHtmlExtension(),
         SpoilerExtension(textColor: textColor),
         const ImageExtension(),
@@ -272,14 +267,18 @@ class ImageExtension extends HtmlExtension {
     final width = double.tryParse(context.attributes['width'] ?? '');
     final height = double.tryParse(context.attributes['height'] ?? '');
 
+    final actualWidth = width ?? height ?? defaultDimension;
+    final actualHeight = height ?? width ?? defaultDimension;
+
     return WidgetSpan(
       child: SizedBox(
-        width: width ?? height ?? defaultDimension,
-        height: height ?? width ?? defaultDimension,
+        width: actualWidth,
+        height: actualHeight,
         child: MxcImage(
           uri: mxcUrl,
-          width: width ?? height ?? defaultDimension,
-          height: height ?? width ?? defaultDimension,
+          width: actualWidth,
+          height: actualHeight,
+          isThumbnail: (actualWidth * actualHeight) > (256 * 256),
         ),
       ),
     );
@@ -320,39 +319,6 @@ class SpoilerExtension extends HtmlExtension {
                 children: children,
               ),
             ),
-          );
-        },
-      ),
-    );
-  }
-}
-
-class MatrixMathExtension extends HtmlExtension {
-  final TextStyle? style;
-
-  MatrixMathExtension({this.style});
-  @override
-  Set<String> get supportedTags => {'div'};
-
-  @override
-  bool matches(ExtensionContext context) {
-    if (context.elementName != 'div') return false;
-    final mathData = context.element?.attributes['data-mx-maths'];
-    return mathData != null;
-  }
-
-  @override
-  InlineSpan build(ExtensionContext context) {
-    final data = context.element?.attributes['data-mx-maths'] ?? '';
-    return WidgetSpan(
-      child: Math.tex(
-        data,
-        textStyle: style,
-        onErrorFallback: (e) {
-          Logs().d('Flutter math parse error', e);
-          return Text(
-            data,
-            style: style,
           );
         },
       ),

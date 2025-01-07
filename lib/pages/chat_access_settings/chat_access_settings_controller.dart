@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart' hide Visibility;
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/chat_access_settings/chat_access_settings_page.dart';
-import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
+import 'package:chamamobile/pages/chat_access_settings/chat_access_settings_page.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 
 class ChatAccessSettings extends StatefulWidget {
   final String roomId;
@@ -149,14 +149,15 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     );
     final capabilities = capabilitiesResult.result;
     if (capabilities == null) return;
-    final newVersion = await showConfirmationDialog<String>(
+    final newVersion = await showModalActionPopup<String>(
       context: context,
       title: L10n.of(context).replaceRoomWithNewerVersion,
+      cancelLabel: L10n.of(context).cancel,
       actions: capabilities.mRoomVersions!.available.entries
           .where((r) => r.key != roomVersion)
           .map(
-            (version) => AlertDialogAction(
-              key: version.key,
+            (version) => AdaptiveModalAction(
+              value: version.key,
               label:
                   '${version.key} (${version.value.toString().split('.').last})',
             ),
@@ -172,7 +173,7 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
               cancelLabel: L10n.of(context).cancel,
               title: L10n.of(context).areYouSure,
               message: L10n.of(context).roomUpgradeDescription,
-              isDestructiveAction: true,
+              isDestructive: true,
             )) {
       return;
     }
@@ -191,15 +192,11 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     final input = await showTextInputDialog(
       context: context,
       title: L10n.of(context).editRoomAliases,
-      textFields: [
-        DialogTextField(
-          prefixText: '#',
-          suffixText: domain,
-          hintText: L10n.of(context).alias,
-        ),
-      ],
+      prefixText: '#',
+      suffixText: domain,
+      hintText: L10n.of(context).alias,
     );
-    final aliasLocalpart = input?.singleOrNull?.trim();
+    final aliasLocalpart = input?.trim();
     if (aliasLocalpart == null || aliasLocalpart.isEmpty) return;
     final alias = '#$aliasLocalpart:$domain';
 

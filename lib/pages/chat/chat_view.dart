@@ -1,28 +1,28 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
-
 import 'package:badges/badges.dart';
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/chat/chat.dart';
+import 'package:chamamobile/pages/chat/chat_app_bar_list_tile.dart';
+import 'package:chamamobile/pages/chat/chat_app_bar_title.dart';
+import 'package:chamamobile/pages/chat/chat_event_list.dart';
+import 'package:chamamobile/pages/chat/encryption_button.dart';
+import 'package:chamamobile/pages/chat/pinned_events.dart';
+import 'package:chamamobile/pages/chat/reactions_picker.dart';
+import 'package:chamamobile/pages/chat/reply_display.dart';
+import 'package:chamamobile/utils/account_config.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/widgets/chat_settings_popup_menu.dart';
+import 'package:chamamobile/widgets/connection_status_header.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
+import 'package:chamamobile/widgets/unread_rooms_badge.dart';
 import 'package:desktop_drop/desktop_drop.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/chat/chat.dart';
-import 'package:stawi/pages/chat/chat_app_bar_list_tile.dart';
-import 'package:stawi/pages/chat/chat_app_bar_title.dart';
-import 'package:stawi/pages/chat/chat_event_list.dart';
-import 'package:stawi/pages/chat/encryption_button.dart';
-import 'package:stawi/pages/chat/pinned_events.dart';
-import 'package:stawi/pages/chat/reactions_picker.dart';
-import 'package:stawi/pages/chat/reply_display.dart';
-import 'package:stawi/utils/account_config.dart';
-import 'package:stawi/widgets/chat_settings_popup_menu.dart';
-import 'package:stawi/widgets/connection_status_header.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
-import 'package:stawi/widgets/mxc_image.dart';
-import 'package:stawi/widgets/unread_rooms_badge.dart';
 import '../../utils/stream_extension.dart';
 import 'chat_emoji_picker.dart';
 import 'chat_input_row.dart';
@@ -135,6 +135,7 @@ class ChatView extends StatelessWidget {
       showFutureLoadingDialog(
         context: context,
         future: () => controller.room.join(),
+        exceptionContext: ExceptionContext.joinRoom,
       );
     }
     final bottomSheetPadding = FluffyThemes.isColumnMode(context) ? 16.0 : 8.0;
@@ -362,7 +363,7 @@ class ChatView extends StatelessWidget {
                     ),
                     if (controller.dragging)
                       Container(
-                        color: theme.scaffoldBackgroundColor.withOpacity(0.9),
+                        color: theme.scaffoldBackgroundColor.withAlpha(230),
                         alignment: Alignment.center,
                         child: const Icon(
                           Icons.upload_outlined,

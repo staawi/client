@@ -1,13 +1,12 @@
 import 'dart:convert';
 import 'dart:ui';
 
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/platform_infos.dart';
 
 class SessionBackup {
   final String? olmAccount;
@@ -70,7 +69,9 @@ extension InitWithRestoreExtension on Client {
 
     try {
       await init(
-        onMigration: onMigration,
+        onInitStateChanged: (state) {
+          if (state == InitState.migratingDatabase) onMigration?.call();
+        },
         waitForFirstSync: false,
         waitUntilLoadCompletedLoaded: false,
       );
@@ -122,7 +123,9 @@ extension InitWithRestoreExtension on Client {
           newUserID: sessionBackup.userId,
           waitForFirstSync: false,
           waitUntilLoadCompletedLoaded: false,
-          onMigration: onMigration,
+          onInitStateChanged: (state) {
+            if (state == InitState.migratingDatabase) onMigration?.call();
+          },
         );
         ClientManager.sendInitNotification(
           l10n.initAppError,

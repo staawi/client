@@ -1,21 +1,19 @@
 import 'dart:ui';
 
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/client_download_content_extension.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/utils/voip/callkeep_manager.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'package:collection/collection.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_shortcuts/flutter_shortcuts.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/client_download_content_extension.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/utils/voip/callkeep_manager.dart';
 
 Future<void> pushHelper(
   PushNotification notification, {
@@ -197,6 +195,7 @@ Future<void> _tryPushHelper(
 
   final id = notification.roomId.hashCode;
 
+  final senderName = event.senderFromMemoryOrFallback.calcDisplayname();
   // Show notification
 
   final newMessage = Message(
@@ -205,7 +204,7 @@ Future<void> _tryPushHelper(
     Person(
       bot: event.messageType == MessageTypes.Notice,
       key: event.senderId,
-      name: event.senderFromMemoryOrFallback.calcDisplayname(),
+      name: senderName,
       icon: senderAvatarFile == null
           ? null
           : ByteArrayAndroidIcon(senderAvatarFile),
@@ -252,21 +251,21 @@ Future<void> _tryPushHelper(
     styleInformation: messagingStyleInformation ??
         MessagingStyleInformation(
           Person(
-            name: event.senderFromMemoryOrFallback.calcDisplayname(),
+            name: senderName,
             icon: roomAvatarFile == null
                 ? null
                 : ByteArrayAndroidIcon(roomAvatarFile),
             key: event.roomId,
             important: event.room.isFavourite,
           ),
-          conversationTitle: roomName,
+          conversationTitle: event.room.isDirectChat ? null : roomName,
           groupConversation: !event.room.isDirectChat,
           messages: [newMessage],
         ),
     ticker: event.calcLocalizedBodyFallback(
       matrixLocals,
       plaintextBody: true,
-      withSenderNamePrefix: true,
+      withSenderNamePrefix: !event.room.isDirectChat,
       hideReply: true,
       hideEdit: true,
       removeMarkdown: true,

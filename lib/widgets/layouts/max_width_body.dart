@@ -1,7 +1,6 @@
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/config/themes.dart';
 import 'package:flutter/material.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/config/themes.dart';
 
 class MaxWidthBody extends StatelessWidget {
   final Widget child;

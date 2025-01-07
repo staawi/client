@@ -1,19 +1,18 @@
-import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/pages/user_bottom_sheet/user_bottom_sheet.dart';
+import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/public_room_bottom_sheet.dart';
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:punycode/punycode.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/pages/user_bottom_sheet/user_bottom_sheet.dart';
-import 'package:stawi/utils/adaptive_bottom_sheet.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
-import 'package:stawi/widgets/public_room_bottom_sheet.dart';
 import 'platform_infos.dart';
 
 class UrlLauncher {

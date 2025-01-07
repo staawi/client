@@ -1,6 +1,6 @@
+import 'package:chamamobile/config/themes.dart';
 import 'package:flutter/material.dart';
 
-import 'package:stawi/config/themes.dart';
 import 'dismiss_keyboard.dart';
 
 class PIPView extends StatefulWidget {
@@ -330,8 +330,6 @@ Map<PIPViewCorner, Offset> _calculateOffsets({
         return Offset(left, bottom);
       case PIPViewCorner.bottomRight:
         return Offset(right, bottom);
-      default:
-        throw Exception('Not implemented.');
     }
   }
 

@@ -1,17 +1,16 @@
 import 'dart:math';
 
+import 'package:chamamobile/pages/chat/events/video_player.dart';
+import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
+import 'package:chamamobile/utils/date_time_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/pages/chat/events/video_player.dart';
-import 'package:stawi/utils/adaptive_bottom_sheet.dart';
-import 'package:stawi/utils/date_time_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/matrix.dart';
 import '../../../config/app_config.dart';
 import '../../../utils/platform_infos.dart';
 import '../../../utils/url_launcher.dart';
@@ -28,11 +27,13 @@ class MessageContent extends StatelessWidget {
   final Color textColor;
   final void Function(Event)? onInfoTab;
   final BorderRadius borderRadius;
+  final Timeline timeline;
 
   const MessageContent(
     this.event, {
     this.onInfoTab,
     super.key,
+    required this.timeline,
     required this.textColor,
     required this.borderRadius,
   });
@@ -137,6 +138,7 @@ class MessageContent extends StatelessWidget {
               height: height,
               fit: fit,
               borderRadius: borderRadius,
+              timeline: timeline,
             );
           case CuteEventContent.eventType:
             return CuteContent(event);

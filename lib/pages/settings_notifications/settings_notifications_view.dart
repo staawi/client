@@ -1,9 +1,8 @@
+import 'package:chamamobile/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/widgets/layouts/max_width_body.dart';
 import '../../utils/localized_exception_extension.dart';
 import '../../widgets/matrix.dart';
 import 'settings_notifications.dart';

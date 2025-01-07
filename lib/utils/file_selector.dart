@@ -1,10 +1,8 @@
-import 'package:flutter/widgets.dart';
-
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/widgets/app_lock.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_selector/file_selector.dart';
-
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/app_lock.dart';
+import 'package:flutter/widgets.dart';
 
 Future<List<XFile>> selectFiles(
   BuildContext context, {

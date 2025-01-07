@@ -1,15 +1,14 @@
+import 'package:chamamobile/utils/fluffy_share.dart';
+import 'package:chamamobile/utils/url_launcher.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/qr_code_viewer.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/utils/fluffy_share.dart';
-import 'package:stawi/utils/url_launcher.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class PublicRoomBottomSheet extends StatelessWidget {
   final String? roomAlias;
@@ -92,23 +91,25 @@ class PublicRoomBottomSheet extends StatelessWidget {
             chunk?.name ?? roomAlias ?? chunk?.roomId ?? 'Unknown',
             overflow: TextOverflow.fade,
           ),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_downward_outlined),
-            onPressed: Navigator.of(context, rootNavigator: false).pop,
-            tooltip: L10n.of(context).close,
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: IconButton(
-                icon: Icon(Icons.adaptive.share_outlined),
-                onPressed: () => FluffyShare.share(
-                  'https://matrix.to/#/${roomAlias ?? chunk?.roomId}',
-                  context,
-                ),
-              ),
+          leading: Center(
+            child: CloseButton(
+              onPressed: Navigator.of(context, rootNavigator: false).pop,
             ),
-          ],
+          ),
+          actions: roomAlias == null
+              ? null
+              : [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: IconButton(
+                      icon: const Icon(Icons.qr_code_rounded),
+                      onPressed: () => showQrCodeViewer(
+                        context,
+                        roomAlias,
+                      ),
+                    ),
+                  ),
+                ],
         ),
         body: FutureBuilder<PublicRoomsChunk>(
           future: _search(),

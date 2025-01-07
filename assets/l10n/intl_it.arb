@@ -240,7 +240,7 @@
       "joinRules": {}
     }
   },
-  "changedTheProfileAvatar": "{username} ha cambiato il loro avatar",
+  "changedTheProfileAvatar": "{username} ha cambiato il suo avatar",
   "@changedTheProfileAvatar": {
     "type": "text",
     "placeholders": {
@@ -764,7 +764,7 @@
       "targetName": {}
     }
   },
-  "invitedUsersOnly": "Solo per gli utenti invitati",
+  "invitedUsersOnly": "Solo utenti invitati",
   "@invitedUsersOnly": {
     "type": "text",
     "placeholders": {}
@@ -815,7 +815,7 @@
       "targetName": {}
     }
   },
-  "kickFromChat": "Espulsa dalla discussione",
+  "kickFromChat": "Espelli dalla chat",
   "@kickFromChat": {
     "type": "text",
     "placeholders": {}
@@ -2055,7 +2055,7 @@
   "@homeserver": {},
   "callingPermissions": "Permessi di chiamata",
   "@callingPermissions": {},
-  "readUpToHere": "Leggi fino a qui",
+  "readUpToHere": "Letto fino a qui",
   "@readUpToHere": {},
   "start": "Inizio",
   "@start": {},
@@ -2831,5 +2831,67 @@
     "space": {}
   },
   "markAsUnread": "Contrassegna come non letto",
-  "@markAsUnread": {}
+  "@markAsUnread": {},
+  "compressBeforeSending": "Comprimi prima di inviare",
+  "@compressBeforeSending": {},
+  "aboutHomeserver": "Informazioni su {homeserver}",
+  "@aboutHomeserver": {
+    "type": "text",
+    "placeholders": {
+      "homeserver": {}
+    }
+  },
+  "continueText": "Continua",
+  "@continueText": {},
+  "welcomeText": "Hey Hey 👋 Questa è FluffyChat. Puoi accedere a qualsiasi homeserver compatibile con https://matrix.org. E poi chattare con chiunque. È un'enorme rete di messaggistica decentralizzata!",
+  "@welcomeText": {},
+  "blur": "Sfocatura:",
+  "@blur": {},
+  "opacity": "Opacità:",
+  "@opacity": {},
+  "setWallpaper": "Imposta sfondo",
+  "@setWallpaper": {},
+  "manageAccount": "Gestisci account",
+  "@manageAccount": {},
+  "noContactInformationProvided": "Il server non fornisce alcuna informazione di contatto valida",
+  "@noContactInformationProvided": {},
+  "contactServerAdmin": "Contatta l'amministratore del server",
+  "@contactServerAdmin": {},
+  "contactServerSecurity": "Contatta la sicurezza del server",
+  "@contactServerSecurity": {},
+  "supportPage": "Pagina di supporto",
+  "@supportPage": {},
+  "serverInformation": "Informazioni sul server:",
+  "@serverInformation": {},
+  "name": "Nome",
+  "@name": {},
+  "version": "Versione",
+  "@version": {},
+  "website": "Sito web",
+  "@website": {},
+  "sendUncompressed": "Invia non compresso",
+  "@sendUncompressed": {},
+  "boldText": "Testo in grassetto",
+  "@boldText": {},
+  "italicText": "Testo in corsivo",
+  "@italicText": {},
+  "strikeThrough": "Barrato",
+  "@strikeThrough": {},
+  "pleaseFillOut": "Si prega di compilare",
+  "@pleaseFillOut": {},
+  "invalidUrl": "URL non valido",
+  "@invalidUrl": {},
+  "addLink": "Aggiungi collegamento",
+  "@addLink": {},
+  "unableToJoinChat": "Impossibile partecipare alla chat. Forse l'altra parte ha già chiuso la conversazione.",
+  "@unableToJoinChat": {},
+  "sendImages": "Invia {count} immagine",
+  "@sendImages": {
+    "type": "text",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "compress": "Comprimere",
+  "@compress": {}
 }

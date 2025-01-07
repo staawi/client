@@ -1,11 +1,9 @@
+import 'package:chamamobile/pages/settings_password/settings_password_view.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
-
-import 'package:stawi/pages/settings_password/settings_password_view.dart';
-import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class SettingsPassword extends StatefulWidget {
   const SettingsPassword({super.key});

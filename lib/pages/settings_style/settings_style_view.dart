@@ -1,19 +1,19 @@
 import 'dart:ui';
 
-import 'package:flutter/material.dart';
-
+import 'package:chamamobile/config/setting_keys.dart';
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/chat/events/state_message.dart';
+import 'package:chamamobile/utils/account_config.dart';
+import 'package:chamamobile/utils/color_value.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/layouts/max_width_body.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/config/setting_keys.dart';
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/chat/events/state_message.dart';
-import 'package:stawi/utils/account_config.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/layouts/max_width_body.dart';
-import 'package:stawi/widgets/matrix.dart';
-import 'package:stawi/widgets/mxc_image.dart';
 import '../../config/app_config.dart';
 import '../../widgets/settings_switch_list_tile.dart';
 import 'settings_style.dart';
@@ -100,7 +100,7 @@ class SettingsStyleView extends StatelessWidget {
                       child: Tooltip(
                         message: color == null
                             ? L10n.of(context).systemTheme
-                            : '#${color.value.toRadixString(16).toUpperCase()}',
+                            : '#${color.hexValue.toRadixString(16).toUpperCase()}',
                         child: InkWell(
                           borderRadius: BorderRadius.circular(colorPickerSize),
                           onTap: () => controller.setChatColor(color),
@@ -213,7 +213,9 @@ class SettingsStyleView extends StatelessWidget {
                                 ),
                                 child: DecoratedBox(
                                   decoration: BoxDecoration(
-                                    color: theme.colorScheme.primary,
+                                    color: theme.brightness == Brightness.light
+                                        ? theme.colorScheme.primary
+                                        : theme.colorScheme.primaryContainer,
                                     borderRadius: BorderRadius.circular(
                                       AppConfig.borderRadius,
                                     ),
@@ -226,7 +228,11 @@ class SettingsStyleView extends StatelessWidget {
                                     child: Text(
                                       'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor',
                                       style: TextStyle(
-                                        color: theme.colorScheme.onPrimary,
+                                        color:
+                                            theme.brightness == Brightness.light
+                                                ? theme.colorScheme.onPrimary
+                                                : theme.colorScheme
+                                                    .onPrimaryContainer,
                                         fontSize: AppConfig.messageFontSize *
                                             AppConfig.fontSizeFactor,
                                       ),

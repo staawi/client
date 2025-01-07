@@ -1,12 +1,19 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/utils/init_with_restore.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/utils/uia_request_manager.dart';
+import 'package:chamamobile/utils/voip_plugin.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/fluffy_chat_app.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
@@ -18,14 +25,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher_string.dart';
 
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/init_with_restore.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/utils/uia_request_manager.dart';
-import 'package:stawi/utils/voip_plugin.dart';
-import 'package:stawi/widgets/fluffy_chat_app.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../config/app_config.dart';
 import '../config/setting_keys.dart';
 import '../pages/key_verification/key_verification_dialog.dart';
@@ -175,18 +174,6 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
 
   Client? getClientByName(String name) =>
       widget.clients.firstWhereOrNull((c) => c.clientName == name);
-
-  Map<String, dynamic>? get shareContent => _shareContent;
-
-  set shareContent(Map<String, dynamic>? content) {
-    _shareContent = content;
-    onShareContentChanged.add(_shareContent);
-  }
-
-  Map<String, dynamic>? _shareContent;
-
-  final StreamController<Map<String, dynamic>?> onShareContentChanged =
-      StreamController.broadcast();
 
   final onRoomKeyRequestSub = <String, StreamSubscription>{};
   final onKeyVerificationRequestSub = <String, StreamSubscription>{};
@@ -356,13 +343,11 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         this,
         onFcmError: (errorMsg, {Uri? link}) async {
           final result = await showOkCancelAlertDialog(
-            barrierDismissible: true,
             context: FluffyChatApp
                     .router.routerDelegate.navigatorKey.currentContext ??
                 context,
             title: L10n.of(context).pushNotificationsNotAvailable,
             message: errorMsg,
-            fullyCapitalizedForMaterial: false,
             okLabel:
                 link == null ? L10n.of(context).ok : L10n.of(context).learnMore,
             cancelLabel: L10n.of(context).doNotShowAgain,
@@ -482,7 +467,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   Future<void> dehydrateAction(BuildContext context) async {
     final response = await showOkCancelAlertDialog(
       context: context,
-      isDestructiveAction: true,
+      isDestructive: true,
       title: L10n.of(context).dehydrate,
       message: L10n.of(context).dehydrateWarning,
     );

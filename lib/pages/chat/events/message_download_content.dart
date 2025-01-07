@@ -1,8 +1,6 @@
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
 import 'package:flutter/material.dart';
-
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
 
 class MessageDownloadContent extends StatelessWidget {
   final Event event;

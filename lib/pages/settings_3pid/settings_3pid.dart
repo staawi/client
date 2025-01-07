@@ -1,11 +1,11 @@
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
 import 'settings_3pid_view.dart';
 
 class Settings3Pid extends StatefulWidget {
@@ -25,12 +25,8 @@ class Settings3PidController extends State<Settings3Pid> {
       title: L10n.of(context).enterAnEmailAddress,
       okLabel: L10n.of(context).ok,
       cancelLabel: L10n.of(context).cancel,
-      textFields: [
-        DialogTextField(
-          hintText: L10n.of(context).enterAnEmailAddress,
-          keyboardType: TextInputType.emailAddress,
-        ),
-      ],
+      hintText: L10n.of(context).enterAnEmailAddress,
+      keyboardType: TextInputType.emailAddress,
     );
     if (input == null) return;
     final clientSecret = DateTime.now().millisecondsSinceEpoch.toString();
@@ -38,7 +34,7 @@ class Settings3PidController extends State<Settings3Pid> {
       context: context,
       future: () => Matrix.of(context).client.requestTokenToRegisterEmail(
             clientSecret,
-            input.single,
+            input,
             Settings3Pid.sendAttempt++,
           ),
     );

@@ -1,17 +1,15 @@
 import 'dart:async';
 
+import 'package:archive/archive.dart';
+import 'package:chamamobile/pages/settings_emotes/settings_emotes.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:archive/archive.dart';
-import 'package:collection/collection.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/settings_emotes/settings_emotes.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class ImportEmoteArchiveDialog extends StatefulWidget {
   final EmotesSettingsController controller;

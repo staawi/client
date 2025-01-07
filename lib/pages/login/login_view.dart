@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
-import 'package:stawi/widgets/layouts/login_scaffold.dart';
-import 'package:stawi/widgets/matrix.dart';
+import 'package:chamamobile/widgets/layouts/login_scaffold.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 
 import 'login.dart';
 

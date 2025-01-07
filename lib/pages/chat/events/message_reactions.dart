@@ -1,13 +1,11 @@
-import 'package:flutter/material.dart';
-
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
-import 'package:stawi/widgets/mxc_image.dart';
 
 class MessageReactions extends StatelessWidget {
   final Event event;
@@ -122,6 +120,7 @@ class _Reaction extends StatelessWidget {
             width: 20,
             height: 20,
             animated: false,
+            isThumbnail: false,
           ),
           if (count > 1) ...[
             const SizedBox(width: 4),

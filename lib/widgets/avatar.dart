@@ -1,10 +1,8 @@
+import 'package:chamamobile/utils/string_color.dart';
+import 'package:chamamobile/widgets/mxc_image.dart';
+import 'package:chamamobile/widgets/presence_builder.dart';
 import 'package:flutter/material.dart';
-
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/utils/string_color.dart';
-import 'package:stawi/widgets/mxc_image.dart';
-import 'package:stawi/widgets/presence_builder.dart';
 
 class Avatar extends StatelessWidget {
   final Uri? mxContent;

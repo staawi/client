@@ -1,21 +1,20 @@
 import 'dart:io';
 
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/pages/chat/events/image_bubble.dart';
+import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/widgets/blur_hash.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'package:chewie/chewie.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:video_player/video_player.dart';
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/pages/chat/events/image_bubble.dart';
-import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/blur_hash.dart';
 import '../../../utils/error_reporter.dart';
 
 class EventVideoPlayer extends StatefulWidget {

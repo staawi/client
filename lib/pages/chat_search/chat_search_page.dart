@@ -1,11 +1,9 @@
 import 'dart:async';
 
+import 'package:chamamobile/pages/chat_search/chat_search_view.dart';
+import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-
 import 'package:matrix/matrix.dart';
-
-import 'package:stawi/pages/chat_search/chat_search_view.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class ChatSearchPage extends StatefulWidget {
   final String roomId;

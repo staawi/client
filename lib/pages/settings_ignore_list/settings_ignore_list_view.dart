@@ -1,11 +1,10 @@
+import 'package:chamamobile/widgets/avatar.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import 'package:stawi/widgets/avatar.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/layouts/max_width_body.dart';
 import '../../widgets/matrix.dart';
 import 'settings_ignore_list.dart';
 

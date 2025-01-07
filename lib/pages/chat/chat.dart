@@ -1,15 +1,13 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
@@ -17,23 +15,28 @@ import 'package:matrix/matrix.dart';
 import 'package:record/record.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/config/setting_keys.dart';
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/chat/chat_view.dart';
+import 'package:chamamobile/pages/chat/event_info_dialog.dart';
+import 'package:chamamobile/pages/chat/recording_dialog.dart';
+import 'package:chamamobile/pages/chat_details/chat_details.dart';
+import 'package:chamamobile/utils/error_reporter.dart';
+import 'package:chamamobile/utils/file_selector.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/utils/show_scaffold_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
 import 'package:universal_html/html.dart' as html;
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/config/setting_keys.dart';
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/chat/chat_view.dart';
-import 'package:stawi/pages/chat/event_info_dialog.dart';
-import 'package:stawi/pages/chat/recording_dialog.dart';
-import 'package:stawi/pages/chat_details/chat_details.dart';
-import 'package:stawi/utils/error_reporter.dart';
-import 'package:stawi/utils/file_selector.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:stawi/widgets/matrix.dart';
 import '../../utils/account_bundles.dart';
 import '../../utils/localized_exception_extension.dart';
 import 'send_file_dialog.dart';
@@ -41,14 +44,14 @@ import 'send_location_dialog.dart';
 
 class ChatPage extends StatelessWidget {
   final String roomId;
-  final String? shareText;
+  final List<ShareItem>? shareItems;
   final String? eventId;
 
   const ChatPage({
     super.key,
     required this.roomId,
     this.eventId,
-    this.shareText,
+    this.shareItems,
   });
 
   @override
@@ -69,7 +72,7 @@ class ChatPage extends StatelessWidget {
     return ChatPageWithRoom(
       key: Key('chat_page_${roomId}_$eventId'),
       room: room,
-      shareText: shareText,
+      shareItems: shareItems,
       eventId: eventId,
     );
   }
@@ -77,13 +80,13 @@ class ChatPage extends StatelessWidget {
 
 class ChatPageWithRoom extends StatefulWidget {
   final Room room;
-  final String? shareText;
+  final List<ShareItem>? shareItems;
   final String? eventId;
 
   const ChatPageWithRoom({
     super.key,
     required this.room,
-    this.shareText,
+    this.shareItems,
     this.eventId,
   });
 
@@ -224,10 +227,33 @@ class ChatController extends State<ChatPageWithRoom>
 
   void _loadDraft() async {
     final prefs = await SharedPreferences.getInstance();
-    final draft = widget.shareText ?? prefs.getString('draft_$roomId');
+    final draft = prefs.getString('draft_$roomId');
     if (draft != null && draft.isNotEmpty) {
       sendController.text = draft;
     }
+  }
+
+  void _shareItems([_]) {
+    final shareItems = widget.shareItems;
+    if (shareItems == null || shareItems.isEmpty) return;
+    for (final item in shareItems) {
+      if (item is FileShareItem) continue;
+      if (item is TextShareItem) room.sendTextEvent(item.value);
+      if (item is ContentShareItem) room.sendEvent(item.value);
+    }
+    final files = shareItems
+        .whereType<FileShareItem>()
+        .map((item) => item.value)
+        .toList();
+    if (files.isEmpty) return;
+    showAdaptiveDialog(
+      context: context,
+      builder: (c) => SendFileDialog(
+        files: files,
+        room: room,
+        outerContext: context,
+      ),
+    );
   }
 
   @override
@@ -236,6 +262,7 @@ class ChatController extends State<ChatPageWithRoom>
     inputFocus.addListener(_inputFocusListener);
 
     _loadDraft();
+    WidgetsBinding.instance.addPostFrameCallback(_shareItems);
     super.initState();
     _displayChatDetailsColumn = ValueNotifier(
       Matrix.of(context).store.getBool(SettingKeys.displayChatDetailsColumn) ??
@@ -665,23 +692,22 @@ class ChatController extends State<ChatPageWithRoom>
 
   void reportEventAction() async {
     final event = selectedEvents.single;
-    final score = await showConfirmationDialog<int>(
+    final score = await showModalActionPopup<int>(
       context: context,
       title: L10n.of(context).reportMessage,
       message: L10n.of(context).howOffensiveIsThisContent,
       cancelLabel: L10n.of(context).cancel,
-      okLabel: L10n.of(context).ok,
       actions: [
-        AlertDialogAction(
-          key: -100,
+        AdaptiveModalAction(
+          value: -100,
           label: L10n.of(context).extremeOffensive,
         ),
-        AlertDialogAction(
-          key: -50,
+        AdaptiveModalAction(
+          value: -50,
           label: L10n.of(context).offensive,
         ),
-        AlertDialogAction(
-          key: 0,
+        AdaptiveModalAction(
+          value: 0,
           label: L10n.of(context).inoffensive,
         ),
       ],
@@ -692,15 +718,15 @@ class ChatController extends State<ChatPageWithRoom>
       title: L10n.of(context).whyDoYouWantToReportThis,
       okLabel: L10n.of(context).ok,
       cancelLabel: L10n.of(context).cancel,
-      textFields: [DialogTextField(hintText: L10n.of(context).reason)],
+      hintText: L10n.of(context).reason,
     );
-    if (reason == null || reason.single.isEmpty) return;
+    if (reason == null || reason.isEmpty) return;
     final result = await showFutureLoadingDialog(
       context: context,
       future: () => Matrix.of(context).client.reportContent(
             event.roomId!,
             event.eventId,
-            reason: reason.single,
+            reason: reason,
             score: score,
           ),
     );
@@ -739,18 +765,14 @@ class ChatController extends State<ChatPageWithRoom>
             context: context,
             title: L10n.of(context).redactMessage,
             message: L10n.of(context).redactMessageDescription,
-            isDestructiveAction: true,
-            textFields: [
-              DialogTextField(
-                hintText: L10n.of(context).optionalRedactReason,
-              ),
-            ],
+            isDestructive: true,
+            hintText: L10n.of(context).optionalRedactReason,
             okLabel: L10n.of(context).remove,
             cancelLabel: L10n.of(context).cancel,
           )
-        : <String>[];
+        : null;
     if (reasonInput == null) return;
-    final reason = reasonInput.single.isEmpty ? null : reasonInput.single;
+    final reason = reasonInput.isEmpty ? null : reasonInput;
     for (final event in selectedEvents) {
       await showFutureLoadingDialog(
         context: context,
@@ -795,7 +817,9 @@ class ChatController extends State<ChatPageWithRoom>
     for (final event in selectedEvents) {
       if (!event.status.isSent) return false;
       if (event.canRedact == false &&
-          !(clients!.any((cl) => event.senderId == cl!.userID))) return false;
+          !(clients!.any((cl) => event.senderId == cl!.userID))) {
+        return false;
+      }
     }
     return true;
   }
@@ -821,17 +845,17 @@ class ChatController extends State<ChatPageWithRoom>
   }
 
   void forwardEventsAction() async {
-    if (selectedEvents.length == 1) {
-      Matrix.of(context).shareContent =
-          selectedEvents.first.getDisplayEvent(timeline!).content;
-    } else {
-      Matrix.of(context).shareContent = {
-        'msgtype': 'm.text',
-        'body': _getSelectedEventString(),
-      };
-    }
+    if (selectedEvents.isEmpty) return;
+    await showScaffoldDialog(
+      context: context,
+      builder: (context) => ShareScaffoldDialog(
+        items: selectedEvents
+            .map((event) => ContentShareItem(event.content))
+            .toList(),
+      ),
+    );
+    if (!mounted) return;
     setState(() => selectedEvents.clear());
-    context.go('/rooms');
   }
 
   void sendAgainAction() {
@@ -1217,21 +1241,21 @@ class ChatController extends State<ChatPageWithRoom>
         }
       });
     }
-    final callType = await showModalActionSheet<CallType>(
+    final callType = await showModalActionPopup<CallType>(
       context: context,
       title: L10n.of(context).warning,
       message: L10n.of(context).videoCallsBetaWarning,
       cancelLabel: L10n.of(context).cancel,
       actions: [
-        SheetAction(
+        AdaptiveModalAction(
           label: L10n.of(context).voiceCall,
-          icon: Icons.phone_outlined,
-          key: CallType.kVoice,
+          icon: const Icon(Icons.phone_outlined),
+          value: CallType.kVoice,
         ),
-        SheetAction(
+        AdaptiveModalAction(
           label: L10n.of(context).videoCall,
-          icon: Icons.video_call_outlined,
-          key: CallType.kVideo,
+          icon: const Icon(Icons.video_call_outlined),
+          value: CallType.kVideo,
         ),
       ],
     );

@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
-
-import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:collection/collection.dart' show IterableExtension;
+import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/encryption/utils/key_verification.dart';
 import 'package:matrix/matrix.dart';
+import 'package:chamamobile/pages/device_settings/device_settings_view.dart';
+import 'package:chamamobile/pages/key_verification/key_verification_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 
-import 'package:stawi/pages/device_settings/device_settings_view.dart';
-import 'package:stawi/pages/key_verification/key_verification_dialog.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../../widgets/matrix.dart';
 
 class DevicesSettings extends StatefulWidget {
@@ -54,11 +54,14 @@ class DevicesSettingsController extends State<DevicesSettings> {
     if (await showOkCancelAlertDialog(
           context: context,
           title: L10n.of(context).areYouSure,
-          okLabel: L10n.of(context).yes,
+          okLabel: L10n.of(context).remove,
           cancelLabel: L10n.of(context).cancel,
           message: L10n.of(context).removeDevicesDescription,
+          isDestructive: true,
         ) ==
-        OkCancelResult.cancel) return;
+        OkCancelResult.cancel) {
+      return;
+    }
     final matrix = Matrix.of(context);
     final deviceIds = <String>[];
     for (final userDevice in devices) {
@@ -84,18 +87,14 @@ class DevicesSettingsController extends State<DevicesSettings> {
       title: L10n.of(context).changeDeviceName,
       okLabel: L10n.of(context).ok,
       cancelLabel: L10n.of(context).cancel,
-      textFields: [
-        DialogTextField(
-          hintText: device.displayName,
-        ),
-      ],
+      hintText: device.displayName,
     );
     if (displayName == null) return;
     final success = await showFutureLoadingDialog(
       context: context,
       future: () => Matrix.of(context)
           .client
-          .updateDevice(device.deviceId, displayName: displayName.single),
+          .updateDevice(device.deviceId, displayName: displayName),
     );
     if (success.error == null) {
       reload();
@@ -109,7 +108,6 @@ class DevicesSettingsController extends State<DevicesSettings> {
       message: L10n.of(context).verifyOtherDeviceDescription,
       okLabel: L10n.of(context).ok,
       cancelLabel: L10n.of(context).cancel,
-      fullyCapitalizedForMaterial: false,
     );
     if (consent != OkCancelResult.ok) return;
     final req = await Matrix.of(context)

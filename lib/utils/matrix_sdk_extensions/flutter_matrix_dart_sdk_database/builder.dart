@@ -1,7 +1,10 @@
 import 'dart:io';
 
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/client_manager.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:path/path.dart';
@@ -9,12 +12,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 import 'package:universal_html/html.dart' as html;
 
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
-import 'package:stawi/utils/platform_infos.dart';
 import 'cipher.dart';
-
 import 'sqlcipher_stub.dart'
     if (dart.library.io) 'package:sqlcipher_flutter_libs/sqlcipher_flutter_libs.dart';
 
@@ -115,7 +113,7 @@ Future<MatrixSdkDatabase> _constructDatabase(Client client) async {
   return MatrixSdkDatabase(
     client.clientName,
     database: database,
-    maxFileSize: 1024 * 1024 * 10,
+    maxFileSize: 1000 * 1000 * 10,
     fileStorageLocation: fileStorageLocation?.uri,
     deleteFilesAfterDuration: const Duration(days: 30),
   );

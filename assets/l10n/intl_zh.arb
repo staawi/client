@@ -2844,5 +2844,55 @@
   "setWallpaper": "设置壁纸",
   "@setWallpaper": {},
   "manageAccount": "管理账户",
-  "@manageAccount": {}
+  "@manageAccount": {},
+  "aboutHomeserver": "关于 {homeserver}",
+  "@aboutHomeserver": {
+    "type": "text",
+    "placeholders": {
+      "homeserver": {}
+    }
+  },
+  "version": "版本",
+  "@version": {},
+  "noContactInformationProvided": "服务器未提供任何有效的联系信息",
+  "@noContactInformationProvided": {},
+  "contactServerAdmin": "联系服务器管理员",
+  "@contactServerAdmin": {},
+  "name": "名称",
+  "@name": {},
+  "contactServerSecurity": "联系服务器安全管理",
+  "@contactServerSecurity": {},
+  "supportPage": "支持页面",
+  "@supportPage": {},
+  "serverInformation": "服务器信息：",
+  "@serverInformation": {},
+  "website": "网站",
+  "@website": {},
+  "compressBeforeSending": "发送前压缩",
+  "@compressBeforeSending": {},
+  "italicText": "文件倾斜",
+  "@italicText": {},
+  "strikeThrough": "删除线",
+  "@strikeThrough": {},
+  "pleaseFillOut": "请填写",
+  "@pleaseFillOut": {},
+  "addLink": "添加链接",
+  "@addLink": {},
+  "sendUncompressed": "无压缩发送",
+  "@sendUncompressed": {},
+  "boldText": "文本加粗",
+  "@boldText": {},
+  "invalidUrl": "无效 url",
+  "@invalidUrl": {},
+  "unableToJoinChat": "无法加入聊天。可能其他方面已经关闭了对话。",
+  "@unableToJoinChat": {},
+  "sendImages": "发送 {count} 张图片",
+  "@sendImages": {
+    "type": "text",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "compress": "压缩",
+  "@compress": {}
 }
