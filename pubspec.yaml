@@ -134,6 +134,7 @@ flutter:
       fonts:
         - asset: fonts/Roboto/RobotoMono-Regular.ttf
 
+
 msix_config:
   display_name: ChamaMobile
   publisher_display_name: ChamaMobile

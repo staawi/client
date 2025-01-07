@@ -106,7 +106,6 @@ prepare_web:
 
 	# Rename the extracted folder to 'package'
 	@if [ -d "$(ASSETS_DIR)/javascript" ]; then mv $(ASSETS_DIR)/javascript $(PACKAGE_DIR); fi
-	rm -f $(ASSETS_DIR)/package/olm.wasm
 	rm -f $(ASSETS_DIR)/package/olm_legacy.js
 
 

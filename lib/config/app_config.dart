@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:matrix/matrix.dart';
 
 abstract class AppConfig {
-  static String _applicationName = 'Stawi';
+  static String _applicationName = 'Chama Mobile';
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
@@ -32,16 +32,15 @@ abstract class AppConfig {
   static const String appOpenUrlScheme = 'im.fluffychat';
   static String _webBaseUrl = 'https://fluffychat.im/web';
   static String get webBaseUrl => _webBaseUrl;
-  static const String sourceCodeUrl =
-      'https://github.com/krille-chan/fluffychat';
+  static const String sourceCodeUrl = 'https://github.com/chamamobile/client';
   static const String supportUrl =
-      'https://github.com/krille-chan/fluffychat/issues';
+      'https://github.com/chamamobile/client/issues';
   static const String changelogUrl =
-      'https://github.com/krille-chan/fluffychat/blob/main/CHANGELOG.md';
+      'https://github.com/chamamobile/client/blob/main/CHANGELOG.md';
   static final Uri newIssueUrl = Uri(
     scheme: 'https',
     host: 'github.com',
-    path: '/krille-chan/fluffychat/issues/new',
+    path: '/chamamobile/client/issues/new',
   );
   static bool renderHtml = true;
   static bool hideRedactedEvents = false;
@@ -58,12 +57,12 @@ abstract class AppConfig {
   static const bool hideTypingUsernames = false;
   static const bool hideAllStateEvents = false;
   static const String inviteLinkPrefix = 'https://matrix.to/#/';
-  static const String deepLinkPrefix = 'im.fluffychat://chat/';
+  static const String deepLinkPrefix = 'com.chamamobile.app://chat/';
   static const String schemePrefix = 'matrix:';
-  static const String pushNotificationsChannelId = 'fluffychat_push';
-  static const String pushNotificationsAppId = 'chat.fluffy.fluffychat';
+  static const String pushNotificationsChannelId = 'chamamobile_push';
+  static const String pushNotificationsAppId = 'com.chamamobile.app';
   static const String pushNotificationsGatewayUrl =
-      'https://push.fluffychat.im/_matrix/push/v1/notify';
+      'https://push.chamamobile.com/_matrix/push/v1/notify';
   static const String pushNotificationsPusherFormat = 'event_id_only';
   static const String emojiFontName = 'Noto Emoji';
   static const String emojiFontUrl =
@@ -72,7 +71,7 @@ abstract class AppConfig {
   static const double columnWidth = 360.0;
   static final Uri homeserverList = Uri(
     scheme: 'https',
-    host: 'servers.joinmatrix.org',
+    host: 'matrix.chamamobile.com',
     path: 'servers.json',
   );
 

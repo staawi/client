@@ -34,17 +34,6 @@ class HomeserverPickerView extends StatelessWidget {
             onSelected: controller.onMoreAction,
             itemBuilder: (_) => [
               PopupMenuItem(
-                value: MoreLoginActions.passwordLogin,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const Icon(Icons.login_outlined),
-                    const SizedBox(width: 12),
-                    Text(L10n.of(context).loginWithMatrixId),
-                  ],
-                ),
-              ),
-              PopupMenuItem(
                 value: MoreLoginActions.privacy,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
