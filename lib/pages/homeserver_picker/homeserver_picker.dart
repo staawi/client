@@ -120,8 +120,8 @@ class HomeserverPickerController extends State<HomeserverPicker> {
             )
             .toString()
         : isDefaultPlatform
-            ? '${AppConfig.appOpenUrlScheme.toLowerCase()}://login'
-            : 'http://localhost:3001//login';
+            ? '${AppConfig.appOpenUrlScheme.toLowerCase()}:/login'
+            : 'http://localhost:3001/login';
 
     final url = Matrix.of(context).getLoginClient().homeserver!.replace(
       path: '/_matrix/client/v3/login/sso/redirect',
