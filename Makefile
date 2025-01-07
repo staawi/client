@@ -71,7 +71,7 @@ l10n: ## builds arb files for translations
 	@echo "╠  translating strings in the app"
 	@flutter gen-l10n
 
-cloudflare:
+cloudflare: prepare_web
 	@if [ -d "flutter" ]; then \
 		echo "Updating Flutter..."; \
 		(export PATH="$${PATH}:`pwd`/flutter/bin" && flutter upgrade); \
@@ -106,7 +106,6 @@ prepare_web:
 
 	# Rename the extracted folder to 'package'
 	@if [ -d "$(ASSETS_DIR)/javascript" ]; then mv $(ASSETS_DIR)/javascript $(PACKAGE_DIR); fi
-	rm -f $(ASSETS_DIR)/package/olm_legacy.js
 
 
 build: clean get_packages l10n ## builds all required local items
