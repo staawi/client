@@ -1,7 +1,6 @@
 
 # Variables
-OLM_VERSION := $(shell yq .dependencies.flutter_olm < pubspec.yaml | sed 's/"//g')
-DOWNLOAD_PATH := https://github.com/famedly/olm/releases/download/v$(OLM_VERSION)/olm.zip
+DOWNLOAD_PATH := https://github.com/famedly/olm/releases/download/v1.3.2/olm.zip
 
 # Directories
 ASSETS_DIR := assets/js
