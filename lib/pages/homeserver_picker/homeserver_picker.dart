@@ -157,7 +157,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
             : 'http://localhost:3001//login';
 
     final url = Matrix.of(context).getLoginClient().homeserver!.replace(
-      path: '/_matrix/client/v3/login/sso/redirect',
+      path: '/_matrix/client/v3/login/sso/redirect/${AppConfig.partitionId}',
       queryParameters: {'redirectUrl': redirectUrl},
     );
 

@@ -24,11 +24,7 @@ class HomeserverPickerView extends StatelessWidget {
       enforceMobileMode: Matrix.of(context).client.isLogged(),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
-          controller.widget.addMultiAccount
-              ? L10n.of(context).addAccount
-              : L10n.of(context).login,
-        ),
+        title: const Text(""),
         actions: [
           PopupMenuButton<MoreLoginActions>(
             onSelected: controller.onMoreAction,
@@ -97,12 +93,12 @@ class HomeserverPickerView extends StatelessWidget {
                       child: Hero(
                         tag: 'info-logo',
                         child: Image.asset(
-                          './assets/banner_transparent.png',
+                          './assets/banner_transparent_black.png',
                           fit: BoxFit.fitWidth,
                         ),
                       ),
                     ),
-                    const SizedBox(height: 32),
+                    const SizedBox(height: 64),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: SelectableLinkify(
@@ -127,28 +123,20 @@ class HomeserverPickerView extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           const SizedBox(height: 32),
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: theme.colorScheme.primary,
-                              foregroundColor: theme.colorScheme.onPrimary,
-                            ),
-                            onPressed:
-                                controller.isLoggingIn || controller.isLoading
-                                    ? null
-                                    : controller.ssoLoginAction,
-                            child: Text(L10n.of(context).continueText),
-                          ),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              foregroundColor: theme.colorScheme.secondary,
-                              textStyle: theme.textTheme.labelMedium,
-                            ),
-                            onPressed:
-                                controller.isLoggingIn || controller.isLoading
-                                    ? null
-                                    : controller.restoreBackup,
-                            child: Text(L10n.of(context).hydrate),
-                          ),
+                          controller.isLoading
+                              ? const LinearProgressIndicator()
+                              : ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: theme.colorScheme.primary,
+                                    foregroundColor:
+                                        theme.colorScheme.onPrimary,
+                                  ),
+                                  onPressed: controller.isLoggingIn ||
+                                          controller.isLoading
+                                      ? null
+                                      : controller.ssoLoginAction,
+                                  child: Text(L10n.of(context).continueText),
+                                ),
                         ],
                       ),
                     ),

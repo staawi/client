@@ -1,7 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:chamamobile/widgets/layouts/login_scaffold.dart';
 import 'package:chamamobile/widgets/matrix.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/l10n.dart';
 
 import 'login.dart';
 
@@ -50,7 +50,7 @@ class LoginView extends StatelessWidget {
               children: <Widget>[
                 Hero(
                   tag: 'info-logo',
-                  child: Image.asset('assets/banner_transparent.png'),
+                  child: Image.asset('assets/banner_transparent_black.png'),
                 ),
                 const SizedBox(height: 16),
                 Padding(

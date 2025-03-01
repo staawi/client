@@ -2,8 +2,8 @@
   "@@locale": "en",
   "@@last_modified": "2021-08-14 12:38:37.885451",
   "alwaysUse24HourFormat": "false",
-    "@alwaysUse24HourFormat": {
-        "description": "Set to true to always display time of day in 24 hour format."
+  "@alwaysUse24HourFormat": {
+    "description": "Set to true to always display time of day in 24 hour format."
   },
   "repeatPassword": "Repeat password",
   "@repeatPassword": {},
@@ -2534,6 +2534,75 @@
   "@nothingFound": {},
   "groupName": "Group name",
   "@groupName": {},
+  "groupDescription": "Group description",
+  "@groupDescription": {},
+  "groupType": "Group type",
+  "@groupType": {},
+  "groupTypeProduct": "Product Group",
+  "@groupTypeProduct": {},
+  "groupTypeGrameen": "Default Group",
+  "@groupTypeGrameen": {},
+  "groupTypeVoluntary": "Voluntary Group",
+  "@groupTypeVoluntary": {},
+  "groupTypeFunding": "Funding Group",
+  "@groupTypeFunding": {},
+  "groupTypeTemporary": "Temporary Group",
+  "@groupTypeTemporary": {},
+  "groupTypeMerryGoRound": "Merry Go Round Group",
+  "@groupTypeMerryGoRound": {},
+  "groupTypeDescriptionDefault": "Members are able to save and lend themselves within the group periodically under the grameen methodology. Loans are proportional to the amount of money they save based on allowed leverage settings.",
+  "@groupTypeDescriptionDefault": {},
+ "groupTypeDescriptionFunding": "Members of these groups start them for the purpose of lending to grameen groups and gaining some profit. There is no tenure as the members only set a duration in which they are willing to lock their funds for lending to groups. There is a chance of experiencing indefinate lock on some funds when groups are penalized for inactivity.",
+  "@groupTypeDescriptionFunding": {},
+"groupTypeDescriptionTemporary": "These are groups setup with very specific purposes with a definite deadline, they can be for occasions such as funeral fund raisers, wedding and introduction meetings.",
+  "@groupTypeDescriptionTemporary": {},
+"groupTypeDescriptionVoluntary": "Organized groups that have a schedule of contribution from the members. Conditions occur in real life before the group does something for the user, example : 1. In church setup, believers may need to make contributions on a weekly basis towards sunday offerings. have a monthly 10% contribution or have a yearly contribution. 2. Teacher unions or groups members contribute a certain fees every so often towards a calamity befalling a member, They may have a conditions such that in case a member does not contribute then when they have issues they will not receive similar assistance.",
+  "@groupTypeDescriptionVoluntary": {},
+"groupTypeDescriptionMerryGoRound": "Members contribute and have a schedule of a single individual receiving a portion of the periodic savings. This can be say 70% of the contributions with the rest of the contributions shared out equally at the end of the groups cycle.",
+  "@groupTypeDescriptionMerryGoRound": {},
+"groupTypeDescriptionProduct": "Product groups are system groups that aid with the functionality of the whole system",
+  "@groupTypeDescriptionProduct": {},
+
+  "groupSecret": "Group secret",
+  "@groupSecret": {},
+  "currency": "Currency",
+  "@currency": {},
+  "currencySelectDescription": "Represents the Currency that will be utilized for handling group funds",
+  "@currencySelectDescription": {},
+
+  "periodicSetup": "Cycling parameters",
+  "@periodicSetup": {},
+
+  "groupTerminationDate": "Group termination date",
+  "@groupTerminationDate": {},
+  "groupTerminationDateDescription": "Date after which the objective of the group would have been completed",
+  "@groupTerminationDateDescription": {},
+
+  "periodicSavingAmount": "Periodic Saving Amount",
+  "@periodicSavingAmount": {},
+ "periodicSavingAmountDescription": "Amount saved periodically by members of the group",
+  "@periodicSavingAmountDescription": {},
+
+  "finalizeGroupCreation": "Finalize Create Group",
+  "@finalizeGroupCreation": {},
+ "finalizeGroupCreationDescription": "A group with the name {groupName} will be created and setup in a moment",
+  "@finalizeGroupCreationDescription": {
+    "type": "text",
+    "placeholders": {
+      "groupName": {}
+    }
+  },
+
+  "groupCreationSuccessful": "Successfully Queued Group Create Request",
+  "@groupCreationSuccessful": {},
+ "groupCreationSuccessfulDescription": "The request to create a group with the name {groupName} was successful, this will take a moment. \n\n Once created you will need to add all the members to the group by sharing the group link with them or choosing from your contacts",
+  "@groupCreationSuccessfulDescription": {
+    "type": "text",
+    "placeholders": {
+      "groupName": {}
+    }
+  },
+
   "createGroupAndInviteUsers": "Create a group and invite users",
   "@createGroupAndInviteUsers": {},
   "groupCanBeFoundViaSearch": "Group can be found via search",

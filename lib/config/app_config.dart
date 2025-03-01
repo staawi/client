@@ -9,6 +9,9 @@ abstract class AppConfig {
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
   static String _defaultHomeserver = 'matrix.chamamobile.com';
   static String get defaultHomeserver => _defaultHomeserver;
+  static String _partitionId = '9bsv0s0hijjg02qks6i0';
+  static String get partitionId => _partitionId;
+
   static double fontSizeFactor = 1;
   static const Color chatColor = primaryColor;
   static Color? colorSchemeSeed = primaryColor;
@@ -95,6 +98,10 @@ abstract class AppConfig {
     if (json['default_homeserver'] is String) {
       _defaultHomeserver = json['default_homeserver'];
     }
+    if (json['partition_id'] is String) {
+      _partitionId = json['partition_id'];
+    }
+
     if (json['privacy_url'] is String) {
       _privacyUrl = json['privacy_url'];
     }
