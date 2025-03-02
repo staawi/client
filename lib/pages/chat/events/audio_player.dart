@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/utils/error_reporter.dart';
+import 'package:chamamobile/utils/file_description.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';
 import 'package:chamamobile/utils/url_launcher.dart';
 import 'package:flutter/foundation.dart';
@@ -18,6 +19,7 @@ import '../../../utils/matrix_sdk_extensions/event_extension.dart';
 
 class AudioPlayerWidget extends StatefulWidget {
   final Color color;
+  final Color linkColor;
   final double fontSize;
   final Event event;
 
@@ -27,7 +29,8 @@ class AudioPlayerWidget extends StatefulWidget {
 
   const AudioPlayerWidget(
     this.event, {
-    this.color = Colors.black,
+    required this.color,
+    required this.linkColor,
     required this.fontSize,
     super.key,
   });
@@ -239,16 +242,10 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
     final statusText = this.statusText ??= _durationString ?? '00:00';
     final audioPlayer = this.audioPlayer;
 
-    final body = widget.event.content.tryGet<String>('body') ??
-        widget.event.content.tryGet<String>('filename');
-    final displayBody = body != null &&
-        body.isNotEmpty &&
-        widget.event.content['org.matrix.msc1767.audio'] == null;
+    final fileDescription = widget.event.fileDescription;
 
     final wavePosition =
         (currentPosition / maxPosition) * AudioPlayerWidget.wavesCount;
-
-    final fontSize = 12 * AppConfig.fontSizeFactor;
 
     return Padding(
       padding: const EdgeInsets.all(12.0),
@@ -356,43 +353,59 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Badge(
-                  isLabelVisible: audioPlayer != null,
-                  label: audioPlayer == null
-                      ? null
-                      : Text(
-                          '${audioPlayer.speed.toString()}x',
-                        ),
-                  backgroundColor: theme.colorScheme.secondary,
-                  textColor: theme.colorScheme.onSecondary,
-                  child: InkWell(
-                    splashColor: widget.color.withAlpha(128),
-                    borderRadius: BorderRadius.circular(64),
-                    onTap: audioPlayer == null ? null : _toggleSpeed,
+                AnimatedCrossFade(
+                  firstChild: Padding(
+                    padding: const EdgeInsets.only(right: 8.0),
                     child: Icon(
                       Icons.mic_none_outlined,
                       color: widget.color,
                     ),
                   ),
+                  secondChild: Material(
+                    color: widget.color.withAlpha(64),
+                    borderRadius: BorderRadius.circular(AppConfig.borderRadius),
+                    child: InkWell(
+                      borderRadius:
+                          BorderRadius.circular(AppConfig.borderRadius),
+                      onTap: _toggleSpeed,
+                      child: SizedBox(
+                        width: 32,
+                        height: 20,
+                        child: Center(
+                          child: Text(
+                            '${audioPlayer?.speed.toString()}x',
+                            style: TextStyle(
+                              color: widget.color,
+                              fontSize: 9,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  alignment: Alignment.center,
+                  crossFadeState: audioPlayer == null
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
+                  duration: FluffyThemes.animationDuration,
                 ),
-                const SizedBox(width: 8),
               ],
             ),
           ),
-          if (displayBody) ...[
+          if (fileDescription != null) ...[
             const SizedBox(height: 8),
             Linkify(
-              text: body,
+              text: fileDescription,
               style: TextStyle(
                 color: widget.color,
-                fontSize: fontSize,
+                fontSize: widget.fontSize,
               ),
               options: const LinkifyOptions(humanize: false),
               linkStyle: TextStyle(
-                color: widget.color.withAlpha(150),
-                fontSize: fontSize,
+                color: widget.linkColor,
+                fontSize: widget.fontSize,
                 decoration: TextDecoration.underline,
-                decorationColor: widget.color.withAlpha(150),
+                decorationColor: widget.linkColor,
               ),
               onOpen: (url) => UrlLauncher(context, url.url).launchUrl(),
             ),

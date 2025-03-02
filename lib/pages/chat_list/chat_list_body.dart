@@ -17,7 +17,6 @@ import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../config/themes.dart';
-import '../../widgets/connection_status_header.dart';
 import '../../widgets/matrix.dart';
 import 'chat_list_header.dart';
 
@@ -135,7 +134,6 @@ class ChatListViewBody extends StatelessWidget {
                           onStatusEdit: controller.setStatus,
                         ),
                       ),
-                    const ConnectionStatusHeader(),
                     AnimatedContainer(
                       height: controller.isTorBrowser ? 64 : 0,
                       duration: FluffyThemes.animationDuration,
@@ -211,7 +209,7 @@ class ChatListViewBody extends StatelessWidget {
                                             style: TextStyle(
                                               fontWeight: filter ==
                                                       controller.activeFilter
-                                                  ? FontWeight.bold
+                                                  ? FontWeight.w500
                                                   : FontWeight.normal,
                                               color: filter ==
                                                       controller.activeFilter

@@ -1,5 +1,6 @@
 import 'package:animations/animations.dart';
 import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/utils/other_party_can_receive.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:chamamobile/widgets/avatar.dart';
 import 'package:chamamobile/widgets/matrix.dart';
@@ -24,6 +25,20 @@ class ChatInputRow extends StatelessWidget {
       return const SizedBox.shrink();
     }
     const height = 48.0;
+
+    if (!controller.room.otherPartyCanReceiveMessages) {
+      return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Text(
+            L10n.of(context).otherPartyNotLoggedIn,
+            style: theme.textTheme.bodySmall,
+            textAlign: TextAlign.center,
+          ),
+        ),
+      );
+    }
+
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -259,8 +274,8 @@ class ChatInputRow extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(height),
                         ),
-                        backgroundColor: theme.colorScheme.primary,
-                        foregroundColor: theme.colorScheme.onPrimary,
+                        backgroundColor: theme.bubbleColor,
+                        foregroundColor: theme.onBubbleColor,
                         child: const Icon(Icons.mic_none_outlined),
                       )
                     : FloatingActionButton.small(
@@ -271,8 +286,8 @@ class ChatInputRow extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(height),
                         ),
-                        backgroundColor: theme.colorScheme.onPrimaryContainer,
-                        foregroundColor: theme.colorScheme.onPrimary,
+                        backgroundColor: theme.bubbleColor,
+                        foregroundColor: theme.onBubbleColor,
                         child: const Icon(Icons.send_outlined),
                       ),
               ),

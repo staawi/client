@@ -1,8 +1,8 @@
 import 'dart:io';
 import 'dart:math';
 
+import 'package:chamamobile/utils/other_party_can_receive.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:http/http.dart';
 import 'package:matrix/encryption.dart';
@@ -33,6 +33,9 @@ extension LocalizedExceptionExtension on Object {
       return L10n.of(context).fileIsTooBigForServer(
         _formatFileSize(exception.maxFileSize),
       );
+    }
+    if (this is OtherPartyCanNotReceiveMessages) {
+      return L10n.of(context).otherPartyNotLoggedIn;
     }
     if (this is MatrixException) {
       switch ((this as MatrixException).error) {

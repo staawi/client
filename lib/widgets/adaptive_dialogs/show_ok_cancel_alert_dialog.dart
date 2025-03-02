@@ -1,6 +1,8 @@
+import 'package:chamamobile/utils/url_launcher.dart';
 import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 
 enum OkCancelResult { ok, cancel }
 
@@ -23,7 +25,17 @@ Future<OkCancelResult?> showOkCancelAlertDialog({
         ),
         content: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 256),
-          child: message == null ? null : Text(message),
+          child: message == null
+              ? null
+              : SelectableLinkify(
+                  text: message,
+                  linkStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    decorationColor: Theme.of(context).colorScheme.primary,
+                  ),
+                  options: const LinkifyOptions(humanize: false),
+                  onOpen: (url) => UrlLauncher(context, url.url).launchUrl(),
+                ),
         ),
         actions: [
           AdaptiveDialogAction(
@@ -63,7 +75,17 @@ Future<OkCancelResult?> showOkAlertDialog({
         ),
         content: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 256),
-          child: message == null ? null : Text(message),
+          child: message == null
+              ? null
+              : SelectableLinkify(
+                  text: message,
+                  linkStyle: TextStyle(
+                    color: Theme.of(context).colorScheme.primary,
+                    decorationColor: Theme.of(context).colorScheme.primary,
+                  ),
+                  options: const LinkifyOptions(humanize: false),
+                  onOpen: (url) => UrlLauncher(context, url.url).launchUrl(),
+                ),
         ),
         actions: [
           AdaptiveDialogAction(

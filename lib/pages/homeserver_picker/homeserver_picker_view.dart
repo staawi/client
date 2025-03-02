@@ -30,6 +30,17 @@ class HomeserverPickerView extends StatelessWidget {
             onSelected: controller.onMoreAction,
             itemBuilder: (_) => [
               PopupMenuItem(
+                value: MoreLoginActions.importBackup,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    const Icon(Icons.import_export_outlined),
+                    const SizedBox(width: 12),
+                    Text(L10n.of(context).hydrate),
+                  ],
+                ),
+              ),
+              PopupMenuItem(
                 value: MoreLoginActions.privacy,
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -102,11 +113,7 @@ class HomeserverPickerView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 32.0),
                       child: SelectableLinkify(
-                        text: L10n.of(context).welcomeText,
-                        style: TextStyle(
-                          color: theme.colorScheme.onSecondaryContainer,
-                          fontWeight: FontWeight.w500,
-                        ),
+                        text: L10n.of(context).appIntroduction,
                         textAlign: TextAlign.center,
                         linkStyle: TextStyle(
                           color: theme.colorScheme.secondary,
@@ -131,10 +138,9 @@ class HomeserverPickerView extends StatelessWidget {
                                     foregroundColor:
                                         theme.colorScheme.onPrimary,
                                   ),
-                                  onPressed: controller.isLoggingIn ||
-                                          controller.isLoading
+                                  onPressed: controller.isLoading
                                       ? null
-                                      : controller.ssoLoginAction,
+                                      : controller.checkHomeserverAction,
                                   child: Text(L10n.of(context).continueText),
                                 ),
                         ],

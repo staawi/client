@@ -1,5 +1,6 @@
 import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:chamamobile/widgets/app_lock.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/widgets.dart';
@@ -12,14 +13,17 @@ Future<List<XFile>> selectFiles(
 }) async {
   if (!PlatformInfos.isLinux) {
     final result = await AppLock.of(context).pauseWhile(
-      FilePicker.platform.pickFiles(
-        compressionQuality: 0,
-        allowMultiple: allowMultiple,
-        type: type.filePickerType,
-        allowedExtensions: type.extensions,
+      showFutureLoadingDialog(
+        context: context,
+        future: () => FilePicker.platform.pickFiles(
+          compressionQuality: 0,
+          allowMultiple: allowMultiple,
+          type: type.filePickerType,
+          allowedExtensions: type.extensions,
+        ),
       ),
     );
-    return result?.xFiles ?? [];
+    return result.result?.xFiles ?? [];
   }
 
   if (allowMultiple) {

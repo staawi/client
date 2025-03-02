@@ -1,6 +1,7 @@
 import 'dart:ui' as ui;
 
 import 'package:badges/badges.dart';
+import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/pages/chat/chat.dart';
 import 'package:chamamobile/pages/chat/chat_app_bar_list_tile.dart';
@@ -13,7 +14,6 @@ import 'package:chamamobile/pages/chat/reply_display.dart';
 import 'package:chamamobile/utils/account_config.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';
 import 'package:chamamobile/widgets/chat_settings_popup_menu.dart';
-import 'package:chamamobile/widgets/connection_status_header.dart';
 import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:chamamobile/widgets/matrix.dart';
 import 'package:chamamobile/widgets/mxc_image.dart';
@@ -114,7 +114,8 @@ class ChatView extends StatelessWidget {
       ];
     } else if (!controller.room.isArchived) {
       return [
-        if (Matrix.of(context).voipPlugin != null &&
+        if (AppConfig.experimentalVoip &&
+            Matrix.of(context).voipPlugin != null &&
             controller.room.isDirectChat)
           IconButton(
             onPressed: controller.onPhoneButtonTap,
@@ -177,28 +178,31 @@ class ChatView extends StatelessWidget {
                 actionsIconTheme: IconThemeData(
                   color: controller.selectedEvents.isEmpty
                       ? null
-                      : theme.colorScheme.primary,
+                      : theme.colorScheme.tertiary,
                 ),
+                automaticallyImplyLeading: false,
                 leading: controller.selectMode
                     ? IconButton(
                         icon: const Icon(Icons.close),
                         onPressed: controller.clearSelectedEvents,
                         tooltip: L10n.of(context).close,
-                        color: theme.colorScheme.primary,
+                        color: theme.colorScheme.tertiary,
                       )
-                    : StreamBuilder<Object>(
-                        stream: Matrix.of(context)
-                            .client
-                            .onSync
-                            .stream
-                            .where((syncUpdate) => syncUpdate.hasRoomUpdate),
-                        builder: (context, _) => UnreadRoomsBadge(
-                          filter: (r) => r.id != controller.roomId,
-                          badgePosition: BadgePosition.topEnd(end: 8, top: 4),
-                          child: const Center(child: BackButton()),
-                        ),
-                      ),
-                titleSpacing: 0,
+                    : FluffyThemes.isColumnMode(context)
+                        ? null
+                        : StreamBuilder<Object>(
+                            stream:
+                                Matrix.of(context).client.onSync.stream.where(
+                                      (syncUpdate) => syncUpdate.hasRoomUpdate,
+                                    ),
+                            builder: (context, _) => UnreadRoomsBadge(
+                              filter: (r) => r.id != controller.roomId,
+                              badgePosition:
+                                  BadgePosition.topEnd(end: 8, top: 4),
+                              child: const Center(child: BackButton()),
+                            ),
+                          ),
+                titleSpacing: FluffyThemes.isColumnMode(context) ? 24 : 0,
                 title: ChatAppBarTitle(controller),
                 actions: _appBarActions(context),
                 bottom: PreferredSize(
@@ -245,6 +249,8 @@ class ChatView extends StatelessWidget {
                   ),
                 ),
               ),
+              floatingActionButtonLocation:
+                  FloatingActionButtonLocation.miniCenterFloat,
               floatingActionButton: controller.showScrollDownButton &&
                       controller.selectedEvents.isEmpty
                   ? Padding(
@@ -253,6 +259,8 @@ class ChatView extends StatelessWidget {
                         onPressed: controller.scrollDown,
                         heroTag: null,
                         mini: true,
+                        backgroundColor: theme.colorScheme.surface,
+                        foregroundColor: theme.colorScheme.onSurface,
                         child: const Icon(Icons.arrow_downward_outlined),
                       ),
                     )
@@ -349,7 +357,6 @@ class ChatView extends StatelessWidget {
                                     : Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          const ConnectionStatusHeader(),
                                           ReactionsPicker(controller),
                                           ReplyDisplay(controller),
                                           ChatInputRow(controller),

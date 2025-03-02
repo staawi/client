@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';
 import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:chamamobile/utils/other_party_can_receive.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:chamamobile/utils/size_string.dart';
 import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
@@ -43,6 +44,9 @@ class SendFileDialogState extends State<SendFileDialog> {
     final l10n = L10n.of(context);
 
     try {
+      if (!widget.room.otherPartyCanReceiveMessages) {
+        throw OtherPartyCanNotReceiveMessages();
+      }
       scaffoldMessenger.showLoadingSnackBar(l10n.prepareSendingAttachment);
       Navigator.of(context, rootNavigator: false).pop();
       final clientConfig = await widget.room.client.getConfig();
@@ -126,9 +130,15 @@ class SendFileDialogState extends State<SendFileDialog> {
       scaffoldMessenger.clearSnackBars();
     } catch (e) {
       scaffoldMessenger.clearSnackBars();
+      final theme = Theme.of(context);
       scaffoldMessenger.showSnackBar(
         SnackBar(
-          content: Text(e.toLocalizedString(widget.outerContext)),
+          backgroundColor: theme.colorScheme.errorContainer,
+          closeIconColor: theme.colorScheme.onErrorContainer,
+          content: Text(
+            e.toLocalizedString(widget.outerContext),
+            style: TextStyle(color: theme.colorScheme.onErrorContainer),
+          ),
           duration: const Duration(seconds: 30),
           showCloseIcon: true,
         ),
@@ -150,29 +160,30 @@ class SendFileDialogState extends State<SendFileDialog> {
     final theme = Theme.of(context);
 
     var sendStr = L10n.of(context).sendFile;
-    final uniqueMimeType = widget.files
+    final uniqueFileType = widget.files
         .map((file) => file.mimeType ?? lookupMimeType(file.name))
+        .map((mimeType) => mimeType?.split('/').first)
         .toSet()
         .singleOrNull;
 
     final fileName = widget.files.length == 1
         ? widget.files.single.name
-        : L10n.of(context).countFiles(widget.files.length.toString());
+        : L10n.of(context).countFiles(widget.files.length);
     final fileTypes = widget.files
         .map((file) => file.name.split('.').last)
         .toSet()
         .join(', ')
         .toUpperCase();
 
-    if (uniqueMimeType?.startsWith('image') ?? false) {
+    if (uniqueFileType == 'image') {
       if (widget.files.length == 1) {
         sendStr = L10n.of(context).sendImage;
       } else {
         sendStr = L10n.of(context).sendImages(widget.files.length);
       }
-    } else if (uniqueMimeType?.startsWith('audio') ?? false) {
+    } else if (uniqueFileType == 'audio') {
       sendStr = L10n.of(context).sendAudio;
-    } else if (uniqueMimeType?.startsWith('video') ?? false) {
+    } else if (uniqueFileType == 'video') {
       sendStr = L10n.of(context).sendVideo;
     }
 
@@ -190,7 +201,7 @@ class SendFileDialogState extends State<SendFileDialog> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 12),
-                if (uniqueMimeType?.startsWith('image') ?? false)
+                if (uniqueFileType == 'image')
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: SizedBox(
@@ -222,17 +233,17 @@ class SendFileDialogState extends State<SendFileDialog> {
                       ),
                     ),
                   ),
-                if (uniqueMimeType?.startsWith('image') != true)
+                if (uniqueFileType != 'image')
                   Padding(
                     padding: const EdgeInsets.only(bottom: 16.0),
                     child: Row(
                       children: [
                         Icon(
-                          uniqueMimeType == null
+                          uniqueFileType == null
                               ? Icons.description_outlined
-                              : uniqueMimeType.startsWith('video')
+                              : uniqueFileType == 'video'
                                   ? Icons.video_file_outlined
-                                  : uniqueMimeType.startsWith('audio')
+                                  : uniqueFileType == 'audio'
                                       ? Icons.audio_file_outlined
                                       : Icons.description_outlined,
                           size: 32,
@@ -261,9 +272,7 @@ class SendFileDialogState extends State<SendFileDialog> {
                     ),
                   ),
                 // Workaround for SwitchListTile.adaptive crashes in CupertinoDialog
-                if (uniqueMimeType != null &&
-                    (uniqueMimeType.startsWith('image') ||
-                        uniqueMimeType.startsWith('video')))
+                if ({'image', 'video'}.contains(uniqueFileType))
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
@@ -271,7 +280,7 @@ class SendFileDialogState extends State<SendFileDialog> {
                           .contains(theme.platform))
                         CupertinoSwitch(
                           value: compress,
-                          onChanged: uniqueMimeType.startsWith('video') &&
+                          onChanged: uniqueFileType == 'video' &&
                                   !PlatformInfos.isMobile
                               ? null
                               : (v) => setState(() => compress = v),
@@ -279,7 +288,7 @@ class SendFileDialogState extends State<SendFileDialog> {
                       else
                         Switch.adaptive(
                           value: compress,
-                          onChanged: uniqueMimeType.startsWith('video') &&
+                          onChanged: uniqueFileType == 'video' &&
                                   !PlatformInfos.isMobile
                               ? null
                               : (v) => setState(() => compress = v),

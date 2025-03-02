@@ -1,4 +1,5 @@
 import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/pages/chat_list/chat_list_item.dart';
 import 'package:chamamobile/pages/chat_list/search_title.dart';
 import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
@@ -130,12 +131,11 @@ class _SpaceViewState extends State<SpaceView> {
         break;
       case SpaceActions.leave:
         final confirmed = await showOkCancelAlertDialog(
-          useRootNavigator: false,
           context: context,
           title: L10n.of(context).areYouSure,
-          okLabel: L10n.of(context).ok,
-          cancelLabel: L10n.of(context).cancel,
           message: L10n.of(context).archiveRoomDescription,
+          okLabel: L10n.of(context).leave,
+          cancelLabel: L10n.of(context).cancel,
           isDestructive: true,
         );
         if (!mounted) return;
@@ -230,17 +230,21 @@ class _SpaceViewState extends State<SpaceView> {
         room?.getLocalizedDisplayname() ?? L10n.of(context).nothingFound;
     return Scaffold(
       appBar: AppBar(
-        leading: Center(
-          child: CloseButton(
-            onPressed: widget.onBack,
-          ),
-        ),
-        titleSpacing: 0,
+        leading: FluffyThemes.isColumnMode(context)
+            ? null
+            : Center(
+                child: CloseButton(
+                  onPressed: widget.onBack,
+                ),
+              ),
+        automaticallyImplyLeading: false,
+        titleSpacing: FluffyThemes.isColumnMode(context) ? null : 0,
         title: ListTile(
           contentPadding: EdgeInsets.zero,
           leading: Avatar(
             mxContent: room?.avatar,
             name: displayname,
+            border: BorderSide(width: 1, color: theme.dividerColor),
             borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
           ),
           title: Text(

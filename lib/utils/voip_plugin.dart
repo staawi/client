@@ -10,7 +10,6 @@ import 'package:flutter_webrtc/flutter_webrtc.dart' as webrtc_impl;
 import 'package:matrix/matrix.dart';
 import 'package:webrtc_interface/webrtc_interface.dart' hide Navigator;
 
-import '../../utils/voip/callkeep_manager.dart';
 import '../../utils/voip/user_media_manager.dart';
 import '../widgets/matrix.dart';
 
@@ -88,8 +87,7 @@ class VoipPlugin with WidgetsBindingObserver implements WebRTCDelegate {
   ]) =>
       webrtc_impl.createPeerConnection(configuration, constraints);
 
-  Future<bool> get hasCallingAccount async =>
-      kIsWeb ? false : await CallKeepManager().hasPhoneAccountEnabled;
+  Future<bool> get hasCallingAccount async => false;
 
   @override
   Future<void> playRingtone() async {
@@ -112,46 +110,21 @@ class VoipPlugin with WidgetsBindingObserver implements WebRTCDelegate {
   @override
   Future<void> handleNewCall(CallSession call) async {
     if (PlatformInfos.isAndroid) {
-      // probably works on ios too
-      final hasCallingAccount = await CallKeepManager().hasPhoneAccountEnabled;
-      if (call.direction == CallDirection.kIncoming &&
-          hasCallingAccount &&
-          call.type == CallType.kVoice) {
-        ///Popup native telecom manager call UI for incoming call.
-        final callKeeper = CallKeeper(CallKeepManager(), call);
-        CallKeepManager().addCall(call.callId, callKeeper);
-        await CallKeepManager().showCallkitIncoming(call);
-        return;
-      } else {
-        try {
-          final wasForeground = await FlutterForegroundTask.isAppOnForeground;
+      try {
+        final wasForeground = await FlutterForegroundTask.isAppOnForeground;
 
-          await matrix.store.setString(
-            'wasForeground',
-            wasForeground == true ? 'true' : 'false',
-          );
-          FlutterForegroundTask.setOnLockScreenVisibility(true);
-          FlutterForegroundTask.wakeUpScreen();
-          FlutterForegroundTask.launchApp();
-        } catch (e) {
-          Logs().e('VOIP foreground failed $e');
-        }
-        // use fallback flutter call pages for outgoing and video calls.
-        addCallingOverlay(call.callId, call);
-        try {
-          if (!hasCallingAccount) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text(
-                  'No calling accounts found (used for native calls UI)',
-                ),
-              ),
-            );
-          }
-        } catch (e) {
-          Logs().e('failed to show snackbar');
-        }
+        await matrix.store.setString(
+          'wasForeground',
+          wasForeground == true ? 'true' : 'false',
+        );
+        FlutterForegroundTask.setOnLockScreenVisibility(true);
+        FlutterForegroundTask.wakeUpScreen();
+        FlutterForegroundTask.launchApp();
+      } catch (e) {
+        Logs().e('VOIP foreground failed $e');
       }
+      // use fallback flutter call pages for outgoing and video calls.
+      addCallingOverlay(call.callId, call);
     } else {
       addCallingOverlay(call.callId, call);
     }

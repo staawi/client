@@ -131,7 +131,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                   minLines: 2,
                   maxLines: 4,
                   readOnly: true,
-                  style: const TextStyle(fontFamily: 'RobotoMono'),
+                  style: const TextStyle(fontFamily: 'UbuntuMono'),
                   controller: TextEditingController(text: key),
                   decoration: const InputDecoration(
                     contentPadding: EdgeInsets.all(16),
@@ -256,7 +256,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                           ? null
                           : [AutofillHints.password],
                       controller: _recoveryKeyTextEditingController,
-                      style: const TextStyle(fontFamily: 'RobotoMono'),
+                      style: const TextStyle(fontFamily: 'UbuntuMono'),
                       decoration: InputDecoration(
                         contentPadding: const EdgeInsets.all(16),
                         hintStyle: TextStyle(
@@ -273,6 +273,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
                         foregroundColor: theme.colorScheme.onPrimary,
+                        iconColor: theme.colorScheme.onPrimary,
                         backgroundColor: theme.colorScheme.primary,
                       ),
                       icon: _recoveryKeyInputLoading
@@ -387,6 +388,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
                       style: ElevatedButton.styleFrom(
                         backgroundColor: theme.colorScheme.errorContainer,
                         foregroundColor: theme.colorScheme.onErrorContainer,
+                        iconColor: theme.colorScheme.onErrorContainer,
                       ),
                       icon: const Icon(Icons.delete_outlined),
                       label: Text(L10n.of(context).recoveryKeyLost),
@@ -441,7 +443,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
           titleText = L10n.of(context).oopsSomethingWentWrong;
           body = const Icon(Icons.error_outline, color: Colors.red, size: 80);
           buttons.add(
-            OutlinedButton(
+            ElevatedButton(
               onPressed: () =>
                   Navigator.of(context, rootNavigator: false).pop<bool>(false),
               child: Text(L10n.of(context).close),
@@ -467,7 +469,7 @@ class BootstrapDialogState extends State<BootstrapDialog> {
             ],
           );
           buttons.add(
-            OutlinedButton(
+            ElevatedButton(
               onPressed: () =>
                   Navigator.of(context, rootNavigator: false).pop<bool>(false),
               child: Text(L10n.of(context).close),
@@ -488,13 +490,17 @@ class BootstrapDialogState extends State<BootstrapDialog> {
         title: Text(titleText ?? L10n.of(context).loadingPleaseWait),
       ),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            body,
-            const SizedBox(height: 8),
-            ...buttons,
-          ],
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              body,
+              const SizedBox(height: 8),
+              ...buttons,
+            ],
+          ),
         ),
       ),
     );

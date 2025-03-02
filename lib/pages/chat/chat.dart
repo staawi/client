@@ -1,6 +1,27 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:chamamobile/config/app_config.dart';
+import 'package:chamamobile/config/setting_keys.dart';
+import 'package:chamamobile/config/themes.dart';
+import 'package:chamamobile/pages/chat/chat_view.dart';
+import 'package:chamamobile/pages/chat/event_info_dialog.dart';
+import 'package:chamamobile/pages/chat/recording_dialog.dart';
+import 'package:chamamobile/pages/chat_details/chat_details.dart';
+import 'package:chamamobile/utils/error_reporter.dart';
+import 'package:chamamobile/utils/file_selector.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:chamamobile/utils/other_party_can_receive.dart';
+import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/utils/show_scaffold_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:chamamobile/widgets/matrix.dart';
+import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -15,26 +36,6 @@ import 'package:matrix/matrix.dart';
 import 'package:record/record.dart';
 import 'package:scroll_to_index/scroll_to_index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/setting_keys.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/chat/chat_view.dart';
-import 'package:chamamobile/pages/chat/event_info_dialog.dart';
-import 'package:chamamobile/pages/chat/recording_dialog.dart';
-import 'package:chamamobile/pages/chat_details/chat_details.dart';
-import 'package:chamamobile/utils/error_reporter.dart';
-import 'package:chamamobile/utils/file_selector.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/show_scaffold_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/matrix.dart';
-import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
 import 'package:universal_html/html.dart' as html;
 
 import '../../utils/account_bundles.dart';
@@ -236,6 +237,23 @@ class ChatController extends State<ChatPageWithRoom>
   void _shareItems([_]) {
     final shareItems = widget.shareItems;
     if (shareItems == null || shareItems.isEmpty) return;
+    if (!room.otherPartyCanReceiveMessages) {
+      final theme = Theme.of(context);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          backgroundColor: theme.colorScheme.errorContainer,
+          closeIconColor: theme.colorScheme.onErrorContainer,
+          content: Text(
+            L10n.of(context).otherPartyNotLoggedIn,
+            style: TextStyle(
+              color: theme.colorScheme.onErrorContainer,
+            ),
+          ),
+          showCloseIcon: true,
+        ),
+      );
+      return;
+    }
     for (final item in shareItems) {
       if (item is FileShareItem) continue;
       if (item is TextShareItem) room.sendTextEvent(item.value);
@@ -723,7 +741,7 @@ class ChatController extends State<ChatPageWithRoom>
     if (reason == null || reason.isEmpty) return;
     final result = await showFutureLoadingDialog(
       context: context,
-      future: () => Matrix.of(context).client.reportContent(
+      future: () => Matrix.of(context).client.reportEvent(
             event.roomId!,
             event.eventId,
             reason: reason,
@@ -1060,16 +1078,16 @@ class ChatController extends State<ChatPageWithRoom>
     }
     final result = await showFutureLoadingDialog(
       context: context,
-      future: () => room.client.joinRoom(
-        room
-            .getState(EventTypes.RoomTombstone)!
-            .parsedTombstoneContent
-            .replacementRoom,
-      ),
-    );
-    await showFutureLoadingDialog(
-      context: context,
-      future: room.leave,
+      future: () async {
+        final roomId = room.client.joinRoom(
+          room
+              .getState(EventTypes.RoomTombstone)!
+              .parsedTombstoneContent
+              .replacementRoom,
+        );
+        await room.leave();
+        return roomId;
+      },
     );
     if (result.error == null) {
       context.go('/rooms/${result.result!}');

@@ -1,7 +1,7 @@
 import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/config/setting_keys.dart';
+import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/voip/callkeep_manager.dart';
 import 'package:chamamobile/widgets/layouts/max_width_body.dart';
 import 'package:chamamobile/widgets/matrix.dart';
 import 'package:chamamobile/widgets/settings_switch_list_tile.dart';
@@ -20,7 +20,11 @@ class SettingsChatView extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(L10n.of(context).chat)),
+      appBar: AppBar(
+        title: Text(L10n.of(context).chat),
+        automaticallyImplyLeading: !FluffyThemes.isColumnMode(context),
+        centerTitle: FluffyThemes.isColumnMode(context),
+      ),
       body: ListTileTheme(
         iconColor: theme.textTheme.bodyLarge!.color,
         child: MaxWidthBody(
@@ -111,16 +115,6 @@ class SettingsChatView extends StatelessWidget {
                 storeKey: SettingKeys.experimentalVoip,
                 defaultValue: AppConfig.experimentalVoip,
               ),
-              if (PlatformInfos.isMobile)
-                ListTile(
-                  title: Text(L10n.of(context).callingPermissions),
-                  onTap: () =>
-                      CallKeepManager().checkoutPhoneAccountSetting(context),
-                  trailing: const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Icon(Icons.call),
-                  ),
-                ),
             ],
           ),
         ),

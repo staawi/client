@@ -154,6 +154,7 @@ class PublicRoomBottomSheet extends StatelessWidget {
                             ),
                             style: TextButton.styleFrom(
                               foregroundColor: theme.colorScheme.onSurface,
+                              iconColor: theme.colorScheme.onSurface,
                             ),
                             label: Text(
                               roomLink ?? '...',
@@ -169,6 +170,7 @@ class PublicRoomBottomSheet extends StatelessWidget {
                             ),
                             style: TextButton.styleFrom(
                               foregroundColor: theme.colorScheme.onSurface,
+                              iconColor: theme.colorScheme.onSurface,
                             ),
                             label: Text(
                               L10n.of(context).countParticipants(
@@ -206,9 +208,9 @@ class PublicRoomBottomSheet extends StatelessWidget {
                   ListTile(
                     subtitle: SelectableLinkify(
                       text: profile!.topic!,
-                      linkStyle: const TextStyle(
-                        color: Colors.blueAccent,
-                        decorationColor: Colors.blueAccent,
+                      linkStyle: TextStyle(
+                        color: theme.colorScheme.primary,
+                        decorationColor: theme.colorScheme.primary,
                       ),
                       style: TextStyle(
                         fontSize: 14,

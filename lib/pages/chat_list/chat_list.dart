@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:app_links/app_links.dart';
 import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/pages/chat_list/chat_list_view.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';
@@ -20,18 +21,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
-import 'package:flutter_shortcuts/flutter_shortcuts.dart';
+import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
-import 'package:uni_links/uni_links.dart';
 
 import '../../../utils/account_bundles.dart';
 import '../../config/setting_keys.dart';
 import '../../utils/url_launcher.dart';
-import '../../utils/voip/callkeep_manager.dart';
-import '../../widgets/fluffy_chat_app.dart';
 import '../../widgets/matrix.dart';
 import '../bootstrap/bootstrap_dialog.dart';
 
@@ -361,11 +359,11 @@ class ChatListController extends State<ChatList>
     );
   }
 
-  void _processIncomingUris(String? text) async {
-    if (text == null) return;
+  void _processIncomingUris(Uri? uri) async {
+    if (uri == null) return;
     context.go('/rooms');
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      UrlLauncher(context, text).openMatrixToUrl();
+      UrlLauncher(context, uri.toString()).openMatrixToUrl();
     });
   }
 
@@ -383,11 +381,8 @@ class ChatListController extends State<ChatList>
         .then(_processIncomingSharedMedia);
 
     // For receiving shared Uris
-    _intentUriStreamSubscription = linkStream.listen(_processIncomingUris);
-    if (FluffyChatApp.gotInitialLink == false) {
-      FluffyChatApp.gotInitialLink = true;
-      getInitialLink().then(_processIncomingUris);
-    }
+    _intentUriStreamSubscription =
+        AppLinks().uriLinkStream.listen(_processIncomingUris);
 
     if (PlatformInfos.isAndroid) {
       final shortcuts = FlutterShortcuts();
@@ -407,7 +402,6 @@ class ChatListController extends State<ChatList>
     scrollController.addListener(_onScroll);
     _waitForFirstSync();
     _hackyWebRTCFixForWeb();
-    CallKeepManager().initialize();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (mounted) {
         searchServer =
@@ -658,7 +652,6 @@ class ChatListController extends State<ChatList>
         return;
       case ChatContextAction.leave:
         final confirmed = await showOkCancelAlertDialog(
-          useRootNavigator: false,
           context: context,
           title: L10n.of(context).areYouSure,
           message: L10n.of(context).archiveRoomDescription,
@@ -771,7 +764,9 @@ class ChatListController extends State<ChatList>
       controller = ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           duration: const Duration(seconds: 15),
+          showCloseIcon: true,
           backgroundColor: theme.colorScheme.errorContainer,
+          closeIconColor: theme.colorScheme.onErrorContainer,
           content: Text(
             L10n.of(context).oneOfYourDevicesIsNotVerified,
             style: TextStyle(

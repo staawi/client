@@ -82,6 +82,7 @@ class UserBottomSheetView extends StatelessWidget {
                             style: TextButton.styleFrom(
                               backgroundColor: theme.colorScheme.surface,
                               foregroundColor: theme.colorScheme.primary,
+                              iconColor: theme.colorScheme.primary,
                             ),
                             onPressed: controller.knockAccept,
                             icon: const Icon(Icons.check_outlined),
@@ -93,6 +94,7 @@ class UserBottomSheetView extends StatelessWidget {
                               backgroundColor: theme.colorScheme.errorContainer,
                               foregroundColor:
                                   theme.colorScheme.onErrorContainer,
+                              iconColor: theme.colorScheme.onErrorContainer,
                             ),
                             onPressed: controller.knockDecline,
                             icon: const Icon(Icons.cancel_outlined),
@@ -131,6 +133,7 @@ class UserBottomSheetView extends StatelessWidget {
                           ),
                           style: TextButton.styleFrom(
                             foregroundColor: theme.colorScheme.onSurface,
+                            iconColor: theme.colorScheme.onSurface,
                           ),
                           label: Text(
                             userId,

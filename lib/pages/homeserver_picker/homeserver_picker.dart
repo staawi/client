@@ -13,7 +13,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:matrix/matrix.dart';
 import 'package:universal_html/html.dart' as html;
@@ -23,6 +22,7 @@ import '../../utils/localized_exception_extension.dart';
 
 class HomeserverPicker extends StatefulWidget {
   final bool addMultiAccount;
+
   const HomeserverPicker({required this.addMultiAccount, super.key});
 
   @override
@@ -59,33 +59,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     isTorBrowser = isTor;
   }
 
-  String? _lastCheckedUrl;
-
-  Timer? _checkHomeserverCooldown;
-
-  tryCheckHomeserverActionWithCooldown([_]) {
-    _checkHomeserverCooldown?.cancel();
-    _checkHomeserverCooldown = Timer(
-      const Duration(milliseconds: 500),
-      checkHomeserverAction,
-    );
-  }
-
-  void tryCheckHomeserverActionWithoutCooldown([_]) {
-    _checkHomeserverCooldown?.cancel();
-    _lastCheckedUrl = null;
-    checkHomeserverAction();
-  }
-
-  void onSubmitted([_]) {
-    if (isLoading || _checkHomeserverCooldown?.isActive == true) {
-      return tryCheckHomeserverActionWithoutCooldown();
-    }
-    if (supportsSso) return ssoLoginAction();
-    if (supportsPasswordLogin) return login();
-    return tryCheckHomeserverActionWithoutCooldown();
-  }
-
   /// Starts an analysis of the given homeserver. It uses the current domain and
   /// makes sure that it is prefixed with https. Then it searches for the
   /// well-known information and forwards to the login page depending on the
@@ -94,18 +67,15 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     final homeserverInput =
         homeserverController.text.trim().toLowerCase().replaceAll(' ', '-');
 
-    if (homeserverInput.isEmpty || !homeserverInput.contains('.')) {
+    if (homeserverInput.isEmpty) {
       setState(() {
         error = loginFlows = null;
         isLoading = false;
         Matrix.of(context).getLoginClient().homeserver = null;
-        _lastCheckedUrl = null;
       });
       return;
     }
-    if (_lastCheckedUrl == homeserverInput) return;
 
-    _lastCheckedUrl = homeserverInput;
     setState(() {
       error = loginFlows = null;
       isLoading = true;
@@ -119,6 +89,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
       final client = Matrix.of(context).getLoginClient();
       final (_, _, loginFlows) = await client.checkHomeserver(homeserver);
       this.loginFlows = loginFlows;
+      return ssoLoginAction();
     } catch (e) {
       setState(
         () => error = (e).toLocalizedString(
@@ -174,7 +145,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
 
     setState(() {
       error = null;
-      isLoading = isLoggingIn = true;
+      isLoading = true;
     });
     try {
       await Matrix.of(context).getLoginClient().login(
@@ -189,27 +160,16 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     } finally {
       if (mounted) {
         setState(() {
-          isLoading = isLoggingIn = false;
+          isLoading = false;
         });
       }
     }
-  }
-
-  void login() async {
-    if (!supportsPasswordLogin) {
-      homeserverController.text = AppConfig.defaultHomeserver;
-      await checkHomeserverAction();
-    }
-    context.push(
-      '${GoRouter.of(context).routeInformationProvider.value.uri.path}/login',
-    );
   }
 
   @override
   void initState() {
     _checkTorBrowser();
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback(checkHomeserverAction);
   }
 
   @override
@@ -221,7 +181,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     if (file == null) return;
     setState(() {
       error = null;
-      isLoading = isLoggingIn = true;
+      isLoading = true;
     });
     try {
       final client = Matrix.of(context).getLoginClient();
@@ -234,7 +194,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     } finally {
       if (mounted) {
         setState(() {
-          isLoading = isLoggingIn = false;
+          isLoading = false;
         });
       }
     }
@@ -242,8 +202,8 @@ class HomeserverPickerController extends State<HomeserverPicker> {
 
   void onMoreAction(MoreLoginActions action) {
     switch (action) {
-      case MoreLoginActions.passwordLogin:
-        login();
+      case MoreLoginActions.importBackup:
+        restoreBackup();
       case MoreLoginActions.privacy:
         launchUrlString(AppConfig.privacyUrl);
       case MoreLoginActions.about:
@@ -252,7 +212,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   }
 }
 
-enum MoreLoginActions { passwordLogin, privacy, about }
+enum MoreLoginActions { importBackup, privacy, about }
 
 class IdentityProvider {
   final String? id;
