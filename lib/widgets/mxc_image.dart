@@ -50,9 +50,10 @@ class _MxcImageState extends State<MxcImage> {
   static final Map<String, Uint8List> _imageDataCache = {};
   Uint8List? _imageDataNoCache;
 
-  Uint8List? get _imageData => widget.cacheKey == null
-      ? _imageDataNoCache
-      : _imageDataCache[widget.cacheKey];
+  Uint8List? get _imageData =>
+      widget.cacheKey == null
+          ? _imageDataNoCache
+          : _imageDataCache[widget.cacheKey];
 
   set _imageData(Uint8List? data) {
     if (data == null) return;
@@ -103,16 +104,17 @@ class _MxcImageState extends State<MxcImage> {
     }
   }
 
-  void _tryLoad(_) async {
-    if (_imageData != null) {
-      return;
-    }
-    try {
-      await _load();
-    } on IOException catch (_) {
-      if (!mounted) return;
-      await Future.delayed(widget.retryDuration);
-      _tryLoad(_);
+  void _tryLoad(dynamic _) async {
+    if (_imageData != null) return;
+
+    while (mounted) {
+      try {
+        await _load();
+        break; // Exit the loop if loading succeeds
+      } on IOException {
+        if (!mounted) return; // Ensure we don't retry if the widget is disposed
+        await Future.delayed(widget.retryDuration);
+      }
     }
   }
 
@@ -141,24 +143,24 @@ class _MxcImageState extends State<MxcImage> {
           hasData ? CrossFadeState.showSecond : CrossFadeState.showFirst,
       duration: const Duration(milliseconds: 128),
       firstChild: placeholder(context),
-      secondChild: hasData
-          ? Image.memory(
-              data,
-              width: widget.width,
-              height: widget.height,
-              fit: widget.fit,
-              filterQuality:
-                  widget.isThumbnail ? FilterQuality.low : FilterQuality.medium,
-              errorBuilder: (context, __, ___) {
-                _imageData = null;
-                WidgetsBinding.instance.addPostFrameCallback(_tryLoad);
-                return placeholder(context);
-              },
-            )
-          : SizedBox(
-              width: widget.width,
-              height: widget.height,
-            ),
+      secondChild:
+          hasData
+              ? Image.memory(
+                data,
+                width: widget.width,
+                height: widget.height,
+                fit: widget.fit,
+                filterQuality:
+                    widget.isThumbnail
+                        ? FilterQuality.low
+                        : FilterQuality.medium,
+                errorBuilder: (context, __, ___) {
+                  _imageData = null;
+                  WidgetsBinding.instance.addPostFrameCallback(_tryLoad);
+                  return placeholder(context);
+                },
+              )
+              : SizedBox(width: widget.width, height: widget.height),
     );
   }
 }

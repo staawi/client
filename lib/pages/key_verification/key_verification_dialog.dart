@@ -7,7 +7,7 @@ import 'package:chamamobile/widgets/avatar.dart';
 import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';
 

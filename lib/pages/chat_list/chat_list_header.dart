@@ -3,7 +3,7 @@ import 'package:chamamobile/pages/chat_list/chat_list.dart';
 import 'package:chamamobile/pages/chat_list/client_chooser_button.dart';
 import 'package:chamamobile/utils/sync_status_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../widgets/matrix.dart';

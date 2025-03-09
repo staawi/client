@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart' hide Visibility;
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:chamamobile/pages/chat_access_settings/chat_access_settings_page.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';

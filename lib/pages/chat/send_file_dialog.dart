@@ -5,17 +5,16 @@ import 'package:chamamobile/utils/localized_exception_extension.dart';
 import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
 import 'package:chamamobile/utils/other_party_can_receive.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:chamamobile/utils/resize_video.dart';
 import 'package:chamamobile/utils/size_string.dart';
 import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:mime/mime.dart';
-
-import '../../utils/resize_video.dart';
 
 class SendFileDialog extends StatefulWidget {
   final Room room;

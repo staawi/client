@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:chamamobile/utils/other_party_can_receive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:http/http.dart';
 import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';
@@ -71,7 +71,6 @@ extension LocalizedExceptionExtension on Object {
         serverVersions,
         supportedVersions,
         serverVersions,
-        supportedVersions,
       );
     }
     if (this is BadServerLoginTypesException) {

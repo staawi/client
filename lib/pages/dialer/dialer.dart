@@ -27,7 +27,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart' hide VideoRenderer;
 import 'package:just_audio/just_audio.dart';
 import 'package:matrix/matrix.dart';
@@ -298,7 +298,13 @@ class MyCallingPage extends State<Calling> {
                 L10n.of(widget.context).foregroundServiceRunning,
           ),
           iosNotificationOptions: const IOSNotificationOptions(),
-          foregroundTaskOptions: const ForegroundTaskOptions(),
+          foregroundTaskOptions: ForegroundTaskOptions(
+            eventAction: ForegroundTaskEventAction.repeat(5000),
+            autoRunOnBoot: true,
+            autoRunOnMyPackageReplaced: true,
+            allowWakeLock: true,
+            allowWifiLock: true,
+          ),
         );
         FlutterForegroundTask.startService(
           notificationTitle: L10n.of(widget.context).screenSharingTitle,

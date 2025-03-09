@@ -1,12 +1,11 @@
 import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/pages/image_viewer/image_viewer_view.dart';
+import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
 import 'package:chamamobile/utils/show_scaffold_dialog.dart';
 import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
-
-import '../../utils/matrix_sdk_extensions/event_extension.dart';
 
 class ImageViewer extends StatefulWidget {
   final Event event;

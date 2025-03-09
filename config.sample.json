@@ -2,9 +2,9 @@
   "application_name": "Chama Mobile",
   "application_welcome_message": null,
   "partition_id": "9bsv0s0hijjg02qks6i0",
-  "default_homeserver": "matrix.org",
-  "web_base_url": "https://fluffychat.im/web",
-  "privacy_url": "https://fluffychat.im/en/privacy.html",
+  "default_homeserver": "chamamobile.com",
+  "web_base_url": "https://chamamobile.com",
+  "privacy_url": "https://chamamobile.com/en/privacy.html",
   "render_html": false,
   "hide_redacted_events": false,
   "hide_unknown_events": false

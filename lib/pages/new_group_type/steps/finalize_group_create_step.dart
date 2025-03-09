@@ -1,7 +1,7 @@
 import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/pages/new_group_type/new_group.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 
 class FinalizeGroupCreateStep extends StatelessWidget {
   final NewGroupController controller;

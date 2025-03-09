@@ -5,7 +5,7 @@ import 'package:chamamobile/widgets/avatar.dart';
 import 'package:chamamobile/widgets/layouts/max_width_body.dart';
 import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class InvitationSelectionView extends StatelessWidget {

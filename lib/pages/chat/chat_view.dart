@@ -13,6 +13,7 @@ import 'package:chamamobile/pages/chat/reactions_picker.dart';
 import 'package:chamamobile/pages/chat/reply_display.dart';
 import 'package:chamamobile/utils/account_config.dart';
 import 'package:chamamobile/utils/localized_exception_extension.dart';
+import 'package:chamamobile/utils/stream_extension.dart';
 import 'package:chamamobile/widgets/chat_settings_popup_menu.dart';
 import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:chamamobile/widgets/matrix.dart';
@@ -20,10 +21,9 @@ import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:chamamobile/widgets/unread_rooms_badge.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
-import '../../utils/stream_extension.dart';
 import 'chat_emoji_picker.dart';
 import 'chat_input_row.dart';
 

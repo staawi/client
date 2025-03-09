@@ -6,7 +6,7 @@ import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
 import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class PinnedEvents extends StatelessWidget {

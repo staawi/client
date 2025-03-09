@@ -80,8 +80,8 @@ index d9930f55..510e9845 100644
 --- a/android/app/src/main/kotlin/chat/fluffy/fluffychat/FcmPushService.kt
 +++ b/android/app/src/main/kotlin/chat/fluffy/fluffychat/FcmPushService.kt
 @@ -1,4 +1,4 @@
--/*package chat.fluffy.fluffychat
-+package chat.fluffy.fluffychat
+-/*package com.chamamobile.app
++package com.chamamobile.app
  
  import com.famedly.fcm_shared_isolate.FcmSharedIsolateService
  

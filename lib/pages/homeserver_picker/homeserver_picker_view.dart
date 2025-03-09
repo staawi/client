@@ -1,7 +1,7 @@
 import 'package:chamamobile/widgets/layouts/login_scaffold.dart';
 import 'package:chamamobile/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

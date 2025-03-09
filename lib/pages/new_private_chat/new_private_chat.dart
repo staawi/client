@@ -11,7 +11,7 @@ import 'package:chamamobile/widgets/matrix.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class NewPrivateChat extends StatefulWidget {

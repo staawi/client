@@ -1,12 +1,11 @@
-name: fluffychat
-title: FluffyChat
+name: chamamobile
+title: Chamamobile
 base: core24
 version: git
 license: AGPL-3.0
 summary: The cutest messenger in the Matrix network
 description: |
-  FluffyChat is an open source, nonprofit and cute matrix messenger app. The app is easy to use but secure and decentralized.
-
+  Chamamobile is an easy to use messenger, empowering its users financially. 
 
   ## Features
 
@@ -81,7 +80,7 @@ parts:
       - unzip
     override-prime: ''
 
-  fluffychat:
+  chamamobile:
     after: [ flutter-git ]
     plugin: nil
     source: .
@@ -104,11 +103,11 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: chat.fluffy.fluffychat
+    name: com.chamamobile.app
 
 apps:
-  fluffychat:
-    command: bin/fluffychat
+  chamamobile:
+    command: bin/chamamobile
     extensions: [ gnome ]
     plugs:
       - audio-playback

@@ -5,7 +5,7 @@ import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:chamamobile/widgets/matrix.dart';
 import 'package:chamamobile/widgets/permission_slider_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 
@@ -37,7 +37,6 @@ class ChatPermissionsSettingsController extends State<ChatPermissionsSettings> {
       context,
       currentLevel: currentLevel,
     );
-    if (newLevel == null) return;
     final content = Map<String, dynamic>.from(
       room.getState(EventTypes.RoomPowerLevels)!.content,
     );

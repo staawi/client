@@ -7,7 +7,7 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'matrix.chamamobile.com';
+  static String _defaultHomeserver = 'chamamobile.com';
   static String get defaultHomeserver => _defaultHomeserver;
   static String _partitionId = '9bsv0s0hijjg02qks6i0';
   static String get partitionId => _partitionId;
@@ -24,16 +24,16 @@ abstract class AppConfig {
   static String _privacyUrl =
       'https://github.com/krille-chan/fluffychat/blob/main/PRIVACY.md';
   static String get privacyUrl => _privacyUrl;
-  static const String website = 'https://fluffychat.im';
+  static const String website = 'https://chamamobile.com';
   static const String enablePushTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/Push-Notifications-without-Google-Services';
   static const String encryptionTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-use-end-to-end-encryption-in-FluffyChat';
   static const String startChatTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-Find-Users-in-FluffyChat';
-  static const String appId = 'im.fluffychat.FluffyChat';
-  static const String appOpenUrlScheme = 'im.fluffychat';
-  static String _webBaseUrl = 'https://fluffychat.im/web';
+  static const String appId = 'com.chamamobile.app';
+  static const String appOpenUrlScheme = 'app.chamamobile.com';
+  static String _webBaseUrl = 'https://app.chamamobile.com';
   static String get webBaseUrl => _webBaseUrl;
   static const String sourceCodeUrl = 'https://github.com/chamamobile/client';
   static const String supportUrl =
@@ -67,14 +67,11 @@ abstract class AppConfig {
   static const String pushNotificationsGatewayUrl =
       'https://push.chamamobile.com/_matrix/push/v1/notify';
   static const String pushNotificationsPusherFormat = 'event_id_only';
-  static const String emojiFontName = 'Noto Emoji';
-  static const String emojiFontUrl =
-      'https://github.com/googlefonts/noto-emoji/';
   static const double borderRadius = 18.0;
   static const double columnWidth = 360.0;
   static final Uri homeserverList = Uri(
     scheme: 'https',
-    host: 'matrix.chamamobile.com',
+    host: 'chamamobile.com',
     path: 'servers.json',
   );
 

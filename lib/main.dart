@@ -38,7 +38,7 @@ void main() async {
     // In the background fetch mode we do not want to waste ressources with
     // starting the Flutter engine but process incoming push notifications.
     BackgroundPush.clientOnly(clients.first);
-    // To start the flutter engine afterwards we add an custom observer.
+    // To start the flutter engine afterwards we add a custom observer.
     WidgetsBinding.instance.addObserver(AppStarter(clients, store));
     Logs().i(
       '${AppConfig.applicationName} started in background-fetch mode. No GUI will be created unless the app is no longer detached.',
@@ -54,7 +54,10 @@ void main() async {
 }
 
 /// Fetch the pincode for the applock and start the flutter engine.
-Future<void> startGui(List<Client> clients, SharedPreferences store) async {
+Future<void> startGui(
+  List<Client> clients,
+  SharedPreferences store,
+) async {
   // Fetch the pin for the applock if existing for mobile applications.
   String? pin;
   if (PlatformInfos.isMobile) {

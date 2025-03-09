@@ -7,7 +7,7 @@ import 'package:chamamobile/widgets/matrix.dart';
 import 'package:chamamobile/widgets/public_room_bottom_sheet.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:punycode/punycode.dart';

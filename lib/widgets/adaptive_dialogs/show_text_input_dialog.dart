@@ -2,7 +2,7 @@ import 'package:chamamobile/utils/url_launcher.dart';
 import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 
 Future<String?> showTextInputDialog({

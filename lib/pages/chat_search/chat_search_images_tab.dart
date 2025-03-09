@@ -4,7 +4,7 @@ import 'package:chamamobile/pages/image_viewer/image_viewer.dart';
 import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:intl/intl.dart';
 import 'package:matrix/matrix.dart';
 

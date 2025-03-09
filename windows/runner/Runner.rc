@@ -93,7 +93,7 @@ BEGIN
             VALUE "FileDescription", "fluffychat" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
             VALUE "InternalName", "fluffychat" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2022 chat.fluffy. All rights reserved." "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2022 com.chamamobile. All rights reserved." "\0"
             VALUE "OriginalFilename", "fluffychat.exe" "\0"
             VALUE "ProductName", "fluffychat" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"

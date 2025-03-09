@@ -10,7 +10,7 @@ import 'package:chamamobile/widgets/future_loading_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:http/http.dart' hide Client;
 import 'package:matrix/matrix.dart';
@@ -284,9 +284,9 @@ class EmotesSettingsController extends State<EmotesSettings> {
 
         if (result.isEmpty) return null;
 
-        final buffer = InputStream(await result.first.readAsBytes());
+        final buffer = InputMemoryStream(await result.first.readAsBytes());
 
-        final archive = ZipDecoder().decodeBuffer(buffer);
+        final archive = ZipDecoder().decodeStream(buffer);
 
         return archive;
       },
@@ -335,8 +335,6 @@ class EmotesSettingsController extends State<EmotesSettings> {
         final fileName =
             '${pack.pack.displayName ?? client.userID?.localpart ?? 'emotes'}.zip';
         final output = ZipEncoder().encode(archive);
-
-        if (output == null) return;
 
         MatrixFile(
           name: fileName,

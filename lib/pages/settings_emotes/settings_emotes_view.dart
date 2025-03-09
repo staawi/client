@@ -3,7 +3,7 @@ import 'package:chamamobile/widgets/layouts/max_width_body.dart';
 import 'package:chamamobile/widgets/mxc_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../widgets/matrix.dart';

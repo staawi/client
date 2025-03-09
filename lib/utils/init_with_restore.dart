@@ -4,7 +4,7 @@ import 'dart:ui';
 import 'package:chamamobile/config/app_config.dart';
 import 'package:chamamobile/utils/client_manager.dart';
 import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';
 

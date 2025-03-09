@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:chamamobile/utils/client_manager.dart';
 import 'package:chamamobile/utils/init_with_restore.dart';
 import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
@@ -14,7 +15,6 @@ import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -212,7 +212,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   final Map<String, int> linuxNotificationIds = {};
 
   @override
-  void initState() {
+  initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     initMatrix();
@@ -384,7 +384,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     }
   }
 
-  void initSettings() {
+  initSettings() {
     AppConfig.fontSizeFactor =
         double.tryParse(store.getString(SettingKeys.fontSizeFactor) ?? '') ??
             AppConfig.fontSizeFactor;

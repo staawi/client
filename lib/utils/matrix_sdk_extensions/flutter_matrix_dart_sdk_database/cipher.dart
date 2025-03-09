@@ -5,7 +5,7 @@ import 'package:chamamobile/config/setting_keys.dart';
 import 'package:chamamobile/utils/client_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +31,6 @@ Future<String?> getDatabaseCipher() async {
     }
     // workaround for if we just wrote to the key and it still doesn't exist
     password = await secureStorage.read(key: _passwordStorageKey);
-    if (password == null) throw MissingPluginException();
   } on MissingPluginException catch (e) {
     const FlutterSecureStorage()
         .delete(key: _passwordStorageKey)

@@ -3,7 +3,7 @@ import 'package:chamamobile/utils/date_time_extension.dart';
 import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:chamamobile/widgets/avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class RoomCreationStateEvent extends StatelessWidget {

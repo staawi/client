@@ -6,7 +6,7 @@ import 'package:chamamobile/widgets/avatar.dart';
 import 'package:chamamobile/widgets/presence_builder.dart';
 import 'package:chamamobile/widgets/qr_code_viewer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
 

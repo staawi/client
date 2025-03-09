@@ -4,7 +4,7 @@ import 'package:chamamobile/config/themes.dart';
 import 'package:chamamobile/widgets/app_lock.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_gen/gen_l10n/l10n.dart';
+import 'package:chamamobile/l10n/l10n.dart';
 
 class LockScreen extends StatefulWidget {
   const LockScreen({super.key});
