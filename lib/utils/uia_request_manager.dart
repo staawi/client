@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/fluffy_chat_app.dart';
-import 'package:chamamobile/widgets/matrix.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:stawi/widgets/fluffy_chat_app.dart';
+import 'package:stawi/widgets/matrix.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 

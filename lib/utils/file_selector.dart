@@ -1,6 +1,6 @@
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/widgets/app_lock.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/app_lock.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/widgets.dart';

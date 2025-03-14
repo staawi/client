@@ -1,11 +1,11 @@
 import 'dart:ui';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/l10n/l10n.dart';
-import 'package:chamamobile/utils/client_download_content_extension.dart';
-import 'package:chamamobile/utils/client_manager.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/client_download_content_extension.dart';
+import 'package:stawi/utils/client_manager.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -113,7 +113,7 @@ Future<void> _tryPushHelper(
 
   if (event.type.startsWith('m.call')) {
     // make sure bg sync is on (needed to update hold, unhold events)
-    // prevent over write from app life cycle change
+    // prevent over write from stawi life cycle change
     client.backgroundSync = true;
   }
 

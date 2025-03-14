@@ -1,4 +1,4 @@
-import 'package:chamamobile/utils/error_reporter.dart';
+import 'package:stawi/utils/error_reporter.dart';
 import 'package:flutter/material.dart';
 
 class FluffyChatErrorWidget extends StatefulWidget {

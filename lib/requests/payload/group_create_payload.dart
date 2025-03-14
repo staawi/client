@@ -1,6 +1,6 @@
 //post.dart file
-import 'package:chamamobile/requests/keys.dart';
-import 'package:chamamobile/requests/payload/base_payload.dart';
+import 'package:stawi/requests/keys.dart';
+import 'package:stawi/requests/payload/base_payload.dart';
 
 abstract class PayloadGroupCreate extends Payload {
   String? groupName;

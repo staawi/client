@@ -1,6 +1,6 @@
 
 # Variables
-DOWNLOAD_PATH := https://github.com/famedly/olm/releases/download/v1.3.2/olm.zip
+DOWNLOAD_PATH := https://github.com/famedly/olm/releases/download/v2.0.0/olm.zip
 
 # Directories
 ASSETS_DIR := assets/js

@@ -1,5 +1,5 @@
-import 'package:chamamobile/config/setting_keys.dart';
-import 'package:chamamobile/widgets/lock_screen.dart';
+import 'package:stawi/config/setting_keys.dart';
+import 'package:stawi/widgets/lock_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';

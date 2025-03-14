@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:chamamobile/pages/chat_list/chat_list_body.dart';
-import 'package:chamamobile/pages/homeserver_picker/homeserver_picker.dart';
+import 'package:stawi/pages/chat_list/chat_list_body.dart';
+import 'package:stawi/pages/homeserver_picker/homeserver_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 

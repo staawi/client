@@ -1,18 +1,18 @@
 import 'dart:io';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/localized_exception_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:chamamobile/utils/other_party_can_receive.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/resize_video.dart';
-import 'package:chamamobile/utils/size_string.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:stawi/utils/other_party_can_receive.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/resize_video.dart';
+import 'package:stawi/utils/size_string.dart';
+import 'package:stawi/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:mime/mime.dart';
 

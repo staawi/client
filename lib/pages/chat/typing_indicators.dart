@@ -1,10 +1,10 @@
 import 'dart:async';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/chat/chat.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/chat/chat.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 
 class TypingIndicators extends StatelessWidget {

@@ -1,16 +1,16 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:chamamobile/l10n/l10n.dart';
-import 'package:chamamobile/utils/client_manager.dart';
-import 'package:chamamobile/utils/init_with_restore.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/uia_request_manager.dart';
-import 'package:chamamobile/utils/voip_plugin.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/fluffy_chat_app.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/client_manager.dart';
+import 'package:stawi/utils/init_with_restore.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/uia_request_manager.dart';
+import 'package:stawi/utils/voip_plugin.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/fluffy_chat_app.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:flutter/foundation.dart';

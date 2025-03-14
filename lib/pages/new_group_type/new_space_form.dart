@@ -1,6 +1,6 @@
-import 'package:chamamobile/config/themes.dart';
+import 'package:stawi/config/themes.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 
 import 'new_group.dart';
 

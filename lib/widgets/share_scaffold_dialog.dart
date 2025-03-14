@@ -1,11 +1,11 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 

@@ -1,12 +1,12 @@
 import 'dart:io';
 
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/size_string.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/size_string.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:file_selector/file_selector.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:universal_html/html.dart' as html;

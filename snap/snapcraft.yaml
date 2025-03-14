@@ -1,11 +1,11 @@
-name: chamamobile
-title: Chamamobile
+name: stawi
+title: Stawi
 base: core24
 version: git
 license: AGPL-3.0
 summary: The cutest messenger in the Matrix network
 description: |
-  Chamamobile is an easy to use messenger, empowering its users financially. 
+  Stawi is an easy to use messenger, empowering its users financially. 
 
   ## Features
 
@@ -80,7 +80,7 @@ parts:
       - unzip
     override-prime: ''
 
-  chamamobile:
+  stawi:
     after: [ flutter-git ]
     plugin: nil
     source: .
@@ -103,11 +103,11 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: com.chamamobile.app
+    name: com.antinvestor.stawi
 
 apps:
-  chamamobile:
-    command: bin/chamamobile
+  stawi:
+    command: bin/antinvestor
     extensions: [ gnome ]
     plugs:
       - audio-playback

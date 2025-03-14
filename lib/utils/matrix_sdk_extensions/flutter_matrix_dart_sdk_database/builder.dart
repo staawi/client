@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/client_manager.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/client_manager.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';

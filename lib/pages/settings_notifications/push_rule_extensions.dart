@@ -1,4 +1,4 @@
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 extension PushRuleExtension on PushRule {

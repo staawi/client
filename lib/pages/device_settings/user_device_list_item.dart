@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/device_extension.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/device_extension.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../utils/date_time_extension.dart';

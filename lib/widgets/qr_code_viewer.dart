@@ -1,10 +1,10 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/fluffy_share.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:image/image.dart';
 import 'package:matrix/matrix.dart';
 import 'package:pretty_qr_code/pretty_qr_code.dart';

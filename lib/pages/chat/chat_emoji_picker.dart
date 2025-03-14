@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/chat/sticker_picker_dialog.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/chat/sticker_picker_dialog.dart';
 import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import 'chat.dart';

@@ -1,11 +1,11 @@
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/permission_slider_dialog.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/permission_slider_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 

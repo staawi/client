@@ -1,13 +1,13 @@
 import 'dart:math';
 
-import 'package:chamamobile/pages/chat/events/video_player.dart';
-import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
-import 'package:chamamobile/utils/date_time_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/pages/chat/events/video_player.dart';
+import 'package:stawi/utils/adaptive_bottom_sheet.dart';
+import 'package:stawi/utils/date_time_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
 

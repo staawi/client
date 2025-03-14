@@ -27,10 +27,10 @@ body:
     validations:
       required: true
   - type: input
-    id: app-version
+    id: stawi-version
     attributes:
       label: "App Version"
-      description: "Please provide the version of the app you are using."
+      description: "Please provide the version of the stawi you are using."
       placeholder: "e.g. 1.12.0"
     validations:
       required: true

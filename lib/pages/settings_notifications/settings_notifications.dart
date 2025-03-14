@@ -1,14 +1,14 @@
 import 'dart:convert';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/pages/settings_notifications/push_rule_extensions.dart';
-import 'package:chamamobile/utils/localized_exception_extension.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/pages/settings_notifications/push_rule_extensions.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../widgets/matrix.dart';

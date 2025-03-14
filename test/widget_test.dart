@@ -5,14 +5,14 @@
 // gestures. You can also use WidgetTester to find child widgets in the widget
 // tree, read text, and verify that the values of widget properties are correct.
 
-//import 'package:chamamobile/main.dart';
+//import 'package:stawi/main.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 
 //import 'utils/test_client.dart';
 
 void main() {
-  testWidgets('Test if the app starts', (WidgetTester tester) async {
+  testWidgets('Test if the stawi starts', (WidgetTester tester) async {
     /* await tester.pumpWidget(FluffyChatApp(
       client: await prepareTestClient(),
     ));*/

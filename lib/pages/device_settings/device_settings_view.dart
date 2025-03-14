@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/device_settings/device_settings.dart';
-import 'package:chamamobile/widgets/layouts/max_width_body.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/device_settings/device_settings.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 
 import 'user_device_list_item.dart';
 

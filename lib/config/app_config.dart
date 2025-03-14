@@ -3,11 +3,11 @@ import 'dart:ui';
 import 'package:matrix/matrix.dart';
 
 abstract class AppConfig {
-  static String _applicationName = 'Chama Mobile';
+  static String _applicationName = 'Stawi';
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'chamamobile.com';
+  static String _defaultHomeserver = 'stawi.antinvestor.com';
   static String get defaultHomeserver => _defaultHomeserver;
   static String _partitionId = '9bsv0s0hijjg02qks6i0';
   static String get partitionId => _partitionId;
@@ -24,26 +24,26 @@ abstract class AppConfig {
   static String _privacyUrl =
       'https://github.com/krille-chan/fluffychat/blob/main/PRIVACY.md';
   static String get privacyUrl => _privacyUrl;
-  static const String website = 'https://chamamobile.com';
+  static const String website = 'https://antinvestor.com';
   static const String enablePushTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/Push-Notifications-without-Google-Services';
   static const String encryptionTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-use-end-to-end-encryption-in-FluffyChat';
   static const String startChatTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-Find-Users-in-FluffyChat';
-  static const String appId = 'com.chamamobile.app';
-  static const String appOpenUrlScheme = 'app.chamamobile.com';
-  static String _webBaseUrl = 'https://app.chamamobile.com';
+  static const String appId = 'com.antinvestor.stawi';
+  static const String appOpenUrlScheme = 'stawi.antinvestor.com';
+  static String _webBaseUrl = 'https://stawi.antinvestor.com';
   static String get webBaseUrl => _webBaseUrl;
-  static const String sourceCodeUrl = 'https://github.com/chamamobile/client';
+  static const String sourceCodeUrl = 'https://github.com/antinvestor/client';
   static const String supportUrl =
-      'https://github.com/chamamobile/client/issues';
+      'https://github.com/antinvestor/client/issues';
   static const String changelogUrl =
-      'https://github.com/chamamobile/client/blob/main/CHANGELOG.md';
+      'https://github.com/antinvestor/client/blob/main/CHANGELOG.md';
   static final Uri newIssueUrl = Uri(
     scheme: 'https',
     host: 'github.com',
-    path: '/chamamobile/client/issues/new',
+    path: '/antinvestor/client/issues/new',
   );
   static bool renderHtml = true;
   static bool hideRedactedEvents = false;
@@ -60,18 +60,18 @@ abstract class AppConfig {
   static const bool hideTypingUsernames = false;
   static const bool hideAllStateEvents = false;
   static const String inviteLinkPrefix = 'https://matrix.to/#/';
-  static const String deepLinkPrefix = 'com.chamamobile.app://chat/';
+  static const String deepLinkPrefix = 'com.antinvestor.stawi://chat/';
   static const String schemePrefix = 'matrix:';
-  static const String pushNotificationsChannelId = 'chamamobile_push';
-  static const String pushNotificationsAppId = 'com.chamamobile.app';
+  static const String pushNotificationsChannelId = 'stawi_push';
+  static const String pushNotificationsAppId = 'com.antinvestor.stawi';
   static const String pushNotificationsGatewayUrl =
-      'https://push.chamamobile.com/_matrix/push/v1/notify';
+      'https://stawi.antinvestor.com/_matrix/push/v1/notify';
   static const String pushNotificationsPusherFormat = 'event_id_only';
   static const double borderRadius = 18.0;
   static const double columnWidth = 360.0;
   static final Uri homeserverList = Uri(
     scheme: 'https',
-    host: 'chamamobile.com',
+    host: 'stawi.antinvestor.com',
     path: 'servers.json',
   );
 

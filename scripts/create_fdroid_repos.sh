@@ -17,7 +17,7 @@ cp config.nightly.py config.py
 
 PIPELINES="$(curl https://gitlab.com/api/v4/projects/${GITLAB_PROJECT_ID}/pipelines\?ref=main\&status=success\&order_by=updated_at | jq '.[].id' | head -n3)"
 
-cp ../build/android/app-release.apk repo/fluffychat-latest.apk
+cp ../build/android/stawi-release.apk repo/fluffychat-latest.apk
 
 for PIPELINE in $PIPELINES
 do

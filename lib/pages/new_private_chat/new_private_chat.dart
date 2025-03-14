@@ -1,17 +1,17 @@
 import 'dart:async';
 
-import 'package:chamamobile/pages/new_private_chat/new_private_chat_view.dart';
-import 'package:chamamobile/pages/new_private_chat/qr_scanner_modal.dart';
-import 'package:chamamobile/pages/user_bottom_sheet/user_bottom_sheet.dart';
-import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
-import 'package:chamamobile/utils/fluffy_share.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/url_launcher.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/pages/new_private_chat/new_private_chat_view.dart';
+import 'package:stawi/pages/new_private_chat/qr_scanner_modal.dart';
+import 'package:stawi/pages/user_bottom_sheet/user_bottom_sheet.dart';
+import 'package:stawi/utils/adaptive_bottom_sheet.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/url_launcher.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class NewPrivateChat extends StatefulWidget {

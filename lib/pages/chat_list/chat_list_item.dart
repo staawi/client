@@ -1,12 +1,12 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/date_time_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/utils/room_status_extension.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/hover_builder.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/date_time_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/utils/room_status_extension.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/hover_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../config/themes.dart';

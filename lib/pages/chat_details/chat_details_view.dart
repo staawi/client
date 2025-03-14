@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
-import 'package:chamamobile/pages/chat_details/chat_details.dart';
-import 'package:chamamobile/pages/chat_details/participant_list_item.dart';
-import 'package:chamamobile/utils/fluffy_share.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/chat_settings_popup_menu.dart';
-import 'package:chamamobile/widgets/layouts/max_width_body.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/pages/chat_details/chat_details.dart';
+import 'package:stawi/pages/chat_details/participant_list_item.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/chat_settings_popup_menu.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
+import 'package:stawi/widgets/matrix.dart';
 
 import '../../utils/url_launcher.dart';
 import '../../widgets/qr_code_viewer.dart';

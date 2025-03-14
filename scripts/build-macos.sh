@@ -10,7 +10,7 @@ FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 # This will fix that, but. Well. Use at your own risk.
 # export I_PROMISE_IM_REALLY_SMART=1
 
-# If you want to automatically install the app
+# If you want to automatically install the stawi
 # export FLUFFYCHAT_INSTALL_IPA=1
 
 ### Rotate IDs ###
@@ -30,6 +30,6 @@ FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 ### Make release build ###
 flutter build macos --release
 
-cp /usr/local/Cellar/libolm/**/lib/libolm.3.dylib build/macos/Build/Products/Release/FluffyChat.app/Contents/Frameworks/libolm.3.dylib
+cp /usr/local/Cellar/libolm/**/lib/libolm.3.dylib build/macos/Build/Products/Release/FluffyChat.stawi/Contents/Frameworks/libolm.3.dylib
 
 echo "Build build/macos/Build/Products/Release/FluffyChat.app"

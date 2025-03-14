@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../../config/app_config.dart';

@@ -4538,7 +4538,7 @@ abstract class L10n {
   /// No description provided for @appIntroduction.
   ///
   /// In en, this message translates to:
-  /// **'Create or join groups with the aim of streamlining your finances. Learn more at https://chamamobile.com or just tap *Continue*.'**
+  /// **'Join or create friendly chat groups with the aim of growing financially. Learn more at https://antinvestor.com or just tap *Continue*.'**
   String get appIntroduction;
 
   /// No description provided for @newChatRequest.

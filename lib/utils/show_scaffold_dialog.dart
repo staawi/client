@@ -1,5 +1,5 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/themes.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
 import 'package:flutter/material.dart';
 
 Future<void> showScaffoldDialog({

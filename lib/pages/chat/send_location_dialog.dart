@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:chamamobile/pages/chat/events/map_bubble.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/pages/chat/events/map_bubble.dart';
+import 'package:stawi/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:matrix/matrix.dart';
 

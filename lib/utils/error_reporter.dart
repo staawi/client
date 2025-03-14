@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/widgets/adaptive_dialogs/adaptive_dialog_action.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_highlighter/flutter_highlighter.dart';
 import 'package:flutter_highlighter/themes/shades-of-purple.dart';
 import 'package:matrix/matrix.dart';

@@ -1,29 +1,29 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/setting_keys.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/l10n/l10n.dart';
-import 'package:chamamobile/pages/chat/chat_view.dart';
-import 'package:chamamobile/pages/chat/event_info_dialog.dart';
-import 'package:chamamobile/pages/chat/recording_dialog.dart';
-import 'package:chamamobile/pages/chat_details/chat_details.dart';
-import 'package:chamamobile/utils/account_bundles.dart';
-import 'package:chamamobile/utils/error_reporter.dart';
-import 'package:chamamobile/utils/file_selector.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/event_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/utils/other_party_can_receive.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/show_scaffold_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/matrix.dart';
-import 'package:chamamobile/widgets/share_scaffold_dialog.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/setting_keys.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/pages/chat/chat_view.dart';
+import 'package:stawi/pages/chat/event_info_dialog.dart';
+import 'package:stawi/pages/chat/recording_dialog.dart';
+import 'package:stawi/pages/chat_details/chat_details.dart';
+import 'package:stawi/utils/account_bundles.dart';
+import 'package:stawi/utils/error_reporter.dart';
+import 'package:stawi/utils/file_selector.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/utils/other_party_can_receive.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/show_scaffold_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/matrix.dart';
+import 'package:stawi/widgets/share_scaffold_dialog.dart';
 import 'package:collection/collection.dart';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:device_info_plus/device_info_plus.dart';
@@ -416,7 +416,7 @@ class ChatController extends State<ChatPageWithRoom>
       return;
     }
 
-    // Do not send read markers when app is not in foreground
+    // Do not send read markers when stawi is not in foreground
     if (kIsWeb && !Matrix.of(context).webHasFocus) return;
     if (!kIsWeb &&
         WidgetsBinding.instance.lifecycleState != AppLifecycleState.resumed) {

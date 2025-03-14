@@ -1,7 +1,7 @@
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:share_plus/share_plus.dart';
 
 import '../widgets/matrix.dart';

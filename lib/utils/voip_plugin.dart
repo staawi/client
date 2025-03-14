@@ -1,8 +1,8 @@
 import 'dart:core';
 
-import 'package:chamamobile/pages/chat_list/chat_list.dart';
-import 'package:chamamobile/pages/dialer/dialer.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/pages/chat_list/chat_list.dart';
+import 'package:stawi/pages/dialer/dialer.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';

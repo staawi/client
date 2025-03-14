@@ -1,17 +1,17 @@
 import 'dart:async';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/pages/homeserver_picker/homeserver_picker_view.dart';
-import 'package:chamamobile/utils/file_selector.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/utils/tor_stub.dart'
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/pages/homeserver_picker/homeserver_picker_view.dart';
+import 'package:stawi/utils/file_selector.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/tor_stub.dart'
     if (dart.library.html) 'package:tor_detector_web/tor_detector_web.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:matrix/matrix.dart';

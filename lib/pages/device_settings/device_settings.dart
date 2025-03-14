@@ -1,13 +1,13 @@
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/encryption/utils/key_verification.dart';
 import 'package:matrix/matrix.dart';
-import 'package:chamamobile/pages/device_settings/device_settings_view.dart';
-import 'package:chamamobile/pages/key_verification/key_verification_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/pages/device_settings/device_settings_view.dart';
+import 'package:stawi/pages/key_verification/key_verification_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 
 import '../../widgets/matrix.dart';
 

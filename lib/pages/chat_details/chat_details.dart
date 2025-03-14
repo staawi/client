@@ -1,18 +1,18 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:matrix/matrix.dart';
-import 'package:chamamobile/pages/chat_details/chat_details_view.dart';
-import 'package:chamamobile/pages/settings/settings.dart';
-import 'package:chamamobile/utils/file_selector.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_modal_action_popup.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/pages/chat_details/chat_details_view.dart';
+import 'package:stawi/pages/settings/settings.dart';
+import 'package:stawi/utils/file_selector.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/matrix.dart';
 
 enum AliasActions { copy, delete, setCanonical }
 

@@ -2447,7 +2447,7 @@ class L10nRu extends L10n {
   String get waitingForServer => 'Waiting for server...';
 
   @override
-  String get appIntroduction => 'Create or join groups with the aim of streamlining your finances. Learn more at https://chamamobile.com or just tap *Continue*.';
+  String get appIntroduction => 'Join or create friendly chat groups with the aim of growing financially. Learn more at https://antinvestor.com or just tap *Continue*.';
 
   @override
   String get newChatRequest => '📩 New chat request';

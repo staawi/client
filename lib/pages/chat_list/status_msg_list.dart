@@ -1,11 +1,11 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/user_bottom_sheet/user_bottom_sheet.dart';
-import 'package:chamamobile/utils/adaptive_bottom_sheet.dart';
-import 'package:chamamobile/utils/stream_extension.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/hover_builder.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/user_bottom_sheet/user_bottom_sheet.dart';
+import 'package:stawi/utils/adaptive_bottom_sheet.dart';
+import 'package:stawi/utils/stream_extension.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/hover_builder.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

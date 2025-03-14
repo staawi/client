@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class LoginScaffold extends StatelessWidget {

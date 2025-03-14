@@ -1,6 +1,6 @@
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 import '../../widgets/matrix.dart';

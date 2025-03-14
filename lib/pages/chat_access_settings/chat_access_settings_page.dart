@@ -1,9 +1,9 @@
-import 'package:chamamobile/pages/chat_access_settings/chat_access_settings_controller.dart';
-import 'package:chamamobile/utils/fluffy_share.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_locals.dart';
-import 'package:chamamobile/widgets/layouts/max_width_body.dart';
+import 'package:stawi/pages/chat_access_settings/chat_access_settings_controller.dart';
+import 'package:stawi/utils/fluffy_share.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart' hide Visibility;
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class ChatAccessSettingsPageView extends StatelessWidget {

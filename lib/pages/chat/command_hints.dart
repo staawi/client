@@ -1,6 +1,6 @@
 // This file is auto-generated using scripts/generate_command_hints_glue.sh.
 
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 
 String commandExample(String command) {
   switch (command) {

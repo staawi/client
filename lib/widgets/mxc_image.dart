@@ -1,10 +1,10 @@
 import 'dart:io';
 import 'dart:typed_data';
 
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/utils/client_download_content_extension.dart';
-import 'package:chamamobile/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/utils/client_download_content_extension.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

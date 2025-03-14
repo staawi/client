@@ -1,6 +1,6 @@
-import 'package:chamamobile/pages/chat/add_widget_tile_view.dart';
+import 'package:stawi/pages/chat/add_widget_tile_view.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class AddWidgetTile extends StatefulWidget {

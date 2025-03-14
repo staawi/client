@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/chat_list/chat_list.dart';
-import 'package:chamamobile/widgets/navigation_rail.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/chat_list/chat_list.dart';
+import 'package:stawi/widgets/navigation_rail.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 
 import 'chat_list_body.dart';

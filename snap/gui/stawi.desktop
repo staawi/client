@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Stawi
+GenericName=Stawi: Group Savings & Loan app
+Comment=Chat for people who grow together
+Exec=stawi
+Icon=${SNAP}/meta/gui/stawi.png
+Terminal=false
+Type=Application
+Categories=Network;Chat;InstantMessaging;

@@ -1,5 +1,5 @@
-//import 'package:chamamobile/pages/homeserver_picker.dart';
-//import 'package:chamamobile/main.dart';
+//import 'package:stawi/pages/homeserver_picker.dart';
+//import 'package:stawi/main.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 

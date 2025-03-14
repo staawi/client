@@ -1,10 +1,10 @@
 ![Screenshot](https://github.com/chamamobile/client/blob/main/assets/banner_transparent.png?raw=true)
 
-[Chamamobile](https://fluffychat.im) is an automated group savings and credit service. The goal of the app is to make it easy to do group savings in a way that is accessible and works for the masses.
+[Stawi](https://fluffychat.im) is an automated group savings and credit service. The goal of the app is to make it easy to do group savings in a way that is accessible and works for the masses.
 
 ### Links:
 
-- 🌐 [[Weblate] Translate Chamamobile into your language](https://hosted.weblate.org/projects/chamamobile/)
+- 🌐 [[Weblate] Translate Stawi into your language](https://hosted.weblate.org/projects/chamamobile/)
 - 🌍 [[m] Join the community](https://matrix.to/#/#fluffychat:matrix.org)
 
 

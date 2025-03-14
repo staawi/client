@@ -1,8 +1,8 @@
-import 'package:chamamobile/config/routes.dart';
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/l10n/l10n.dart';
-import 'package:chamamobile/widgets/app_lock.dart';
-import 'package:chamamobile/widgets/theme_builder.dart';
+import 'package:stawi/config/routes.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/widgets/app_lock.dart';
+import 'package:stawi/widgets/theme_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';

@@ -149,7 +149,7 @@ FLUTTER_EXPORT bool FlutterDesktopEngineDestroy(FlutterDesktopEngineRef engine);
 // project. If the entry point is null, defaults to main().
 //
 // If provided, entry_point must be the name of a top-level function from the
-// same Dart library that contains the app's main() function, and must be
+// same Dart library that contains the stawi's main() function, and must be
 // decorated with `@pragma(vm:entry-point)` to ensure the method is not
 // tree-shaken by the Dart compiler.
 //

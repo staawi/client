@@ -1,5 +1,5 @@
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/mxc_image.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/mxc_image.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_highlighter/flutter_highlighter.dart';

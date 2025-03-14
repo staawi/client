@@ -14,7 +14,7 @@ cp -r build/linux/{x64,arm64}/release/bundle appimage/FluffyChat.AppDir
 cd appimage
 
 # prepare AppImage files
-cp FluffyChat.desktop FluffyChat.AppDir/
+cp Stawi.desktop FluffyChat.AppDir/
 mkdir -p FluffyChat.AppDir/usr/share/icons
 cp ../assets/logo.svg FluffyChat.AppDir/fluffychat.svg
 cp AppRun FluffyChat.AppDir

@@ -1,7 +1,7 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/client_manager.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/widgets/error_widget.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/client_manager.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/error_widget.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -24,12 +24,12 @@ void main() async {
   final store = await SharedPreferences.getInstance();
   final clients = await ClientManager.getClients(store: store);
 
-  // If the app starts in detached mode, we assume that it is in
+  // If the stawi starts in detached mode, we assume that it is in
   // background fetch mode for processing push notifications. This is
   // currently only supported on Android.
   if (PlatformInfos.isAndroid &&
       AppLifecycleState.detached == WidgetsBinding.instance.lifecycleState) {
-    // Do not send online presences when app is in background fetch mode.
+    // Do not send online presences when stawi is in background fetch mode.
     for (final client in clients) {
       client.backgroundSync = false;
       client.syncPresence = PresenceType.offline;
@@ -41,7 +41,7 @@ void main() async {
     // To start the flutter engine afterwards we add a custom observer.
     WidgetsBinding.instance.addObserver(AppStarter(clients, store));
     Logs().i(
-      '${AppConfig.applicationName} started in background-fetch mode. No GUI will be created unless the app is no longer detached.',
+      '${AppConfig.applicationName} started in background-fetch mode. No GUI will be created unless the stawi is no longer detached.',
     );
     return;
   }

@@ -1,9 +1,9 @@
-import 'package:chamamobile/pages/chat_encryption_settings/chat_encryption_settings_view.dart';
-import 'package:chamamobile/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:chamamobile/widgets/future_loading_dialog.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/pages/chat_encryption_settings/chat_encryption_settings_view.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';

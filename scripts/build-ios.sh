@@ -10,7 +10,7 @@ FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 # This will fix that, but. Well. Use at your own risk.
 # export I_PROMISE_IM_REALLY_SMART=1
 
-# If you want to automatically install the app
+# If you want to automatically install the stawi
 # export FLUFFYCHAT_INSTALL_IPA=1
 
 ### Rotate IDs ###
@@ -73,6 +73,6 @@ flutter build ipa --release
   echo '{"compileBitcode":false,"method":"development"}' | plutil -convert xml1 -o "${TMPDIR}/options.plist" -
   xcodebuild -exportArchive -archivePath ./build/ios/archive/Runner.xcarchive -exportPath "${TMPDIR}" -exportOptionsPlist "${TMPDIR}/options.plist"
   # 2. ...and install it on your connected devices
-  cfgutil --foreach install-app "${TMPDIR}/fluffychat.ipa"
+  cfgutil --foreach install-stawi "${TMPDIR}/fluffychat.ipa"
   rm -rf "${TMPDIR}"
 }

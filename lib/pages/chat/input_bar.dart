@@ -1,11 +1,11 @@
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/markdown_context_builder.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
-import 'package:chamamobile/widgets/mxc_image.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/markdown_context_builder.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/widgets/mxc_image.dart';
 import 'package:emojis/emoji.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:matrix/matrix.dart';
 import 'package:pasteboard/pasteboard.dart';

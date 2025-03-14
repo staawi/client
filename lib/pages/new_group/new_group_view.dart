@@ -1,10 +1,10 @@
-import 'package:chamamobile/config/themes.dart';
-import 'package:chamamobile/pages/new_group/new_group.dart';
-import 'package:chamamobile/utils/localized_exception_extension.dart';
-import 'package:chamamobile/widgets/avatar.dart';
-import 'package:chamamobile/widgets/layouts/max_width_body.dart';
+import 'package:stawi/config/themes.dart';
+import 'package:stawi/pages/new_group/new_group.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
+import 'package:stawi/widgets/avatar.dart';
+import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 
 class NewGroupView extends StatelessWidget {
   final NewGroupController controller;

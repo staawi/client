@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:chamamobile/config/app_config.dart';
+import 'package:stawi/config/app_config.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:matrix/matrix.dart';
 
 class CuteContent extends StatefulWidget {

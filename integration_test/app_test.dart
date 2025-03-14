@@ -1,9 +1,9 @@
-import 'package:chamamobile/config/setting_keys.dart';
-import 'package:chamamobile/main.dart' as app;
-import 'package:chamamobile/pages/chat/chat_view.dart';
-import 'package:chamamobile/pages/chat_list/chat_list_body.dart';
-import 'package:chamamobile/pages/chat_list/search_title.dart';
-import 'package:chamamobile/pages/invitation_selection/invitation_selection_view.dart';
+import 'package:stawi/config/setting_keys.dart';
+import 'package:stawi/main.dart' as app;
+import 'package:stawi/pages/chat/chat_view.dart';
+import 'package:stawi/pages/chat_list/chat_list_body.dart';
+import 'package:stawi/pages/chat_list/search_title.dart';
+import 'package:stawi/pages/invitation_selection/invitation_selection_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -34,7 +34,7 @@ void main() {
       );
 
       testWidgets(
-        'Start app, login and logout',
+        'Start stawi, login and logout',
         (WidgetTester tester) async {
           app.main();
           await tester.ensureAppStartedHomescreen();

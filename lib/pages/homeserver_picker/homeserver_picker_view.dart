@@ -1,7 +1,7 @@
-import 'package:chamamobile/widgets/layouts/login_scaffold.dart';
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/widgets/layouts/login_scaffold.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -104,7 +104,9 @@ class HomeserverPickerView extends StatelessWidget {
                       child: Hero(
                         tag: 'info-logo',
                         child: Image.asset(
-                          './assets/banner_transparent_black.png',
+                          Theme.of(context).brightness == Brightness.dark
+                              ? './assets/banner_transparent.png'
+                          : './assets/banner_transparent_black.png',
                           fit: BoxFit.fitWidth,
                         ),
                       ),

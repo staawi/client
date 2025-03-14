@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:chamamobile/widgets/matrix.dart';
+import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 

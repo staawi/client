@@ -1,11 +1,11 @@
 import 'dart:async';
 
-import 'package:chamamobile/config/app_config.dart';
-import 'package:chamamobile/utils/platform_infos.dart';
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:path/path.dart' as path_lib;
 import 'package:path_provider/path_provider.dart';
 import 'package:record/record.dart';

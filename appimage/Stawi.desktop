@@ -4,6 +4,6 @@ Version=1.0
 Name=Chama Mobile
 Comment=Automated group credit and savings service
 Exec=AppRun
-Icon=chamamobile
+Icon=stawi
 Terminal=false
 Categories=Network;Chat;InstantMessaging;X-Matrix;

@@ -21,11 +21,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:chamamobile/utils/push_helper.dart';
-import 'package:chamamobile/widgets/fluffy_chat_app.dart';
+import 'package:stawi/utils/push_helper.dart';
+import 'package:stawi/widgets/fluffy_chat_app.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:chamamobile/l10n/l10n.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_new_badger/flutter_new_badger.dart';
 import 'package:http/http.dart' as http;
@@ -126,7 +126,7 @@ class BackgroundPush {
     Logs().v('Cancel notification for room', roomId);
     await _flutterLocalNotificationsPlugin.cancel(roomId.hashCode);
 
-    // Workaround for app icon badge not updating
+    // Workaround for stawi icon badge not updating
     if (Platform.isIOS) {
       final unreadCount = client.rooms
           .where((room) => room.isUnreadOrInvited && room.id != roomId)
@@ -163,7 +163,7 @@ class BackgroundPush {
         })) ??
         [];
     var setNewPusher = false;
-    // Just the plain app id, we add the .data_message suffix later
+    // Just the plain stawi id, we add the .data_message suffix later
     var appId = AppConfig.pushNotificationsAppId;
     // we need the deviceAppId to remove potential legacy UP pusher
     var deviceAppId = '$appId.${client.deviceID}';
