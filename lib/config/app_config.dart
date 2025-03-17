@@ -7,7 +7,7 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'stawi.antinvestor.com';
+  static String _defaultHomeserver = 'matrix.org';
   static String get defaultHomeserver => _defaultHomeserver;
   static String _partitionId = '9bsv0s0hijjg02qks6i0';
   static String get partitionId => _partitionId;
@@ -32,7 +32,7 @@ abstract class AppConfig {
   static const String startChatTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-Find-Users-in-FluffyChat';
   static const String appId = 'com.antinvestor.stawi';
-  static const String appOpenUrlScheme = 'stawi.antinvestor.com';
+  static const String appOpenUrlScheme = 'com.antinvestor.stawi';
   static String _webBaseUrl = 'https://stawi.antinvestor.com';
   static String get webBaseUrl => _webBaseUrl;
   static const String sourceCodeUrl = 'https://github.com/antinvestor/client';

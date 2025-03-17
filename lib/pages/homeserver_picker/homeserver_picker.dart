@@ -1,6 +1,13 @@
 import 'dart:async';
 
+import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:matrix/matrix.dart';
 import 'package:stawi/config/app_config.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/homeserver_picker/homeserver_picker_view.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/utils/platform_infos.dart';
@@ -8,13 +15,6 @@ import 'package:stawi/utils/tor_stub.dart'
     if (dart.library.html) 'package:tor_detector_web/tor_detector_web.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:collection/collection.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:hive_flutter/hive_flutter.dart';
-import 'package:matrix/matrix.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -44,16 +44,14 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   Future<void> _checkTorBrowser() async {
     if (!kIsWeb) return;
 
-    Hive.openBox('test').then((value) => null).catchError(
-      (e, s) async {
-        await showOkAlertDialog(
-          context: context,
-          title: L10n.of(context).indexedDbErrorTitle,
-          message: L10n.of(context).indexedDbErrorLong,
-        );
-        _checkTorBrowser();
-      },
-    );
+    Hive.openBox('test').then((value) => null).catchError((e, s) async {
+      await showOkAlertDialog(
+        context: context,
+        title: L10n.of(context).indexedDbErrorTitle,
+        message: L10n.of(context).indexedDbErrorLong,
+      );
+      _checkTorBrowser();
+    });
 
     final isTor = await TorBrowserDetector.isTorBrowser;
     isTorBrowser = isTor;
@@ -64,8 +62,10 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   /// well-known information and forwards to the login page depending on the
   /// login type.
   Future<void> checkHomeserverAction([_]) async {
-    final homeserverInput =
-        homeserverController.text.trim().toLowerCase().replaceAll(' ', '-');
+    final homeserverInput = homeserverController.text
+        .trim()
+        .toLowerCase()
+        .replaceAll(' ', '-');
 
     if (homeserverInput.isEmpty) {
       setState(() {
@@ -92,10 +92,11 @@ class HomeserverPickerController extends State<HomeserverPicker> {
       return ssoLoginAction();
     } catch (e) {
       setState(
-        () => error = (e).toLocalizedString(
-          context,
-          ExceptionContext.checkHomeserver,
-        ),
+        () =>
+            error = (e).toLocalizedString(
+              context,
+              ExceptionContext.checkHomeserver,
+            ),
       );
     } finally {
       if (mounted) {
@@ -117,24 +118,29 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   bool get supportsPasswordLogin => _supportsFlow('m.login.password');
 
   void ssoLoginAction() async {
-    final redirectUrl = kIsWeb
-        ? Uri.parse(html.window.location.href)
-            .resolveUri(
-              Uri(pathSegments: ['auth.html']),
-            )
-            .toString()
-        : isDefaultPlatform
+    final redirectUrl =
+        kIsWeb
+            ? Uri.parse(
+              html.window.location.href,
+            ).resolveUri(Uri(pathSegments: ['auth.html'])).toString()
+            : isDefaultPlatform
             ? '${AppConfig.appOpenUrlScheme.toLowerCase()}://login'
             : 'http://localhost:3001//login';
 
+    // final url = Matrix.of(context).getLoginClient().homeserver!.replace(
+    //   path: '/_matrix/client/v3/login/sso/redirect/${AppConfig.partitionId}',
+    //   queryParameters: {'redirectUrl': redirectUrl},
+    // );
+
     final url = Matrix.of(context).getLoginClient().homeserver!.replace(
-      path: '/_matrix/client/v3/login/sso/redirect/${AppConfig.partitionId}',
+      path: '/_matrix/client/v3/login/sso/redirect',
       queryParameters: {'redirectUrl': redirectUrl},
     );
 
-    final urlScheme = isDefaultPlatform
-        ? Uri.parse(redirectUrl).scheme
-        : "http://localhost:3001";
+    final urlScheme =
+        isDefaultPlatform
+            ? Uri.parse(redirectUrl).scheme
+            : "http://localhost:3001";
     final result = await FlutterWebAuth2.authenticate(
       url: url.toString(),
       callbackUrlScheme: urlScheme,
@@ -149,10 +155,10 @@ class HomeserverPickerController extends State<HomeserverPicker> {
     });
     try {
       await Matrix.of(context).getLoginClient().login(
-            LoginType.mLoginToken,
-            token: token,
-            initialDeviceDisplayName: PlatformInfos.clientName,
-          );
+        LoginType.mLoginToken,
+        token: token,
+        initialDeviceDisplayName: PlatformInfos.clientName,
+      );
     } catch (e) {
       setState(() {
         error = e.toLocalizedString(context);
