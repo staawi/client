@@ -1,9 +1,10 @@
-import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:share_plus/share_plus.dart';
 
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import '../widgets/matrix.dart';
 
 abstract class FluffyShare {
@@ -35,7 +36,7 @@ abstract class FluffyShare {
     await FluffyShare.share(
       L10n.of(context).inviteText(
         ownProfile.displayName ?? client.userID!,
-        'https://matrix.to/#/${client.userID}?client=im.fluffychat',
+        'https://stawi.antinvestor.com/#/${client.userID}',
       ),
       context,
     );

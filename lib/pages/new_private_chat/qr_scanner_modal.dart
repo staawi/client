@@ -3,8 +3,9 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 
-import 'package:stawi/l10n/l10n.dart';
 import 'package:qr_code_scanner_plus/qr_code_scanner_plus.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 
 class QrScannerModal extends StatefulWidget {
   final void Function(String) onScan;

@@ -1,7 +1,9 @@
-import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/localized_exception_extension.dart';
 
 extension SyncStatusLocalization on SyncStatusUpdate {
   String calcLocalizedString(BuildContext context) {

@@ -1,12 +1,14 @@
+import 'package:flutter/material.dart';
+
+import 'package:intl/intl.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat/events/video_player.dart';
 import 'package:stawi/pages/image_viewer/image_viewer.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:stawi/widgets/mxc_image.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:intl/intl.dart';
-import 'package:matrix/matrix.dart';
 
 class ChatSearchImagesTab extends StatelessWidget {
   final Room room;

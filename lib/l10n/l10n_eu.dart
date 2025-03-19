@@ -852,6 +852,9 @@ class L10nEu extends L10n {
   String get locationPermissionDeniedNotice => 'Kokapen baimena ukatu da. Eman zure kokapena partekatzeko baimena.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Hasi saioa';
 
   @override

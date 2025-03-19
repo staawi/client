@@ -1,8 +1,9 @@
 // ignore_for_file: depend_on_referenced_packages
 
-import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
 import 'package:matrix/encryption/utils/key_verification.dart';
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
 
 Future<Client> prepareTestClient({
   bool loggedIn = false,

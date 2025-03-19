@@ -852,6 +852,9 @@ class L10nAr extends L10n {
   String get locationPermissionDeniedNotice => 'تم رفض إذن الموقع. الرجاء منح الإذن للقدرة على مشاركة موقعك.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'لِج';
 
   @override

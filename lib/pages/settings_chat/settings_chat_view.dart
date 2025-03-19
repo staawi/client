@@ -1,14 +1,15 @@
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/setting_keys.dart';
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:stawi/widgets/matrix.dart';
 import 'package:stawi/widgets/settings_switch_list_tile.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:go_router/go_router.dart';
-
 import 'settings_chat.dart';
 
 class SettingsChatView extends StatelessWidget {

@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/pages/archive/archive.dart';
 import 'package:stawi/pages/chat/chat.dart';
@@ -32,8 +36,6 @@ import 'package:stawi/widgets/layouts/two_column_layout.dart';
 import 'package:stawi/widgets/log_view.dart';
 import 'package:stawi/widgets/matrix.dart';
 import 'package:stawi/widgets/share_scaffold_dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 abstract class AppRoutes {
   static FutureOr<String?> loggedInRedirect(

@@ -852,6 +852,9 @@ class L10nHr extends L10n {
   String get locationPermissionDeniedNotice => 'Lokacijske dozvole su odbijene. Za dijeljenje tvoje lokacije dozvoli ih.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Prijava';
 
   @override

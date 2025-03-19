@@ -1,12 +1,14 @@
 import 'dart:typed_data';
 
-import 'package:stawi/pages/new_group/new_group_view.dart';
-import 'package:stawi/utils/file_selector.dart';
-import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
+
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/pages/new_group/new_group_view.dart';
+import 'package:stawi/utils/file_selector.dart';
+import 'package:stawi/widgets/matrix.dart';
 
 class NewGroup extends StatefulWidget {
   final CreateGroupType createGroupType;

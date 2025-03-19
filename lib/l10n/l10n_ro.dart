@@ -852,6 +852,9 @@ class L10nRo extends L10n {
   String get locationPermissionDeniedNotice => 'Permisiunea locației blocată. Vă rugăm să o dezblocați să împărțiți locația voastră.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Conectați-vă';
 
   @override

@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/pages/chat_search/chat_search_view.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:matrix/matrix.dart';
 
 class ChatSearchPage extends StatefulWidget {
   final String roomId;

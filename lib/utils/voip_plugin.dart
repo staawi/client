@@ -1,15 +1,16 @@
 import 'dart:core';
 
-import 'package:stawi/pages/chat_list/chat_list.dart';
-import 'package:stawi/pages/dialer/dialer.dart';
-import 'package:stawi/utils/platform_infos.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
 import 'package:flutter_foreground_task/flutter_foreground_task.dart';
 import 'package:flutter_webrtc/flutter_webrtc.dart' as webrtc_impl;
 import 'package:matrix/matrix.dart';
 import 'package:webrtc_interface/webrtc_interface.dart' hide Navigator;
 
+import 'package:stawi/pages/chat_list/chat_list.dart';
+import 'package:stawi/pages/dialer/dialer.dart';
+import 'package:stawi/utils/platform_infos.dart';
 import '../../utils/voip/user_media_manager.dart';
 import '../widgets/matrix.dart';
 

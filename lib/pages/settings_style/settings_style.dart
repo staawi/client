@@ -1,11 +1,11 @@
+import 'package:flutter/material.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/setting_keys.dart';
 import 'package:stawi/utils/account_config.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/theme_builder.dart';
-import 'package:flutter/material.dart';
-
 import '../../widgets/matrix.dart';
 import 'settings_style_view.dart';
 

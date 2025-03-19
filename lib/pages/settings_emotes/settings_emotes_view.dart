@@ -1,11 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:stawi/widgets/mxc_image.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../widgets/matrix.dart';
 import 'settings_emotes.dart';
 

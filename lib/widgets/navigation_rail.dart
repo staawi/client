@@ -1,14 +1,16 @@
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_list/navi_rail_item.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:stawi/utils/stream_extension.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:go_router/go_router.dart';
-import 'package:matrix/matrix.dart';
 
 class SpacesNavigationRail extends StatelessWidget {
   final String? activeSpaceId;

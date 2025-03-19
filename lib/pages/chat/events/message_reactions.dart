@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+
+import 'package:collection/collection.dart' show IterableExtension;
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/matrix.dart';
 import 'package:stawi/widgets/mxc_image.dart';
-import 'package:collection/collection.dart' show IterableExtension;
-import 'package:flutter/material.dart';
-import 'package:matrix/matrix.dart';
 
 class MessageReactions extends StatelessWidget {
   final Event event;

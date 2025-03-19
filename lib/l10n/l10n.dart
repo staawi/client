@@ -1514,7 +1514,7 @@ abstract class L10n {
   /// No description provided for @inviteText.
   ///
   /// In en, this message translates to:
-  /// **'{username} invited you to FluffyChat.\n1. Visit fluffychat.im and install the app \n2. Sign up or sign in \n3. Open the invite link: \n {link}'**
+  /// **'{username} invited you to stawi. Visit invitation link {link} to connect'**
   String inviteText(String username, String link);
 
   /// No description provided for @isTyping.
@@ -1654,6 +1654,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Location permission denied. Please grant them to be able to share your location.'**
   String get locationPermissionDeniedNotice;
+
+  /// No description provided for @contactPermissionDeniedNotice.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact permission denied. Please grant them to be able to connect with others.'**
+  String get contactPermissionDeniedNotice;
 
   /// No description provided for @login.
   ///

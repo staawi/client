@@ -852,6 +852,9 @@ class L10nZh extends L10n {
   String get locationPermissionDeniedNotice => '位置权限被拒绝。请授予此权限以分享你的位置.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => '登录';
 
   @override

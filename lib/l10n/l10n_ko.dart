@@ -852,6 +852,9 @@ class L10nKo extends L10n {
   String get locationPermissionDeniedNotice => '위치 권한이 거부되었습니다. 위치를 공유하기 위해서 허용해주세요.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => '로그인';
 
   @override

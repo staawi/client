@@ -852,6 +852,9 @@ class L10nGa extends L10n {
   String get locationPermissionDeniedNotice => 'Diúltaíodh cead suímh. Deonaigh dóibh le do thoil go mbeidh tú in ann do shuíomh a roinnt.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Logáil isteach';
 
   @override

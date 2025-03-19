@@ -1,12 +1,12 @@
+import 'package:flutter/material.dart';
+
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/new_group_type/new_group.dart';
 import 'package:stawi/pages/new_group_type/new_group_form.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-
 import 'new_space_form.dart';
 
 class NewGroupView extends StatelessWidget {

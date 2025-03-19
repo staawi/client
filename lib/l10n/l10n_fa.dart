@@ -852,6 +852,9 @@ class L10nFa extends L10n {
   String get locationPermissionDeniedNotice => 'مجوز مکان رد شد. برای به اشتراک گذاشتن موقعیت مکانی شما لطفا به آن اجازه دهید.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'وارد شدن';
 
   @override

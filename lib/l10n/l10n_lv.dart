@@ -852,6 +852,9 @@ class L10nLv extends L10n {
   String get locationPermissionDeniedNotice => 'Atrašanās vietas atļauja noliegta. Lūgums nodrošināt to, lai būtu iespējams kopīgot savu atrašanās vietu.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Pieteikties';
 
   @override

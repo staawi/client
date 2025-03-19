@@ -1,10 +1,12 @@
+import 'package:flutter/material.dart' hide Visibility;
+
+import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_access_settings/chat_access_settings_controller.dart';
 import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
-import 'package:flutter/material.dart' hide Visibility;
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
 
 class ChatAccessSettingsPageView extends StatelessWidget {
   final ChatAccessSettingsController controller;

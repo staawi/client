@@ -1,9 +1,11 @@
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
+
+import 'package:collection/collection.dart';
 import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_details/chat_details_view.dart';
 import 'package:stawi/pages/settings/settings.dart';
 import 'package:stawi/utils/file_selector.dart';

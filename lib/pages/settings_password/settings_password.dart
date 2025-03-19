@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/settings_password/settings_password_view.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:go_router/go_router.dart';
 
 class SettingsPassword extends StatefulWidget {
   const SettingsPassword({super.key});

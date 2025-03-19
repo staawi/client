@@ -1,11 +1,12 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/pages/chat/chat.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
 
 class TypingIndicators extends StatelessWidget {
   final ChatController controller;

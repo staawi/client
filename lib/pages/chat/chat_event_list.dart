@@ -1,3 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'package:matrix/matrix.dart';
+import 'package:scroll_to_index/scroll_to_index.dart';
+
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/pages/chat/chat.dart';
 import 'package:stawi/pages/chat/events/message.dart';
@@ -8,9 +13,6 @@ import 'package:stawi/utils/account_config.dart';
 import 'package:stawi/utils/adaptive_bottom_sheet.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/filtered_timeline_extension.dart';
 import 'package:stawi/utils/platform_infos.dart';
-import 'package:flutter/material.dart';
-import 'package:matrix/matrix.dart';
-import 'package:scroll_to_index/scroll_to_index.dart';
 
 class ChatEventList extends StatelessWidget {
   final ChatController controller;

@@ -1,7 +1,13 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
+import 'package:dynamic_color/dynamic_color.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/setting_keys.dart';
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat/events/state_message.dart';
 import 'package:stawi/utils/account_config.dart';
 import 'package:stawi/utils/color_value.dart';
@@ -9,11 +15,6 @@ import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:stawi/widgets/matrix.dart';
 import 'package:stawi/widgets/mxc_image.dart';
-import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../config/app_config.dart';
 import '../../widgets/settings_switch_list_tile.dart';
 import 'settings_style.dart';

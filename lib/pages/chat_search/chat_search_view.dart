@@ -1,12 +1,13 @@
+import 'package:flutter/material.dart';
+
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_search/chat_search_files_tab.dart';
 import 'package:stawi/pages/chat_search/chat_search_images_tab.dart';
 import 'package:stawi/pages/chat_search/chat_search_message_tab.dart';
 import 'package:stawi/pages/chat_search/chat_search_page.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
 
 class ChatSearchView extends StatelessWidget {
   final ChatSearchController controller;

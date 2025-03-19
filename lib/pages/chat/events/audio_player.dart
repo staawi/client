@@ -1,6 +1,15 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
+
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:just_audio/just_audio.dart';
+import 'package:matrix/matrix.dart';
+import 'package:opus_caf_converter_dart/opus_caf_converter_dart.dart';
+import 'package:path_provider/path_provider.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/utils/error_reporter.dart';
@@ -8,13 +17,6 @@ import 'package:stawi/utils/file_description.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
 import 'package:stawi/utils/url_launcher.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:just_audio/just_audio.dart';
-import 'package:matrix/matrix.dart';
-import 'package:opus_caf_converter_dart/opus_caf_converter_dart.dart';
-import 'package:path_provider/path_provider.dart';
 
 class AudioPlayerWidget extends StatefulWidget {
   final Color color;

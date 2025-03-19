@@ -1,10 +1,11 @@
-import 'package:stawi/widgets/layouts/login_scaffold.dart';
-import 'package:stawi/widgets/matrix.dart';
 import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/widgets/layouts/login_scaffold.dart';
+import 'package:stawi/widgets/matrix.dart';
 import '../../config/themes.dart';
 import 'homeserver_picker.dart';
 

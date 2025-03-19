@@ -1,7 +1,8 @@
-import 'package:stawi/config/themes.dart';
-import 'package:stawi/pages/new_group_type/new_group.dart';
 import 'package:flutter/material.dart';
+
+import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/pages/new_group_type/new_group.dart';
 
 class GroupNameStep extends StatelessWidget {
   final NewGroupController controller;

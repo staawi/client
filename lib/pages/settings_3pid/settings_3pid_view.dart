@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
+import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/settings_3pid/settings_3pid.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
 
 class Settings3PidView extends StatelessWidget {
   final Settings3PidController controller;

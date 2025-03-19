@@ -1,20 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/init_with_restore.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/utils/uia_request_manager.dart';
-import 'package:stawi/utils/voip_plugin.dart';
-import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:stawi/widgets/fluffy_chat_app.dart';
-import 'package:stawi/widgets/future_loading_dialog.dart';
-import 'package:collection/collection.dart';
-import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'package:collection/collection.dart';
+import 'package:desktop_notifications/desktop_notifications.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -25,6 +16,16 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher_string.dart';
 
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/client_manager.dart';
+import 'package:stawi/utils/init_with_restore.dart';
+import 'package:stawi/utils/matrix_sdk_extensions/matrix_file_extension.dart';
+import 'package:stawi/utils/platform_infos.dart';
+import 'package:stawi/utils/uia_request_manager.dart';
+import 'package:stawi/utils/voip_plugin.dart';
+import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
+import 'package:stawi/widgets/fluffy_chat_app.dart';
+import 'package:stawi/widgets/future_loading_dialog.dart';
 import '../config/app_config.dart';
 import '../config/setting_keys.dart';
 import '../pages/key_verification/key_verification_dialog.dart';
@@ -480,7 +481,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     );
 
     final exportFileName =
-        'fluffychat-export-${DateFormat(DateFormat.YEAR_MONTH_DAY).format(DateTime.now())}.fluffybackup';
+        'stawi-export-${DateFormat(DateFormat.YEAR_MONTH_DAY).format(DateTime.now())}.stawibackup';
 
     final file = MatrixFile(bytes: exportBytes, name: exportFileName);
     file.save(context);

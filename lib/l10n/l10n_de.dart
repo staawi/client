@@ -852,6 +852,9 @@ class L10nDe extends L10n {
   String get locationPermissionDeniedNotice => 'Standort-Berechtigung wurde abgelehnt. Bitte akzeptieren, um den Standort teilen zu können.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Anmelden';
 
   @override

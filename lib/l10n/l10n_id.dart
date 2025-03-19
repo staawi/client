@@ -852,6 +852,9 @@ class L10nId extends L10n {
   String get locationPermissionDeniedNotice => 'Izin lokasi ditolak. Mohon memberikan izin untuk bisa membagikan lokasimu.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Masuk';
 
   @override

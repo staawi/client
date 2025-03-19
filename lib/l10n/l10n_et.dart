@@ -852,6 +852,9 @@ class L10nEt extends L10n {
   String get locationPermissionDeniedNotice => 'Puudub luba asukohateenuste kasutamiseks. Asukoha jagamiseks palun anna rakendusele vastavad õigused.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Logi sisse';
 
   @override

@@ -1,18 +1,19 @@
 import 'dart:ui' as ui;
 
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+import 'package:matrix/matrix.dart';
+import 'package:swipe_to_action/swipe_to_action.dart';
+
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat/events/room_creation_state_event.dart';
 import 'package:stawi/utils/date_time_extension.dart';
 import 'package:stawi/utils/file_description.dart';
 import 'package:stawi/utils/string_color.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
-import 'package:swipe_to_action/swipe_to_action.dart';
-
 import '../../../config/app_config.dart';
 import 'message_content.dart';
 import 'message_reactions.dart';

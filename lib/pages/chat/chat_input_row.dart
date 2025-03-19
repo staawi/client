@@ -1,13 +1,14 @@
+import 'package:flutter/material.dart';
+
 import 'package:animations/animations.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/other_party_can_receive.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../config/themes.dart';
 import 'chat.dart';
 import 'input_bar.dart';

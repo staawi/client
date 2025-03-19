@@ -1,12 +1,13 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
+
+import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/invitation_selection/invitation_selection_view.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../utils/localized_exception_extension.dart';
 
 class InvitationSelection extends StatefulWidget {

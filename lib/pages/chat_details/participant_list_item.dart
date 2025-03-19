@@ -1,9 +1,10 @@
-import 'package:stawi/config/app_config.dart';
-import 'package:stawi/utils/adaptive_bottom_sheet.dart';
 import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:matrix/matrix.dart';
 
+import 'package:stawi/config/app_config.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/adaptive_bottom_sheet.dart';
 import '../../widgets/avatar.dart';
 import '../user_bottom_sheet/user_bottom_sheet.dart';
 

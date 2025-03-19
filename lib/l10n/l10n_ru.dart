@@ -852,6 +852,9 @@ class L10nRu extends L10n {
   String get locationPermissionDeniedNotice => 'Разрешение на определение местоположения отклонено. Пожалуйста, предоставьте это разрешение, чтобы иметь возможность делиться своим местоположением.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Войти';
 
   @override

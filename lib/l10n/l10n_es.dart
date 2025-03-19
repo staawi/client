@@ -852,6 +852,9 @@ class L10nEs extends L10n {
   String get locationPermissionDeniedNotice => 'Permiso de ubicación denegado. Concédeles que puedan compartir tu ubicación.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Acceso';
 
   @override

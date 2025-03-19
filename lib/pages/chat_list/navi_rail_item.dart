@@ -1,10 +1,11 @@
+import 'package:flutter/material.dart';
+
 import 'package:badges/badges.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/widgets/hover_builder.dart';
 import 'package:stawi/widgets/unread_rooms_badge.dart';
-import 'package:flutter/material.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../config/themes.dart';
 
 class NaviRailItem extends StatelessWidget {

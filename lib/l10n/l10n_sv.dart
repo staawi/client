@@ -852,6 +852,9 @@ class L10nSv extends L10n {
   String get locationPermissionDeniedNotice => 'Plats åtkomst nekad. Var god godkän detta för att kunna dela din plats.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Logga in';
 
   @override

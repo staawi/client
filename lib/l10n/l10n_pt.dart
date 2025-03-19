@@ -769,7 +769,7 @@ class L10nPt extends L10n {
 
   @override
   String inviteText(String username, String link) {
-    return '$username invited you to FluffyChat.\n1. Visit fluffychat.im and install the app \n2. Sign up or sign in \n3. Open the invite link: \n $link';
+    return '$username invited you to stawi. Visit invitation link $link to connect';
   }
 
   @override
@@ -850,6 +850,9 @@ class L10nPt extends L10n {
 
   @override
   String get locationPermissionDeniedNotice => 'Location permission denied. Please grant them to be able to share your location.';
+
+  @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
 
   @override
   String get login => 'Iniciar sessão';

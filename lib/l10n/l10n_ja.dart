@@ -852,6 +852,9 @@ class L10nJa extends L10n {
   String get locationPermissionDeniedNotice => '位置情報の権限が拒否されました。位置情報を共有できるように許可してください。';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'ログイン';
 
   @override

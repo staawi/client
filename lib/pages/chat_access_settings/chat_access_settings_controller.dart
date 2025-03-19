@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart' hide Visibility;
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_access_settings/chat_access_settings_page.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';

@@ -1,9 +1,11 @@
+import 'package:flutter/material.dart';
+
+import 'package:url_launcher/url_launcher_string.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/config/themes.dart';
-import 'package:stawi/utils/platform_infos.dart';
-import 'package:flutter/material.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:stawi/utils/platform_infos.dart';
 
 class LoginScaffold extends StatelessWidget {
   final Widget body;

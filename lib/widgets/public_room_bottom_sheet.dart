@@ -1,14 +1,16 @@
+import 'package:flutter/material.dart';
+
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:go_router/go_router.dart';
+import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/utils/url_launcher.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/matrix.dart';
 import 'package:stawi/widgets/qr_code_viewer.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:go_router/go_router.dart';
-import 'package:matrix/matrix.dart';
 
 class PublicRoomBottomSheet extends StatelessWidget {
   final String? roomAlias;

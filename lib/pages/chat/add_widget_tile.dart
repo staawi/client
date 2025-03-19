@@ -1,7 +1,9 @@
-import 'package:stawi/pages/chat/add_widget_tile_view.dart';
 import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
+
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/pages/chat/add_widget_tile_view.dart';
 
 class AddWidgetTile extends StatefulWidget {
   final Room room;

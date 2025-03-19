@@ -1,8 +1,8 @@
+import 'package:flutter/material.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/widgets/layouts/login_scaffold.dart';
 import 'package:stawi/widgets/matrix.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-
 import 'login.dart';
 
 class LoginView extends StatelessWidget {

@@ -852,6 +852,9 @@ class L10nPl extends L10n {
   String get locationPermissionDeniedNotice => 'Brak uprawnień. Proszę zezwól aplikacji na dostęp do lokalizacji aby móc ją udostępnić.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Zaloguj się';
 
   @override

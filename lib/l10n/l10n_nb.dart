@@ -852,6 +852,9 @@ class L10nNb extends L10n {
   String get locationPermissionDeniedNotice => 'Location permission denied. Please grant them to be able to share your location.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Logg inn';
 
   @override

@@ -48,5 +48,7 @@
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.share-services</string>
 	</dict>
+	<key>NSContactsUsageDescription</key>
+    <string>Stawi utilizes your contacts to quickly search and connect with them</string>
 </dict>
 </plist>

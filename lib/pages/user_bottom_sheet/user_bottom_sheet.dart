@@ -1,14 +1,15 @@
+import 'package:flutter/material.dart';
+
+import 'package:go_router/go_router.dart';
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/themes.dart';
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/permission_slider_dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-import 'package:go_router/go_router.dart';
-import 'package:matrix/matrix.dart';
-
 import '../../widgets/matrix.dart';
 import 'user_bottom_sheet_view.dart';
 
@@ -35,10 +36,9 @@ class LoadProfileBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<ProfileInformation>(
-      future: Matrix.of(outerContext)
-          .client
-          .getUserProfile(userId)
-          .timeout(const Duration(seconds: 3)),
+      future: Matrix.of(
+        outerContext,
+      ).client.getUserProfile(userId).timeout(const Duration(seconds: 3)),
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done &&
             snapshot.data != null) {
@@ -48,9 +48,7 @@ class LoadProfileBottomSheet extends StatelessWidget {
                 onPressed: Navigator.of(context, rootNavigator: false).pop,
               ),
             ),
-            body: const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
+            body: const Center(child: CircularProgressIndicator.adaptive()),
           );
         }
         return UserBottomSheet(
@@ -58,7 +56,7 @@ class LoadProfileBottomSheet extends StatelessWidget {
           profile: Profile(
             userId: userId,
             avatarUrl: snapshot.data?.avatarUrl,
-            displayName: snapshot.data?.displayname,
+            displayName: snapshot.data?.displayName,
           ),
           profileSearchError: snapshot.error,
         );
@@ -107,14 +105,8 @@ class UserBottomSheetController extends State<UserBottomSheet> {
               value: -100,
               label: L10n.of(context).extremeOffensive,
             ),
-            AdaptiveModalAction(
-              value: -50,
-              label: L10n.of(context).offensive,
-            ),
-            AdaptiveModalAction(
-              value: 0,
-              label: L10n.of(context).inoffensive,
-            ),
+            AdaptiveModalAction(value: -50, label: L10n.of(context).offensive),
+            AdaptiveModalAction(value: 0, label: L10n.of(context).inoffensive),
           ],
         );
         if (score == null) return;
@@ -130,7 +122,8 @@ class UserBottomSheetController extends State<UserBottomSheet> {
 
         final result = await showFutureLoadingDialog(
           context: context,
-          future: () => Matrix.of(widget.outerContext).client.reportEvent(
+          future:
+              () => Matrix.of(widget.outerContext).client.reportEvent(
                 user.room.id,
                 user.id,
                 reason: reason,
@@ -208,9 +201,10 @@ class UserBottomSheetController extends State<UserBottomSheet> {
 
         final roomIdResult = await showFutureLoadingDialog(
           context: widget.outerContext,
-          future: () => Matrix.of(widget.outerContext)
-              .client
-              .startDirectChat(user?.id ?? widget.profile!.userId),
+          future:
+              () => Matrix.of(
+                widget.outerContext,
+              ).client.startDirectChat(user?.id ?? widget.profile!.userId),
         );
         final roomId = roomIdResult.result;
         if (roomId == null) return;
@@ -221,8 +215,10 @@ class UserBottomSheetController extends State<UserBottomSheet> {
         // Workaround for https://github.com/flutter/flutter/issues/27495
         await Future.delayed(FluffyThemes.animationDuration);
         final userId = user?.id ?? widget.profile?.userId;
-        widget.outerContext
-            .go('/rooms/settings/security/ignorelist', extra: userId);
+        widget.outerContext.go(
+          '/rooms/settings/security/ignorelist',
+          extra: userId,
+        );
     }
   }
 
@@ -254,11 +250,9 @@ class UserBottomSheetController extends State<UserBottomSheet> {
     final user = widget.user;
     if (user == null) throw ('User must not be null for this action!');
 
-    final level = newLevel ??
-        await showPermissionChooser(
-          context,
-          currentLevel: user.powerLevel,
-        );
+    final level =
+        newLevel ??
+        await showPermissionChooser(context, currentLevel: user.powerLevel);
     if (level == null) return;
 
     if (level == 100) {

@@ -852,6 +852,9 @@ class L10nCa extends L10n {
   String get locationPermissionDeniedNotice => 'S’ha rebutjat el permís d’ubicació. Atorgueu-lo per a poder compartir la vostra ubicació.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Inicia la sessió';
 
   @override

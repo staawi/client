@@ -852,6 +852,9 @@ class L10nCs extends L10n {
   String get locationPermissionDeniedNotice => 'Oprávnění k poloze odepřeno. Udělte jim prosím možnost sdílet vaši polohu.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Přihlásit se';
 
   @override

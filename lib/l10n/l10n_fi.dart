@@ -852,6 +852,9 @@ class L10nFi extends L10n {
   String get locationPermissionDeniedNotice => 'SIjaintioikeus on estetty. Myönnäthän sen jakaaksesi sijaintisi.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Kirjaudu sisään';
 
   @override

@@ -852,6 +852,9 @@ class L10nUk extends L10n {
   String get locationPermissionDeniedNotice => 'Дозвіл на розташування відхилено. Надайте можливість ділитися своїм розташуванням.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Увійти';
 
   @override

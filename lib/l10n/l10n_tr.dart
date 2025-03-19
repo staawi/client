@@ -852,6 +852,9 @@ class L10nTr extends L10n {
   String get locationPermissionDeniedNotice => 'Konum izni reddedildi. Lütfen konumunuzu paylaşabilmek için izin verin.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Oturum aç';
 
   @override

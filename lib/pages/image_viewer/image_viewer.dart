@@ -1,11 +1,13 @@
+import 'package:flutter/material.dart';
+
+import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/pages/image_viewer/image_viewer_view.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/event_extension.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/utils/show_scaffold_dialog.dart';
 import 'package:stawi/widgets/share_scaffold_dialog.dart';
-import 'package:flutter/material.dart';
-import 'package:matrix/matrix.dart';
 
 class ImageViewer extends StatefulWidget {
   final Event event;

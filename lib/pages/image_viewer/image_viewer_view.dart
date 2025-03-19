@@ -1,9 +1,9 @@
+import 'package:flutter/material.dart';
+
+import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/widgets/hover_builder.dart';
 import 'package:stawi/widgets/mxc_image.dart';
-import 'package:flutter/material.dart';
-import 'package:stawi/l10n/l10n.dart';
-
 import 'image_viewer.dart';
 
 class ImageViewerView extends StatelessWidget {

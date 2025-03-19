@@ -1,8 +1,9 @@
 import 'dart:convert';
 
-import 'package:stawi/requests/payload/base_payload.dart';
 import 'package:http/http.dart' as http;
 import 'package:matrix/matrix.dart';
+
+import 'package:stawi/requests/payload/base_payload.dart';
 
 extension MatrixApiExtension on MatrixApi {
   ///

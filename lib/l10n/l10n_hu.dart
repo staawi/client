@@ -852,6 +852,9 @@ class L10nHu extends L10n {
   String get locationPermissionDeniedNotice => 'A helymeghatározás nem engedélyezett az alkalmazás számára. Kérem engedélyezze, hogy meg tudja osztani helyzetét.';
 
   @override
+  String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
+
+  @override
   String get login => 'Bejelentkezés';
 
   @override
