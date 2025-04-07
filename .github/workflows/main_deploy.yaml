@@ -48,6 +48,8 @@ jobs:
       - run: flutter pub get
       - name: Prepare Android Release Build
         env:
+          UPLOAD_SIGNING_KEY: ${{ secrets.UPLOAD_SIGNING_KEY }}
+          UPLOAD_SIGNING_KEY_PASS: ${{ secrets.UPLOAD_SIGNING_KEY_PASS }}
           PLAYSTORE_DEPLOY_KEY: ${{ secrets.PLAYSTORE_DEPLOY_KEY }}
         run: ./scripts/prepare-android-release.sh
       - name: Build Android Release

@@ -37,15 +37,13 @@ jobs:
         with:
           name: Web Build
           path: stawi-web.tar.gz
-      - name: Upload to release
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.PAGES_DEPLOY_TOKEN }}
+      - name: Deploy
+        uses: cloudflare/wrangler-action@v3
         with:
-          upload_url: ${{ github.event.release.upload_url }}
-          asset_path: stawi-web.tar.gz
-          asset_name: stawi-web.tar.gz
-          asset_content_type: application/gzip
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/web --project-name=stawi-client
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Install and build tailwindcss
         working-directory: docs
         run: |
@@ -74,6 +72,8 @@ jobs:
       - run: flutter pub get
       - name: Prepare Android Release Build
         env:
+          UPLOAD_SIGNING_KEY: ${{ secrets.UPLOAD_SIGNING_KEY }}
+          UPLOAD_SIGNING_KEY_PASS: ${{ secrets.UPLOAD_SIGNING_KEY_PASS }}
           PLAYSTORE_DEPLOY_KEY: ${{ secrets.PLAYSTORE_DEPLOY_KEY }}
         run: ./scripts/prepare-android-release.sh
       - run: flutter build apk --release
@@ -137,6 +137,8 @@ jobs:
       - run: flutter pub get
       - name: Prepare Android Release Build
         env:
+          UPLOAD_SIGNING_KEY: ${{ secrets.UPLOAD_SIGNING_KEY }}
+          UPLOAD_SIGNING_KEY_PASS: ${{ secrets.UPLOAD_SIGNING_KEY_PASS }}
           PLAYSTORE_DEPLOY_KEY: ${{ secrets.PLAYSTORE_DEPLOY_KEY }}
         run: ./scripts/prepare-android-release.sh
       - name: Build Android Release

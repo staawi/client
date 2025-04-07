@@ -125,7 +125,6 @@ flutter:
   assets:
     - assets/
     - assets/sounds/
-    - assets/js/
     - assets/js/package/
 
 msix_config:
