@@ -242,13 +242,10 @@
       if (input === "team@stawi") {
         authContainer.style.display = "none";
         startFlutterApp(); // only starts after correct password
-      } else {
-        document.getElementById("error").innerText = "Incorrect password!";
-      }
+      } 
     }
 
     function startFlutterApp() {
-      removeSplashFromWeb();
       _flutter.loader.load({
         serviceWorker: {
           serviceWorkerVersion: {{flutter_service_worker_version}},
@@ -264,10 +261,7 @@
     window.addEventListener('load', function (ev) {
       {{flutter_js}}
       {{flutter_build_config}}
-
-      if (authContainer && window.getComputedStyle(authContainer).display === "none") {
-        startFlutterApp();
-      }
+      checkPassword();
     });
   </script>
   
