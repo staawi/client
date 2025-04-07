@@ -1,7 +1,6 @@
 #!/bin/sh -ve
 
-sudo apt install -y yq tr
-OLM_VERSION=$(cat pubspec.yaml | yq .dependencies.flutter_olm | tr -d '"^')
+OLM_VERSION=$(grep flutter_olm pubspec.yaml | sed -E 's/.*flutter_olm:[[:space:]]*["^]?([^"]*)["]?/\1/')
 DOWNLOAD_PATH="https://github.com/famedly/olm/releases/download/v$OLM_VERSION/olm.zip"
 echo $DOWNLOAD_PATH
 
