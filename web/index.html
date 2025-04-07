@@ -32,7 +32,6 @@
   
 
   <!-- This script adds the flutter initialization JS code -->
-  <script src="flutter_bootstrap.js" defer=""></script>
   <script src="assets/assets/js/package/olm.js"></script>
   
   
@@ -203,13 +202,7 @@
 }
 
   </style>
-  <script id="splash-screen-script">
-    function removeSplashFromWeb() {
-      document.getElementById("splash")?.remove();
-      document.getElementById("splash-branding")?.remove();
-      document.body.style.background = "transparent";
-    }
-  </script>
+  
 </head>
 
 <body>
@@ -245,24 +238,31 @@
       } 
     }
 
-    function startFlutterApp() {
-      _flutter.loader.load({
-        serviceWorker: {
-          serviceWorkerVersion: {{flutter_service_worker_version}},
-        },
-        onEntrypointLoaded: function(engineInitializer) {
-          engineInitializer.initializeEngine({ useColorEmoji: true }).then(function (appRunner) {
-            appRunner.runApp();
-          });
-        }
-      });
-    }
+    function loadFlutterScript(callback) {
+  const script = document.createElement("script");
+  script.src = "flutter_bootstrap.js";
+  script.onload = callback;
+  document.body.appendChild(script);
+}
 
-    window.addEventListener('load', function (ev) {
-      {{flutter_js}}
-      {{flutter_build_config}}
-      checkPassword();
+function startFlutterApp() {
+  loadFlutterScript(() => {
+    {{flutter_js}}
+    {{flutter_build_config}}
+    _flutter.loader.load({
+      serviceWorker: {
+        serviceWorkerVersion: {{flutter_service_worker_version}},
+      },
+      onEntrypointLoaded: function(engineInitializer) {
+        engineInitializer.initializeEngine({ useColorEmoji: true }).then(function (appRunner) {
+          appRunner.runApp();
+        });
+      }
     });
+  });
+}
+    
+  
   </script>
   
 
