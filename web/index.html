@@ -102,6 +102,33 @@
         background-color: #121212;
           }
     }
+
+    #auth-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      font-family: sans-serif;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #121212;
+        color: #fff;
+      }
+    }
   </style>
   <script id="splash-screen-script">
     function removeSplashFromWeb() {
@@ -132,12 +159,12 @@
   
   <script>
 
-const PASSWORD_PROTECTION_ENABLED = true; // Toggle this to false to disable password protection
-    
+    const authContainer = document.getElementById("auth-container");
+
     function checkPassword() {
       const input = document.getElementById("passwordInput").value;
       if (input === "team@stawi") {
-        document.getElementById("auth-container").style.display = "none";
+        authContainer.style.display = "none";
         startFlutterApp(); // only starts after correct password
       } else {
         document.getElementById("error").innerText = "Incorrect password!";
@@ -162,7 +189,7 @@ const PASSWORD_PROTECTION_ENABLED = true; // Toggle this to false to disable pas
       {{flutter_js}}
       {{flutter_build_config}}
 
-      if (document.getElementById("auth-container").style.display === "none") {
+      if (authContainer && window.getComputedStyle(authContainer).display === "none") {
         startFlutterApp();
       }
     });
