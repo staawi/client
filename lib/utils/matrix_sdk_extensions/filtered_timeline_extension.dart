@@ -5,8 +5,9 @@ import '../../config/app_config.dart';
 extension VisibleInGuiExtension on List<Event> {
   List<Event> filterByVisibleInGui({String? exceptionEventId}) {
     final visibleEvents =
-        where((e) => e.isVisibleInGui || e.eventId == exceptionEventId)
-            .toList();
+        where(
+          (e) => e.isVisibleInGui || e.eventId == exceptionEventId,
+        ).toList();
 
     // Hide creation state events:
     if (visibleEvents.isNotEmpty &&
@@ -35,8 +36,10 @@ extension VisibleInGuiExtension on List<Event> {
 extension IsStateExtension on Event {
   bool get isVisibleInGui =>
       // always filter out edit and reaction relationships
-      !{RelationshipTypes.edit, RelationshipTypes.reaction}
-          .contains(relationshipType) &&
+      !{
+        RelationshipTypes.edit,
+        RelationshipTypes.reaction,
+      }.contains(relationshipType) &&
       // always filter out m.key.* events
       !type.startsWith('m.key.verification.') &&
       // event types to hide: redaction and reaction events
@@ -55,7 +58,8 @@ extension IsStateExtension on Event {
           content.tryGet<String>('membership') == 'ban' ||
           stateKey != senderId);
 
-  bool get isState => !{
+  bool get isState =>
+      !{
         EventTypes.Message,
         EventTypes.Sticker,
         EventTypes.Encrypted,

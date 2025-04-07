@@ -114,11 +114,9 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
       _playAction();
     } catch (e, s) {
       Logs().v('Could not download audio file', e, s);
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(e.toLocalizedString(context)),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
     }
   }
 
@@ -157,8 +155,9 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
       if (max == null || max == Duration.zero) return;
       setState(() => maxPosition = max.inMilliseconds.toDouble());
     });
-    onPlayerStateChanged ??=
-        audioPlayer.playingStream.listen((_) => setState(() {}));
+    onPlayerStateChanged ??= audioPlayer.playingStream.listen(
+      (_) => setState(() {}),
+    );
     final audioFile = this.audioFile;
     if (audioFile != null) {
       audioPlayer.setFilePath(audioFile.path);
@@ -166,9 +165,8 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
       await audioPlayer.setAudioSource(MatrixFileAudioSource(matrixFile!));
     }
     audioPlayer.play().onError(
-          ErrorReporter(context, 'Unable to play audio message')
-              .onErrorCallback,
-        );
+      ErrorReporter(context, 'Unable to play audio message').onErrorCallback,
+    );
   }
 
   static const double buttonSize = 36;
@@ -255,34 +253,36 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ConstrainedBox(
-            constraints:
-                const BoxConstraints(maxWidth: FluffyThemes.columnWidth),
+            constraints: const BoxConstraints(
+              maxWidth: FluffyThemes.columnWidth,
+            ),
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
                 SizedBox(
                   width: buttonSize,
                   height: buttonSize,
-                  child: status == AudioPlayerStatus.downloading
-                      ? CircularProgressIndicator(
-                          strokeWidth: 2,
-                          color: widget.color,
-                        )
-                      : InkWell(
-                          borderRadius: BorderRadius.circular(64),
-                          onLongPress: () => widget.event.saveFile(context),
-                          onTap: _startAction,
-                          child: Material(
-                            color: widget.color.withAlpha(64),
+                  child:
+                      status == AudioPlayerStatus.downloading
+                          ? CircularProgressIndicator(
+                            strokeWidth: 2,
+                            color: widget.color,
+                          )
+                          : InkWell(
                             borderRadius: BorderRadius.circular(64),
-                            child: Icon(
-                              audioPlayer?.playerState.playing == true
-                                  ? Icons.pause_outlined
-                                  : Icons.play_arrow_outlined,
-                              color: widget.color,
+                            onLongPress: () => widget.event.saveFile(context),
+                            onTap: _startAction,
+                            child: Material(
+                              color: widget.color.withAlpha(64),
+                              borderRadius: BorderRadius.circular(64),
+                              child: Icon(
+                                audioPlayer?.playerState.playing == true
+                                    ? Icons.pause_outlined
+                                    : Icons.play_arrow_outlined,
+                                color: widget.color,
+                              ),
                             ),
                           ),
-                        ),
                 ),
                 const SizedBox(width: 8),
                 Expanded(
@@ -293,9 +293,11 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                           padding: const EdgeInsets.symmetric(horizontal: 16.0),
                           child: Row(
                             children: [
-                              for (var i = 0;
-                                  i < AudioPlayerWidget.wavesCount;
-                                  i++)
+                              for (
+                                var i = 0;
+                                i < AudioPlayerWidget.wavesCount;
+                                i++
+                              )
                                 Expanded(
                                   child: Container(
                                     height: 32,
@@ -305,9 +307,10 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                                         horizontal: 1,
                                       ),
                                       decoration: BoxDecoration(
-                                        color: i < wavePosition
-                                            ? widget.color
-                                            : widget.color.withAlpha(128),
+                                        color:
+                                            i < wavePosition
+                                                ? widget.color
+                                                : widget.color.withAlpha(128),
                                         borderRadius: BorderRadius.circular(64),
                                       ),
                                       height: 32 * (waveform[i] / 1024),
@@ -320,23 +323,30 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                       SizedBox(
                         height: 32,
                         child: Slider(
-                          thumbColor: widget.event.senderId ==
-                                  widget.event.room.client.userID
-                              ? theme.colorScheme.onPrimary
-                              : theme.colorScheme.primary,
-                          activeColor: waveform == null
-                              ? widget.color
-                              : Colors.transparent,
-                          inactiveColor: waveform == null
-                              ? widget.color.withAlpha(128)
-                              : Colors.transparent,
+                          thumbColor:
+                              widget.event.senderId ==
+                                      widget.event.room.client.userID
+                                  ? theme.colorScheme.onPrimary
+                                  : theme.colorScheme.primary,
+                          activeColor:
+                              waveform == null
+                                  ? widget.color
+                                  : Colors.transparent,
+                          inactiveColor:
+                              waveform == null
+                                  ? widget.color.withAlpha(128)
+                                  : Colors.transparent,
                           max: maxPosition,
                           value: currentPosition,
-                          onChanged: (position) => audioPlayer == null
-                              ? _startAction()
-                              : audioPlayer.seek(
-                                  Duration(milliseconds: position.round()),
-                                ),
+                          onChanged:
+                              (position) =>
+                                  audioPlayer == null
+                                      ? _startAction()
+                                      : audioPlayer.seek(
+                                        Duration(
+                                          milliseconds: position.round(),
+                                        ),
+                                      ),
                         ),
                       ),
                     ],
@@ -347,27 +357,22 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                   width: 36,
                   child: Text(
                     statusText,
-                    style: TextStyle(
-                      color: widget.color,
-                      fontSize: 12,
-                    ),
+                    style: TextStyle(color: widget.color, fontSize: 12),
                   ),
                 ),
                 const SizedBox(width: 8),
                 AnimatedCrossFade(
                   firstChild: Padding(
                     padding: const EdgeInsets.only(right: 8.0),
-                    child: Icon(
-                      Icons.mic_none_outlined,
-                      color: widget.color,
-                    ),
+                    child: Icon(Icons.mic_none_outlined, color: widget.color),
                   ),
                   secondChild: Material(
                     color: widget.color.withAlpha(64),
                     borderRadius: BorderRadius.circular(AppConfig.borderRadius),
                     child: InkWell(
-                      borderRadius:
-                          BorderRadius.circular(AppConfig.borderRadius),
+                      borderRadius: BorderRadius.circular(
+                        AppConfig.borderRadius,
+                      ),
                       onTap: _toggleSpeed,
                       child: SizedBox(
                         width: 32,
@@ -375,19 +380,17 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
                         child: Center(
                           child: Text(
                             '${audioPlayer?.speed.toString()}x',
-                            style: TextStyle(
-                              color: widget.color,
-                              fontSize: 9,
-                            ),
+                            style: TextStyle(color: widget.color, fontSize: 9),
                           ),
                         ),
                       ),
                     ),
                   ),
                   alignment: Alignment.center,
-                  crossFadeState: audioPlayer == null
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
+                  crossFadeState:
+                      audioPlayer == null
+                          ? CrossFadeState.showFirst
+                          : CrossFadeState.showSecond,
                   duration: FluffyThemes.animationDuration,
                 ),
               ],
@@ -397,10 +400,7 @@ class AudioPlayerState extends State<AudioPlayerWidget> {
             const SizedBox(height: 8),
             Linkify(
               text: fileDescription,
-              style: TextStyle(
-                color: widget.color,
-                fontSize: widget.fontSize,
-              ),
+              style: TextStyle(color: widget.color, fontSize: widget.fontSize),
               options: const LinkifyOptions(humanize: false),
               linkStyle: TextStyle(
                 color: widget.linkColor,

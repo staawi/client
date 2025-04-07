@@ -57,9 +57,13 @@ class LoginScaffold extends StatelessWidget {
                   elevation: theme.appBarTheme.scrolledUnderElevation ?? 4,
                   shadowColor: theme.appBarTheme.shadowColor,
                   child: ConstrainedBox(
-                    constraints: isMobileMode
-                        ? const BoxConstraints()
-                        : const BoxConstraints(maxWidth: 480, maxHeight: 640),
+                    constraints:
+                        isMobileMode
+                            ? const BoxConstraints()
+                            : const BoxConstraints(
+                              maxWidth: 480,
+                              maxHeight: 640,
+                            ),
                     child: Scaffold(
                       key: const Key('LoginScaffold'),
                       appBar: appBar,
@@ -94,31 +98,19 @@ class _PrivacyButtons extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () => launchUrlString(AppConfig.website),
-              child: Text(
-                L10n.of(context).website,
-                style: shadowTextStyle,
-              ),
+              child: Text(L10n.of(context).website, style: shadowTextStyle),
             ),
             TextButton(
               onPressed: () => launchUrlString(AppConfig.supportUrl),
-              child: Text(
-                L10n.of(context).help,
-                style: shadowTextStyle,
-              ),
+              child: Text(L10n.of(context).help, style: shadowTextStyle),
             ),
             TextButton(
               onPressed: () => launchUrlString(AppConfig.privacyUrl),
-              child: Text(
-                L10n.of(context).privacy,
-                style: shadowTextStyle,
-              ),
+              child: Text(L10n.of(context).privacy, style: shadowTextStyle),
             ),
             TextButton(
               onPressed: () => PlatformInfos.showDialog(context),
-              child: Text(
-                L10n.of(context).about,
-                style: shadowTextStyle,
-              ),
+              child: Text(L10n.of(context).about, style: shadowTextStyle),
             ),
           ],
         ),

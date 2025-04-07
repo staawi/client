@@ -60,45 +60,44 @@ class NewGroupView extends StatelessWidget {
               onTap: controller.loading ? null : controller.selectPhoto,
               child: CircleAvatar(
                 radius: Avatar.defaultSize,
-                child: avatar == null
-                    ? const Icon(Icons.add_a_photo_outlined)
-                    : ClipRRect(
-                        borderRadius: BorderRadius.circular(90),
-                        child: Image.memory(
-                          avatar,
-                          width: Avatar.defaultSize * 2,
-                          height: Avatar.defaultSize * 2,
-                          fit: BoxFit.cover,
+                child:
+                    avatar == null
+                        ? const Icon(Icons.add_a_photo_outlined)
+                        : ClipRRect(
+                          borderRadius: BorderRadius.circular(90),
+                          child: Image.memory(
+                            avatar,
+                            width: Avatar.defaultSize * 2,
+                            height: Avatar.defaultSize * 2,
+                            fit: BoxFit.cover,
+                          ),
                         ),
-                      ),
               ),
             ),
             AnimatedSize(
               duration: FluffyThemes.animationDuration,
               curve: FluffyThemes.animationCurve,
-              child: controller.createGroupType == CreateGroupType.space
-                  ? CreateSpaceForm(
-                      controller,
-                    )
-                  : CreateGroupForm(controller),
+              child:
+                  controller.createGroupType == CreateGroupType.space
+                      ? CreateSpaceForm(controller)
+                      : CreateGroupForm(controller),
             ),
             AnimatedSize(
               duration: FluffyThemes.animationDuration,
               curve: FluffyThemes.animationCurve,
-              child: error == null
-                  ? const SizedBox.shrink()
-                  : ListTile(
-                      leading: Icon(
-                        Icons.warning_outlined,
-                        color: theme.colorScheme.error,
-                      ),
-                      title: Text(
-                        error.toLocalizedString(context),
-                        style: TextStyle(
+              child:
+                  error == null
+                      ? const SizedBox.shrink()
+                      : ListTile(
+                        leading: Icon(
+                          Icons.warning_outlined,
                           color: theme.colorScheme.error,
                         ),
+                        title: Text(
+                          error.toLocalizedString(context),
+                          style: TextStyle(color: theme.colorScheme.error),
+                        ),
                       ),
-                    ),
             ),
           ],
         ),

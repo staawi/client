@@ -17,12 +17,13 @@ Future<List<XFile>> selectFiles(
     final result = await AppLock.of(context).pauseWhile(
       showFutureLoadingDialog(
         context: context,
-        future: () => FilePicker.platform.pickFiles(
-          compressionQuality: 0,
-          allowMultiple: allowMultiple,
-          type: type.filePickerType,
-          allowedExtensions: type.extensions,
-        ),
+        future:
+            () => FilePicker.platform.pickFiles(
+              compressionQuality: 0,
+              allowMultiple: allowMultiple,
+              type: type.filePickerType,
+              allowedExtensions: type.extensions,
+            ),
       ),
     );
     return result.result?.xFiles ?? [];
@@ -30,17 +31,11 @@ Future<List<XFile>> selectFiles(
 
   if (allowMultiple) {
     return await AppLock.of(context).pauseWhile(
-      openFiles(
-        confirmButtonText: title,
-        acceptedTypeGroups: type.groups,
-      ),
+      openFiles(confirmButtonText: title, acceptedTypeGroups: type.groups),
     );
   }
   final file = await AppLock.of(context).pauseWhile(
-    openFile(
-      confirmButtonText: title,
-      acceptedTypeGroups: type.groups,
-    ),
+    openFile(confirmButtonText: title, acceptedTypeGroups: type.groups),
   );
   if (file == null) return [];
   return [file];
@@ -54,24 +49,15 @@ enum FileSelectorType {
         label: 'JPG',
         extensions: <String>['jpg', 'JPG', 'jpeg', 'JPEG'],
       ),
-      XTypeGroup(
-        label: 'PNGs',
-        extensions: <String>['png', 'PNG'],
-      ),
-      XTypeGroup(
-        label: 'WEBP',
-        extensions: <String>['WebP', 'WEBP'],
-      ),
+      XTypeGroup(label: 'PNGs', extensions: <String>['png', 'PNG']),
+      XTypeGroup(label: 'WEBP', extensions: <String>['WebP', 'WEBP']),
     ],
     FileType.image,
     null,
   ),
   zip(
     [
-      XTypeGroup(
-        label: 'ZIP',
-        extensions: <String>['zip', 'ZIP'],
-      ),
+      XTypeGroup(label: 'ZIP', extensions: <String>['zip', 'ZIP']),
     ],
     FileType.custom,
     ['zip', 'ZIP'],

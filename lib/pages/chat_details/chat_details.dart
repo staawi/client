@@ -47,11 +47,7 @@ class ChatDetailsController extends State<ChatDetails> {
       title: L10n.of(context).changeTheNameOfTheGroup,
       okLabel: L10n.of(context).ok,
       cancelLabel: L10n.of(context).cancel,
-      initialText: room.getLocalizedDisplayname(
-        MatrixLocals(
-          L10n.of(context),
-        ),
-      ),
+      initialText: room.getLocalizedDisplayname(MatrixLocals(L10n.of(context))),
     );
     if (input == null) return;
     final success = await showFutureLoadingDialog(
@@ -84,9 +80,7 @@ class ChatDetailsController extends State<ChatDetails> {
     );
     if (success.error == null) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(L10n.of(context).chatDescriptionHasBeenChanged),
-        ),
+        SnackBar(content: Text(L10n.of(context).chatDescriptionHasBeenChanged)),
       );
     }
   }
@@ -96,9 +90,9 @@ class ChatDetailsController extends State<ChatDetails> {
     // okay, we need to test if there are any emote state events other than the default one
     // if so, we need to be directed to a selection screen for which pack we want to look at
     // otherwise, we just open the normal one.
-    if ((room.states['im.ponies.room_emotes'] ?? <String, Event>{})
-        .keys
-        .any((String s) => s.isNotEmpty)) {
+    if ((room.states['im.ponies.room_emotes'] ?? <String, Event>{}).keys.any(
+      (String s) => s.isNotEmpty,
+    )) {
       context.push('/rooms/${room.id}/details/multiple_emotes');
     } else {
       context.push('/rooms/${room.id}/details/emotes');
@@ -128,14 +122,15 @@ class ChatDetailsController extends State<ChatDetails> {
           icon: const Icon(Icons.delete_outlined),
         ),
     ];
-    final action = actions.length == 1
-        ? actions.single.value
-        : await showModalActionPopup<AvatarAction>(
-            context: context,
-            title: L10n.of(context).editRoomAvatar,
-            cancelLabel: L10n.of(context).cancel,
-            actions: actions,
-          );
+    final action =
+        actions.length == 1
+            ? actions.single.value
+            : await showModalActionPopup<AvatarAction>(
+              context: context,
+              title: L10n.of(context).editRoomAvatar,
+              cancelLabel: L10n.of(context).cancel,
+              actions: actions,
+            );
     if (action == null) return;
     if (action == AvatarAction.remove) {
       await showFutureLoadingDialog(
@@ -147,16 +142,14 @@ class ChatDetailsController extends State<ChatDetails> {
     MatrixFile file;
     if (PlatformInfos.isMobile) {
       final result = await ImagePicker().pickImage(
-        source: action == AvatarAction.camera
-            ? ImageSource.camera
-            : ImageSource.gallery,
+        source:
+            action == AvatarAction.camera
+                ? ImageSource.camera
+                : ImageSource.gallery,
         imageQuality: 50,
       );
       if (result == null) return;
-      file = MatrixFile(
-        bytes: await result.readAsBytes(),
-        name: result.path,
-      );
+      file = MatrixFile(bytes: await result.readAsBytes(), name: result.path);
     } else {
       final picked = await selectFiles(
         context,

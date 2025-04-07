@@ -15,13 +15,12 @@ class ChatMembersView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final room =
-        Matrix.of(context).client.getRoomById(controller.widget.roomId);
+    final room = Matrix.of(
+      context,
+    ).client.getRoomById(controller.widget.roomId);
     if (room == null) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(L10n.of(context).oopsSomethingWentWrong),
-        ),
+        appBar: AppBar(title: Text(L10n.of(context).oopsSomethingWentWrong)),
         body: Center(
           child: Text(L10n.of(context).youAreNoLongerParticipatingInThisChat),
         ),
@@ -30,7 +29,8 @@ class ChatMembersView extends StatelessWidget {
 
     final members = controller.filteredMembers;
 
-    final roomCount = (room.summary.mJoinedMemberCount ?? 0) +
+    final roomCount =
+        (room.summary.mJoinedMemberCount ?? 0) +
         (room.summary.mInvitedMemberCount ?? 0);
 
     final error = controller.error;
@@ -39,75 +39,78 @@ class ChatMembersView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const Center(child: BackButton()),
-        title: Text(
-          L10n.of(context).countParticipants(roomCount),
-        ),
+        title: Text(L10n.of(context).countParticipants(roomCount)),
         actions: [
           if (room.canInvite)
             IconButton(
               onPressed: () => context.go('/rooms/${room.id}/invite'),
-              icon: const Icon(
-                Icons.person_add_outlined,
-              ),
+              icon: const Icon(Icons.person_add_outlined),
             ),
         ],
       ),
       body: MaxWidthBody(
         withScrolling: false,
         innerPadding: const EdgeInsets.symmetric(vertical: 8),
-        child: error != null
-            ? Center(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      const Icon(Icons.error_outline),
-                      Text(error.toLocalizedString(context)),
-                      const SizedBox(height: 8),
-                      OutlinedButton.icon(
-                        onPressed: controller.refreshMembers,
-                        icon: const Icon(Icons.refresh_outlined),
-                        label: Text(L10n.of(context).tryAgain),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            : members == null
-                ? const Center(
-                    child: Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: CircularProgressIndicator.adaptive(),
+        child:
+            error != null
+                ? Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(Icons.error_outline),
+                        Text(error.toLocalizedString(context)),
+                        const SizedBox(height: 8),
+                        OutlinedButton.icon(
+                          onPressed: controller.refreshMembers,
+                          icon: const Icon(Icons.refresh_outlined),
+                          label: Text(L10n.of(context).tryAgain),
+                        ),
+                      ],
                     ),
-                  )
-                : ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: members.length + 1,
-                    itemBuilder: (context, i) => i == 0
-                        ? Padding(
-                            padding: const EdgeInsets.all(16.0),
-                            child: TextField(
-                              controller: controller.filterController,
-                              onChanged: controller.setFilter,
-                              decoration: InputDecoration(
-                                filled: true,
-                                fillColor: theme.colorScheme.secondaryContainer,
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide.none,
-                                  borderRadius: BorderRadius.circular(99),
-                                ),
-                                hintStyle: TextStyle(
-                                  color: theme.colorScheme.onPrimaryContainer,
-                                  fontWeight: FontWeight.normal,
-                                ),
-                                prefixIcon: const Icon(Icons.search_outlined),
-                                hintText: L10n.of(context).search,
-                              ),
-                            ),
-                          )
-                        : ParticipantListItem(members[i - 1]),
                   ),
+                )
+                : members == null
+                ? const Center(
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator.adaptive(),
+                  ),
+                )
+                : ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: members.length + 1,
+                  itemBuilder:
+                      (context, i) =>
+                          i == 0
+                              ? Padding(
+                                padding: const EdgeInsets.all(16.0),
+                                child: TextField(
+                                  controller: controller.filterController,
+                                  onChanged: controller.setFilter,
+                                  decoration: InputDecoration(
+                                    filled: true,
+                                    fillColor:
+                                        theme.colorScheme.secondaryContainer,
+                                    border: OutlineInputBorder(
+                                      borderSide: BorderSide.none,
+                                      borderRadius: BorderRadius.circular(99),
+                                    ),
+                                    hintStyle: TextStyle(
+                                      color:
+                                          theme.colorScheme.onPrimaryContainer,
+                                      fontWeight: FontWeight.normal,
+                                    ),
+                                    prefixIcon: const Icon(
+                                      Icons.search_outlined,
+                                    ),
+                                    hintText: L10n.of(context).search,
+                                  ),
+                                ),
+                              )
+                              : ParticipantListItem(members[i - 1]),
+                ),
       ),
     );
   }

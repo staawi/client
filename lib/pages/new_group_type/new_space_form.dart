@@ -18,46 +18,49 @@ class CreateSpaceForm extends StatelessWidget {
         SwitchListTile.adaptive(
           contentPadding: const EdgeInsets.symmetric(horizontal: 32),
           secondary: const Icon(Icons.public_outlined),
-          title: Text(
-            L10n.of(context).spaceIsPublic,
-          ),
+          title: Text(L10n.of(context).spaceIsPublic),
           value: controller.publicGroup,
           onChanged: controller.loading ? null : controller.setPublicGroup,
         ),
         AnimatedSize(
           duration: FluffyThemes.animationDuration,
           curve: FluffyThemes.animationCurve,
-          child: controller.publicGroup
-              ? SwitchListTile.adaptive(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
-                  secondary: const Icon(Icons.search_outlined),
-                  title: Text(L10n.of(context).groupCanBeFoundViaSearch),
-                  value: controller.groupCanBeFound,
-                  onChanged:
-                      controller.loading ? null : controller.setGroupCanBeFound,
-                )
-              : const SizedBox.shrink(),
+          child:
+              controller.publicGroup
+                  ? SwitchListTile.adaptive(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                    secondary: const Icon(Icons.search_outlined),
+                    title: Text(L10n.of(context).groupCanBeFoundViaSearch),
+                    value: controller.groupCanBeFound,
+                    onChanged:
+                        controller.loading
+                            ? null
+                            : controller.setGroupCanBeFound,
+                  )
+                  : const SizedBox.shrink(),
         ),
         AnimatedSize(
-            duration: FluffyThemes.animationDuration,
-            curve: FluffyThemes.animationCurve,
-            child: ListTile(
-              contentPadding: const EdgeInsets.symmetric(horizontal: 32),
-              trailing: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Icon(Icons.info_outlined),
-              ),
-              subtitle: Text(L10n.of(context).newSpaceDescription),
-            ),),
+          duration: FluffyThemes.animationDuration,
+          curve: FluffyThemes.animationCurve,
+          child: ListTile(
+            contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+            trailing: const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              child: Icon(Icons.info_outlined),
+            ),
+            subtitle: Text(L10n.of(context).newSpaceDescription),
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.all(16.0),
           child: SizedBox(
             width: double.infinity,
             child: ElevatedButton(
               onPressed: controller.loading ? null : controller.submitAction,
-              child: controller.loading
-                  ? const LinearProgressIndicator()
-                  : Text(L10n.of(context).createNewSpace),
+              child:
+                  controller.loading
+                      ? const LinearProgressIndicator()
+                      : Text(L10n.of(context).createNewSpace),
             ),
           ),
         ),

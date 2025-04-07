@@ -124,24 +124,23 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         }
         resBundles[bundle.name] ??= [];
         resBundles[bundle.name]!.add(
-          _AccountBundleWithClient(
-            client: widget.clients[i],
-            bundle: bundle,
-          ),
+          _AccountBundleWithClient(client: widget.clients[i], bundle: bundle),
         );
       }
     }
     for (final b in resBundles.values) {
       b.sort(
-        (a, b) => a.bundle!.priority == null
-            ? 1
-            : b.bundle!.priority == null
+        (a, b) =>
+            a.bundle!.priority == null
+                ? 1
+                : b.bundle!.priority == null
                 ? -1
                 : a.bundle!.priority!.compareTo(b.bundle!.priority!),
       );
     }
-    return resBundles
-        .map((k, v) => MapEntry(k, v.map((vv) => vv.client).toList()));
+    return resBundles.map(
+      (k, v) => MapEntry(k, v.map((vv) => vv.client).toList()),
+    );
   }
 
   bool get hasComplexBundles => accountBundles.values.any((v) => v.length > 1);
@@ -152,25 +151,26 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     if (widget.clients.isNotEmpty && !client.isLogged()) {
       return client;
     }
-    final candidate = _loginClientCandidate ??= ClientManager.createClient(
-      '${AppConfig.applicationName}-${DateTime.now().millisecondsSinceEpoch}',
-      store,
-    )..onLoginStateChanged
-          .stream
-          .where((l) => l == LoginState.loggedIn)
-          .first
-          .then((_) {
-        if (!widget.clients.contains(_loginClientCandidate)) {
-          widget.clients.add(_loginClientCandidate!);
-        }
-        ClientManager.addClientNameToStore(
-          _loginClientCandidate!.clientName,
-          store,
-        );
-        _registerSubs(_loginClientCandidate!.clientName);
-        _loginClientCandidate = null;
-        FluffyChatApp.router.go('/rooms');
-      });
+    final candidate =
+        _loginClientCandidate ??= ClientManager.createClient(
+            '${AppConfig.applicationName}-${DateTime.now().millisecondsSinceEpoch}',
+            store,
+          )
+          ..onLoginStateChanged.stream
+              .where((l) => l == LoginState.loggedIn)
+              .first
+              .then((_) {
+                if (!widget.clients.contains(_loginClientCandidate)) {
+                  widget.clients.add(_loginClientCandidate!);
+                }
+                ClientManager.addClientNameToStore(
+                  _loginClientCandidate!.clientName,
+                  store,
+                );
+                _registerSubs(_loginClientCandidate!.clientName);
+                _loginClientCandidate = null;
+                FluffyChatApp.router.go('/rooms');
+              });
     return candidate;
   }
 
@@ -226,8 +226,9 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
 
   Future<void> initConfig() async {
     try {
-      final configJsonString =
-          utf8.decode((await http.get(Uri.parse('config.json'))).bodyBytes);
+      final configJsonString = utf8.decode(
+        (await http.get(Uri.parse('config.json'))).bodyBytes,
+      );
       final configJson = json.decode(configJsonString);
       AppConfig.loadFromJson(configJson);
     } on FormatException catch (_) {
@@ -245,8 +246,9 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
       );
       return;
     }
-    onRoomKeyRequestSub[name] ??=
-        c.onRoomKeyRequest.stream.listen((RoomKeyRequest request) async {
+    onRoomKeyRequestSub[name] ??= c.onRoomKeyRequest.stream.listen((
+      RoomKeyRequest request,
+    ) async {
       if (widget.clients.any(
         ((cl) =>
             cl.userID == request.requestingDevice.userId &&
@@ -260,22 +262,24 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     });
     onKeyVerificationRequestSub[name] ??= c.onKeyVerificationRequest.stream
         .listen((KeyVerification request) async {
-      var hidPopup = false;
-      request.onUpdate = () {
-        if (!hidPopup &&
-            {KeyVerificationState.done, KeyVerificationState.error}
-                .contains(request.state)) {
-          FluffyChatApp.router.pop('dialog');
-        }
-        hidPopup = true;
-      };
-      request.onUpdate = null;
-      hidPopup = true;
-      await KeyVerificationDialog(request: request).show(
-        FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
-            context,
-      );
-    });
+          var hidPopup = false;
+          request.onUpdate = () {
+            if (!hidPopup &&
+                {
+                  KeyVerificationState.done,
+                  KeyVerificationState.error,
+                }.contains(request.state)) {
+              FluffyChatApp.router.pop('dialog');
+            }
+            hidPopup = true;
+          };
+          request.onUpdate = null;
+          hidPopup = true;
+          await KeyVerificationDialog(request: request).show(
+            FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
+                context,
+          );
+        });
     onLoginStateChanged[name] ??= c.onLoginStateChanged.stream.listen((state) {
       final loggedInWithMultipleClients = widget.clients.length > 1;
       if (state == LoginState.loggedOut) {
@@ -289,25 +293,25 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
           FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
               context,
         ).showSnackBar(
-          SnackBar(
-            content: Text(L10n.of(context).oneClientLoggedOut),
-          ),
+          SnackBar(content: Text(L10n.of(context).oneClientLoggedOut)),
         );
 
         if (state != LoginState.loggedIn) {
           FluffyChatApp.router.go('/rooms');
         }
       } else {
-        FluffyChatApp.router
-            .go(state == LoginState.loggedIn ? '/rooms' : '/home');
+        FluffyChatApp.router.go(
+          state == LoginState.loggedIn ? '/rooms' : '/home',
+        );
       }
     });
     onUiaRequest[name] ??= c.onUiaRequest.stream.listen(uiaRequestHandler);
     if (PlatformInfos.isWeb || PlatformInfos.isLinux) {
       c.onSync.stream.first.then((s) {
         html.Notification.requestPermission();
-        onNotification[name] ??=
-            c.onNotification.stream.listen(showLocalNotification);
+        onNotification[name] ??= c.onNotification.stream.listen(
+          showLocalNotification,
+        );
       });
     }
   }
@@ -338,8 +342,12 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         this,
         onFcmError: (errorMsg, {Uri? link}) async {
           final result = await showOkCancelAlertDialog(
-            context: FluffyChatApp
-                    .router.routerDelegate.navigatorKey.currentContext ??
+            context:
+                FluffyChatApp
+                    .router
+                    .routerDelegate
+                    .navigatorKey
+                    .currentContext ??
                 context,
             title: L10n.of(context).pushNotificationsNotAvailable,
             message: errorMsg,
@@ -374,7 +382,8 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     Logs().v('AppLifecycleState = $state');
-    final foreground = state != AppLifecycleState.inactive &&
+    final foreground =
+        state != AppLifecycleState.inactive &&
         state != AppLifecycleState.paused;
     client.syncPresence =
         state == AppLifecycleState.resumed ? null : PresenceType.unavailable;
@@ -388,46 +397,47 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   initSettings() {
     AppConfig.fontSizeFactor =
         double.tryParse(store.getString(SettingKeys.fontSizeFactor) ?? '') ??
-            AppConfig.fontSizeFactor;
+        AppConfig.fontSizeFactor;
 
     AppConfig.renderHtml =
         store.getBool(SettingKeys.renderHtml) ?? AppConfig.renderHtml;
 
     AppConfig.swipeRightToLeftToReply =
         store.getBool(SettingKeys.swipeRightToLeftToReply) ??
-            AppConfig.swipeRightToLeftToReply;
+        AppConfig.swipeRightToLeftToReply;
 
     AppConfig.hideRedactedEvents =
         store.getBool(SettingKeys.hideRedactedEvents) ??
-            AppConfig.hideRedactedEvents;
+        AppConfig.hideRedactedEvents;
 
     AppConfig.hideUnknownEvents =
         store.getBool(SettingKeys.hideUnknownEvents) ??
-            AppConfig.hideUnknownEvents;
+        AppConfig.hideUnknownEvents;
 
     AppConfig.hideUnimportantStateEvents =
         store.getBool(SettingKeys.hideUnimportantStateEvents) ??
-            AppConfig.hideUnimportantStateEvents;
+        AppConfig.hideUnimportantStateEvents;
 
     AppConfig.separateChatTypes =
         store.getBool(SettingKeys.separateChatTypes) ??
-            AppConfig.separateChatTypes;
+        AppConfig.separateChatTypes;
 
     AppConfig.autoplayImages =
         store.getBool(SettingKeys.autoplayImages) ?? AppConfig.autoplayImages;
 
     AppConfig.sendTypingNotifications =
         store.getBool(SettingKeys.sendTypingNotifications) ??
-            AppConfig.sendTypingNotifications;
+        AppConfig.sendTypingNotifications;
 
     AppConfig.sendPublicReadReceipts =
         store.getBool(SettingKeys.sendPublicReadReceipts) ??
-            AppConfig.sendPublicReadReceipts;
+        AppConfig.sendPublicReadReceipts;
 
     AppConfig.sendOnEnter =
         store.getBool(SettingKeys.sendOnEnter) ?? AppConfig.sendOnEnter;
 
-    AppConfig.experimentalVoip = store.getBool(SettingKeys.experimentalVoip) ??
+    AppConfig.experimentalVoip =
+        store.getBool(SettingKeys.experimentalVoip) ??
         AppConfig.experimentalVoip;
 
     AppConfig.showPresences =
@@ -453,10 +463,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    return Provider(
-      create: (_) => this,
-      child: widget.child,
-    );
+    return Provider(create: (_) => this, child: widget.child);
   }
 
   Future<void> dehydrateAction(BuildContext context) async {
@@ -476,9 +483,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
     final export = result.result;
     if (export == null) return;
 
-    final exportBytes = Uint8List.fromList(
-      const Utf8Codec().encode(export),
-    );
+    final exportBytes = Uint8List.fromList(const Utf8Codec().encode(export));
 
     final exportFileName =
         'stawi-export-${DateFormat(DateFormat.YEAR_MONTH_DAY).format(DateTime.now())}.stawibackup';

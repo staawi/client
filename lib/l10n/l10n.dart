@@ -68,7 +68,8 @@ import 'l10n_sr.dart' deferred as l10n_sr;
 /// be consistent with the languages listed in the L10n.supportedLocales
 /// property.
 abstract class L10n {
-  L10n(String locale) : localeName = intl.Intl.canonicalizedLocale(locale.toString());
+  L10n(String locale)
+    : localeName = intl.Intl.canonicalizedLocale(locale.toString());
 
   final String localeName;
 
@@ -88,12 +89,13 @@ abstract class L10n {
   /// Additional delegates can be added by appending to this list in
   /// MaterialApp. This list does not have to be used at all if a custom list
   /// of delegates is preferred or required.
-  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates = <LocalizationsDelegate<dynamic>>[
-    delegate,
-    GlobalMaterialLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-  ];
+  static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
+      <LocalizationsDelegate<dynamic>>[
+        delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ];
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
@@ -106,7 +108,7 @@ abstract class L10n {
     Locale('pt', 'BR'),
     Locale('pt', 'PT'),
     Locale('ro'),
-    Locale('sr')
+    Locale('sr'),
   ];
 
   /// Set to true to always display time of day in 24 hour format.
@@ -359,7 +361,11 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'The homeserver supports the login types:\n{serverVersions}\nBut this app supports only:\n{supportedVersions}'**
-  String badServerLoginTypesException(String serverVersions, String supportedVersions, Object suportedVersions);
+  String badServerLoginTypesException(
+    String serverVersions,
+    String supportedVersions,
+    Object suportedVersions,
+  );
 
   /// No description provided for @sendTypingNotifications.
   ///
@@ -383,7 +389,11 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'The homeserver supports the Spec versions:\n{serverVersions}\nBut this app supports only {supportedVersions}'**
-  String badServerVersionsException(String serverVersions, String supportedVersions, Object suportedVersions);
+  String badServerVersionsException(
+    String serverVersions,
+    String supportedVersions,
+    Object suportedVersions,
+  );
 
   /// No description provided for @countChatsAndCountParticipants.
   ///
@@ -4835,41 +4845,64 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'ie', 'ja', 'lt', 'nb', 'pt', 'ro', 'sr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>[
+    'en',
+    'ie',
+    'ja',
+    'lt',
+    'nb',
+    'pt',
+    'ro',
+    'sr',
+  ].contains(locale.languageCode);
 
   @override
   bool shouldReload(_L10nDelegate old) => false;
 }
 
 Future<L10n> lookupL10n(Locale locale) {
-
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
-    case 'pt': {
-  switch (locale.countryCode) {
-    case 'BR': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPtBr());
-case 'PT': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPtPt());
-   }
-  break;
-   }
+    case 'pt':
+      {
+        switch (locale.countryCode) {
+          case 'BR':
+            return l10n_pt.loadLibrary().then(
+              (dynamic _) => l10n_pt.L10nPtBr(),
+            );
+          case 'PT':
+            return l10n_pt.loadLibrary().then(
+              (dynamic _) => l10n_pt.L10nPtPt(),
+            );
+        }
+        break;
+      }
   }
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'en': return l10n_en.loadLibrary().then((dynamic _) => l10n_en.L10nEn());
-    case 'ie': return l10n_ie.loadLibrary().then((dynamic _) => l10n_ie.L10nIe());
-    case 'ja': return l10n_ja.loadLibrary().then((dynamic _) => l10n_ja.L10nJa());
-    case 'lt': return l10n_lt.loadLibrary().then((dynamic _) => l10n_lt.L10nLt());
-    case 'nb': return l10n_nb.loadLibrary().then((dynamic _) => l10n_nb.L10nNb());
-    case 'pt': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPt());
-    case 'ro': return l10n_ro.loadLibrary().then((dynamic _) => l10n_ro.L10nRo());
-    case 'sr': return l10n_sr.loadLibrary().then((dynamic _) => l10n_sr.L10nSr());
+    case 'en':
+      return l10n_en.loadLibrary().then((dynamic _) => l10n_en.L10nEn());
+    case 'ie':
+      return l10n_ie.loadLibrary().then((dynamic _) => l10n_ie.L10nIe());
+    case 'ja':
+      return l10n_ja.loadLibrary().then((dynamic _) => l10n_ja.L10nJa());
+    case 'lt':
+      return l10n_lt.loadLibrary().then((dynamic _) => l10n_lt.L10nLt());
+    case 'nb':
+      return l10n_nb.loadLibrary().then((dynamic _) => l10n_nb.L10nNb());
+    case 'pt':
+      return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPt());
+    case 'ro':
+      return l10n_ro.loadLibrary().then((dynamic _) => l10n_ro.L10nRo());
+    case 'sr':
+      return l10n_sr.loadLibrary().then((dynamic _) => l10n_sr.L10nSr());
   }
 
   throw FlutterError(
     'L10n.delegate failed to load unsupported locale "$locale". This is likely '
     'an issue with the localizations generation tool. Please file an issue '
     'on GitHub with a reproducible sample app and the gen-l10n configuration '
-    'that was used.'
+    'that was used.',
   );
 }

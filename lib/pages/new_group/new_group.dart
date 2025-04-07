@@ -12,10 +12,7 @@ import 'package:stawi/widgets/matrix.dart';
 
 class NewGroup extends StatefulWidget {
   final CreateGroupType createGroupType;
-  const NewGroup({
-    this.createGroupType = CreateGroupType.group,
-    super.key,
-  });
+  const NewGroup({this.createGroupType = CreateGroupType.group, super.key});
 
   @override
   NewGroupController createState() => NewGroupController();
@@ -67,9 +64,10 @@ class NewGroupController extends State<NewGroup> {
     final roomId = await Matrix.of(context).client.createGroupChat(
       visibility:
           groupCanBeFound ? sdk.Visibility.public : sdk.Visibility.private,
-      preset: publicGroup
-          ? sdk.CreateRoomPreset.publicChat
-          : sdk.CreateRoomPreset.privateChat,
+      preset:
+          publicGroup
+              ? sdk.CreateRoomPreset.publicChat
+              : sdk.CreateRoomPreset.privateChat,
       groupName: nameController.text.isNotEmpty ? nameController.text : null,
       initialState: [
         if (avatar != null)
@@ -86,24 +84,26 @@ class NewGroupController extends State<NewGroup> {
   Future<void> _createSpace() async {
     if (!mounted) return;
     final spaceId = await Matrix.of(context).client.createRoom(
-          preset: publicGroup
+      preset:
+          publicGroup
               ? sdk.CreateRoomPreset.publicChat
               : sdk.CreateRoomPreset.privateChat,
-          creationContent: {'type': RoomCreationTypes.mSpace},
-          visibility: publicGroup ? sdk.Visibility.public : null,
-          roomAliasName: publicGroup
+      creationContent: {'type': RoomCreationTypes.mSpace},
+      visibility: publicGroup ? sdk.Visibility.public : null,
+      roomAliasName:
+          publicGroup
               ? nameController.text.trim().toLowerCase().replaceAll(' ', '_')
               : null,
-          name: nameController.text.trim(),
-          powerLevelContentOverride: {'events_default': 100},
-          initialState: [
-            if (avatar != null)
-              sdk.StateEvent(
-                type: sdk.EventTypes.RoomAvatar,
-                content: {'url': avatarUrl.toString()},
-              ),
-          ],
-        );
+      name: nameController.text.trim(),
+      powerLevelContentOverride: {'events_default': 100},
+      initialState: [
+        if (avatar != null)
+          sdk.StateEvent(
+            type: sdk.EventTypes.RoomAvatar,
+            content: {'url': avatarUrl.toString()},
+          ),
+      ],
+    );
     if (!mounted) return;
     context.pop<String>(spaceId);
   }

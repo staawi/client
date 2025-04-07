@@ -17,8 +17,10 @@ class MessageReactions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final allReactionEvents =
-        event.aggregatedEvents(timeline, RelationshipTypes.reaction);
+    final allReactionEvents = event.aggregatedEvents(
+      timeline,
+      RelationshipTypes.reaction,
+    );
     final reactionMap = <String, _ReactionEntry>{};
     final client = Matrix.of(context).client;
 
@@ -71,10 +73,11 @@ class MessageReactions extends StatelessWidget {
                 event.room.sendReaction(event.eventId, r.key);
               }
             },
-            onLongPress: () async => await _AdaptableReactorsDialog(
-              client: client,
-              reactionEntry: r,
-            ).show(context),
+            onLongPress:
+                () async => await _AdaptableReactorsDialog(
+                  client: client,
+                  reactionEntry: r,
+                ).show(context),
           ),
         ),
         if (allReactionEvents.any((e) => e.status.isSending))
@@ -158,9 +161,10 @@ class _Reaction extends StatelessWidget {
           color: color,
           border: Border.all(
             width: 1,
-            color: reacted!
-                ? theme.colorScheme.primary
-                : theme.colorScheme.primaryContainer,
+            color:
+                reacted!
+                    ? theme.colorScheme.primary
+                    : theme.colorScheme.primaryContainer,
           ),
           borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
         ),
@@ -189,17 +193,14 @@ class _AdaptableReactorsDialog extends StatelessWidget {
   final Client? client;
   final _ReactionEntry? reactionEntry;
 
-  const _AdaptableReactorsDialog({
-    this.client,
-    this.reactionEntry,
-  });
+  const _AdaptableReactorsDialog({this.client, this.reactionEntry});
 
   Future<bool?> show(BuildContext context) => showAdaptiveDialog(
-        context: context,
-        builder: (context) => this,
-        barrierDismissible: true,
-        useRootNavigator: false,
-      );
+    context: context,
+    builder: (context) => this,
+    barrierDismissible: true,
+    useRootNavigator: false,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -225,9 +226,6 @@ class _AdaptableReactorsDialog extends StatelessWidget {
 
     final title = Center(child: Text(reactionEntry!.key));
 
-    return AlertDialog.adaptive(
-      title: title,
-      content: body,
-    );
+    return AlertDialog.adaptive(title: title, content: body);
   }
 }

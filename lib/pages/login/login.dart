@@ -69,16 +69,17 @@ class LoginController extends State<Login> {
         identifier = AuthenticationUserIdentifier(user: username);
       }
       await matrix.getLoginClient().login(
-            LoginType.mLoginPassword,
-            identifier: identifier,
-            // To stay compatible with older server versions
-            // ignore: deprecated_member_use
-            user: identifier.type == AuthenticationIdentifierTypes.userId
+        LoginType.mLoginPassword,
+        identifier: identifier,
+        // To stay compatible with older server versions
+        // ignore: deprecated_member_use
+        user:
+            identifier.type == AuthenticationIdentifierTypes.userId
                 ? username
                 : null,
-            password: passwordController.text,
-            initialDeviceDisplayName: PlatformInfos.clientName,
-          );
+        password: passwordController.text,
+        initialDeviceDisplayName: PlatformInfos.clientName,
+      );
     } on MatrixException catch (exception) {
       setState(() => passwordError = exception.errorMessage);
       return setState(() => loading = false);
@@ -129,8 +130,9 @@ class LoginController extends State<Login> {
           final dialogResult = await showOkCancelAlertDialog(
             context: context,
             useRootNavigator: false,
-            title: L10n.of(context)
-                .noMatrixServer(newDomain.toString(), oldHomeserver.toString()),
+            title: L10n.of(
+              context,
+            ).noMatrixServer(newDomain.toString(), oldHomeserver.toString()),
             okLabel: L10n.of(context).ok,
             cancelLabel: L10n.of(context).cancel,
           );
@@ -173,12 +175,14 @@ class LoginController extends State<Login> {
     final clientSecret = DateTime.now().millisecondsSinceEpoch.toString();
     final response = await showFutureLoadingDialog(
       context: context,
-      future: () =>
-          Matrix.of(context).getLoginClient().requestTokenToResetPasswordEmail(
-                clientSecret,
-                input,
-                sendAttempt++,
-              ),
+      future:
+          () => Matrix.of(
+            context,
+          ).getLoginClient().requestTokenToResetPasswordEmail(
+            clientSecret,
+            input,
+            sendAttempt++,
+          ),
     );
     if (response.error != null) return;
     final password = await showTextInputDialog(
@@ -205,17 +209,19 @@ class LoginController extends State<Login> {
     final data = <String, dynamic>{
       'new_password': password,
       'logout_devices': false,
-      "auth": AuthenticationThreePidCreds(
-        type: AuthenticationTypes.emailIdentity,
-        threepidCreds: ThreepidCreds(
-          sid: response.result!.sid,
-          clientSecret: clientSecret,
-        ),
-      ).toJson(),
+      "auth":
+          AuthenticationThreePidCreds(
+            type: AuthenticationTypes.emailIdentity,
+            threepidCreds: ThreepidCreds(
+              sid: response.result!.sid,
+              clientSecret: clientSecret,
+            ),
+          ).toJson(),
     };
     final success = await showFutureLoadingDialog(
       context: context,
-      future: () => Matrix.of(context).getLoginClient().request(
+      future:
+          () => Matrix.of(context).getLoginClient().request(
             RequestType.POST,
             '/client/v3/account/password',
             data: data,
@@ -238,8 +244,9 @@ class LoginController extends State<Login> {
 }
 
 extension on String {
-  static final RegExp _phoneRegex =
-      RegExp(r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$');
+  static final RegExp _phoneRegex = RegExp(
+    r'^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$',
+  );
   static final RegExp _emailRegex = RegExp(r'(.+)@(.+)\.(.+)');
 
   bool get isEmail => _emailRegex.hasMatch(this);

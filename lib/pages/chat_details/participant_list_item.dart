@@ -25,22 +25,22 @@ class ParticipantListItem extends StatelessWidget {
       Membership.leave => L10n.of(context).leftTheChat,
     };
 
-    final permissionBatch = user.powerLevel >= 100
-        ? L10n.of(context).admin
-        : user.powerLevel >= 50
+    final permissionBatch =
+        user.powerLevel >= 100
+            ? L10n.of(context).admin
+            : user.powerLevel >= 50
             ? L10n.of(context).moderator
             : '';
 
     return Opacity(
       opacity: user.membership == Membership.join ? 1 : 0.5,
       child: ListTile(
-        onTap: () => showAdaptiveBottomSheet(
-          context: context,
-          builder: (c) => UserBottomSheet(
-            user: user,
-            outerContext: context,
-          ),
-        ),
+        onTap:
+            () => showAdaptiveBottomSheet(
+              context: context,
+              builder:
+                  (c) => UserBottomSheet(user: user, outerContext: context),
+            ),
         title: Row(
           children: <Widget>[
             Expanded(
@@ -56,45 +56,41 @@ class ParticipantListItem extends StatelessWidget {
                   vertical: 6,
                 ),
                 decoration: BoxDecoration(
-                  color: user.powerLevel >= 100
-                      ? theme.colorScheme.tertiary
-                      : theme.colorScheme.tertiaryContainer,
-                  borderRadius: BorderRadius.circular(
-                    AppConfig.borderRadius,
-                  ),
+                  color:
+                      user.powerLevel >= 100
+                          ? theme.colorScheme.tertiary
+                          : theme.colorScheme.tertiaryContainer,
+                  borderRadius: BorderRadius.circular(AppConfig.borderRadius),
                 ),
                 child: Text(
                   permissionBatch,
                   style: theme.textTheme.labelSmall?.copyWith(
-                    color: user.powerLevel >= 100
-                        ? theme.colorScheme.onTertiary
-                        : theme.colorScheme.onTertiaryContainer,
+                    color:
+                        user.powerLevel >= 100
+                            ? theme.colorScheme.onTertiary
+                            : theme.colorScheme.onTertiaryContainer,
                   ),
                 ),
               ),
             membershipBatch == null
                 ? const SizedBox.shrink()
                 : Container(
-                    padding: const EdgeInsets.all(4),
-                    margin: const EdgeInsets.symmetric(horizontal: 8),
-                    decoration: BoxDecoration(
-                      color: theme.secondaryHeaderColor,
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    child: Center(
-                      child: Text(
-                        membershipBatch,
-                        style: theme.textTheme.labelSmall,
-                      ),
+                  padding: const EdgeInsets.all(4),
+                  margin: const EdgeInsets.symmetric(horizontal: 8),
+                  decoration: BoxDecoration(
+                    color: theme.secondaryHeaderColor,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Text(
+                      membershipBatch,
+                      style: theme.textTheme.labelSmall,
                     ),
                   ),
+                ),
           ],
         ),
-        subtitle: Text(
-          user.id,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
-        ),
+        subtitle: Text(user.id, maxLines: 1, overflow: TextOverflow.ellipsis),
         leading: Avatar(
           mxContent: user.avatarUrl,
           name: user.calcDisplayname(),

@@ -17,10 +17,7 @@ abstract class FluffyThemes {
   static bool isThreeColumnMode(BuildContext context) =>
       MediaQuery.of(context).size.width > FluffyThemes.columnWidth * 3.5;
 
-  static LinearGradient backgroundGradient(
-    BuildContext context,
-    int alpha,
-  ) {
+  static LinearGradient backgroundGradient(BuildContext context, int alpha) {
     final colorScheme = Theme.of(context).colorScheme;
     return LinearGradient(
       begin: Alignment.topCenter,
@@ -51,9 +48,10 @@ abstract class FluffyThemes {
       useMaterial3: true,
       brightness: brightness,
       colorScheme: colorScheme,
-      dividerColor: brightness == Brightness.dark
-          ? colorScheme.surfaceContainerHighest
-          : colorScheme.surfaceContainer,
+      dividerColor:
+          brightness == Brightness.dark
+              ? colorScheme.surfaceContainerHighest
+              : colorScheme.surfaceContainer,
       popupMenuTheme: PopupMenuThemeData(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(AppConfig.borderRadius),
@@ -92,22 +90,20 @@ abstract class FluffyThemes {
       ),
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
-          side: BorderSide(
-            width: 1,
-            color: colorScheme.primary,
-          ),
+          side: BorderSide(width: 1, color: colorScheme.primary),
           shape: RoundedRectangleBorder(
             side: BorderSide(color: colorScheme.primary),
             borderRadius: BorderRadius.circular(AppConfig.borderRadius / 2),
           ),
         ),
       ),
-      snackBarTheme: isColumnMode
-          ? const SnackBarThemeData(
-              behavior: SnackBarBehavior.floating,
-              width: FluffyThemes.columnWidth * 1.5,
-            )
-          : const SnackBarThemeData(behavior: SnackBarBehavior.floating),
+      snackBarTheme:
+          isColumnMode
+              ? const SnackBarThemeData(
+                behavior: SnackBarBehavior.floating,
+                width: FluffyThemes.columnWidth * 1.5,
+              )
+              : const SnackBarThemeData(behavior: SnackBarBehavior.floating),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: colorScheme.secondaryContainer,
@@ -127,14 +123,17 @@ extension on Brightness {
 }
 
 extension BubbleColorTheme on ThemeData {
-  Color get bubbleColor => brightness == Brightness.light
-      ? colorScheme.primary
-      : colorScheme.primaryContainer;
-  Color get onBubbleColor => brightness == Brightness.light
-      ? colorScheme.onPrimary
-      : colorScheme.onPrimaryContainer;
+  Color get bubbleColor =>
+      brightness == Brightness.light
+          ? colorScheme.primary
+          : colorScheme.primaryContainer;
+  Color get onBubbleColor =>
+      brightness == Brightness.light
+          ? colorScheme.onPrimary
+          : colorScheme.onPrimaryContainer;
 
-  Color get secondaryBubbleColor => HSLColor.fromColor(
+  Color get secondaryBubbleColor =>
+      HSLColor.fromColor(
         brightness == Brightness.light
             ? colorScheme.tertiary
             : colorScheme.tertiaryContainer,

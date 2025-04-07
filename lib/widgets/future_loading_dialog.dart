@@ -40,18 +40,16 @@ Future<Result<T>> showFutureLoadingDialog<T>({
   final result = await showAdaptiveDialog<Result<T>>(
     context: context,
     barrierDismissible: barrierDismissible,
-    builder: (BuildContext context) => LoadingDialog<T>(
-      future: futureExec,
-      title: title,
-      backLabel: backLabel,
-      exceptionContext: exceptionContext,
-    ),
+    builder:
+        (BuildContext context) => LoadingDialog<T>(
+          future: futureExec,
+          title: title,
+          backLabel: backLabel,
+          exceptionContext: exceptionContext,
+        ),
   );
   return result ??
-      Result.error(
-        Exception('FutureDialog canceled'),
-        StackTrace.current,
-      );
+      Result.error(Exception('FutureDialog canceled'), StackTrace.current);
 }
 
 class LoadingDialog<T> extends StatefulWidget {
@@ -80,28 +78,31 @@ class LoadingDialogState<T> extends State<LoadingDialog> {
     super.initState();
     widget.future.then(
       (result) => Navigator.of(context).pop<Result<T>>(Result.value(result)),
-      onError: (e, s) => setState(() {
-        exception = e;
-        stackTrace = s;
-      }),
+      onError:
+          (e, s) => setState(() {
+            exception = e;
+            stackTrace = s;
+          }),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     final exception = this.exception;
-    final titleLabel = exception != null
-        ? exception.toLocalizedString(context, widget.exceptionContext)
-        : widget.title ?? L10n.of(context).loadingPleaseWait;
+    final titleLabel =
+        exception != null
+            ? exception.toLocalizedString(context, widget.exceptionContext)
+            : widget.title ?? L10n.of(context).loadingPleaseWait;
 
     return AlertDialog.adaptive(
-      title: exception == null
-          ? null
-          : Icon(
-              Icons.error_outline_outlined,
-              color: Theme.of(context).colorScheme.error,
-              size: 48,
-            ),
+      title:
+          exception == null
+              ? null
+              : Icon(
+                Icons.error_outline_outlined,
+                color: Theme.of(context).colorScheme.error,
+                size: 48,
+              ),
       content: ConstrainedBox(
         constraints: const BoxConstraints(maxWidth: 256),
         child: Row(
@@ -122,19 +123,18 @@ class LoadingDialogState<T> extends State<LoadingDialog> {
           ],
         ),
       ),
-      actions: exception == null
-          ? null
-          : [
-              AdaptiveDialogAction(
-                onPressed: () => Navigator.of(context).pop<Result<T>>(
-                  Result.error(
-                    exception,
-                    stackTrace,
-                  ),
+      actions:
+          exception == null
+              ? null
+              : [
+                AdaptiveDialogAction(
+                  onPressed:
+                      () => Navigator.of(
+                        context,
+                      ).pop<Result<T>>(Result.error(exception, stackTrace)),
+                  child: Text(widget.backLabel ?? L10n.of(context).close),
                 ),
-                child: Text(widget.backLabel ?? L10n.of(context).close),
-              ),
-            ],
+              ],
     );
   }
 }

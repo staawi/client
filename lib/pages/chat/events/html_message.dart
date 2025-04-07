@@ -128,11 +128,7 @@ class HtmlMessage extends StatelessWidget {
   }
 
   /// Transforms a Node to an InlineSpan.
-  InlineSpan _renderHtml(
-    dom.Node node,
-    BuildContext context, {
-    int depth = 1,
-  }) {
+  InlineSpan _renderHtml(dom.Node node, BuildContext context, {int depth = 1}) {
     // We must not render elements nested more than 100 elements deep:
     if (depth >= 100) return const TextSpan();
 
@@ -159,9 +155,10 @@ class HtmlMessage extends StatelessWidget {
       case 'a':
         final href = node.attributes['href'];
         if (href == null) continue block;
-        final matrixId = node.attributes['href']
-            ?.parseIdentifierIntoParts()
-            ?.primaryIdentifier;
+        final matrixId =
+            node.attributes['href']
+                ?.parseIdentifierIntoParts()
+                ?.primaryIdentifier;
         if (matrixId != null) {
           if (matrixId.sigil == '@') {
             final user = room.unsafeGetUserFromMemoryOrFallback(matrixId);
@@ -178,9 +175,10 @@ class HtmlMessage extends StatelessWidget {
             );
           }
           if (matrixId.sigil == '#' || matrixId.sigil == '!') {
-            final room = matrixId.sigil == '!'
-                ? this.room.client.getRoomById(matrixId)
-                : this.room.client.getRoomByAlias(matrixId);
+            final room =
+                matrixId.sigil == '!'
+                    ? this.room.client.getRoomById(matrixId)
+                    : this.room.client.getRoomByAlias(matrixId);
             return WidgetSpan(
               child: MatrixPill(
                 name: room?.getLocalizedDisplayname() ?? matrixId,
@@ -230,11 +228,7 @@ class HtmlMessage extends StatelessWidget {
                       text:
                           '${(node.parent?.nodes.indexOf(node) ?? 0) + (int.tryParse(node.parent?.attributes['start'] ?? '1') ?? 1)}. ',
                     ),
-                  ..._renderWithLineBreaks(
-                    node.nodes,
-                    context,
-                    depth: depth,
-                  ),
+                  ..._renderWithLineBreaks(node.nodes, context, depth: depth),
                 ],
                 style: TextStyle(fontSize: fontSize, color: textColor),
               ),
@@ -246,12 +240,7 @@ class HtmlMessage extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.only(left: 8.0),
             decoration: BoxDecoration(
-              border: Border(
-                left: BorderSide(
-                  color: textColor,
-                  width: 3,
-                ),
-              ),
+              border: Border(left: BorderSide(color: textColor, width: 3)),
             ),
             child: Text.rich(
               TextSpan(
@@ -279,7 +268,8 @@ class HtmlMessage extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: HighlightView(
                 node.text,
-                language: node.className
+                language:
+                    node.className
                         .split(' ')
                         .singleWhereOrNull(
                           (className) => className.startsWith('language-'),
@@ -330,45 +320,45 @@ class HtmlMessage extends StatelessWidget {
         var obscure = true;
         return WidgetSpan(
           child: StatefulBuilder(
-            builder: (context, setState) => InkWell(
-              splashColor: Colors.transparent,
-              onTap: () => setState(() {
-                obscure = !obscure;
-              }),
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    WidgetSpan(
-                      child: Icon(
-                        obscure ? Icons.arrow_right : Icons.arrow_drop_down,
-                        size: fontSize * 1.2,
-                        color: textColor,
-                      ),
+            builder:
+                (context, setState) => InkWell(
+                  splashColor: Colors.transparent,
+                  onTap:
+                      () => setState(() {
+                        obscure = !obscure;
+                      }),
+                  child: Text.rich(
+                    TextSpan(
+                      children: [
+                        WidgetSpan(
+                          child: Icon(
+                            obscure ? Icons.arrow_right : Icons.arrow_drop_down,
+                            size: fontSize * 1.2,
+                            color: textColor,
+                          ),
+                        ),
+                        if (obscure)
+                          ...node.nodes
+                              .where(
+                                (node) =>
+                                    node is dom.Element &&
+                                    node.localName == 'summary',
+                              )
+                              .map(
+                                (node) =>
+                                    _renderHtml(node, context, depth: depth),
+                              )
+                        else
+                          ..._renderWithLineBreaks(
+                            node.nodes,
+                            context,
+                            depth: depth,
+                          ),
+                      ],
                     ),
-                    if (obscure)
-                      ...node.nodes
-                          .where(
-                            (node) =>
-                                node is dom.Element &&
-                                node.localName == 'summary',
-                          )
-                          .map(
-                            (node) => _renderHtml(node, context, depth: depth),
-                          )
-                    else
-                      ..._renderWithLineBreaks(
-                        node.nodes,
-                        context,
-                        depth: depth,
-                      ),
-                  ],
+                    style: TextStyle(fontSize: fontSize, color: textColor),
+                  ),
                 ),
-                style: TextStyle(
-                  fontSize: fontSize,
-                  color: textColor,
-                ),
-              ),
-            ),
           ),
         );
       case 'span':
@@ -378,42 +368,41 @@ class HtmlMessage extends StatelessWidget {
         var obscure = true;
         return WidgetSpan(
           child: StatefulBuilder(
-            builder: (context, setState) => InkWell(
-              splashColor: Colors.transparent,
-              onTap: () => setState(() {
-                obscure = !obscure;
-              }),
-              child: Text.rich(
-                TextSpan(
-                  children: _renderWithLineBreaks(
-                    node.nodes,
-                    context,
-                    depth: depth,
+            builder:
+                (context, setState) => InkWell(
+                  splashColor: Colors.transparent,
+                  onTap:
+                      () => setState(() {
+                        obscure = !obscure;
+                      }),
+                  child: Text.rich(
+                    TextSpan(
+                      children: _renderWithLineBreaks(
+                        node.nodes,
+                        context,
+                        depth: depth,
+                      ),
+                    ),
+                    style: TextStyle(
+                      fontSize: fontSize,
+                      color: textColor,
+                      backgroundColor: obscure ? textColor : null,
+                    ),
                   ),
                 ),
-                style: TextStyle(
-                  fontSize: fontSize,
-                  color: textColor,
-                  backgroundColor: obscure ? textColor : null,
-                ),
-              ),
-            ),
           ),
         );
       block:
       default:
         return TextSpan(
           style: switch (node.localName) {
-            'body' => TextStyle(
-                fontSize: fontSize,
-                color: textColor,
-              ),
+            'body' => TextStyle(fontSize: fontSize, color: textColor),
             'a' => linkStyle,
             'strong' => const TextStyle(fontWeight: FontWeight.bold),
             'em' || 'i' => const TextStyle(fontStyle: FontStyle.italic),
-            'del' ||
-            'strikethrough' =>
-              const TextStyle(decoration: TextDecoration.lineThrough),
+            'del' || 'strikethrough' => const TextStyle(
+              decoration: TextDecoration.lineThrough,
+            ),
             'u' => const TextStyle(decoration: TextDecoration.underline),
             'h1' => TextStyle(fontSize: fontSize * 1.6, height: 2),
             'h2' => TextStyle(fontSize: fontSize * 1.5, height: 2),
@@ -422,22 +411,19 @@ class HtmlMessage extends StatelessWidget {
             'h5' => TextStyle(fontSize: fontSize * 1.2, height: 1.75),
             'h6' => TextStyle(fontSize: fontSize * 1.1, height: 1.5),
             'span' => TextStyle(
-                color: node.attributes['color']?.hexToColor ??
-                    node.attributes['data-mx-color']?.hexToColor ??
-                    textColor,
-                backgroundColor:
-                    node.attributes['data-mx-bg-color']?.hexToColor,
-              ),
-            'sup' =>
-              const TextStyle(fontFeatures: [FontFeature.superscripts()]),
+              color:
+                  node.attributes['color']?.hexToColor ??
+                  node.attributes['data-mx-color']?.hexToColor ??
+                  textColor,
+              backgroundColor: node.attributes['data-mx-bg-color']?.hexToColor,
+            ),
+            'sup' => const TextStyle(
+              fontFeatures: [FontFeature.superscripts()],
+            ),
             'sub' => const TextStyle(fontFeatures: [FontFeature.subscripts()]),
             _ => null,
           },
-          children: _renderWithLineBreaks(
-            node.nodes,
-            context,
-            depth: depth,
-          ),
+          children: _renderWithLineBreaks(node.nodes, context, depth: depth),
         );
     }
   }
@@ -445,14 +431,8 @@ class HtmlMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text.rich(
-      _renderHtml(
-        parser.parse(html).body ?? dom.Element.html(''),
-        context,
-      ),
-      style: TextStyle(
-        fontSize: fontSize,
-        color: textColor,
-      ),
+      _renderHtml(parser.parse(html).body ?? dom.Element.html(''), context),
+      style: TextStyle(fontSize: fontSize, color: textColor),
     );
   }
 }
@@ -483,11 +463,7 @@ class MatrixPill extends StatelessWidget {
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Avatar(
-            mxContent: avatar,
-            name: name,
-            size: 16,
-          ),
+          Avatar(mxContent: avatar, name: name, size: 16),
           const SizedBox(width: 6),
           Text(
             name,

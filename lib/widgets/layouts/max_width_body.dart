@@ -24,31 +24,31 @@ class MaxWidthBody extends StatelessWidget {
           final theme = Theme.of(context);
 
           const desiredWidth = FluffyThemes.columnWidth * 1.5;
-          final body = constraints.maxWidth <= desiredWidth
-              ? child
-              : Container(
-                  alignment: Alignment.topCenter,
-                  padding: const EdgeInsets.all(32),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      maxWidth: FluffyThemes.columnWidth * 1.5,
-                    ),
-                    child: Material(
-                      shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(AppConfig.borderRadius),
-                        side: BorderSide(
-                          color: theme.dividerColor,
+          final body =
+              constraints.maxWidth <= desiredWidth
+                  ? child
+                  : Container(
+                    alignment: Alignment.topCenter,
+                    padding: const EdgeInsets.all(32),
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: FluffyThemes.columnWidth * 1.5,
+                      ),
+                      child: Material(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(
+                            AppConfig.borderRadius,
+                          ),
+                          side: BorderSide(color: theme.dividerColor),
+                        ),
+                        clipBehavior: Clip.hardEdge,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: child,
                         ),
                       ),
-                      clipBehavior: Clip.hardEdge,
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 16.0),
-                        child: child,
-                      ),
                     ),
-                  ),
-                );
+                  );
           if (!withScrolling) return body;
 
           return SingleChildScrollView(

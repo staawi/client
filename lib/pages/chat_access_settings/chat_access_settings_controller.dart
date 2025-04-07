@@ -67,13 +67,9 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     } catch (e, s) {
       Logs().w('Unable to change join rules', e, s);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              e.toLocalizedString(context),
-            ),
-          ),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
       }
     } finally {
       if (mounted) {
@@ -95,13 +91,9 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     } catch (e, s) {
       Logs().w('Unable to change history visibility', e, s);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              e.toLocalizedString(context),
-            ),
-          ),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
       }
     } finally {
       if (mounted) {
@@ -123,13 +115,9 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     } catch (e, s) {
       Logs().w('Unable to change guest access', e, s);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              e.toLocalizedString(context),
-            ),
-          ),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
       }
     } finally {
       if (mounted) {
@@ -155,16 +143,17 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
       context: context,
       title: L10n.of(context).replaceRoomWithNewerVersion,
       cancelLabel: L10n.of(context).cancel,
-      actions: capabilities.mRoomVersions!.available.entries
-          .where((r) => r.key != roomVersion)
-          .map(
-            (version) => AdaptiveModalAction(
-              value: version.key,
-              label:
-                  '${version.key} (${version.value.toString().split('.').last})',
-            ),
-          )
-          .toList(),
+      actions:
+          capabilities.mRoomVersions!.available.entries
+              .where((r) => r.key != roomVersion)
+              .map(
+                (version) => AdaptiveModalAction(
+                  value: version.key,
+                  label:
+                      '${version.key} (${version.value.toString().split('.').last})',
+                ),
+              )
+              .toList(),
     );
     if (newVersion == null ||
         OkCancelResult.cancel ==
@@ -219,7 +208,8 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
       cancelLabel: L10n.of(context).no,
     );
 
-    final altAliases = room
+    final altAliases =
+        room
             .getState(EventTypes.RoomCanonicalAlias)
             ?.content
             .tryGetList<String>('alt_aliases')
@@ -235,17 +225,15 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
 
     await showFutureLoadingDialog(
       context: context,
-      future: () => room.client.setRoomStateWithKey(
-        room.id,
-        EventTypes.RoomCanonicalAlias,
-        '',
-        {
-          'alias': canonicalAliasConsent == OkCancelResult.ok
-              ? alias
-              : room.canonicalAlias,
-          if (altAliases.isNotEmpty) 'alt_aliases': altAliases.toList(),
-        },
-      ),
+      future:
+          () => room.client
+              .setRoomStateWithKey(room.id, EventTypes.RoomCanonicalAlias, '', {
+                'alias':
+                    canonicalAliasConsent == OkCancelResult.ok
+                        ? alias
+                        : room.canonicalAlias,
+                if (altAliases.isNotEmpty) 'alt_aliases': altAliases.toList(),
+              }),
     );
   }
 
@@ -272,13 +260,9 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
     } catch (e, s) {
       Logs().w('Unable to change visibility', e, s);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              e.toLocalizedString(context),
-            ),
-          ),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
       }
     } finally {
       if (mounted) {

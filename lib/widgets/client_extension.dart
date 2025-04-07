@@ -12,16 +12,12 @@ extension MatrixApiExtension on MatrixApi {
   ///
   /// returns `json response object`:
   /// Contains more data about the queueing status of the request.
-  Future<String> invokeBackendWithPayload({
-    Payload? payload,
-  }) async {
+  Future<String> invokeBackendWithPayload({Payload? payload}) async {
     final requestUri = Uri(path: '_matrix/client/payload');
     final request = http.Request('POST', baseUri!.resolveUri(requestUri));
     request.headers['authorization'] = 'Bearer ${bearerToken!}';
     request.headers['content-type'] = 'application/json';
-    request.bodyBytes = utf8.encode(
-      jsonEncode(payload),
-    );
+    request.bodyBytes = utf8.encode(jsonEncode(payload));
     final response = await httpClient.send(request);
     final responseBody = await response.stream.toBytes();
     if (response.statusCode != 200) unexpectedResponse(response, responseBody);

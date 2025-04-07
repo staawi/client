@@ -25,20 +25,21 @@ class ChatMembersController extends State<ChatMembersPage> {
 
     if (filter.isEmpty) {
       setState(() {
-        filteredMembers = members
-          ?..sort((b, a) => a.powerLevel.compareTo(b.powerLevel));
+        filteredMembers =
+            members?..sort((b, a) => a.powerLevel.compareTo(b.powerLevel));
       });
       return;
     }
     setState(() {
-      filteredMembers = members
-          ?.where(
-            (user) =>
-                user.displayName?.toLowerCase().contains(filter) ??
-                user.id.toLowerCase().contains(filter),
-          )
-          .toList()
-        ?..sort((b, a) => a.powerLevel.compareTo(b.powerLevel));
+      filteredMembers =
+          members
+              ?.where(
+                (user) =>
+                    user.displayName?.toLowerCase().contains(filter) ??
+                    user.id.toLowerCase().contains(filter),
+              )
+              .toList()
+            ?..sort((b, a) => a.powerLevel.compareTo(b.powerLevel));
     });
   }
 
@@ -47,10 +48,10 @@ class ChatMembersController extends State<ChatMembersPage> {
       setState(() {
         error = null;
       });
-      final participants = await Matrix.of(context)
-          .client
-          .getRoomById(widget.roomId)
-          ?.requestParticipants();
+      final participants =
+          await Matrix.of(
+            context,
+          ).client.getRoomById(widget.roomId)?.requestParticipants();
 
       if (!mounted) return;
 
@@ -59,8 +60,11 @@ class ChatMembersController extends State<ChatMembersPage> {
       });
       setFilter();
     } catch (e, s) {
-      Logs()
-          .d('Unable to request participants. Try again in 3 seconds...', e, s);
+      Logs().d(
+        'Unable to request participants. Try again in 3 seconds...',
+        e,
+        s,
+      );
       setState(() {
         error = e;
       });

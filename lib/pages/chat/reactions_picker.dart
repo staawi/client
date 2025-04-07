@@ -17,7 +17,8 @@ class ReactionsPicker extends StatelessWidget {
     final theme = Theme.of(context);
 
     if (controller.showEmojiPicker) return const SizedBox.shrink();
-    final display = controller.editEvent == null &&
+    final display =
+        controller.editEvent == null &&
         controller.replyEvent == null &&
         controller.room.canSendDefaultMessages &&
         controller.selectedEvents.isNotEmpty;
@@ -63,19 +64,20 @@ class ReactionsPicker extends StatelessWidget {
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: emojis.length,
-                      itemBuilder: (c, i) => InkWell(
-                        borderRadius: BorderRadius.circular(8),
-                        onTap: () => controller.sendEmojiAction(emojis[i]),
-                        child: Container(
-                          width: 56,
-                          height: 56,
-                          alignment: Alignment.center,
-                          child: Text(
-                            emojis[i],
-                            style: const TextStyle(fontSize: 30),
+                      itemBuilder:
+                          (c, i) => InkWell(
+                            borderRadius: BorderRadius.circular(8),
+                            onTap: () => controller.sendEmojiAction(emojis[i]),
+                            child: Container(
+                              width: 56,
+                              height: 56,
+                              alignment: Alignment.center,
+                              child: Text(
+                                emojis[i],
+                                style: const TextStyle(fontSize: 30),
+                              ),
+                            ),
                           ),
-                        ),
-                      ),
                     ),
                   ),
                 ),
@@ -91,8 +93,9 @@ class ReactionsPicker extends StatelessWidget {
                     ),
                     child: const Icon(Icons.add_outlined),
                   ),
-                  onTap: () =>
-                      controller.pickEmojiReactionAction(allReactionEvents),
+                  onTap:
+                      () =>
+                          controller.pickEmojiReactionAction(allReactionEvents),
                 ),
               ],
             );

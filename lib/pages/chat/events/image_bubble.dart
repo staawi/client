@@ -67,11 +67,8 @@ class ImageBubble extends StatelessWidget {
     if (!tapToView) return;
     showDialog(
       context: context,
-      builder: (_) => ImageViewer(
-        event,
-        timeline: timeline,
-        outerContext: context,
-      ),
+      builder:
+          (_) => ImageViewer(event, timeline: timeline, outerContext: context),
     );
   }
 
@@ -95,9 +92,10 @@ class ImageBubble extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: borderRadius,
             side: BorderSide(
-              color: event.messageType == MessageTypes.Sticker
-                  ? Colors.transparent
-                  : theme.dividerColor,
+              color:
+                  event.messageType == MessageTypes.Sticker
+                      ? Colors.transparent
+                      : theme.dividerColor,
             ),
           ),
           child: InkWell(
@@ -112,9 +110,10 @@ class ImageBubble extends StatelessWidget {
                 fit: fit,
                 animated: animated,
                 isThumbnail: thumbnailOnly,
-                placeholder: event.messageType == MessageTypes.Sticker
-                    ? null
-                    : _buildPlaceholder,
+                placeholder:
+                    event.messageType == MessageTypes.Sticker
+                        ? null
+                        : _buildPlaceholder,
               ),
             ),
           ),

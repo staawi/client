@@ -16,28 +16,20 @@ import 'package:stawi/utils/platform_infos.dart';
 
 class ChatEventList extends StatelessWidget {
   final ChatController controller;
-  const ChatEventList({
-    super.key,
-    required this.controller,
-  });
+  const ChatEventList({super.key, required this.controller});
 
   @override
   Widget build(BuildContext context) {
     final timeline = controller.timeline;
     if (timeline == null) {
       return const Center(
-        child: CircularProgressIndicator.adaptive(
-          strokeWidth: 2,
-        ),
+        child: CircularProgressIndicator.adaptive(strokeWidth: 2),
       );
     }
 
     final theme = Theme.of(context);
 
-    final colors = [
-      theme.secondaryBubbleColor,
-      theme.bubbleColor,
-    ];
+    final colors = [theme.secondaryBubbleColor, theme.bubbleColor];
 
     final horizontalPadding = FluffyThemes.isColumnMode(context) ? 8.0 : 0.0;
 
@@ -64,9 +56,10 @@ class ChatEventList extends StatelessWidget {
         ),
         reverse: true,
         controller: controller.scrollController,
-        keyboardDismissBehavior: PlatformInfos.isIOS
-            ? ScrollViewKeyboardDismissBehavior.onDrag
-            : ScrollViewKeyboardDismissBehavior.manual,
+        keyboardDismissBehavior:
+            PlatformInfos.isIOS
+                ? ScrollViewKeyboardDismissBehavior.onDrag
+                : ScrollViewKeyboardDismissBehavior.manual,
         childrenDelegate: SliverChildBuilderDelegate(
           (BuildContext context, int i) {
             // Footer to display typing indicator and read receipts:
@@ -86,10 +79,7 @@ class ChatEventList extends StatelessWidget {
               }
               return Column(
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  SeenByRow(controller),
-                  TypingIndicators(controller),
-                ],
+                children: [SeenByRow(controller), TypingIndicators(controller)],
               );
             }
 
@@ -103,8 +93,9 @@ class ChatEventList extends StatelessWidget {
               if (timeline.canRequestHistory) {
                 return Builder(
                   builder: (context) {
-                    WidgetsBinding.instance
-                        .addPostFrameCallback(controller.requestHistory);
+                    WidgetsBinding.instance.addPostFrameCallback(
+                      controller.requestHistory,
+                    );
                     return Center(
                       child: IconButton(
                         onPressed: controller.requestHistory,
@@ -120,7 +111,8 @@ class ChatEventList extends StatelessWidget {
 
             // The message at this index:
             final event = events[i];
-            final animateIn = animateInEventIndex != null &&
+            final animateIn =
+                animateInEventIndex != null &&
                 timeline.events.length > animateInEventIndex &&
                 event == timeline.events[animateInEventIndex];
 
@@ -136,23 +128,28 @@ class ChatEventList extends StatelessWidget {
                 },
                 onSwipe: () => controller.replyAction(replyTo: event),
                 onInfoTab: controller.showEventInfo,
-                onAvatarTab: (Event event) => showAdaptiveBottomSheet(
-                  context: context,
-                  builder: (c) => UserBottomSheet(
-                    user: event.senderFromMemoryOrFallback,
-                    outerContext: context,
-                    onMention: () => controller.sendController.text +=
-                        '${event.senderFromMemoryOrFallback.mention} ',
-                  ),
-                ),
+                onAvatarTab:
+                    (Event event) => showAdaptiveBottomSheet(
+                      context: context,
+                      builder:
+                          (c) => UserBottomSheet(
+                            user: event.senderFromMemoryOrFallback,
+                            outerContext: context,
+                            onMention:
+                                () =>
+                                    controller.sendController.text +=
+                                        '${event.senderFromMemoryOrFallback.mention} ',
+                          ),
+                    ),
                 highlightMarker:
                     controller.scrollToEventIdMarker == event.eventId,
                 onSelect: controller.onSelectMessage,
-                scrollToEventId: (String eventId) =>
-                    controller.scrollToEventId(eventId),
+                scrollToEventId:
+                    (String eventId) => controller.scrollToEventId(eventId),
                 longPressSelect: controller.selectedEvents.isNotEmpty,
-                selected: controller.selectedEvents
-                    .any((e) => e.eventId == event.eventId),
+                selected: controller.selectedEvents.any(
+                  (e) => e.eventId == event.eventId,
+                ),
                 timeline: timeline,
                 displayReadMarker:
                     i > 0 && controller.readMarkerEventId == event.eventId,
@@ -165,8 +162,8 @@ class ChatEventList extends StatelessWidget {
             );
           },
           childCount: events.length + 2,
-          findChildIndexCallback: (key) =>
-              controller.findChildIndexCallback(key, thisEventsKeyMap),
+          findChildIndexCallback:
+              (key) => controller.findChildIndexCallback(key, thisEventsKeyMap),
         ),
       ),
     );

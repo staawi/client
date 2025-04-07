@@ -46,9 +46,7 @@ class MessageContent extends StatelessWidget {
     if (event.content['can_request_session'] != true) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(
-            event.calcLocalizedBodyFallback(MatrixLocals(l10n)),
-          ),
+          content: Text(event.calcLocalizedBodyFallback(MatrixLocals(l10n))),
         ),
       );
       return;
@@ -64,40 +62,37 @@ class MessageContent extends StatelessWidget {
     final sender = event.senderFromMemoryOrFallback;
     await showAdaptiveBottomSheet(
       context: context,
-      builder: (context) => Scaffold(
-        appBar: AppBar(
-          leading: CloseButton(onPressed: Navigator.of(context).pop),
-          title: Text(
-            l10n.whyIsThisMessageEncrypted,
-            style: const TextStyle(fontSize: 16),
-          ),
-        ),
-        body: SafeArea(
-          child: ListView(
-            padding: const EdgeInsets.all(16),
-            children: [
-              ListTile(
-                contentPadding: EdgeInsets.zero,
-                leading: Avatar(
-                  mxContent: sender.avatarUrl,
-                  name: sender.calcDisplayname(),
-                  presenceUserId: sender.stateKey,
-                  client: event.room.client,
-                ),
-                title: Text(sender.calcDisplayname()),
-                subtitle: Text(event.originServerTs.localizedTime(context)),
-                trailing: const Icon(Icons.lock_outlined),
+      builder:
+          (context) => Scaffold(
+            appBar: AppBar(
+              leading: CloseButton(onPressed: Navigator.of(context).pop),
+              title: Text(
+                l10n.whyIsThisMessageEncrypted,
+                style: const TextStyle(fontSize: 16),
               ),
-              const Divider(),
-              Text(
-                event.calcLocalizedBodyFallback(
-                  MatrixLocals(l10n),
-                ),
+            ),
+            body: SafeArea(
+              child: ListView(
+                padding: const EdgeInsets.all(16),
+                children: [
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    leading: Avatar(
+                      mxContent: sender.avatarUrl,
+                      name: sender.calcDisplayname(),
+                      presenceUserId: sender.stateKey,
+                      client: event.room.client,
+                    ),
+                    title: Text(sender.calcDisplayname()),
+                    subtitle: Text(event.originServerTs.localizedTime(context)),
+                    trailing: const Icon(Icons.lock_outlined),
+                  ),
+                  const Divider(),
+                  Text(event.calcLocalizedBodyFallback(MatrixLocals(l10n))),
+                ],
               ),
-            ],
+            ),
           ),
-        ),
-      ),
     );
   }
 
@@ -122,9 +117,10 @@ class MessageContent extends StatelessWidget {
                 ?.tryGet<int>('h');
             var width = maxSize;
             var height = maxSize;
-            var fit = event.messageType == MessageTypes.Sticker
-                ? BoxFit.contain
-                : BoxFit.cover;
+            var fit =
+                event.messageType == MessageTypes.Sticker
+                    ? BoxFit.contain
+                    : BoxFit.cover;
             if (w != null && h != null) {
               fit = BoxFit.contain;
               if (w > h) {
@@ -148,12 +144,12 @@ class MessageContent extends StatelessWidget {
             return CuteContent(event);
           case MessageTypes.Audio:
             if (PlatformInfos.isMobile ||
-                    PlatformInfos.isMacOS ||
-                    PlatformInfos.isWeb
-                // Disabled until https://github.com/bleonard252/just_audio_mpv/issues/3
-                // is fixed
-                //   || PlatformInfos.isLinux
-                ) {
+                PlatformInfos.isMacOS ||
+                PlatformInfos.isWeb
+            // Disabled until https://github.com/bleonard252/just_audio_mpv/issues/3
+            // is fixed
+            //   || PlatformInfos.isLinux
+            ) {
               return AudioPlayerWidget(
                 event,
                 color: textColor,
@@ -212,15 +208,17 @@ class MessageContent extends StatelessWidget {
               fontSize: fontSize,
             );
           case MessageTypes.Location:
-            final geoUri =
-                Uri.tryParse(event.content.tryGet<String>('geo_uri')!);
+            final geoUri = Uri.tryParse(
+              event.content.tryGet<String>('geo_uri')!,
+            );
             if (geoUri != null && geoUri.scheme == 'geo') {
-              final latlong = geoUri.path
-                  .split(';')
-                  .first
-                  .split(',')
-                  .map((s) => double.tryParse(s))
-                  .toList();
+              final latlong =
+                  geoUri.path
+                      .split(';')
+                      .first
+                      .split(',')
+                      .map((s) => double.tryParse(s))
+                      .toList();
               if (latlong.length == 2 &&
                   latlong.first != null &&
                   latlong.last != null) {
@@ -253,18 +251,20 @@ class MessageContent extends StatelessWidget {
               return FutureBuilder<User?>(
                 future: event.redactedBecause?.fetchSenderUser(),
                 builder: (context, snapshot) {
-                  final reason =
-                      event.redactedBecause?.content.tryGet<String>('reason');
-                  final redactedBy = snapshot.data?.calcDisplayname() ??
+                  final reason = event.redactedBecause?.content.tryGet<String>(
+                    'reason',
+                  );
+                  final redactedBy =
+                      snapshot.data?.calcDisplayname() ??
                       event.redactedBecause?.senderId.localpart ??
                       L10n.of(context).user;
                   return _ButtonContent(
-                    label: reason == null
-                        ? L10n.of(context).redactedBy(redactedBy)
-                        : L10n.of(context).redactedByBecause(
-                            redactedBy,
-                            reason,
-                          ),
+                    label:
+                        reason == null
+                            ? L10n.of(context).redactedBy(redactedBy)
+                            : L10n.of(
+                              context,
+                            ).redactedByBecause(redactedBy, reason),
                     icon: '🗑️',
                     textColor: buttonTextColor.withAlpha(128),
                     onPressed: () => onInfoTab!(event),
@@ -273,7 +273,8 @@ class MessageContent extends StatelessWidget {
                 },
               );
             }
-            final bigEmotes = event.onlyEmotes &&
+            final bigEmotes =
+                event.onlyEmotes &&
                 event.numberEmotes > 0 &&
                 event.numberEmotes <= 3;
             return Linkify(
@@ -354,10 +355,7 @@ class _ButtonContent extends StatelessWidget {
       onTap: onPressed,
       child: Text(
         '$icon  $label',
-        style: TextStyle(
-          color: textColor,
-          fontSize: fontSize,
-        ),
+        style: TextStyle(color: textColor, fontSize: fontSize),
       ),
     );
   }

@@ -23,10 +23,7 @@ import 'package:stawi/widgets/matrix.dart';
 class NewGroup extends StatefulWidget {
   final CreateGroupType createGroupType;
 
-  const NewGroup({
-    this.createGroupType = CreateGroupType.group,
-    super.key,
-  });
+  const NewGroup({this.createGroupType = CreateGroupType.group, super.key});
 
   @override
   NewGroupController createState() => NewGroupController();
@@ -127,27 +124,29 @@ class NewGroupController extends State<NewGroup> {
   Future<void> _createSpace() async {
     if (!mounted) return;
     final spaceId = await Matrix.of(context).client.createRoom(
-          preset: publicGroup
+      preset:
+          publicGroup
               ? sdk.CreateRoomPreset.publicChat
               : sdk.CreateRoomPreset.privateChat,
-          creationContent: {'type': RoomCreationTypes.mSpace},
-          visibility: publicGroup ? sdk.Visibility.public : null,
-          roomAliasName: publicGroup
-              ? groupNameController.text
-                  .trim()
-                  .toLowerCase()
-                  .replaceAll(' ', '_')
+      creationContent: {'type': RoomCreationTypes.mSpace},
+      visibility: publicGroup ? sdk.Visibility.public : null,
+      roomAliasName:
+          publicGroup
+              ? groupNameController.text.trim().toLowerCase().replaceAll(
+                ' ',
+                '_',
+              )
               : null,
-          name: groupNameController.text.trim(),
-          powerLevelContentOverride: {'events_default': 100},
-          initialState: [
-            if (avatar != null)
-              sdk.StateEvent(
-                type: sdk.EventTypes.RoomAvatar,
-                content: {'url': avatarUrl.toString()},
-              ),
-          ],
-        );
+      name: groupNameController.text.trim(),
+      powerLevelContentOverride: {'events_default': 100},
+      initialState: [
+        if (avatar != null)
+          sdk.StateEvent(
+            type: sdk.EventTypes.RoomAvatar,
+            content: {'url': avatarUrl.toString()},
+          ),
+      ],
+    );
     if (!mounted) return;
     context.pop<String>(spaceId);
   }
@@ -196,8 +195,11 @@ class NewGroupController extends State<NewGroup> {
       ),
     ];
 
-    activeSteps =
-        extendStepsByGroupType(context, payload.groupType, activeSteps);
+    activeSteps = extendStepsByGroupType(
+      context,
+      payload.groupType,
+      activeSteps,
+    );
 
     final lastStepIndex = activeSteps.length;
 

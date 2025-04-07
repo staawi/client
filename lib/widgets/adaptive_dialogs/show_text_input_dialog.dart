@@ -136,9 +136,10 @@ Future<String?> showTextInputDialog({
               autofocus: true,
               child: Text(
                 okLabel ?? L10n.of(context).ok,
-                style: isDestructive
-                    ? TextStyle(color: Theme.of(context).colorScheme.error)
-                    : null,
+                style:
+                    isDestructive
+                        ? TextStyle(color: Theme.of(context).colorScheme.error)
+                        : null,
               ),
             ),
           ],

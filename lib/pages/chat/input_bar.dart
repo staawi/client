@@ -54,8 +54,10 @@ class InputBar extends StatelessWidget {
         controller!.selection.baseOffset < 0) {
       return []; // no entries if there is selected text
     }
-    final searchText =
-        controller!.text.substring(0, controller!.selection.baseOffset);
+    final searchText = controller!.text.substring(
+      0,
+      controller!.selection.baseOffset,
+    );
     final ret = <Map<String, String?>>[];
     const maxResults = 30;
 
@@ -64,17 +66,15 @@ class InputBar extends StatelessWidget {
       final commandSearch = commandMatch[1]!.toLowerCase();
       for (final command in room.client.commands.keys) {
         if (command.contains(commandSearch)) {
-          ret.add({
-            'type': 'command',
-            'name': command,
-          });
+          ret.add({'type': 'command', 'name': command});
         }
 
         if (ret.length > maxResults) return ret;
       }
     }
-    final emojiMatch =
-        RegExp(r'(?:\s|^):(?:([-\w]+)~)?([-\w]+)$').firstMatch(searchText);
+    final emojiMatch = RegExp(
+      r'(?:\s|^):(?:([-\w]+)~)?([-\w]+)$',
+    ).firstMatch(searchText);
     if (emojiMatch != null) {
       final packSearch = emojiMatch[1];
       final emoteSearch = emojiMatch[2]!.toLowerCase();
@@ -120,12 +120,15 @@ class InputBar extends StatelessWidget {
         }
       }
       // aside of emote packs, also propose normal (tm) unicode emojis
-      final matchingUnicodeEmojis = Emoji.all()
-          .where(
-            (element) => [element.name, ...element.keywords]
-                .any((element) => element.toLowerCase().contains(emoteSearch)),
-          )
-          .toList();
+      final matchingUnicodeEmojis =
+          Emoji.all()
+              .where(
+                (element) => [
+                  element.name,
+                  ...element.keywords,
+                ].any((element) => element.toLowerCase().contains(emoteSearch)),
+              )
+              .toList();
       // sort by the index of the search term in the name in order to have
       // best matches first
       // (thanks for the hint by github.com/nextcloud/circles devs)
@@ -161,8 +164,9 @@ class InputBar extends StatelessWidget {
       for (final user in room.getParticipants()) {
         if ((user.displayName != null &&
                 (user.displayName!.toLowerCase().contains(userSearch) ||
-                    slugify(user.displayName!.toLowerCase())
-                        .contains(userSearch))) ||
+                    slugify(
+                      user.displayName!.toLowerCase(),
+                    ).contains(userSearch))) ||
             user.id.split(':')[0].toLowerCase().contains(userSearch)) {
           ret.add({
             'type': 'user',
@@ -271,9 +275,10 @@ class InputBar extends StatelessWidget {
             MxcImage(
               // ensure proper ordering ...
               key: ValueKey(suggestion['name']),
-              uri: suggestion['mxc'] is String
-                  ? Uri.parse(suggestion['mxc'] ?? '')
-                  : null,
+              uri:
+                  suggestion['mxc'] is String
+                      ? Uri.parse(suggestion['mxc'] ?? '')
+                      : null,
               width: size,
               height: size,
               isThumbnail: false,
@@ -285,16 +290,20 @@ class InputBar extends StatelessWidget {
                 alignment: Alignment.centerRight,
                 child: Opacity(
                   opacity: suggestion['pack_avatar_url'] != null ? 0.8 : 0.5,
-                  child: suggestion['pack_avatar_url'] != null
-                      ? Avatar(
-                          mxContent: Uri.tryParse(
-                            suggestion.tryGet<String>('pack_avatar_url') ?? '',
-                          ),
-                          name: suggestion.tryGet<String>('pack_display_name'),
-                          size: size * 0.9,
-                          client: client,
-                        )
-                      : Text(suggestion['pack_display_name']!),
+                  child:
+                      suggestion['pack_avatar_url'] != null
+                          ? Avatar(
+                            mxContent: Uri.tryParse(
+                              suggestion.tryGet<String>('pack_avatar_url') ??
+                                  '',
+                            ),
+                            name: suggestion.tryGet<String>(
+                              'pack_display_name',
+                            ),
+                            size: size * 0.9,
+                            client: client,
+                          )
+                          : Text(suggestion['pack_display_name']!),
                 ),
               ),
             ),
@@ -311,7 +320,8 @@ class InputBar extends StatelessWidget {
           children: <Widget>[
             Avatar(
               mxContent: url,
-              name: suggestion.tryGet<String>('displayname') ??
+              name:
+                  suggestion.tryGet<String>('displayname') ??
                   suggestion.tryGet<String>('mxid'),
               size: size,
               client: client,
@@ -326,12 +336,15 @@ class InputBar extends StatelessWidget {
   }
 
   void insertSuggestion(_, Map<String, String?> suggestion) {
-    final replaceText =
-        controller!.text.substring(0, controller!.selection.baseOffset);
+    final replaceText = controller!.text.substring(
+      0,
+      controller!.selection.baseOffset,
+    );
     var startText = '';
-    final afterText = replaceText == controller!.text
-        ? ''
-        : controller!.text.substring(controller!.selection.baseOffset + 1);
+    final afterText =
+        replaceText == controller!.text
+            ? ''
+            : controller!.text.substring(controller!.selection.baseOffset + 1);
     var insertText = '';
     if (suggestion['type'] == 'command') {
       insertText = '${suggestion['name']!} ';
@@ -399,53 +412,59 @@ class InputBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final useShortCuts = (AppConfig.sendOnEnter ?? !PlatformInfos.isMobile);
     return Shortcuts(
-      shortcuts: !useShortCuts
-          ? {}
-          : {
-              LogicalKeySet(LogicalKeyboardKey.shift, LogicalKeyboardKey.enter):
-                  NewLineIntent(),
-              LogicalKeySet(LogicalKeyboardKey.enter): SubmitLineIntent(),
-              LogicalKeySet(
-                LogicalKeyboardKey.controlLeft,
-                LogicalKeyboardKey.keyM,
-              ): PasteLineIntent(),
-            },
-      child: Actions(
-        actions: !useShortCuts
-            ? {}
-            : {
-                NewLineIntent: CallbackAction(
-                  onInvoke: (i) {
-                    final val = controller!.value;
-                    final selection = val.selection.start;
-                    final messageWithoutNewLine =
-                        '${controller!.text.substring(0, val.selection.start)}\n${controller!.text.substring(val.selection.end)}';
-                    controller!.value = TextEditingValue(
-                      text: messageWithoutNewLine,
-                      selection: TextSelection.fromPosition(
-                        TextPosition(offset: selection + 1),
-                      ),
-                    );
-                    return null;
-                  },
-                ),
-                SubmitLineIntent: CallbackAction(
-                  onInvoke: (i) {
-                    onSubmitted!(controller!.text);
-                    return null;
-                  },
-                ),
-                PasteLineIntent: CallbackAction(
-                  onInvoke: (i) async {
-                    final image = await Pasteboard.image;
-                    if (image != null) {
-                      onSubmitImage!(image);
-                      return null;
-                    }
-                    return null;
-                  },
-                ),
+      shortcuts:
+          !useShortCuts
+              ? {}
+              : {
+                LogicalKeySet(
+                      LogicalKeyboardKey.shift,
+                      LogicalKeyboardKey.enter,
+                    ):
+                    NewLineIntent(),
+                LogicalKeySet(LogicalKeyboardKey.enter): SubmitLineIntent(),
+                LogicalKeySet(
+                      LogicalKeyboardKey.controlLeft,
+                      LogicalKeyboardKey.keyM,
+                    ):
+                    PasteLineIntent(),
               },
+      child: Actions(
+        actions:
+            !useShortCuts
+                ? {}
+                : {
+                  NewLineIntent: CallbackAction(
+                    onInvoke: (i) {
+                      final val = controller!.value;
+                      final selection = val.selection.start;
+                      final messageWithoutNewLine =
+                          '${controller!.text.substring(0, val.selection.start)}\n${controller!.text.substring(val.selection.end)}';
+                      controller!.value = TextEditingValue(
+                        text: messageWithoutNewLine,
+                        selection: TextSelection.fromPosition(
+                          TextPosition(offset: selection + 1),
+                        ),
+                      );
+                      return null;
+                    },
+                  ),
+                  SubmitLineIntent: CallbackAction(
+                    onInvoke: (i) {
+                      onSubmitted!(controller!.text);
+                      return null;
+                    },
+                  ),
+                  PasteLineIntent: CallbackAction(
+                    onInvoke: (i) async {
+                      final image = await Pasteboard.image;
+                      if (image != null) {
+                        onSubmitImage!(image);
+                        return null;
+                      }
+                      return null;
+                    },
+                  ),
+                },
         child: TypeAheadField<Map<String, String?>>(
           direction: VerticalDirection.up,
           hideOnEmpty: true,
@@ -455,59 +474,59 @@ class InputBar extends StatelessWidget {
           hideOnSelect: false,
           debounceDuration: const Duration(milliseconds: 50),
           // show suggestions after 50ms idle time (default is 300)
-          builder: (context, controller, focusNode) => TextField(
-            controller: controller,
-            focusNode: focusNode,
-            contextMenuBuilder: (c, e) =>
-                markdownContextBuilder(c, e, controller),
-            contentInsertionConfiguration: ContentInsertionConfiguration(
-              onContentInserted: (KeyboardInsertedContent content) {
-                final data = content.data;
-                if (data == null) return;
+          builder:
+              (context, controller, focusNode) => TextField(
+                controller: controller,
+                focusNode: focusNode,
+                contextMenuBuilder:
+                    (c, e) => markdownContextBuilder(c, e, controller),
+                contentInsertionConfiguration: ContentInsertionConfiguration(
+                  onContentInserted: (KeyboardInsertedContent content) {
+                    final data = content.data;
+                    if (data == null) return;
 
-                final file = MatrixFile(
-                  mimeType: content.mimeType,
-                  bytes: data,
-                  name: content.uri.split('/').last,
-                );
-                room.sendFileEvent(
-                  file,
-                  shrinkImageMaxDimension: 1600,
-                );
-              },
-            ),
-            minLines: minLines,
-            maxLines: maxLines,
-            keyboardType: keyboardType!,
-            textInputAction: textInputAction,
-            autofocus: autofocus!,
-            inputFormatters: [
-              LengthLimitingTextInputFormatter((maxPDUSize / 3).floor()),
-            ],
-            onSubmitted: (text) {
-              // fix for library for now
-              // it sets the types for the callback incorrectly
-              onSubmitted!(text);
-            },
-            decoration: decoration!,
-            onChanged: (text) {
-              // fix for the library for now
-              // it sets the types for the callback incorrectly
-              onChanged!(text);
-            },
-            textCapitalization: TextCapitalization.sentences,
-          ),
+                    final file = MatrixFile(
+                      mimeType: content.mimeType,
+                      bytes: data,
+                      name: content.uri.split('/').last,
+                    );
+                    room.sendFileEvent(file, shrinkImageMaxDimension: 1600);
+                  },
+                ),
+                minLines: minLines,
+                maxLines: maxLines,
+                keyboardType: keyboardType!,
+                textInputAction: textInputAction,
+                autofocus: autofocus!,
+                inputFormatters: [
+                  LengthLimitingTextInputFormatter((maxPDUSize / 3).floor()),
+                ],
+                onSubmitted: (text) {
+                  // fix for library for now
+                  // it sets the types for the callback incorrectly
+                  onSubmitted!(text);
+                },
+                decoration: decoration!,
+                onChanged: (text) {
+                  // fix for the library for now
+                  // it sets the types for the callback incorrectly
+                  onChanged!(text);
+                },
+                textCapitalization: TextCapitalization.sentences,
+              ),
           suggestionsCallback: getSuggestions,
-          itemBuilder: (c, s) =>
-              buildSuggestion(c, s, Matrix.of(context).client),
-          onSelected: (Map<String, String?> suggestion) =>
-              insertSuggestion(context, suggestion),
-          errorBuilder: (BuildContext context, Object? error) =>
-              const SizedBox.shrink(),
+          itemBuilder:
+              (c, s) => buildSuggestion(c, s, Matrix.of(context).client),
+          onSelected:
+              (Map<String, String?> suggestion) =>
+                  insertSuggestion(context, suggestion),
+          errorBuilder:
+              (BuildContext context, Object? error) => const SizedBox.shrink(),
           loadingBuilder: (BuildContext context) => const SizedBox.shrink(),
           // fix loading briefly flickering a dark box
-          emptyBuilder: (BuildContext context) => const SizedBox
-              .shrink(), // fix loading briefly showing no suggestions
+          emptyBuilder:
+              (BuildContext context) =>
+                  const SizedBox.shrink(), // fix loading briefly showing no suggestions
         ),
       ),
     );

@@ -14,11 +14,9 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    final homeserver = Matrix.of(context)
-        .getLoginClient()
-        .homeserver
-        .toString()
-        .replaceFirst('https://', '');
+    final homeserver = Matrix.of(
+      context,
+    ).getLoginClient().homeserver.toString().replaceFirst('https://', '');
     final title = L10n.of(context).logInTo(homeserver);
     final titleParts = title.split(homeserver);
 
@@ -113,18 +111,20 @@ class LoginView extends StatelessWidget {
                       foregroundColor: theme.colorScheme.onPrimary,
                     ),
                     onPressed: controller.loading ? null : controller.login,
-                    child: controller.loading
-                        ? const LinearProgressIndicator()
-                        : Text(L10n.of(context).login),
+                    child:
+                        controller.loading
+                            ? const LinearProgressIndicator()
+                            : Text(L10n.of(context).login),
                   ),
                 ),
                 const SizedBox(height: 16),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: TextButton(
-                    onPressed: controller.loading
-                        ? () {}
-                        : controller.passwordForgotten,
+                    onPressed:
+                        controller.loading
+                            ? () {}
+                            : controller.passwordForgotten,
                     style: TextButton.styleFrom(
                       foregroundColor: theme.colorScheme.error,
                     ),

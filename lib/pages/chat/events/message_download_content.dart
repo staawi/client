@@ -23,13 +23,14 @@ class MessageDownloadContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final filename = event.content.tryGet<String>('filename') ?? event.body;
-    final filetype = (filename.contains('.')
-        ? filename.split('.').last.toUpperCase()
-        : event.content
-                .tryGetMap<String, dynamic>('info')
-                ?.tryGet<String>('mimetype')
-                ?.toUpperCase() ??
-            'UNKNOWN');
+    final filetype =
+        (filename.contains('.')
+            ? filename.split('.').last.toUpperCase()
+            : event.content
+                    .tryGetMap<String, dynamic>('info')
+                    ?.tryGet<String>('mimetype')
+                    ?.toUpperCase() ??
+                'UNKNOWN');
     final sizeString = event.sizeString;
     final fileDescription = event.fileDescription;
     return Column(
@@ -46,10 +47,7 @@ class MessageDownloadContent extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
-                    Icon(
-                      Icons.file_download_outlined,
-                      color: textColor,
-                    ),
+                    Icon(Icons.file_download_outlined, color: textColor),
                     const SizedBox(width: 16),
                     Flexible(
                       child: Text(
@@ -67,24 +65,16 @@ class MessageDownloadContent extends StatelessWidget {
               ),
               const Divider(height: 1),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16.0,
+                  vertical: 8,
+                ),
                 child: Row(
                   children: [
-                    Text(
-                      filetype,
-                      style: TextStyle(
-                        color: linkColor,
-                      ),
-                    ),
+                    Text(filetype, style: TextStyle(color: linkColor)),
                     const Spacer(),
                     if (sizeString != null)
-                      Text(
-                        sizeString,
-                        style: TextStyle(
-                          color: linkColor,
-                        ),
-                      ),
+                      Text(sizeString, style: TextStyle(color: linkColor)),
                   ],
                 ),
               ),

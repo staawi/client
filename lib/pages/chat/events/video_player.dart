@@ -68,8 +68,9 @@ class EventVideoPlayerState extends State<EventVideoPlayer> {
       final networkUri = _networkUri;
       if (kIsWeb && networkUri != null && _chewieManager == null) {
         _chewieManager ??= ChewieController(
-          videoPlayerController:
-              VideoPlayerController.networkUrl(Uri.parse(networkUri)),
+          videoPlayerController: VideoPlayerController.networkUrl(
+            Uri.parse(networkUri),
+          ),
           autoPlay: true,
           autoInitialize: true,
         );
@@ -82,11 +83,9 @@ class EventVideoPlayerState extends State<EventVideoPlayer> {
         );
       }
     } on IOException catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text(e.toLocalizedString(context)),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toLocalizedString(context))));
     } catch (e, s) {
       ErrorReporter(context, 'Unable to play video').onErrorCallback(e, s);
     } finally {
@@ -109,8 +108,10 @@ class EventVideoPlayerState extends State<EventVideoPlayer> {
     final theme = Theme.of(context);
 
     final hasThumbnail = widget.event.hasThumbnail;
-    final blurHash = (widget.event.infoMap as Map<String, dynamic>)
-            .tryGet<String>('xyz.amorgan.blurhash') ??
+    final blurHash =
+        (widget.event.infoMap as Map<String, dynamic>).tryGet<String>(
+          'xyz.amorgan.blurhash',
+        ) ??
         fallbackBlurHash;
     final fileDescription = widget.event.fileDescription;
     final textColor = widget.textColor;
@@ -128,48 +129,51 @@ class EventVideoPlayerState extends State<EventVideoPlayer> {
           borderRadius: BorderRadius.circular(AppConfig.borderRadius),
           child: SizedBox(
             height: width,
-            child: chewieManager != null
-                ? Center(child: Chewie(controller: chewieManager))
-                : Stack(
-                    children: [
-                      if (hasThumbnail)
+            child:
+                chewieManager != null
+                    ? Center(child: Chewie(controller: chewieManager))
+                    : Stack(
+                      children: [
+                        if (hasThumbnail)
+                          Center(
+                            child: ImageBubble(
+                              widget.event,
+                              tapToView: false,
+                              textColor: widget.textColor,
+                            ),
+                          )
+                        else
+                          BlurHash(
+                            blurhash: blurHash,
+                            width: width,
+                            height: width,
+                          ),
                         Center(
-                          child: ImageBubble(
-                            widget.event,
-                            tapToView: false,
-                            textColor: widget.textColor,
+                          child: IconButton(
+                            style: IconButton.styleFrom(
+                              backgroundColor: theme.colorScheme.surface,
+                            ),
+                            icon:
+                                _isDownloading
+                                    ? const SizedBox(
+                                      width: 24,
+                                      height: 24,
+                                      child: CircularProgressIndicator.adaptive(
+                                        strokeWidth: 2,
+                                      ),
+                                    )
+                                    : const Icon(Icons.play_circle_outlined),
+                            tooltip:
+                                _isDownloading
+                                    ? L10n.of(context).loadingPleaseWait
+                                    : L10n.of(context).videoWithSize(
+                                      widget.event.sizeString ?? '?MB',
+                                    ),
+                            onPressed: _isDownloading ? null : _downloadAction,
                           ),
-                        )
-                      else
-                        BlurHash(
-                          blurhash: blurHash,
-                          width: width,
-                          height: width,
                         ),
-                      Center(
-                        child: IconButton(
-                          style: IconButton.styleFrom(
-                            backgroundColor: theme.colorScheme.surface,
-                          ),
-                          icon: _isDownloading
-                              ? const SizedBox(
-                                  width: 24,
-                                  height: 24,
-                                  child: CircularProgressIndicator.adaptive(
-                                    strokeWidth: 2,
-                                  ),
-                                )
-                              : const Icon(Icons.play_circle_outlined),
-                          tooltip: _isDownloading
-                              ? L10n.of(context).loadingPleaseWait
-                              : L10n.of(context).videoWithSize(
-                                  widget.event.sizeString ?? '?MB',
-                                ),
-                          onPressed: _isDownloading ? null : _downloadAction,
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
           ),
         ),
         if (fileDescription != null && textColor != null && linkColor != null)

@@ -27,9 +27,10 @@ class ChatPermissionsSettingsView extends StatelessWidget {
           stream: controller.onChanged,
           builder: (context, _) {
             final roomId = controller.roomId;
-            final room = roomId == null
-                ? null
-                : Matrix.of(context).client.getRoomById(roomId);
+            final room =
+                roomId == null
+                    ? null
+                    : Matrix.of(context).client.getRoomById(roomId);
             if (room == null) {
               return Center(child: Text(L10n.of(context).noRoomsFound));
             }
@@ -45,9 +46,7 @@ class ChatPermissionsSettingsView extends StatelessWidget {
               children: [
                 ListTile(
                   leading: const Icon(Icons.info_outlined),
-                  subtitle: Text(
-                    L10n.of(context).chatPermissionsDescription,
-                  ),
+                  subtitle: Text(L10n.of(context).chatPermissionsDescription),
                 ),
                 Divider(color: theme.dividerColor),
                 ListTile(
@@ -66,12 +65,13 @@ class ChatPermissionsSettingsView extends StatelessWidget {
                       PermissionsListTile(
                         permissionKey: entry.key,
                         permission: entry.value,
-                        onChanged: (level) => controller.editPowerLevel(
-                          context,
-                          entry.key,
-                          entry.value,
-                          newLevel: level,
-                        ),
+                        onChanged:
+                            (level) => controller.editPowerLevel(
+                              context,
+                              entry.key,
+                              entry.value,
+                              newLevel: level,
+                            ),
                         canEdit: room.canChangePowerLevel,
                       ),
                     Divider(color: theme.dividerColor),
@@ -87,25 +87,28 @@ class ChatPermissionsSettingsView extends StatelessWidget {
                     Builder(
                       builder: (context) {
                         const key = 'rooms';
-                        final value = powerLevelsContent
-                                .containsKey('notifications')
-                            ? powerLevelsContent
-                                    .tryGetMap<String, Object?>('notifications')
-                                    ?.tryGet<int>('rooms') ??
-                                0
-                            : 0;
+                        final value =
+                            powerLevelsContent.containsKey('notifications')
+                                ? powerLevelsContent
+                                        .tryGetMap<String, Object?>(
+                                          'notifications',
+                                        )
+                                        ?.tryGet<int>('rooms') ??
+                                    0
+                                : 0;
                         return PermissionsListTile(
                           permissionKey: key,
                           permission: value,
                           category: 'notifications',
                           canEdit: room.canChangePowerLevel,
-                          onChanged: (level) => controller.editPowerLevel(
-                            context,
-                            key,
-                            value,
-                            newLevel: level,
-                            category: 'notifications',
-                          ),
+                          onChanged:
+                              (level) => controller.editPowerLevel(
+                                context,
+                                key,
+                                value,
+                                newLevel: level,
+                                category: 'notifications',
+                              ),
                         );
                       },
                     ),
@@ -125,13 +128,14 @@ class ChatPermissionsSettingsView extends StatelessWidget {
                         category: 'events',
                         permission: entry.value ?? 0,
                         canEdit: room.canChangePowerLevel,
-                        onChanged: (level) => controller.editPowerLevel(
-                          context,
-                          entry.key,
-                          entry.value ?? 0,
-                          newLevel: level,
-                          category: 'events',
-                        ),
+                        onChanged:
+                            (level) => controller.editPowerLevel(
+                              context,
+                              entry.key,
+                              entry.value ?? 0,
+                              newLevel: level,
+                              category: 'events',
+                            ),
                       ),
                   ],
                 ),

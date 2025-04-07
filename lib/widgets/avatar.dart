@@ -46,7 +46,8 @@ class Avatar extends StatelessWidget {
         fallbackLetters = name;
       }
     }
-    final noPic = mxContent == null ||
+    final noPic =
+        mxContent == null ||
         mxContent.toString().isEmpty ||
         mxContent.toString() == 'null';
     final textColor = name?.lightColorAvatar;
@@ -70,32 +71,35 @@ class Avatar extends StatelessWidget {
           width: size,
           height: size,
           child: Material(
-            color: theme.brightness == Brightness.light
-                ? Colors.white
-                : Colors.black,
+            color:
+                theme.brightness == Brightness.light
+                    ? Colors.white
+                    : Colors.black,
             shape: RoundedRectangleBorder(
               borderRadius: borderRadius,
               side: border ?? BorderSide.none,
             ),
             clipBehavior: Clip.hardEdge,
-            child: noPic
-                ? textWidget
-                : MxcImage(
-                    client: client,
-                    key: ValueKey(mxContent.toString()),
-                    cacheKey: '${mxContent}_$size',
-                    uri: mxContent,
-                    fit: BoxFit.cover,
-                    width: size,
-                    height: size,
-                    placeholder: (_) => Center(
-                      child: Icon(
-                        Icons.person_2,
-                        color: theme.colorScheme.tertiary,
-                        size: size / 1.5,
-                      ),
+            child:
+                noPic
+                    ? textWidget
+                    : MxcImage(
+                      client: client,
+                      key: ValueKey(mxContent.toString()),
+                      cacheKey: '${mxContent}_$size',
+                      uri: mxContent,
+                      fit: BoxFit.cover,
+                      width: size,
+                      height: size,
+                      placeholder:
+                          (_) => Center(
+                            child: Icon(
+                              Icons.person_2,
+                              color: theme.colorScheme.tertiary,
+                              size: size / 1.5,
+                            ),
+                          ),
                     ),
-                  ),
           ),
         ),
         if (presenceUserId != null)
@@ -108,9 +112,10 @@ class Avatar extends StatelessWidget {
                       presence.lastActiveTimestamp == null)) {
                 return const SizedBox.shrink();
               }
-              final dotColor = presence.presence.isOnline
-                  ? Colors.green
-                  : presence.presence.isUnavailable
+              final dotColor =
+                  presence.presence.isOnline
+                      ? Colors.green
+                      : presence.presence.isUnavailable
                       ? Colors.orange
                       : Colors.grey;
               return Positioned(
@@ -143,10 +148,6 @@ class Avatar extends StatelessWidget {
       ],
     );
     if (onTap == null) return container;
-    return InkWell(
-      onTap: onTap,
-      borderRadius: borderRadius,
-      child: container,
-    );
+    return InkWell(onTap: onTap, borderRadius: borderRadius, child: container);
   }
 }

@@ -16,20 +16,23 @@ Future<T?> showAdaptiveBottomSheet<T>({
   final dialogMode = FluffyThemes.isColumnMode(context);
   return showModalBottomSheet(
     context: context,
-    builder: (context) => Padding(
-      padding: dialogMode
-          ? const EdgeInsets.symmetric(vertical: 32.0)
-          : EdgeInsets.zero,
-      child: ClipRRect(
-        borderRadius: dialogMode
-            ? BorderRadius.circular(AppConfig.borderRadius)
-            : const BorderRadius.only(
-                topLeft: Radius.circular(AppConfig.borderRadius),
-                topRight: Radius.circular(AppConfig.borderRadius),
-              ),
-        child: builder(context),
-      ),
-    ),
+    builder:
+        (context) => Padding(
+          padding:
+              dialogMode
+                  ? const EdgeInsets.symmetric(vertical: 32.0)
+                  : EdgeInsets.zero,
+          child: ClipRRect(
+            borderRadius:
+                dialogMode
+                    ? BorderRadius.circular(AppConfig.borderRadius)
+                    : const BorderRadius.only(
+                      topLeft: Radius.circular(AppConfig.borderRadius),
+                      topRight: Radius.circular(AppConfig.borderRadius),
+                    ),
+            child: builder(context),
+          ),
+        ),
     useRootNavigator: useRootNavigator,
     isDismissible: isDismissible,
     isScrollControlled: isScrollControlled,

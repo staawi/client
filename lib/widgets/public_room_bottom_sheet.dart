@@ -38,12 +38,13 @@ class PublicRoomBottomSheet extends StatelessWidget {
         if (chunk != null && client.getRoomById(chunk.roomId) != null) {
           return chunk.roomId;
         }
-        final roomId = chunk != null && knock
-            ? await client.knockRoom(chunk.roomId, serverName: via)
-            : await client.joinRoom(
-                roomAlias ?? chunk!.roomId,
-                serverName: via,
-              );
+        final roomId =
+            chunk != null && knock
+                ? await client.knockRoom(chunk.roomId, serverName: via)
+                : await client.joinRoom(
+                  roomAlias ?? chunk!.roomId,
+                  serverName: via,
+                );
 
         if (!knock && client.getRoomById(roomId) == null) {
           await client.waitForRoomInSync(roomId);
@@ -71,11 +72,9 @@ class PublicRoomBottomSheet extends StatelessWidget {
     final chunk = this.chunk;
     if (chunk != null) return chunk;
     final query = await Matrix.of(outerContext).client.queryPublicRooms(
-          server: roomAlias!.domain,
-          filter: PublicRoomQueryFilter(
-            genericSearchTerm: roomAlias,
-          ),
-        );
+      server: roomAlias!.domain,
+      filter: PublicRoomQueryFilter(genericSearchTerm: roomAlias),
+    );
     if (!query.chunk.any(_testRoom)) {
       throw (L10n.of(outerContext).noRoomsFound);
     }
@@ -98,20 +97,18 @@ class PublicRoomBottomSheet extends StatelessWidget {
               onPressed: Navigator.of(context, rootNavigator: false).pop,
             ),
           ),
-          actions: roomAlias == null
-              ? null
-              : [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: IconButton(
-                      icon: const Icon(Icons.qr_code_rounded),
-                      onPressed: () => showQrCodeViewer(
-                        context,
-                        roomAlias,
+          actions:
+              roomAlias == null
+                  ? null
+                  : [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: IconButton(
+                        icon: const Icon(Icons.qr_code_rounded),
+                        onPressed: () => showQrCodeViewer(context, roomAlias),
                       ),
                     ),
-                  ),
-                ],
+                  ],
         ),
         body: FutureBuilder<PublicRoomsChunk>(
           future: _search(),
@@ -126,16 +123,17 @@ class PublicRoomBottomSheet extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(16.0),
-                      child: profile == null
-                          ? const Center(
-                              child: CircularProgressIndicator.adaptive(),
-                            )
-                          : Avatar(
-                              client: Matrix.of(outerContext).client,
-                              mxContent: profile.avatarUrl,
-                              name: profile.name ?? roomAlias,
-                              size: Avatar.defaultSize * 3,
-                            ),
+                      child:
+                          profile == null
+                              ? const Center(
+                                child: CircularProgressIndicator.adaptive(),
+                              )
+                              : Avatar(
+                                client: Matrix.of(outerContext).client,
+                                mxContent: profile.avatarUrl,
+                                name: profile.name ?? roomAlias,
+                                size: Avatar.defaultSize * 3,
+                              ),
                     ),
                     Expanded(
                       child: Column(
@@ -143,17 +141,15 @@ class PublicRoomBottomSheet extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           TextButton.icon(
-                            onPressed: roomLink != null
-                                ? () => FluffyShare.share(
+                            onPressed:
+                                roomLink != null
+                                    ? () => FluffyShare.share(
                                       roomLink,
                                       context,
                                       copyOnly: true,
                                     )
-                                : null,
-                            icon: const Icon(
-                              Icons.copy_outlined,
-                              size: 14,
-                            ),
+                                    : null,
+                            icon: const Icon(Icons.copy_outlined, size: 14),
                             style: TextButton.styleFrom(
                               foregroundColor: theme.colorScheme.onSurface,
                               iconColor: theme.colorScheme.onSurface,
@@ -166,10 +162,7 @@ class PublicRoomBottomSheet extends StatelessWidget {
                           ),
                           TextButton.icon(
                             onPressed: () {},
-                            icon: const Icon(
-                              Icons.groups_3_outlined,
-                              size: 14,
-                            ),
+                            icon: const Icon(Icons.groups_3_outlined, size: 14),
                             style: TextButton.styleFrom(
                               foregroundColor: theme.colorScheme.onSurface,
                               iconColor: theme.colorScheme.onSurface,
@@ -193,14 +186,14 @@ class PublicRoomBottomSheet extends StatelessWidget {
                     onPressed: () => _joinRoom(context),
                     label: Text(
                       chunk?.joinRule == 'knock' &&
-                              Matrix.of(outerContext)
-                                      .client
-                                      .getRoomById(chunk!.roomId) ==
+                              Matrix.of(
+                                    outerContext,
+                                  ).client.getRoomById(chunk!.roomId) ==
                                   null
                           ? L10n.of(context).knock
                           : chunk?.roomType == 'm.space'
-                              ? L10n.of(context).joinSpace
-                              : L10n.of(context).joinRoom,
+                          ? L10n.of(context).joinSpace
+                          : L10n.of(context).joinRoom,
                     ),
                     icon: const Icon(Icons.navigate_next),
                   ),
@@ -219,8 +212,8 @@ class PublicRoomBottomSheet extends StatelessWidget {
                         color: theme.textTheme.bodyMedium!.color,
                       ),
                       options: const LinkifyOptions(humanize: false),
-                      onOpen: (url) =>
-                          UrlLauncher(context, url.url).launchUrl(),
+                      onOpen:
+                          (url) => UrlLauncher(context, url.url).launchUrl(),
                     ),
                   ),
               ],

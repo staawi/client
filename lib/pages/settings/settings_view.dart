@@ -39,23 +39,21 @@ class SettingsView extends StatelessWidget {
             onGoToChats: () => context.go('/rooms'),
             onGoToSpaceId: (spaceId) => context.go('/rooms?spaceId=$spaceId'),
           ),
-          Container(
-            color: Theme.of(context).dividerColor,
-            width: 1,
-          ),
+          Container(color: Theme.of(context).dividerColor, width: 1),
         ],
         Expanded(
           child: Scaffold(
-            appBar: FluffyThemes.isColumnMode(context)
-                ? null
-                : AppBar(
-                    title: Text(L10n.of(context).settings),
-                    leading: Center(
-                      child: BackButton(
-                        onPressed: () => context.go('/rooms'),
+            appBar:
+                FluffyThemes.isColumnMode(context)
+                    ? null
+                    : AppBar(
+                      title: Text(L10n.of(context).settings),
+                      leading: Center(
+                        child: BackButton(
+                          onPressed: () => context.go('/rooms'),
+                        ),
                       ),
                     ),
-                  ),
             body: ListTileTheme(
               iconColor: theme.colorScheme.onSurface,
               child: ListView(
@@ -65,7 +63,8 @@ class SettingsView extends StatelessWidget {
                     future: controller.profileFuture,
                     builder: (context, snapshot) {
                       final profile = snapshot.data;
-                      final mxid = Matrix.of(context).client.userID ??
+                      final mxid =
+                          Matrix.of(context).client.userID ??
                           L10n.of(context).user;
                       final displayname =
                           profile?.displayName ?? mxid.localpart ?? mxid;
@@ -116,14 +115,12 @@ class SettingsView extends StatelessWidget {
                                     displayname,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                      fontSize: 18,
-                                    ),
+                                    style: const TextStyle(fontSize: 18),
                                   ),
                                 ),
                                 TextButton.icon(
-                                  onPressed: () =>
-                                      FluffyShare.share(mxid, context),
+                                  onPressed:
+                                      () => FluffyShare.share(mxid, context),
                                   icon: const Icon(
                                     Icons.copy_outlined,
                                     size: 14,
@@ -152,10 +149,11 @@ class SettingsView extends StatelessWidget {
                       leading: const Icon(Icons.account_circle_outlined),
                       title: Text(L10n.of(context).manageAccount),
                       trailing: const Icon(Icons.open_in_new_outlined),
-                      onTap: () => launchUrlString(
-                        accountManageUrl,
-                        mode: LaunchMode.inAppBrowserView,
-                      ),
+                      onTap:
+                          () => launchUrlString(
+                            accountManageUrl,
+                            mode: LaunchMode.inAppBrowserView,
+                          ),
                     ),
                   Divider(color: theme.dividerColor),
                   if (showChatBackupBanner == null)
@@ -172,15 +170,14 @@ class SettingsView extends StatelessWidget {
                       title: Text(L10n.of(context).chatBackup),
                       onChanged: controller.firstRunBootstrapAction,
                     ),
-                  Divider(
-                    color: theme.dividerColor,
-                  ),
+                  Divider(color: theme.dividerColor),
                   ListTile(
                     leading: const Icon(Icons.format_paint_outlined),
                     title: Text(L10n.of(context).changeTheme),
-                    tileColor: activeRoute.startsWith('/rooms/settings/style')
-                        ? theme.colorScheme.surfaceContainerHigh
-                        : null,
+                    tileColor:
+                        activeRoute.startsWith('/rooms/settings/style')
+                            ? theme.colorScheme.surfaceContainerHigh
+                            : null,
                     onTap: () => context.go('/rooms/settings/style'),
                   ),
                   ListTile(
@@ -196,17 +193,19 @@ class SettingsView extends StatelessWidget {
                     leading: const Icon(Icons.devices_outlined),
                     title: Text(L10n.of(context).devices),
                     onTap: () => context.go('/rooms/settings/devices'),
-                    tileColor: activeRoute.startsWith('/rooms/settings/devices')
-                        ? theme.colorScheme.surfaceContainerHigh
-                        : null,
+                    tileColor:
+                        activeRoute.startsWith('/rooms/settings/devices')
+                            ? theme.colorScheme.surfaceContainerHigh
+                            : null,
                   ),
                   ListTile(
                     leading: const Icon(Icons.forum_outlined),
                     title: Text(L10n.of(context).chat),
                     onTap: () => context.go('/rooms/settings/chat'),
-                    tileColor: activeRoute.startsWith('/rooms/settings/chat')
-                        ? theme.colorScheme.surfaceContainerHigh
-                        : null,
+                    tileColor:
+                        activeRoute.startsWith('/rooms/settings/chat')
+                            ? theme.colorScheme.surfaceContainerHigh
+                            : null,
                   ),
                   ListTile(
                     leading: const Icon(Icons.shield_outlined),

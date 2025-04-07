@@ -55,16 +55,14 @@ void main() async {
 }
 
 /// Fetch the pincode for the applock and start the flutter engine.
-Future<void> startGui(
-  List<Client> clients,
-  SharedPreferences store,
-) async {
+Future<void> startGui(List<Client> clients, SharedPreferences store) async {
   // Fetch the pin for the applock if existing for mobile applications.
   String? pin;
   if (PlatformInfos.isMobile) {
     try {
-      pin =
-          await const FlutterSecureStorage().read(key: SettingKeys.appLockKey);
+      pin = await const FlutterSecureStorage().read(
+        key: SettingKeys.appLockKey,
+      );
     } catch (e, s) {
       Logs().d('Unable to read PIN from Secure storage', e, s);
     }

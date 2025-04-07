@@ -21,8 +21,9 @@ class GroupCurrencyStep extends StatelessWidget {
         CurrencySelector(
           value: controller.payload.groupCurrency,
           hintText: 'Currency Type (Code)',
-          fieldBackground:
-              Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.1),
+          fieldBackground: Theme.of(
+            context,
+          ).colorScheme.onSurface.withValues(alpha: 0.1),
           update: (value) {
             final payload = controller.payload;
             payload.groupCurrency = value.code;

@@ -27,29 +27,27 @@ class SpacesNavigationRail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final client = Matrix.of(context).client;
-    final isSettings = GoRouter.of(context)
-        .routeInformationProvider
-        .value
-        .uri
-        .path
-        .startsWith('/rooms/settings');
+    final isSettings = GoRouter.of(
+      context,
+    ).routeInformationProvider.value.uri.path.startsWith('/rooms/settings');
     return StreamBuilder(
-      key: ValueKey(
-        client.userID.toString(),
-      ),
+      key: ValueKey(client.userID.toString()),
       stream: client.onSync.stream
           .where((s) => s.hasRoomUpdate)
           .rateLimit(const Duration(seconds: 1)),
       builder: (context, _) {
         final allSpaces = client.rooms.where((room) => room.isSpace);
-        final rootSpaces = allSpaces
-            .where(
-              (space) => !allSpaces.any(
-                (parentSpace) => parentSpace.spaceChildren
-                    .any((child) => child.roomId == space.id),
-              ),
-            )
-            .toList();
+        final rootSpaces =
+            allSpaces
+                .where(
+                  (space) =>
+                      !allSpaces.any(
+                        (parentSpace) => parentSpace.spaceChildren.any(
+                          (child) => child.roomId == space.id,
+                        ),
+                      ),
+                )
+                .toList();
 
         return SizedBox(
           width: FluffyThemes.navRailWidth,
@@ -98,8 +96,8 @@ class SpacesNavigationRail extends StatelessWidget {
                       toolTip: displayname,
                       isSelected: activeSpaceId == space.id,
                       onTap: () => onGoToSpaceId(rootSpaces[i].id),
-                      unreadBadgeFilter: (room) =>
-                          spaceChildrenIds.contains(room.id),
+                      unreadBadgeFilter:
+                          (room) => spaceChildrenIds.contains(room.id),
                       icon: Avatar(
                         mxContent: rootSpaces[i].avatar,
                         name: displayname,
