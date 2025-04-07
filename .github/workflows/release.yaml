@@ -57,14 +57,6 @@ jobs:
           mv repo public || true
           mv build/web/ public/web
           cp public/web -r public/nightly
-      - name: Deploy to GitHub Pages
-        if: startsWith(github.ref, 'refs/tags/v')
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          personal_token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
-          publish_dir: ./public
-          publish_branch: gh-pages
-          cname: stawi.im
 
   build_apk:
     runs-on: ubuntu-latest
