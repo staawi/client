@@ -4,14 +4,12 @@ import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 
 import 'package:stawi/config/app_config.dart';
-import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/new_private_chat/new_private_chat.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/utils/url_launcher.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class NewPrivateChatView extends StatelessWidget {
   final NewPrivateChatController controller;
@@ -23,7 +21,6 @@ class NewPrivateChatView extends StatelessWidget {
     final theme = Theme.of(context);
 
     final searchResponse = controller.searchResponse;
-    final userId = Matrix.of(context).client.userID!;
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
@@ -149,7 +146,11 @@ class NewPrivateChatView extends StatelessWidget {
                   }
                   if (result == null) {
                     if (controller.contactAccessNotPermitted()) {
-                      return Center(child: Text(L10n.of(context).contactPermissionDeniedNotice));
+                      return Center(
+                        child: Text(
+                          L10n.of(context).contactPermissionDeniedNotice,
+                        ),
+                      );
                     }
 
                     return const Center(
@@ -180,8 +181,9 @@ class NewPrivateChatView extends StatelessWidget {
                       final contact = result[i];
                       final displayname =
                           contact.displayName ??
-                          contact.userId.localpart ??
-                          contact.userId;
+                          contact.userId?.localpart ??
+                          contact.userId ??
+                          L10n.of(context).unknownDevice;
                       return ListTile(
                         leading: Avatar(
                           name: displayname,
@@ -189,7 +191,7 @@ class NewPrivateChatView extends StatelessWidget {
                           presenceUserId: contact.userId,
                         ),
                         title: Text(displayname),
-                        subtitle: Text(contact.userId),
+                        subtitle: Text(contact.userId ?? ''),
                         onTap: () => controller.openUserModal(contact),
                       );
                     },

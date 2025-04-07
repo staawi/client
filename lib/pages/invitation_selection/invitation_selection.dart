@@ -12,10 +12,8 @@ import '../../utils/localized_exception_extension.dart';
 
 class InvitationSelection extends StatefulWidget {
   final String roomId;
-  const InvitationSelection({
-    super.key,
-    required this.roomId,
-  });
+
+  const InvitationSelection({super.key, required this.roomId});
 
   @override
   InvitationSelectionController createState() =>
@@ -31,34 +29,55 @@ class InvitationSelectionController extends State<InvitationSelection> {
 
   String? get roomId => widget.roomId;
 
+  @override
+  void initState() {
+    super.initState();
+    searchUser(context, '');
+  }
+
   Future<List<User>> getContacts(BuildContext context) async {
     final client = Matrix.of(context).client;
     final room = client.getRoomById(roomId!)!;
 
-    final participants = (room.summary.mJoinedMemberCount ?? 0) > 100
-        ? room.getParticipants()
-        : await room.requestParticipants();
+    final participants =
+        (room.summary.mJoinedMemberCount ?? 0) > 100
+            ? room.getParticipants()
+            : await room.requestParticipants();
     participants.removeWhere(
       (u) => ![Membership.join, Membership.invite].contains(u.membership),
     );
-    final contacts = client.rooms
-        .where((r) => r.isDirectChat)
-        .map((r) => r.unsafeGetUserFromMemoryOrFallback(r.directChatMatrixID!))
-        .toList();
+    final contacts =
+        client.rooms
+            .where((r) => r.isDirectChat)
+            .map(
+              (r) => r.unsafeGetUserFromMemoryOrFallback(r.directChatMatrixID!),
+            )
+            .toList();
     contacts.sort(
       (a, b) => a.calcDisplayname().toLowerCase().compareTo(
-            b.calcDisplayname().toLowerCase(),
-          ),
+        b.calcDisplayname().toLowerCase(),
+      ),
     );
     return contacts;
   }
 
-  void inviteAction(BuildContext context, String id, String displayname) async {
+  void inviteAction(BuildContext context, Profile profile) async {
     final room = Matrix.of(context).client.getRoomById(roomId!)!;
 
     final success = await showFutureLoadingDialog(
       context: context,
-      future: () => room.invite(id),
+      future: () async {
+        const invitationReason = '';
+        if (profile.isOnboardedProfile()) {
+          await room.invite(profile.userId!, reason: invitationReason);
+        } else {
+          if (profile.hasContacts()) {
+            for (final contact in profile.contacts!) {
+              await room.inviteByContact(contact, reason: invitationReason);
+            }
+          }
+        }
+      },
     );
     if (success.error == null) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -79,11 +98,7 @@ class InvitationSelectionController extends State<InvitationSelection> {
 
   void searchUser(BuildContext context, String text) async {
     coolDown?.cancel();
-    if (text.isEmpty) {
-      setState(() => foundProfiles = []);
-    }
     currentSearchTerm = text;
-    if (currentSearchTerm.isEmpty) return;
     if (loading) return;
     setState(() => loading = true);
     final matrix = Matrix.of(context);
@@ -91,9 +106,9 @@ class InvitationSelectionController extends State<InvitationSelection> {
     try {
       response = await matrix.client.searchUserDirectory(text, limit: 10);
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text((e).toLocalizedString(context))),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text((e).toLocalizedString(context))));
       return;
     } finally {
       setState(() => loading = false);
@@ -103,9 +118,10 @@ class InvitationSelectionController extends State<InvitationSelection> {
       if (text.isValidMatrixId &&
           foundProfiles.indexWhere((profile) => text == profile.userId) == -1) {
         setState(
-          () => foundProfiles = [
-            Profile.fromJson({'user_id': text}),
-          ],
+          () =>
+              foundProfiles = [
+                Profile.fromJson({'user_id': text}),
+              ],
         );
       }
     });

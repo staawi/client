@@ -1,4 +1,4 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+<manifest package="im.stawi.app" xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <!-- io.flutter.stawi.FlutterApplication is an android.stawi.Application that
         calls FlutterMain.startInitialization(this); in its onCreate method.
@@ -77,7 +77,7 @@
                 <data android:scheme="matrix" />
             </intent-filter>
 
-            <!-- App can open com.antinvestor.stawi:// uris -->
+            <!-- App can open im.stawi:// uris -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -86,7 +86,7 @@
 
                 <data
                     android:host="chat"
-                    android:scheme="com.antinvestor.stawi" />
+                    android:scheme="im.stawi" />
             </intent-filter>
 
             <!-- App can receive shared text -->
@@ -112,7 +112,7 @@
         <activity
             android:name="com.linusu.flutter_web_auth_2.CallbackActivity"
             android:exported="true">
-            <intent-filter android:label="flutter_web_auth">
+            <intent-filter android:label="Stawi Login">
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
@@ -120,7 +120,7 @@
 
                 <data
                     android:host="login"
-                    android:scheme="com.antinvestor.stawi" />
+                    android:scheme="im.stawi" />
             </intent-filter>
         </activity>
 

@@ -9,7 +9,7 @@ set(OPENSSL_USE_STATIC_LIBS OFF)
 set(BINARY_NAME "chamamobile")
 # The unique GTK application identifier for this application. See:
 # https://wiki.gnome.org/HowDoI/ChooseApplicationID
-set(APPLICATION_ID "com.antinvestor.stawi")
+set(APPLICATION_ID "im.stawi")
 
 # Explicitly opt in to modern CMake behaviors to avoid warnings with recent
 # versions of CMake.

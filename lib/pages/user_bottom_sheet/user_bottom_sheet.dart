@@ -5,6 +5,7 @@ import 'package:matrix/matrix.dart';
 
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_modal_action_popup.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
@@ -21,6 +22,7 @@ enum UserBottomSheetAction {
   unban,
   message,
   ignore,
+  invite,
 }
 
 class LoadProfileBottomSheet extends StatelessWidget {
@@ -35,7 +37,7 @@ class LoadProfileBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ProfileInformation>(
+    return FutureBuilder<Profile>(
       future: Matrix.of(
         outerContext,
       ).client.getUserProfile(userId).timeout(const Duration(seconds: 3)),
@@ -57,6 +59,8 @@ class LoadProfileBottomSheet extends StatelessWidget {
             userId: userId,
             avatarUrl: snapshot.data?.avatarUrl,
             displayName: snapshot.data?.displayName,
+            contacts: snapshot.data?.contacts,
+            extra: snapshot.data?.extra,
           ),
           profileSearchError: snapshot.error,
         );
@@ -204,7 +208,7 @@ class UserBottomSheetController extends State<UserBottomSheet> {
           future:
               () => Matrix.of(
                 widget.outerContext,
-              ).client.startDirectChat(user?.id ?? widget.profile!.userId),
+              ).client.startDirectChat(user?.id ?? widget.profile!.userId!),
         );
         final roomId = roomIdResult.result;
         if (roomId == null) return;
@@ -219,6 +223,9 @@ class UserBottomSheetController extends State<UserBottomSheet> {
           '/rooms/settings/security/ignorelist',
           extra: userId,
         );
+      case UserBottomSheetAction.invite:
+        Navigator.of(context).pop();
+        await FluffyShare.shareInviteLink(context);
     }
   }
 

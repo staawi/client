@@ -11,7 +11,6 @@ import 'package:universal_html/html.dart' as html;
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/client_manager.dart';
-import 'package:stawi/utils/matrix_sdk_extensions/flutter_hive_collections_database.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'cipher.dart';
 
@@ -26,7 +25,7 @@ Future<DatabaseApi> flutterMatrixSdkDatabaseBuilder(Client client) async {
     return database;
   } catch (e, s) {
     Logs().wtf('Unable to construct database!', e, s);
-    // Try to delete database so that it can created again on next init:
+    // Try to delete database so that it can be created again on next init:
     database?.delete().catchError(
           (e, s) => Logs().wtf(
             'Unable to delete database, after failed construction',
@@ -54,8 +53,7 @@ Future<DatabaseApi> flutterMatrixSdkDatabaseBuilder(Client client) async {
     } catch (e, s) {
       Logs().e('Unable to send error notification', e, s);
     }
-
-    return FlutterHiveCollectionsDatabase.databaseBuilder(client);
+    return flutterMatrixSdkDatabaseBuilder(client);
   }
 }
 

@@ -44,26 +44,21 @@ class NewPrivateChatController extends State<NewPrivateChat> {
   void initState() {
     super.initState();
     _synchronizeContacts();
+    searchUsers();
   }
 
-  Future _synchronizeContacts() async {
-    if (!await BackgroundContactSync.checkPermissions()) {
+  Future<void> _synchronizeContacts() async {
+    if (!await ContactSyncUtility.checkPermissions()) {
       setState(() => _contactPermissionsDenied = true);
     } else {
-      BackgroundContactSync.startSync();
+      final client = Matrix.of(context).client;
+      await ContactSyncDatabaseUtility.syncContacts(client);
       setState(() => _contactPermissionsDenied = false);
     }
   }
 
   void searchUsers([String? input]) async {
     final searchTerm = input ?? controller.text;
-    if (searchTerm.isEmpty) {
-      _searchCoolDown?.cancel();
-      setState(() {
-        searchResponse = _searchCoolDown = null;
-      });
-      return;
-    }
 
     _searchCoolDown?.cancel();
     _searchCoolDown = Timer(_coolDown, () {
@@ -74,18 +69,10 @@ class NewPrivateChatController extends State<NewPrivateChat> {
   }
 
   Future<List<Profile>> _searchUser(String searchTerm) async {
-    final result = await Matrix.of(
-      context,
-    ).client.searchUserDirectory(searchTerm);
-    final profiles = result.results;
+    final client = Matrix.of(context).client;
 
-    if (searchTerm.isValidMatrixId &&
-        searchTerm.sigil == '@' &&
-        !profiles.any((profile) => profile.userId == searchTerm)) {
-      profiles.add(Profile(userId: searchTerm));
-    }
-
-    return profiles;
+    final networkResult = await client.searchUserDirectory(searchTerm);
+    return networkResult.results;
   }
 
   void inviteAction() => FluffyShare.shareInviteLink(context);

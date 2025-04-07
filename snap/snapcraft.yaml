@@ -103,7 +103,7 @@ slots:
   dbus-svc:
     interface: dbus
     bus: session
-    name: com.antinvestor.stawi
+    name: im.stawi
 
 apps:
   stawi:

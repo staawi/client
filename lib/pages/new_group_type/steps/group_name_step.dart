@@ -11,7 +11,6 @@ class GroupNameStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
@@ -59,9 +58,7 @@ class GroupNameStep extends StatelessWidget {
         SwitchListTile.adaptive(
           contentPadding: const EdgeInsets.symmetric(horizontal: 32),
           secondary: const Icon(Icons.public_outlined),
-          title: Text(
-            L10n.of(context).groupIsPublic,
-          ),
+          title: Text(L10n.of(context).groupIsPublic),
           value: controller.payload.isPublic ?? false,
           onChanged: (value) {
             if (controller.loading) return;
@@ -73,16 +70,19 @@ class GroupNameStep extends StatelessWidget {
         AnimatedSize(
           duration: FluffyThemes.animationDuration,
           curve: FluffyThemes.animationCurve,
-          child: controller.publicGroup
-              ? SwitchListTile.adaptive(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 32),
-                  secondary: const Icon(Icons.search_outlined),
-                  title: Text(L10n.of(context).groupCanBeFoundViaSearch),
-                  value: controller.groupCanBeFound,
-                  onChanged:
-                      controller.loading ? null : controller.setGroupCanBeFound,
-                )
-              : const SizedBox.shrink(),
+          child:
+              controller.publicGroup
+                  ? SwitchListTile.adaptive(
+                    contentPadding: const EdgeInsets.symmetric(horizontal: 32),
+                    secondary: const Icon(Icons.search_outlined),
+                    title: Text(L10n.of(context).groupCanBeFoundViaSearch),
+                    value: controller.groupCanBeFound,
+                    onChanged:
+                        controller.loading
+                            ? null
+                            : controller.setGroupCanBeFound,
+                  )
+                  : const SizedBox.shrink(),
         ),
       ],
     );

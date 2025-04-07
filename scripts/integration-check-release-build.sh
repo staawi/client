@@ -18,9 +18,9 @@ flutter build apk --release
 
 # install and launch APK
 flutter install
-adb shell am start -n com.antinvestor.stawi/com.antinvestor.stawi.MainActivity
+adb shell am start -n im.stawi/im.stawi.app.MainActivity
 
 sleep 5
 
 # check whether FluffyChat runs
-adb shell ps | awk '{print $9}' | grep com.antinvestor.stawi
+adb shell ps | awk '{print $9}' | grep im.stawi

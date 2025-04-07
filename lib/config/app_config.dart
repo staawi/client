@@ -31,8 +31,8 @@ abstract class AppConfig {
       'https://github.com/krille-chan/fluffychat/wiki/How-to-use-end-to-end-encryption-in-FluffyChat';
   static const String startChatTutorial =
       'https://github.com/krille-chan/fluffychat/wiki/How-to-Find-Users-in-FluffyChat';
-  static const String appId = 'com.antinvestor.stawi';
-  static const String appOpenUrlScheme = 'com.antinvestor.stawi';
+  static const String appId = 'im.stawi';
+  static const String appOpenUrlScheme = 'im.stawi';
   static String _webBaseUrl = 'https://stawi.antinvestor.com';
   static String get webBaseUrl => _webBaseUrl;
   static const String sourceCodeUrl = 'https://github.com/antinvestor/client';
@@ -60,10 +60,10 @@ abstract class AppConfig {
   static const bool hideTypingUsernames = false;
   static const bool hideAllStateEvents = false;
   static const String inviteLinkPrefix = 'https://matrix.to/#/';
-  static const String deepLinkPrefix = 'com.antinvestor.stawi://chat/';
+  static const String deepLinkPrefix = 'im.stawi://chat/';
   static const String schemePrefix = 'matrix:';
   static const String pushNotificationsChannelId = 'stawi_push';
-  static const String pushNotificationsAppId = 'com.antinvestor.stawi';
+  static const String pushNotificationsAppId = 'im.stawi';
   static const String pushNotificationsGatewayUrl =
       'https://stawi.antinvestor.com/_matrix/push/v1/notify';
   static const String pushNotificationsPusherFormat = 'event_id_only';

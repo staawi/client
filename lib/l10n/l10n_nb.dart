@@ -2450,7 +2450,7 @@ class L10nNb extends L10n {
   String get waitingForServer => 'Waiting for server...';
 
   @override
-  String get appIntroduction => 'Join or create friendly chat groups with the aim of growing financially. Learn more at https://antinvestor.com or just tap *Continue*.';
+  String get appIntroduction => 'Join or create friendly chat groups with the aim of growing financially. Learn more at https://stawi.im or just tap *Continue*.';
 
   @override
   String get newChatRequest => '📩 New chat request';

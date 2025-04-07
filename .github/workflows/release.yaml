@@ -31,20 +31,20 @@ jobs:
       - name: Build Release Web
         run: flutter build web --dart-define=FLUTTER_WEB_CANVASKIT_URL=canvaskit/ --release --source-maps --base-href "/web/"
       - name: Create archive
-        run: tar -czf fluffychat-web.tar.gz build/web/
+        run: tar -czf stawi-web.tar.gz build/web/
       - name: Upload Web Build
         uses: actions/upload-artifact@v4
         with:
           name: Web Build
-          path: fluffychat-web.tar.gz
+          path: stawi-web.tar.gz
       - name: Upload to release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.PAGES_DEPLOY_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: fluffychat-web.tar.gz
-          asset_name: fluffychat-web.tar.gz
+          asset_path: stawi-web.tar.gz
+          asset_name: stawi-web.tar.gz
           asset_content_type: application/gzip
       - name: Install and build tailwindcss
         working-directory: docs
@@ -64,7 +64,7 @@ jobs:
           personal_token: ${{ secrets.PAGES_DEPLOY_TOKEN }}
           publish_dir: ./public
           publish_branch: gh-pages
-          cname: fluffychat.im
+          cname: stawi.im
 
   build_apk:
     runs-on: ubuntu-latest
@@ -79,13 +79,9 @@ jobs:
         with:
           flutter-version: ${{ env.FLUTTER_VERSION }}
           cache: true
-      - name: Apply Google Services Patch
-        run: git apply ./scripts/enable-android-google-services.patch
       - run: flutter pub get
       - name: Prepare Android Release Build
         env:
-          FDROID_KEY: ${{ secrets.FDROID_KEY }}
-          FDROID_KEY_PASS: ${{ secrets.FDROID_KEY_PASS }}
           PLAYSTORE_DEPLOY_KEY: ${{ secrets.PLAYSTORE_DEPLOY_KEY }}
         run: ./scripts/prepare-android-release.sh
       - run: flutter build apk --release
@@ -95,8 +91,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAGES_DEPLOY_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: build/stawi/outputs/apk/release/stawi-release.apk
-          asset_name: fluffychat.apk
+          asset_path: build/stawi/outputs/apk/release/stawi.apk
+          asset_name: stawi.apk
           asset_content_type: application/vnd.android.package-archive
 
   build_linux:
@@ -116,15 +112,15 @@ jobs:
       - run: ./flutter/bin/flutter pub get
       - run: ./flutter/bin/flutter build linux --target-platform linux-${{ matrix.arch }}
       - name: Create archive
-        run: tar -czf fluffychat-linux-${{ matrix.arch }}.tar.gz -C build/linux/${{ matrix.arch }}/release/bundle/ .
+        run: tar -czf stawi-linux-${{ matrix.arch }}.tar.gz -C build/linux/${{ matrix.arch }}/release/bundle/ .
       - name: Upload to release
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.PAGES_DEPLOY_TOKEN }}
         with:
           upload_url: ${{ github.event.release.upload_url }}
-          asset_path: fluffychat-linux-${{ matrix.arch }}.tar.gz
-          asset_name: fluffychat-linux-${{ matrix.arch }}.tar.gz
+          asset_path: stawi-linux-${{ matrix.arch }}.tar.gz
+          asset_name: stawi-linux-${{ matrix.arch }}.tar.gz
           asset_content_type: application/gzip
 
   deploy_playstore:
@@ -146,13 +142,9 @@ jobs:
           ruby-version: '3.3'
       - name: Install Fastlane
         run: gem install fastlane -NV
-      - name: Apply Google Services Patch
-        run: git apply ./scripts/enable-android-google-services.patch
       - run: flutter pub get
       - name: Prepare Android Release Build
         env:
-          FDROID_KEY: ${{ secrets.FDROID_KEY }}
-          FDROID_KEY_PASS: ${{ secrets.FDROID_KEY_PASS }}
           PLAYSTORE_DEPLOY_KEY: ${{ secrets.PLAYSTORE_DEPLOY_KEY }}
         run: ./scripts/prepare-android-release.sh
       - name: Build Android Release
@@ -192,34 +184,8 @@ jobs:
           SNAPCRAFT_HAS_TTY: "true"
         run: |
           if [[ $GITHUB_REF_NAME == rc* ]]; then
-              yes | snapcraft promote fluffychat --from-channel edge --to-channel candidate
+              yes | snapcraft promote stawi --from-channel edge --to-channel candidate
           else
-              yes | snapcraft promote fluffychat --from-channel edge --to-channel stable
+              yes | snapcraft promote stawi --from-channel edge --to-channel stable
           fi
 
-  deploy_docker:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-    steps:
-      - name: Check out Git repository
-        uses: actions/checkout@v4
-      - name: Log in to the Container registry
-        uses: docker/login-action@v3
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}

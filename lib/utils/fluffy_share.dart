@@ -21,18 +21,16 @@ abstract class FluffyShare {
       );
       return;
     }
-    await Clipboard.setData(
-      ClipboardData(text: text),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text(L10n.of(context).copiedToClipboard)),
-    );
+    await Clipboard.setData(ClipboardData(text: text));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(L10n.of(context).copiedToClipboard)));
     return;
   }
 
   static Future<void> shareInviteLink(BuildContext context) async {
     final client = Matrix.of(context).client;
-    final ownProfile = await client.fetchOwnProfile();
+    final ownProfile = await client.getUserProfile(client.userID!);
     await FluffyShare.share(
       L10n.of(context).inviteText(
         ownProfile.displayName ?? client.userID!,

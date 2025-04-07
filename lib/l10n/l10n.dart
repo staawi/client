@@ -4,40 +4,14 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
-import 'l10n_ar.dart' deferred as l10n_ar;
-import 'l10n_ca.dart' deferred as l10n_ca;
-import 'l10n_cs.dart' deferred as l10n_cs;
-import 'l10n_de.dart' deferred as l10n_de;
 import 'l10n_en.dart' deferred as l10n_en;
-import 'l10n_es.dart' deferred as l10n_es;
-import 'l10n_et.dart' deferred as l10n_et;
-import 'l10n_eu.dart' deferred as l10n_eu;
-import 'l10n_fa.dart' deferred as l10n_fa;
-import 'l10n_fi.dart' deferred as l10n_fi;
-import 'l10n_fr.dart' deferred as l10n_fr;
-import 'l10n_ga.dart' deferred as l10n_ga;
-import 'l10n_gl.dart' deferred as l10n_gl;
-import 'l10n_hr.dart' deferred as l10n_hr;
-import 'l10n_hu.dart' deferred as l10n_hu;
-import 'l10n_id.dart' deferred as l10n_id;
 import 'l10n_ie.dart' deferred as l10n_ie;
-import 'l10n_it.dart' deferred as l10n_it;
 import 'l10n_ja.dart' deferred as l10n_ja;
-import 'l10n_ko.dart' deferred as l10n_ko;
 import 'l10n_lt.dart' deferred as l10n_lt;
-import 'l10n_lv.dart' deferred as l10n_lv;
 import 'l10n_nb.dart' deferred as l10n_nb;
-import 'l10n_nl.dart' deferred as l10n_nl;
-import 'l10n_pl.dart' deferred as l10n_pl;
 import 'l10n_pt.dart' deferred as l10n_pt;
 import 'l10n_ro.dart' deferred as l10n_ro;
-import 'l10n_ru.dart' deferred as l10n_ru;
 import 'l10n_sr.dart' deferred as l10n_sr;
-import 'l10n_sv.dart' deferred as l10n_sv;
-import 'l10n_ta.dart' deferred as l10n_ta;
-import 'l10n_tr.dart' deferred as l10n_tr;
-import 'l10n_uk.dart' deferred as l10n_uk;
-import 'l10n_zh.dart' deferred as l10n_zh;
 
 // ignore_for_file: type=lint
 
@@ -123,42 +97,15 @@ abstract class L10n {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
-    Locale('ar'),
-    Locale('ca'),
-    Locale('cs'),
-    Locale('de'),
-    Locale('es'),
-    Locale('et'),
-    Locale('eu'),
-    Locale('fa'),
-    Locale('fi'),
-    Locale('fr'),
-    Locale('ga'),
-    Locale('gl'),
-    Locale('hr'),
-    Locale('hu'),
-    Locale('id'),
     Locale('ie'),
-    Locale('it'),
     Locale('ja'),
-    Locale('ko'),
     Locale('lt'),
-    Locale('lv'),
     Locale('nb'),
-    Locale('nl'),
-    Locale('pl'),
     Locale('pt'),
     Locale('pt', 'BR'),
     Locale('pt', 'PT'),
     Locale('ro'),
-    Locale('ru'),
-    Locale('sr'),
-    Locale('sv'),
-    Locale('ta'),
-    Locale('tr'),
-    Locale('uk'),
-    Locale('zh'),
-    Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hant')
+    Locale('sr')
   ];
 
   /// Set to true to always display time of day in 24 hour format.
@@ -4544,7 +4491,7 @@ abstract class L10n {
   /// No description provided for @appIntroduction.
   ///
   /// In en, this message translates to:
-  /// **'Join or create friendly chat groups with the aim of growing financially. Learn more at https://antinvestor.com or just tap *Continue*.'**
+  /// **'Join or create friendly chat groups with the aim of growing financially. Learn more at https://stawi.im or just tap *Continue*.'**
   String get appIntroduction;
 
   /// No description provided for @newChatRequest.
@@ -4887,23 +4834,13 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['ar', 'ca', 'cs', 'de', 'en', 'es', 'et', 'eu', 'fa', 'fi', 'fr', 'ga', 'gl', 'hr', 'hu', 'id', 'ie', 'it', 'ja', 'ko', 'lt', 'lv', 'nb', 'nl', 'pl', 'pt', 'ro', 'ru', 'sr', 'sv', 'ta', 'tr', 'uk', 'zh'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['en', 'ie', 'ja', 'lt', 'nb', 'pt', 'ro', 'sr'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_L10nDelegate old) => false;
 }
 
 Future<L10n> lookupL10n(Locale locale) {
-
-  // Lookup logic when language+script codes are specified.
-  switch (locale.languageCode) {
-    case 'zh': {
-  switch (locale.scriptCode) {
-    case 'Hant': return l10n_zh.loadLibrary().then((dynamic _) => l10n_zh.L10nZhHant());
-   }
-  break;
-   }
-  }
 
   // Lookup logic when language+country codes are specified.
   switch (locale.languageCode) {
@@ -4918,40 +4855,14 @@ case 'PT': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPtPt());
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
-    case 'ar': return l10n_ar.loadLibrary().then((dynamic _) => l10n_ar.L10nAr());
-    case 'ca': return l10n_ca.loadLibrary().then((dynamic _) => l10n_ca.L10nCa());
-    case 'cs': return l10n_cs.loadLibrary().then((dynamic _) => l10n_cs.L10nCs());
-    case 'de': return l10n_de.loadLibrary().then((dynamic _) => l10n_de.L10nDe());
     case 'en': return l10n_en.loadLibrary().then((dynamic _) => l10n_en.L10nEn());
-    case 'es': return l10n_es.loadLibrary().then((dynamic _) => l10n_es.L10nEs());
-    case 'et': return l10n_et.loadLibrary().then((dynamic _) => l10n_et.L10nEt());
-    case 'eu': return l10n_eu.loadLibrary().then((dynamic _) => l10n_eu.L10nEu());
-    case 'fa': return l10n_fa.loadLibrary().then((dynamic _) => l10n_fa.L10nFa());
-    case 'fi': return l10n_fi.loadLibrary().then((dynamic _) => l10n_fi.L10nFi());
-    case 'fr': return l10n_fr.loadLibrary().then((dynamic _) => l10n_fr.L10nFr());
-    case 'ga': return l10n_ga.loadLibrary().then((dynamic _) => l10n_ga.L10nGa());
-    case 'gl': return l10n_gl.loadLibrary().then((dynamic _) => l10n_gl.L10nGl());
-    case 'hr': return l10n_hr.loadLibrary().then((dynamic _) => l10n_hr.L10nHr());
-    case 'hu': return l10n_hu.loadLibrary().then((dynamic _) => l10n_hu.L10nHu());
-    case 'id': return l10n_id.loadLibrary().then((dynamic _) => l10n_id.L10nId());
     case 'ie': return l10n_ie.loadLibrary().then((dynamic _) => l10n_ie.L10nIe());
-    case 'it': return l10n_it.loadLibrary().then((dynamic _) => l10n_it.L10nIt());
     case 'ja': return l10n_ja.loadLibrary().then((dynamic _) => l10n_ja.L10nJa());
-    case 'ko': return l10n_ko.loadLibrary().then((dynamic _) => l10n_ko.L10nKo());
     case 'lt': return l10n_lt.loadLibrary().then((dynamic _) => l10n_lt.L10nLt());
-    case 'lv': return l10n_lv.loadLibrary().then((dynamic _) => l10n_lv.L10nLv());
     case 'nb': return l10n_nb.loadLibrary().then((dynamic _) => l10n_nb.L10nNb());
-    case 'nl': return l10n_nl.loadLibrary().then((dynamic _) => l10n_nl.L10nNl());
-    case 'pl': return l10n_pl.loadLibrary().then((dynamic _) => l10n_pl.L10nPl());
     case 'pt': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPt());
     case 'ro': return l10n_ro.loadLibrary().then((dynamic _) => l10n_ro.L10nRo());
-    case 'ru': return l10n_ru.loadLibrary().then((dynamic _) => l10n_ru.L10nRu());
     case 'sr': return l10n_sr.loadLibrary().then((dynamic _) => l10n_sr.L10nSr());
-    case 'sv': return l10n_sv.loadLibrary().then((dynamic _) => l10n_sv.L10nSv());
-    case 'ta': return l10n_ta.loadLibrary().then((dynamic _) => l10n_ta.L10nTa());
-    case 'tr': return l10n_tr.loadLibrary().then((dynamic _) => l10n_tr.L10nTr());
-    case 'uk': return l10n_uk.loadLibrary().then((dynamic _) => l10n_uk.L10nUk());
-    case 'zh': return l10n_zh.loadLibrary().then((dynamic _) => l10n_zh.L10nZh());
   }
 
   throw FlutterError(

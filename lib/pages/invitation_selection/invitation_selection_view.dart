@@ -17,13 +17,12 @@ class InvitationSelectionView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final room =
-        Matrix.of(context).client.getRoomById(controller.widget.roomId);
+    final room = Matrix.of(
+      context,
+    ).client.getRoomById(controller.widget.roomId);
     if (room == null) {
       return Scaffold(
-        appBar: AppBar(
-          title: Text(L10n.of(context).oopsSomethingWentWrong),
-        ),
+        appBar: AppBar(title: Text(L10n.of(context).oopsSomethingWentWrong)),
         body: Center(
           child: Text(L10n.of(context).youAreNoLongerParticipatingInThisChat),
         ),
@@ -58,86 +57,90 @@ class InvitationSelectionView extends StatelessWidget {
                     fontWeight: FontWeight.normal,
                   ),
                   hintText: L10n.of(context).inviteContactToGroup(groupName),
-                  prefixIcon: controller.loading
-                      ? const Padding(
-                          padding: EdgeInsets.symmetric(
-                            vertical: 10.0,
-                            horizontal: 12,
-                          ),
-                          child: SizedBox.square(
-                            dimension: 24,
-                            child: CircularProgressIndicator.adaptive(
-                              strokeWidth: 2,
+                  prefixIcon:
+                      controller.loading
+                          ? const Padding(
+                            padding: EdgeInsets.symmetric(
+                              vertical: 10.0,
+                              horizontal: 12,
                             ),
-                          ),
-                        )
-                      : const Icon(Icons.search_outlined),
+                            child: SizedBox.square(
+                              dimension: 24,
+                              child: CircularProgressIndicator.adaptive(
+                                strokeWidth: 2,
+                              ),
+                            ),
+                          )
+                          : const Icon(Icons.search_outlined),
                 ),
                 onChanged: controller.searchUserWithCoolDown,
               ),
             ),
             StreamBuilder<Object>(
-              stream: room.client.onRoomState.stream
-                  .where((update) => update.roomId == room.id),
+              stream: room.client.onRoomState.stream.where(
+                (update) => update.roomId == room.id,
+              ),
               builder: (context, snapshot) {
                 final participants =
                     room.getParticipants().map((user) => user.id).toSet();
                 return controller.foundProfiles.isNotEmpty
                     ? ListView.builder(
-                        physics: const NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                        itemCount: controller.foundProfiles.length,
-                        itemBuilder: (BuildContext context, int i) =>
-                            _InviteContactListTile(
-                          profile: controller.foundProfiles[i],
-                          isMember: participants
-                              .contains(controller.foundProfiles[i].userId),
-                          onTap: () => controller.inviteAction(
-                            context,
-                            controller.foundProfiles[i].userId,
-                            controller.foundProfiles[i].displayName ??
-                                controller.foundProfiles[i].userId.localpart ??
-                                L10n.of(context).user,
-                          ),
-                        ),
-                      )
+                      physics: const NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: controller.foundProfiles.length,
+                      itemBuilder:
+                          (BuildContext context, int i) =>
+                              _InviteContactListTile(
+                                profile: controller.foundProfiles[i],
+                                isMember: participants.contains(
+                                  controller.foundProfiles[i].userId,
+                                ),
+                                onTap:
+                                    () => controller.inviteAction(
+                                      context,
+                                      controller.foundProfiles[i],
+                                    ),
+                              ),
+                    )
                     : FutureBuilder<List<User>>(
-                        future: controller.getContacts(context),
-                        builder: (BuildContext context, snapshot) {
-                          if (!snapshot.hasData) {
-                            return const Center(
-                              child: CircularProgressIndicator.adaptive(
-                                strokeWidth: 2,
-                              ),
-                            );
-                          }
-                          final contacts = snapshot.data!;
-                          return ListView.builder(
-                            physics: const NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            itemCount: contacts.length,
-                            itemBuilder: (BuildContext context, int i) =>
-                                _InviteContactListTile(
-                              user: contacts[i],
-                              profile: Profile(
-                                avatarUrl: contacts[i].avatarUrl,
-                                displayName: contacts[i].displayName ??
-                                    contacts[i].id.localpart ??
-                                    L10n.of(context).user,
-                                userId: contacts[i].id,
-                              ),
-                              isMember: participants.contains(contacts[i].id),
-                              onTap: () => controller.inviteAction(
-                                context,
-                                contacts[i].id,
-                                contacts[i].displayName ??
-                                    contacts[i].id.localpart ??
-                                    L10n.of(context).user,
-                              ),
+                      future: controller.getContacts(context),
+                      builder: (BuildContext context, snapshot) {
+                        if (!snapshot.hasData) {
+                          return const Center(
+                            child: CircularProgressIndicator.adaptive(
+                              strokeWidth: 2,
                             ),
                           );
-                        },
-                      );
+                        }
+                        final contacts = snapshot.data!;
+                        return ListView.builder(
+                          physics: const NeverScrollableScrollPhysics(),
+                          shrinkWrap: true,
+                          itemCount: contacts.length,
+                          itemBuilder:
+                              (BuildContext context, int i) =>
+                                  _InviteContactListTile(
+                                    user: contacts[i],
+                                    profile: Profile(
+                                      avatarUrl: contacts[i].avatarUrl,
+                                      displayName:
+                                          contacts[i].displayName ??
+                                          contacts[i].id.localpart ??
+                                          L10n.of(context).user,
+                                      userId: contacts[i].id,
+                                    ),
+                                    isMember: participants.contains(
+                                      contacts[i].id,
+                                    ),
+                                    onTap:
+                                        () => controller.inviteAction(
+                                          context,
+                                          Profile(userId: contacts[i].id),
+                                        ),
+                                  ),
+                        );
+                      },
+                    );
               },
             ),
           ],
@@ -170,27 +173,27 @@ class _InviteContactListTile extends StatelessWidget {
         mxContent: profile.avatarUrl,
         name: profile.displayName,
         presenceUserId: profile.userId,
-        onTap: () => showAdaptiveBottomSheet(
-          context: context,
-          builder: (c) => UserBottomSheet(
-            user: user,
-            profile: profile,
-            outerContext: context,
-          ),
-        ),
+        onTap:
+            () => showAdaptiveBottomSheet(
+              context: context,
+              builder:
+                  (c) => UserBottomSheet(
+                    user: user,
+                    profile: profile,
+                    outerContext: context,
+                  ),
+            ),
       ),
       title: Text(
-        profile.displayName ?? profile.userId.localpart ?? l10n.user,
+        profile.displayName ?? l10n.user,
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
       ),
       subtitle: Text(
-        profile.userId,
+        profile.userId ?? '',
         maxLines: 1,
         overflow: TextOverflow.ellipsis,
-        style: TextStyle(
-          color: theme.colorScheme.secondary,
-        ),
+        style: TextStyle(color: theme.colorScheme.secondary),
       ),
       trailing: TextButton.icon(
         onPressed: isMember ? null : onTap,

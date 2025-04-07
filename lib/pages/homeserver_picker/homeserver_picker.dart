@@ -5,23 +5,16 @@ import 'package:flutter/material.dart';
 
 import 'package:collection/collection.dart';
 import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:matrix/matrix.dart';
 import 'package:universal_html/html.dart' as html;
 import 'package:url_launcher/url_launcher_string.dart';
 
 import 'package:stawi/config/app_config.dart';
-import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/homeserver_picker/homeserver_picker_view.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/utils/platform_infos.dart';
-import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:stawi/widgets/matrix.dart';
 import '../../utils/localized_exception_extension.dart';
-
-import 'package:stawi/utils/tor_stub.dart'
-    if (dart.library.html) 'package:tor_detector_web/tor_detector_web.dart';
-
 
 class HomeserverPicker extends StatefulWidget {
   final bool addMultiAccount;
@@ -41,24 +34,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
   );
 
   String? error;
-
-  bool isTorBrowser = false;
-
-  Future<void> _checkTorBrowser() async {
-    if (!kIsWeb) return;
-
-    Hive.openBox('test').then((value) => null).catchError((e, s) async {
-      await showOkAlertDialog(
-        context: context,
-        title: L10n.of(context).indexedDbErrorTitle,
-        message: L10n.of(context).indexedDbErrorLong,
-      );
-      _checkTorBrowser();
-    });
-
-    final isTor = await TorBrowserDetector.isTorBrowser;
-    isTorBrowser = isTor;
-  }
 
   /// Starts an analysis of the given homeserver. It uses the current domain and
   /// makes sure that it is prefixed with https. Then it searches for the
@@ -177,7 +152,6 @@ class HomeserverPickerController extends State<HomeserverPicker> {
 
   @override
   void initState() {
-    _checkTorBrowser();
     super.initState();
   }
 
