@@ -113,6 +113,15 @@
 </head>
 
 <body>
+
+
+  <div id="auth-container" style="display: none; text-align: center; margin-top: 20%;">
+    <h2>Enter Password</h2>
+    <input type="password" id="passwordInput" />
+    <button onclick="checkPassword()">Submit</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+
   <picture id="splash">
       <source srcset="splash/img/light-1x.png 1x, splash/img/light-2x.png 2x, splash/img/light-3x.png 3x, splash/img/light-4x.png 4x" media="(prefers-color-scheme: light)">
       <source srcset="splash/img/dark-1x.png 1x, splash/img/dark-2x.png 2x, splash/img/dark-3x.png 3x, splash/img/dark-4x.png 4x" media="(prefers-color-scheme: dark)">
@@ -122,20 +131,40 @@
   
   
   <script>
-    window.addEventListener('load', function (ev) {
-      {{flutter_js}}
-      {{flutter_build_config}}
 
+const PASSWORD_PROTECTION_ENABLED = true; // Toggle this to false to disable password protection
+    
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === "team@stawi") {
+        document.getElementById("auth-container").style.display = "none";
+        startFlutterApp(); // only starts after correct password
+      } else {
+        document.getElementById("error").innerText = "Incorrect password!";
+      }
+    }
+
+    function startFlutterApp() {
+      removeSplashFromWeb();
       _flutter.loader.load({
         serviceWorker: {
           serviceWorkerVersion: {{flutter_service_worker_version}},
         },
-      onEntrypointLoaded: function(engineInitializer) {
-        engineInitializer.initializeEngine({ useColorEmoji: true }).then(function (appRunner) {
-          appRunner.runApp();
-        });
-      }
+        onEntrypointLoaded: function(engineInitializer) {
+          engineInitializer.initializeEngine({ useColorEmoji: true }).then(function (appRunner) {
+            appRunner.runApp();
+          });
+        }
       });
+    }
+
+    window.addEventListener('load', function (ev) {
+      {{flutter_js}}
+      {{flutter_build_config}}
+
+      if (document.getElementById("auth-container").style.display === "none") {
+        startFlutterApp();
+      }
     });
   </script>
   
