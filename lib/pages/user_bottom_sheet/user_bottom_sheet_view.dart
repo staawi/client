@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
+
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/date_time_extension.dart';
@@ -9,7 +11,6 @@ import 'package:stawi/utils/url_launcher.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/presence_builder.dart';
 import 'package:stawi/widgets/qr_code_viewer.dart';
-
 import '../../widgets/matrix.dart';
 import 'user_bottom_sheet.dart';
 
