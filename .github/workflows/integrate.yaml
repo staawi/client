@@ -25,9 +25,6 @@ jobs:
       - name: Check license compliance
         run: dart run license_checker check-licenses -c licenses.yaml --problematic
       - run: flutter analyze
-      - name: Apply google services patch
-        run: git apply ./scripts/enable-android-google-services.patch
-      - run: flutter analyze
       - run: flutter test
 
   build_debug_apk:
