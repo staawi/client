@@ -30,15 +30,6 @@ class UserBottomSheetView extends StatelessWidget {
             profile?.displayName ??
             profile?.userId?.localpart)!;
 
-    var aboutDescription = '';
-    if (user != null) {
-      aboutDescription = "Active registered user on system";
-    } else {
-      if (profile != null && profile.userId == '') {
-        aboutDescription = "User is not yet on stawi";
-      }
-    }
-
     final avatarUrl = user?.avatarUrl ?? profile?.avatarUrl;
 
     final client = Matrix.of(controller.widget.outerContext).client;

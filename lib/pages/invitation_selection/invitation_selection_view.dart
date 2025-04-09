@@ -10,16 +10,22 @@ import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 import 'package:stawi/widgets/matrix.dart';
 
-class InvitationSelectionView extends StatelessWidget {
+class InvitationSelectionView extends StatefulWidget {
   final InvitationSelectionController controller;
 
   const InvitationSelectionView(this.controller, {super.key});
 
   @override
+  State<InvitationSelectionView> createState() =>
+      _InvitationSelectionViewState();
+}
+
+class _InvitationSelectionViewState extends State<InvitationSelectionView> {
+  @override
   Widget build(BuildContext context) {
     final room = Matrix.of(
       context,
-    ).client.getRoomById(controller.widget.roomId);
+    ).client.getRoomById(widget.controller.widget.roomId);
     if (room == null) {
       return Scaffold(
         appBar: AppBar(title: Text(L10n.of(context).oopsSomethingWentWrong)),
@@ -44,6 +50,7 @@ class InvitationSelectionView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: TextField(
+                controller: widget.controller.controller,
                 textInputAction: TextInputAction.search,
                 decoration: InputDecoration(
                   filled: true,
@@ -58,7 +65,7 @@ class InvitationSelectionView extends StatelessWidget {
                   ),
                   hintText: L10n.of(context).inviteContactToGroup(groupName),
                   prefixIcon:
-                      controller.loading
+                      widget.controller.loading
                           ? const Padding(
                             padding: EdgeInsets.symmetric(
                               vertical: 10.0,
@@ -72,10 +79,69 @@ class InvitationSelectionView extends StatelessWidget {
                             ),
                           )
                           : const Icon(Icons.search_outlined),
+                  // Add a clear button when there's text but not when empty
+                  suffixIcon:
+                      widget.controller.controller.text.isNotEmpty
+                          ? IconButton(
+                            icon: const Icon(Icons.cancel),
+                            onPressed: () {
+                              widget.controller.controller.clear();
+                              // Trigger a search with empty text to clear results
+                              widget.controller.searchUserWithCoolDown('');
+                            },
+                          )
+                          : null,
                 ),
-                onChanged: controller.searchUserWithCoolDown,
+                onChanged: widget.controller.searchUserWithCoolDown,
               ),
             ),
+            // Name input field for email/phone invitations
+            if (widget.controller.showNameInput)
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: TextField(
+                        controller: widget.controller.nameController,
+                        decoration: InputDecoration(
+                          filled: true,
+                          fillColor: theme.colorScheme.secondaryContainer,
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          hintText: L10n.of(context).enterContactName,
+                          // Add a clear button for the name field only when not empty
+                          suffixIcon:
+                              widget.controller.nameController.text.isNotEmpty
+                                  ? IconButton(
+                                    icon: const Icon(Icons.cancel),
+                                    onPressed: () {
+                                      widget.controller.nameController.clear();
+                                      // Call onNameChanged to update the profiles
+                                      widget.controller.onNameChanged('');
+                                      // Force rebuild to hide the icon
+                                      setState(() {});
+                                    },
+                                  )
+                                  : null,
+                        ),
+                        textInputAction: TextInputAction.done,
+                        onChanged: (text) {
+                          // Update the UI for clear button visibility
+                          setState(() {});
+                          // Process the name change in the controller
+                          widget.controller.onNameChanged(text);
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
             StreamBuilder<Object>(
               stream: room.client.onRoomState.stream.where(
                 (update) => update.roomId == room.id,
@@ -83,27 +149,27 @@ class InvitationSelectionView extends StatelessWidget {
               builder: (context, snapshot) {
                 final participants =
                     room.getParticipants().map((user) => user.id).toSet();
-                return controller.foundProfiles.isNotEmpty
+                return widget.controller.foundProfiles.isNotEmpty
                     ? ListView.builder(
                       physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      itemCount: controller.foundProfiles.length,
+                      itemCount: widget.controller.foundProfiles.length,
                       itemBuilder:
                           (BuildContext context, int i) =>
                               _InviteContactListTile(
-                                profile: controller.foundProfiles[i],
+                                profile: widget.controller.foundProfiles[i],
                                 isMember: participants.contains(
-                                  controller.foundProfiles[i].userId,
+                                  widget.controller.foundProfiles[i].userId,
                                 ),
                                 onTap:
-                                    () => controller.inviteAction(
+                                    () => widget.controller.inviteAction(
                                       context,
-                                      controller.foundProfiles[i],
+                                      widget.controller.foundProfiles[i],
                                     ),
                               ),
                     )
                     : FutureBuilder<List<User>>(
-                      future: controller.getContacts(context),
+                      future: widget.controller.getContacts(context),
                       builder: (BuildContext context, snapshot) {
                         if (!snapshot.hasData) {
                           return const Center(
@@ -133,7 +199,7 @@ class InvitationSelectionView extends StatelessWidget {
                                       contacts[i].id,
                                     ),
                                     onTap:
-                                        () => controller.inviteAction(
+                                        () => widget.controller.inviteAction(
                                           context,
                                           Profile(userId: contacts[i].id),
                                         ),

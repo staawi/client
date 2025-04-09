@@ -8,10 +8,6 @@ environment:
   sdk: ">=3.7.0 <4.0.0"
 
 dependencies:
-  flutter:
-    sdk: flutter
-  flutter_localizations:
-    sdk: flutter
   animations: ^2.0.11
   app_links: ^6.4.0
   archive: ^4.0.4
@@ -32,6 +28,8 @@ dependencies:
   fcm_shared_isolate: ^0.2.0
   file_picker: ^9.0.2
   file_selector: ^1.0.3
+  flutter:
+    sdk: flutter
   flutter_cache_manager: ^3.4.1
   flutter_contacts: ^1.1.9+2
   flutter_currency_picker: ^1.7.0
@@ -39,6 +37,8 @@ dependencies:
   flutter_highlighter: ^0.1.1
   flutter_linkify: ^6.0.0
   flutter_local_notifications: ^17.2.3
+  flutter_localizations:
+    sdk: flutter
   flutter_map: ^8.1.0
   flutter_new_badger: ^1.1.1
   flutter_olm: ^2.0.0
@@ -64,7 +64,7 @@ dependencies:
   matrix:
     git:
       url: https://github.com/antinvestor/matrix-dart-sdk.git
-      ref: 0.38.19
+      ref: 0.39.1
   mime: ^2.0.0
   native_imaging: ^0.2.0
   opus_caf_converter_dart: ^1.0.1
@@ -97,10 +97,10 @@ dependencies:
   webrtc_interface: ^1.0.13
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
   flutter_lints: ^3.0.2
   flutter_native_splash: ^2.4.5
+  flutter_test:
+    sdk: flutter
   import_sorter: ^4.6.0
   integration_test:
     sdk: flutter

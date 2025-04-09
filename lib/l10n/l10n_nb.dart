@@ -2651,4 +2651,7 @@ class L10nNb extends L10n {
 
   @override
   String get save => 'Save';
+
+  @override
+  String get enterContactName => 'Enter contact name';
 }

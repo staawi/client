@@ -4889,6 +4889,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Save'**
   String get save;
+
+  /// No description provided for @enterContactName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter contact name'**
+  String get enterContactName;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

@@ -5,7 +5,6 @@ import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/new_group_type/new_group_type.dart';
 import 'package:stawi/pages/new_group_type/new_group_type_form.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
-import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 
 class NewGroupTypeView extends StatelessWidget {

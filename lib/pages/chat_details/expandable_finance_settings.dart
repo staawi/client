@@ -3,9 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/finance/new_group_type/new_group_type.dart';
-import 'package:stawi/pages/finance/new_group_type/new_group_type_view.dart';
 import 'package:stawi/pages/finance/voting_mode/voting_mode_view.dart';
-import 'package:stawi/widgets/matrix.dart';
 
 class ExpandableFinanceSettings extends StatefulWidget {
   final Room room;

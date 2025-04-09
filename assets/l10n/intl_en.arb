@@ -3288,5 +3288,8 @@
   "delegatedVotingDescription": "Members can delegate their voting power to trusted representatives who vote on their behalf, allowing for expertise-based decision making.",
   "votingThreshold": "Voting Threshold",
   "votingThresholdDescription": "Percentage of members required to vote on a motion before action is taken or canceled.",
-  "save": "Save"
+  "save": "Save",
+  "enterContactName": "Enter contact name",
+  "invite": "Invite",
+  "cancel": "Cancel"
 }
