@@ -4823,6 +4823,12 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Verified devices only'**
   String get verifiedDevicesOnly;
+
+  /// No description provided for @chatSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Chat Settings'**
+  String get chatSettings;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

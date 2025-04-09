@@ -6,6 +6,7 @@ import 'package:matrix/matrix.dart';
 
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_details/chat_details.dart';
+import 'package:stawi/pages/chat_details/expandable_chat_settings.dart';
 import 'package:stawi/pages/chat_details/participant_list_item.dart';
 import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
@@ -206,145 +207,58 @@ class ChatDetailsView extends StatelessWidget {
                                 ],
                               ),
                               Divider(color: theme.dividerColor),
-                              if (!room.canChangeStateEvent(
-                                EventTypes.RoomTopic,
-                              ))
-                                ListTile(
-                                  title: Text(
-                                    L10n.of(context).chatDescription,
-                                    style: TextStyle(
-                                      color: theme.colorScheme.secondary,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                )
-                              else
-                                Padding(
-                                  padding: const EdgeInsets.all(16.0),
-                                  child: TextButton.icon(
-                                    onPressed: controller.setTopicAction,
-                                    label: Text(
-                                      L10n.of(context).setChatDescription,
-                                    ),
-                                    icon: const Icon(Icons.edit_outlined),
-                                    style: TextButton.styleFrom(
-                                      iconColor:
-                                          theme
-                                              .colorScheme
-                                              .onSecondaryContainer,
-                                      backgroundColor:
-                                          theme.colorScheme.secondaryContainer,
-                                      foregroundColor:
-                                          theme
-                                              .colorScheme
-                                              .onSecondaryContainer,
-                                    ),
-                                  ),
-                                ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 16.0,
                                 ),
-                                child: SelectableLinkify(
-                                  text:
-                                      room.topic.isEmpty
-                                          ? L10n.of(
-                                            context,
-                                          ).noChatDescriptionYet
-                                          : room.topic,
-                                  options: const LinkifyOptions(
-                                    humanize: false,
-                                  ),
-                                  linkStyle: const TextStyle(
-                                    color: Colors.blueAccent,
-                                    decorationColor: Colors.blueAccent,
-                                  ),
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    fontStyle:
-                                        room.topic.isEmpty
-                                            ? FontStyle.italic
-                                            : FontStyle.normal,
-                                    color: theme.textTheme.bodyMedium!.color,
-                                    decorationColor:
-                                        theme.textTheme.bodyMedium!.color,
-                                  ),
-                                  onOpen:
-                                      (url) =>
-                                          UrlLauncher(
-                                            context,
-                                            url.url,
-                                          ).launchUrl(),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: SelectableLinkify(
+                                        text: room.topic.isEmpty
+                                            ? L10n.of(context).noChatDescriptionYet
+                                            : room.topic,
+                                        options: const LinkifyOptions(
+                                          humanize: false,
+                                        ),
+                                        linkStyle: const TextStyle(
+                                          color: Colors.blueAccent,
+                                          decorationColor: Colors.blueAccent,
+                                        ),
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          fontStyle: room.topic.isEmpty
+                                              ? FontStyle.italic
+                                              : FontStyle.normal,
+                                          color: theme.textTheme.bodyMedium!.color,
+                                          decorationColor:
+                                              theme.textTheme.bodyMedium!.color,
+                                        ),
+                                        onOpen: (url) => UrlLauncher(
+                                          context,
+                                          url.url,
+                                        ).launchUrl(),
+                                      ),
+                                    ),
+                                    if (room.canChangeStateEvent(EventTypes.RoomTopic))
+                                      IconButton(
+                                        icon: const Icon(Icons.edit_outlined, size: 20),
+                                        onPressed: controller.setTopicAction,
+                                        color: theme.colorScheme.secondary,
+                                        padding: EdgeInsets.zero,
+                                        constraints: const BoxConstraints(),
+                                      ),
+                                  ],
                                 ),
                               ),
                               const SizedBox(height: 16),
                               Divider(color: theme.dividerColor),
-                              ListTile(
-                                leading: CircleAvatar(
-                                  backgroundColor:
-                                      theme.scaffoldBackgroundColor,
-                                  foregroundColor: iconColor,
-                                  child: const Icon(
-                                    Icons.insert_emoticon_outlined,
-                                  ),
-                                ),
-                                title: Text(
-                                  L10n.of(context).customEmojisAndStickers,
-                                ),
-                                subtitle: Text(
-                                  L10n.of(context).setCustomEmotes,
-                                ),
-                                onTap: controller.goToEmoteSettings,
-                                trailing: const Icon(
-                                  Icons.chevron_right_outlined,
-                                ),
+                              ExpandableChatSettings(
+                                room: room,
+                                iconColor: iconColor,
+                                onEmoteSettingsTap: controller.goToEmoteSettings,
                               ),
-                              if (!room.isDirectChat)
-                                ListTile(
-                                  leading: CircleAvatar(
-                                    backgroundColor:
-                                        theme.scaffoldBackgroundColor,
-                                    foregroundColor: iconColor,
-                                    child: const Icon(Icons.shield_outlined),
-                                  ),
-                                  title: Text(
-                                    L10n.of(context).accessAndVisibility,
-                                  ),
-                                  subtitle: Text(
-                                    L10n.of(
-                                      context,
-                                    ).accessAndVisibilityDescription,
-                                  ),
-                                  onTap:
-                                      () => context.push(
-                                        '/rooms/${room.id}/details/access',
-                                      ),
-                                  trailing: const Icon(
-                                    Icons.chevron_right_outlined,
-                                  ),
-                                ),
-                              if (!room.isDirectChat)
-                                ListTile(
-                                  title: Text(L10n.of(context).chatPermissions),
-                                  subtitle: Text(
-                                    L10n.of(context).whoCanPerformWhichAction,
-                                  ),
-                                  leading: CircleAvatar(
-                                    backgroundColor:
-                                        theme.scaffoldBackgroundColor,
-                                    foregroundColor: iconColor,
-                                    child: const Icon(
-                                      Icons.edit_attributes_outlined,
-                                    ),
-                                  ),
-                                  trailing: const Icon(
-                                    Icons.chevron_right_outlined,
-                                  ),
-                                  onTap:
-                                      () => context.push(
-                                        '/rooms/${room.id}/details/permissions',
-                                      ),
-                                ),
                               Divider(color: theme.dividerColor),
                               ListTile(
                                 title: Text(

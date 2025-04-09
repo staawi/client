@@ -2619,4 +2619,7 @@ class L10nLt extends L10n {
 
   @override
   String get verifiedDevicesOnly => 'Verified devices only';
+
+  @override
+  String get chatSettings => 'Chat Settings';
 }

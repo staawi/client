@@ -2619,6 +2619,9 @@ class L10nPt extends L10n {
 
   @override
   String get verifiedDevicesOnly => 'Verified devices only';
+
+  @override
+  String get chatSettings => 'Chat Settings';
 }
 
 /// The translations for Portuguese, as used in Brazil (`pt_BR`).
