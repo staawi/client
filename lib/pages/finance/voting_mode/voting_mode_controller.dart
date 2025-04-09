@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
+import '../../../services/models/matrix_events/voting_mode_event.dart';
+import '../../../services/matrix_event_service.dart';
 import 'voting_mode_model.dart';
 
 class VotingModeController with ChangeNotifier {
@@ -14,9 +16,9 @@ class VotingModeController with ChangeNotifier {
   }
 
   VotingMode get votingMode => _votingMode;
-  
+
   int get thresholdPercentage => _thresholdPercentage;
-  
+
   set thresholdPercentage(int value) {
     if (value >= minThresholdPercentage && value <= maxThresholdPercentage) {
       _thresholdPercentage = value;
@@ -27,29 +29,29 @@ class VotingModeController with ChangeNotifier {
   Future<void> _loadCurrentVotingMode() async {
     loading = true;
     notifyListeners();
-    
+
     try {
-      // Here you would typically load the current voting mode from room state
-      // This is a placeholder - implement actual Matrix SDK integration
-      final stateEvents = await room.client.getRoomState(room.id);
-      // Try to find voting mode event, defaulting to normal if not found
-      try {
-        final votingModeEvent = stateEvents.firstWhere(
-          (event) => event.type == 'im.stawi.voting_mode',
-        );
-        final mode = votingModeEvent.content['mode'] as String? ?? 'normal';
-        _votingMode = mode == 'delegated' ? VotingMode.delegated : VotingMode.normal;
-        
+      // Using our new typed event system to get the voting mode
+      final votingModeEvent =
+          await MatrixEventService.getCustomEvent<VotingModeEventContent>(
+            client: room.client,
+            roomId: room.id,
+            eventType: 'im.stawi.voting_mode',
+            fromJsonFactory: VotingModeEventContent.fromJson,
+          );
+
+      // If event exists, use its values
+      if (votingModeEvent != null) {
+        _votingMode = votingModeEvent.mode;
+
         // Load threshold percentage if available
-        if (_votingMode == VotingMode.normal) {
-          final threshold = votingModeEvent.content['threshold_percentage'] as int?;
-          if (threshold != null && 
-              threshold >= minThresholdPercentage && 
-              threshold <= maxThresholdPercentage) {
-            _thresholdPercentage = threshold;
-          }
+        if (_votingMode == VotingMode.normal &&
+            votingModeEvent.thresholdPercentage != null &&
+            votingModeEvent.thresholdPercentage! >= minThresholdPercentage &&
+            votingModeEvent.thresholdPercentage! <= maxThresholdPercentage) {
+          _thresholdPercentage = votingModeEvent.thresholdPercentage!;
         }
-      } catch (_) {
+      } else {
         // Default to normal voting mode if no event is found
         _votingMode = VotingMode.normal;
       }
@@ -72,24 +74,21 @@ class VotingModeController with ChangeNotifier {
     notifyListeners();
 
     try {
-      // Here you would save the voting mode to room state
-      // Example Matrix SDK code (implement according to your actual Matrix setup)
-      final content = {
-        'mode': _votingMode.name,
-        'updated_at': DateTime.now().millisecondsSinceEpoch,
-      };
-      
-      // Add threshold percentage for normal voting mode
-      if (_votingMode == VotingMode.normal) {
-        content['threshold_percentage'] = _thresholdPercentage;
-      }
-      
-      await room.client.setRoomStateWithKey(
-        room.id,
-        'im.stawi.voting_mode',
-        '',
-        content,
+      // Create a typed event content object
+      final eventContent = VotingModeEventContent(
+        mode: _votingMode,
+        updatedAt: DateTime.now().millisecondsSinceEpoch,
+        thresholdPercentage:
+            _votingMode == VotingMode.normal ? _thresholdPercentage : null,
       );
+
+      // Send the event using our service
+      await MatrixEventService.sendCustomEvent(
+        client: room.client,
+        roomId: room.id,
+        eventContent: eventContent,
+      );
+
       return true;
     } catch (e) {
       error = 'Failed to save voting mode: ${e.toString()}';

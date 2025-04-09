@@ -17,7 +17,6 @@ import 'package:stawi/pages/finance/new_group_type/steps/group_termination_date_
 import 'package:stawi/pages/finance/new_group_type/steps/group_type_step.dart';
 import 'package:stawi/requests/payload/group_create_payload.dart';
 import 'package:stawi/utils/file_selector.dart';
-import 'package:stawi/widgets/client_extension.dart';
 import 'package:stawi/widgets/matrix.dart';
 
 class NewGroupType extends StatefulWidget {
@@ -113,10 +112,6 @@ class NewGroupTypeController extends State<NewGroupType> {
   }
 
   Future<void> _createGroup() async {
-    if (!mounted) return;
-
-    final response = await Matrix.of(context).client.sendPayload(payload);
-
     if (!mounted) return;
     context.go('/rooms/${payload.id}/invite');
   }
