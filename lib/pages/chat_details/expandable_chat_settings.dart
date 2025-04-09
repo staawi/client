@@ -6,13 +6,11 @@ import 'package:stawi/l10n/l10n.dart';
 class ExpandableChatSettings extends StatefulWidget {
   final Room room;
   final Color? iconColor;
-  final VoidCallback onEmoteSettingsTap;
 
   const ExpandableChatSettings({
     super.key,
     required this.room,
     required this.iconColor,
-    required this.onEmoteSettingsTap,
   });
 
   @override
@@ -21,6 +19,20 @@ class ExpandableChatSettings extends StatefulWidget {
 
 class _ExpandableChatSettingsState extends State<ExpandableChatSettings> {
   bool _isExpanded = false;
+
+  void goToEmoteSettings() async {
+    final room = widget.room;
+    // okay, we need to test if there are any emote state events other than the default one
+    // if so, we need to be directed to a selection screen for which pack we want to look at
+    // otherwise, we just open the normal one.
+    if ((room.states['im.ponies.room_emotes'] ?? <String, Event>{}).keys.any(
+      (String s) => s.isNotEmpty,
+    )) {
+      context.push('/rooms/${room.id}/details/multiple_emotes');
+    } else {
+      context.push('/rooms/${room.id}/details/emotes');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +68,7 @@ class _ExpandableChatSettingsState extends State<ExpandableChatSettings> {
               ),
               title: Text(L10n.of(context).customEmojisAndStickers),
               subtitle: Text(L10n.of(context).setCustomEmotes),
-              onTap: widget.onEmoteSettingsTap,
+              onTap: goToEmoteSettings,
               trailing: const Icon(Icons.chevron_right_outlined),
             ),
           ),

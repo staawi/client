@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/new_group_type.dart';
+import 'package:stawi/pages/finance/new_group_type/new_group_type.dart';
 import 'package:stawi/requests/payload/group_create_payload.dart';
 
 class GroupTypeStep extends StatelessWidget {

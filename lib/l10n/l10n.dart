@@ -4829,6 +4829,66 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Chat Settings'**
   String get chatSettings;
+
+  /// No description provided for @finance.
+  ///
+  /// In en, this message translates to:
+  /// **'Finance'**
+  String get finance;
+
+  /// No description provided for @savingsOptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings Options'**
+  String get savingsOptions;
+
+  /// No description provided for @votingMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Voting Mode'**
+  String get votingMode;
+
+  /// No description provided for @normalVoting.
+  ///
+  /// In en, this message translates to:
+  /// **'Normal Voting'**
+  String get normalVoting;
+
+  /// No description provided for @delegatedVoting.
+  ///
+  /// In en, this message translates to:
+  /// **'Delegated Voting'**
+  String get delegatedVoting;
+
+  /// No description provided for @normalVotingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'All members vote directly on proposals. Each member has one vote and decisions are made by majority.'**
+  String get normalVotingDescription;
+
+  /// No description provided for @delegatedVotingDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Members can delegate their voting power to trusted representatives who vote on their behalf, allowing for expertise-based decision making.'**
+  String get delegatedVotingDescription;
+
+  /// No description provided for @votingThreshold.
+  ///
+  /// In en, this message translates to:
+  /// **'Voting Threshold'**
+  String get votingThreshold;
+
+  /// No description provided for @votingThresholdDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Percentage of members required to vote on a motion before action is taken or canceled.'**
+  String get votingThresholdDescription;
+
+  /// No description provided for @save.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get save;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

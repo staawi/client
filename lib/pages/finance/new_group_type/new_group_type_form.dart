@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/steps/completed_step.dart';
-import 'new_group.dart';
+import 'package:stawi/pages/finance/new_group_type/steps/completed_step.dart';
+import 'new_group_type.dart';
 
-class CreateGroupForm extends StatelessWidget {
-  final NewGroupController controller;
+class NewGroupTypeForm extends StatelessWidget {
+  final NewGroupTypeController controller;
 
-  const CreateGroupForm(this.controller, {super.key});
+  const NewGroupTypeForm(this.controller, {super.key});
 
   @override
   Widget build(BuildContext context) {

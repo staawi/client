@@ -7,6 +7,7 @@ import 'package:matrix/matrix.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_details/chat_details.dart';
 import 'package:stawi/pages/chat_details/expandable_chat_settings.dart';
+import 'package:stawi/pages/chat_details/expandable_finance_settings.dart';
 import 'package:stawi/pages/chat_details/participant_list_item.dart';
 import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/utils/matrix_sdk_extensions/matrix_locals.dart';
@@ -216,9 +217,12 @@ class ChatDetailsView extends StatelessWidget {
                                   children: [
                                     Expanded(
                                       child: SelectableLinkify(
-                                        text: room.topic.isEmpty
-                                            ? L10n.of(context).noChatDescriptionYet
-                                            : room.topic,
+                                        text:
+                                            room.topic.isEmpty
+                                                ? L10n.of(
+                                                  context,
+                                                ).noChatDescriptionYet
+                                                : room.topic,
                                         options: const LinkifyOptions(
                                           humanize: false,
                                         ),
@@ -228,22 +232,31 @@ class ChatDetailsView extends StatelessWidget {
                                         ),
                                         style: TextStyle(
                                           fontSize: 14,
-                                          fontStyle: room.topic.isEmpty
-                                              ? FontStyle.italic
-                                              : FontStyle.normal,
-                                          color: theme.textTheme.bodyMedium!.color,
+                                          fontStyle:
+                                              room.topic.isEmpty
+                                                  ? FontStyle.italic
+                                                  : FontStyle.normal,
+                                          color:
+                                              theme.textTheme.bodyMedium!.color,
                                           decorationColor:
                                               theme.textTheme.bodyMedium!.color,
                                         ),
-                                        onOpen: (url) => UrlLauncher(
-                                          context,
-                                          url.url,
-                                        ).launchUrl(),
+                                        onOpen:
+                                            (url) =>
+                                                UrlLauncher(
+                                                  context,
+                                                  url.url,
+                                                ).launchUrl(),
                                       ),
                                     ),
-                                    if (room.canChangeStateEvent(EventTypes.RoomTopic))
+                                    if (room.canChangeStateEvent(
+                                      EventTypes.RoomTopic,
+                                    ))
                                       IconButton(
-                                        icon: const Icon(Icons.edit_outlined, size: 20),
+                                        icon: const Icon(
+                                          Icons.edit_outlined,
+                                          size: 20,
+                                        ),
                                         onPressed: controller.setTopicAction,
                                         color: theme.colorScheme.secondary,
                                         padding: EdgeInsets.zero,
@@ -254,10 +267,14 @@ class ChatDetailsView extends StatelessWidget {
                               ),
                               const SizedBox(height: 16),
                               Divider(color: theme.dividerColor),
+                              ExpandableFinanceSettings(
+                                room: room,
+                                iconColor: iconColor,
+                              ),
+                              Divider(color: theme.dividerColor),
                               ExpandableChatSettings(
                                 room: room,
                                 iconColor: iconColor,
-                                onEmoteSettingsTap: controller.goToEmoteSettings,
                               ),
                               Divider(color: theme.dividerColor),
                               ListTile(

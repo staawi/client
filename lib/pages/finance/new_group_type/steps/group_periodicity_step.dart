@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/new_group_type.dart';
+import 'package:stawi/pages/finance/new_group_type/new_group_type.dart';
 
 class GroupPeriodicityStep extends StatelessWidget {
   final NewGroupTypeController controller;

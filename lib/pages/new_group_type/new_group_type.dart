@@ -7,7 +7,7 @@ import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
 
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/new_group_view.dart';
+import 'package:stawi/pages/new_group_type/new_group_type_view.dart';
 import 'package:stawi/pages/new_group_type/steps/finalize_group_create_step.dart';
 import 'package:stawi/pages/new_group_type/steps/group_currency_step.dart';
 import 'package:stawi/pages/new_group_type/steps/group_name_step.dart';
@@ -20,16 +20,16 @@ import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/widgets/client_extension.dart';
 import 'package:stawi/widgets/matrix.dart';
 
-class NewGroup extends StatefulWidget {
+class NewGroupType extends StatefulWidget {
   final CreateGroupType createGroupType;
 
-  const NewGroup({this.createGroupType = CreateGroupType.group, super.key});
+  const NewGroupType({this.createGroupType = CreateGroupType.group, super.key});
 
   @override
-  NewGroupController createState() => NewGroupController();
+  NewGroupTypeController createState() => NewGroupTypeController();
 }
 
-class NewGroupController extends State<NewGroup> {
+class NewGroupTypeController extends State<NewGroupType> {
   TextEditingController groupNameController = TextEditingController();
   TextEditingController groupDescriptionController = TextEditingController();
   TextEditingController groupCurrencyController = TextEditingController();
@@ -277,7 +277,7 @@ class NewGroupController extends State<NewGroup> {
   }
 
   @override
-  Widget build(BuildContext context) => NewGroupView(this);
+  Widget build(BuildContext context) => NewGroupTypeView(this);
 }
 
 enum CreateGroupType { group, space }

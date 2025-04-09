@@ -2622,4 +2622,34 @@ class L10nIe extends L10n {
 
   @override
   String get chatSettings => 'Chat Settings';
+
+  @override
+  String get finance => 'Finance';
+
+  @override
+  String get savingsOptions => 'Savings Options';
+
+  @override
+  String get votingMode => 'Voting Mode';
+
+  @override
+  String get normalVoting => 'Normal Voting';
+
+  @override
+  String get delegatedVoting => 'Delegated Voting';
+
+  @override
+  String get normalVotingDescription => 'All members vote directly on proposals. Each member has one vote and decisions are made by majority.';
+
+  @override
+  String get delegatedVotingDescription => 'Members can delegate their voting power to trusted representatives who vote on their behalf, allowing for expertise-based decision making.';
+
+  @override
+  String get votingThreshold => 'Voting Threshold';
+
+  @override
+  String get votingThresholdDescription => 'Percentage of members required to vote on a motion before action is taken or canceled.';
+
+  @override
+  String get save => 'Save';
 }

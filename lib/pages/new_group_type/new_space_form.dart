@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'new_group.dart';
+import 'new_group_type.dart';
 
 class CreateSpaceForm extends StatelessWidget {
-  final NewGroupController controller;
+  final NewGroupTypeController controller;
 
   const CreateSpaceForm(this.controller, {super.key});
 
