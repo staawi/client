@@ -2523,7 +2523,7 @@ class L10nPt extends L10n {
   String get notificationRuleRoomnotif => 'Room Notification';
 
   @override
-  String get notificationRuleRoomnotifDescription => 'Notifies the user when a message contains \'@room\'.';
+  String get notificationRuleRoomnotifDescription => 'Notifies the user about room deactivation messages.';
 
   @override
   String get notificationRuleTombstone => 'Tombstone';
@@ -2619,6 +2619,43 @@ class L10nPt extends L10n {
 
   @override
   String get verifiedDevicesOnly => 'Verified devices only';
+
+  @override
+  String get poll => 'Poll';
+
+  @override
+  String get question => 'Question';
+
+  @override
+  String get answer => 'Answer';
+
+  @override
+  String get resultsDisclosed => 'Results disclosed';
+
+  @override
+  String get resultsUndisclosed => 'Results undisclosed';
+
+  @override
+  String get addAnswer => 'Add answer';
+
+  @override
+  String get deleteAnswer => 'Delete answer';
+
+  @override
+  String startedAPoll(Object sender) {
+    return '$sender started a poll';
+  }
+
+  @override
+  String countVotes(num votes, Object percentage) {
+    String _temp0 = intl.Intl.pluralLogic(
+      votes,
+      locale: localeName,
+      other: '$votes votes',
+      one: '1 vote',
+    );
+    return '$_temp0 - $percentage%';
+  }
 
   @override
   String get chatSettings => 'Chat Settings';

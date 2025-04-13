@@ -1,5 +1,4 @@
 import 'package:matrix/matrix.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 
 /// This is a temporary helper class until there is a proper solution to this with the new system
@@ -351,4 +350,7 @@ class MatrixLocals extends MatrixLocalizations {
 
   @override
   String get cancelledSend => l10n.sendCanceled;
+
+  @override
+  String startedAPoll(String senderName) => l10n.startedAPoll(senderName);
 }

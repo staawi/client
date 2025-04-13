@@ -4635,7 +4635,7 @@ abstract class L10n {
   /// No description provided for @notificationRuleRoomnotifDescription.
   ///
   /// In en, this message translates to:
-  /// **'Notifies the user when a message contains \'@room\'.'**
+  /// **'Notifies the user about room deactivation messages.'**
   String get notificationRuleRoomnotifDescription;
 
   /// No description provided for @notificationRuleTombstone.
@@ -4823,6 +4823,60 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Verified devices only'**
   String get verifiedDevicesOnly;
+
+  /// No description provided for @poll.
+  ///
+  /// In en, this message translates to:
+  /// **'Poll'**
+  String get poll;
+
+  /// No description provided for @question.
+  ///
+  /// In en, this message translates to:
+  /// **'Question'**
+  String get question;
+
+  /// No description provided for @answer.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer'**
+  String get answer;
+
+  /// No description provided for @resultsDisclosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Results disclosed'**
+  String get resultsDisclosed;
+
+  /// No description provided for @resultsUndisclosed.
+  ///
+  /// In en, this message translates to:
+  /// **'Results undisclosed'**
+  String get resultsUndisclosed;
+
+  /// No description provided for @addAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Add answer'**
+  String get addAnswer;
+
+  /// No description provided for @deleteAnswer.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete answer'**
+  String get deleteAnswer;
+
+  /// No description provided for @startedAPoll.
+  ///
+  /// In en, this message translates to:
+  /// **'{sender} started a poll'**
+  String startedAPoll(Object sender);
+
+  /// No description provided for @countVotes.
+  ///
+  /// In en, this message translates to:
+  /// **'{votes, plural, =1{1 vote} other{{votes} votes}} - {percentage}%'**
+  String countVotes(num votes, Object percentage);
 
   /// No description provided for @chatSettings.
   ///

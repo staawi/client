@@ -64,7 +64,7 @@ dependencies:
   matrix:
     git:
       url: https://github.com/antinvestor/matrix-dart-sdk.git
-      ref: 0.39.1
+      ref: 0.39.2
   mime: ^2.0.0
   native_imaging: ^0.2.0
   opus_caf_converter_dart: ^1.0.1

@@ -3237,7 +3237,7 @@
   "notificationRuleIsRoomMention": "Room Mention",
   "notificationRuleIsRoomMentionDescription": "Notifies the user when there is a room mention.",
   "notificationRuleRoomnotif": "Room Notification",
-  "notificationRuleRoomnotifDescription": "Notifies the user when a message contains '@room'.",
+  "notificationRuleRoomnotifDescription": "Notifies the user about room deactivation messages.",
   "notificationRuleTombstone": "Tombstone",
   "notificationRuleTombstoneDescription": "Notifies the user about room deactivation messages.",
   "notificationRuleReaction": "Reaction",
@@ -3272,24 +3272,137 @@
   "deletePushRuleCanNotBeUndone": "If you delete this notification setting, this can not be undone.",
   "more": "More",
   "shareKeysWith": "Share keys with...",
+  "@shareKeysWith": {
+    "type": "String",
+    "placeholders": {}
+  },
   "shareKeysWithDescription": "Which devices should be trusted so that they can read along your messages in encrypted chats?",
+  "@shareKeysWithDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
   "allDevices": "All devices",
+  "@allDevices": {
+    "type": "String",
+    "placeholders": {}
+  },
   "crossVerifiedDevicesIfEnabled": "Cross verified devices if enabled",
+  "@crossVerifiedDevicesIfEnabled": {
+    "type": "String",
+    "placeholders": {}
+  },
   "crossVerifiedDevices": "Cross verified devices",
+  "@crossVerifiedDevices": {
+    "type": "String",
+    "placeholders": {}
+  },
   "verifiedDevicesOnly": "Verified devices only",
-
+  "@verifiedDevicesOnly": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "poll": "Poll",
+  "@poll": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "question": "Question",
+  "@question": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "answer": "Answer",
+  "@answer": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "resultsDisclosed": "Results disclosed",
+  "@resultsDisclosed": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "resultsUndisclosed": "Results undisclosed",
+  "@resultsUndisclosed": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "addAnswer": "Add answer",
+  "@addAnswer": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "deleteAnswer": "Delete answer",
+  "@deleteAnswer": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "startedAPoll": "{sender} started a poll",
+  "@startedAPoll": {
+    "type": "text",
+    "placeholders": {
+      "sender": {}
+    }
+  },
+  "countVotes": "{votes, plural, =1{1 vote} other{{votes} votes}} - {percentage}%",
+  "@countVotes": {
+    "type": "integer",
+    "placeholders": {
+      "votes": {},
+      "percentage": {}
+    }
+  },
   "chatSettings": "Chat Settings",
   "finance": "Finance",
   "savingsOptions": "Savings Options",
   "votingMode": "Voting Mode",
   "normalVoting": "Normal Voting",
+  "@normalVoting": {
+    "type": "String",
+    "placeholders": {}
+  },
   "delegatedVoting": "Delegated Voting",
+  "@delegatedVoting": {
+    "type": "String",
+    "placeholders": {}
+  },
   "normalVotingDescription": "All members vote directly on proposals. Each member has one vote and decisions are made by majority.",
+  "@normalVotingDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
   "delegatedVotingDescription": "Members can delegate their voting power to trusted representatives who vote on their behalf, allowing for expertise-based decision making.",
+  "@delegatedVotingDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
   "votingThreshold": "Voting Threshold",
+  "@votingThreshold": {
+    "type": "String",
+    "placeholders": {}
+  },
   "votingThresholdDescription": "Percentage of members required to vote on a motion before action is taken or canceled.",
+  "@votingThresholdDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
   "save": "Save",
+  "@save": {
+    "type": "String",
+    "placeholders": {}
+  },
   "enterContactName": "Enter contact name",
+  "@enterContactName": {
+    "type": "String",
+    "placeholders": {}
+  },
   "invite": "Invite",
-  "cancel": "Cancel"
+  "@invite": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "type": "String",
+    "placeholders": {}
+  }
 }

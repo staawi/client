@@ -1229,11 +1229,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "0.39.1"
-      resolved-ref: "2bb804019b50671724d4f7d4c37a79e4db9a1122"
+      ref: "0.39.2"
+      resolved-ref: d80564163e0f274c822970a4cee00af23fd73e69
       url: "https://github.com/antinvestor/matrix-dart-sdk.git"
     source: git
-    version: "0.39.0"
+    version: "0.39.1"
   meta:
     dependency: transitive
     description:

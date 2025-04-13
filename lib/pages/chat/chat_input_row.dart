@@ -13,6 +13,8 @@ import '../../config/themes.dart';
 import 'chat.dart';
 import 'input_bar.dart';
 
+enum AttachmentButtonAction { file, image, camera, video, location, poll }
+
 class ChatInputRow extends StatelessWidget {
   final ChatController controller;
 
@@ -119,13 +121,13 @@ class ChatInputRow extends StatelessWidget {
                   alignment: Alignment.center,
                   clipBehavior: Clip.hardEdge,
                   decoration: const BoxDecoration(),
-                  child: PopupMenuButton<String>(
+                  child: PopupMenuButton<AttachmentButtonAction>(
                     icon: const Icon(Icons.add_outlined),
                     onSelected: controller.onAddPopupMenuButtonSelected,
                     itemBuilder:
-                        (BuildContext context) => <PopupMenuEntry<String>>[
-                          PopupMenuItem<String>(
-                            value: 'file',
+                        (BuildContext context) => <PopupMenuEntry<AttachmentButtonAction>>[
+                          PopupMenuItem<AttachmentButtonAction>(
+                            value: AttachmentButtonAction.file,
                             child: ListTile(
                               leading: const CircleAvatar(
                                 backgroundColor: Colors.green,
@@ -136,8 +138,8 @@ class ChatInputRow extends StatelessWidget {
                               contentPadding: const EdgeInsets.all(0),
                             ),
                           ),
-                          PopupMenuItem<String>(
-                            value: 'image',
+                          PopupMenuItem<AttachmentButtonAction>(
+                            value: AttachmentButtonAction.image,
                             child: ListTile(
                               leading: const CircleAvatar(
                                 backgroundColor: Colors.blue,
@@ -149,8 +151,8 @@ class ChatInputRow extends StatelessWidget {
                             ),
                           ),
                           if (PlatformInfos.isMobile)
-                            PopupMenuItem<String>(
-                              value: 'camera',
+                            PopupMenuItem<AttachmentButtonAction>(
+                              value: AttachmentButtonAction.camera,
                               child: ListTile(
                                 leading: const CircleAvatar(
                                   backgroundColor: Colors.purple,
@@ -162,8 +164,8 @@ class ChatInputRow extends StatelessWidget {
                               ),
                             ),
                           if (PlatformInfos.isMobile)
-                            PopupMenuItem<String>(
-                              value: 'camera-video',
+                            PopupMenuItem<AttachmentButtonAction>(
+                              value: AttachmentButtonAction.video,
                               child: ListTile(
                                 leading: const CircleAvatar(
                                   backgroundColor: Colors.red,
@@ -175,8 +177,8 @@ class ChatInputRow extends StatelessWidget {
                               ),
                             ),
                           if (PlatformInfos.isMobile)
-                            PopupMenuItem<String>(
-                              value: 'location',
+                            PopupMenuItem<AttachmentButtonAction>(
+                              value: AttachmentButtonAction.location,
                               child: ListTile(
                                 leading: const CircleAvatar(
                                   backgroundColor: Colors.brown,
@@ -187,6 +189,18 @@ class ChatInputRow extends StatelessWidget {
                                 contentPadding: const EdgeInsets.all(0),
                               ),
                             ),
+                          PopupMenuItem<AttachmentButtonAction>(
+                            value: AttachmentButtonAction.poll,
+                            child: ListTile(
+                              leading: const CircleAvatar(
+                                backgroundColor: Colors.deepOrange,
+                                foregroundColor: Colors.white,
+                                child: Icon(Icons.ballot_outlined),
+                              ),
+                              title: Text(L10n.of(context).poll),
+                              contentPadding: const EdgeInsets.all(0),
+                            ),
+                          ),
                         ],
                   ),
                 ),
