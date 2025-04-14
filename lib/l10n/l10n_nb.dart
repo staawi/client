@@ -2021,10 +2021,19 @@ class L10nNb extends L10n {
   String get periodicSetup => 'Cycling parameters';
 
   @override
-  String get groupTerminationDate => 'Group termination date';
+  String get periodType => 'Period type';
 
   @override
-  String get groupTerminationDateDescription => 'Date after which the objective of the group would have been completed';
+  String get periodicTypeDescription => 'Period type represents the duration between which members have an obligation towards their group';
+
+  @override
+  String get periodTypeWeekly => 'Weekly';
+
+  @override
+  String get periodTypeBiWeekly => 'BiWeekly';
+
+  @override
+  String get periodTypeMonthly => 'Monthly';
 
   @override
   String get periodicSavingAmount => 'Periodic Saving Amount';
@@ -2039,6 +2048,12 @@ class L10nNb extends L10n {
   String finalizeGroupCreationDescription(Object groupName) {
     return 'A group with the name $groupName will be created and setup in a moment';
   }
+
+  @override
+  String get groupTerminationDate => 'Group termination date';
+
+  @override
+  String get groupTerminationDateDescription => 'Date after which the objective of the group would have been completed';
 
   @override
   String get groupCreationSuccessful => 'Successfully Queued Group Create Request';

@@ -3726,17 +3726,35 @@ abstract class L10n {
   /// **'Cycling parameters'**
   String get periodicSetup;
 
-  /// No description provided for @groupTerminationDate.
+  /// No description provided for @periodType.
   ///
   /// In en, this message translates to:
-  /// **'Group termination date'**
-  String get groupTerminationDate;
+  /// **'Period type'**
+  String get periodType;
 
-  /// No description provided for @groupTerminationDateDescription.
+  /// No description provided for @periodicTypeDescription.
   ///
   /// In en, this message translates to:
-  /// **'Date after which the objective of the group would have been completed'**
-  String get groupTerminationDateDescription;
+  /// **'Period type represents the duration between which members have an obligation towards their group'**
+  String get periodicTypeDescription;
+
+  /// No description provided for @periodTypeWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'Weekly'**
+  String get periodTypeWeekly;
+
+  /// No description provided for @periodTypeBiWeekly.
+  ///
+  /// In en, this message translates to:
+  /// **'BiWeekly'**
+  String get periodTypeBiWeekly;
+
+  /// No description provided for @periodTypeMonthly.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly'**
+  String get periodTypeMonthly;
 
   /// No description provided for @periodicSavingAmount.
   ///
@@ -3761,6 +3779,18 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'A group with the name {groupName} will be created and setup in a moment'**
   String finalizeGroupCreationDescription(Object groupName);
+
+  /// No description provided for @groupTerminationDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Group termination date'**
+  String get groupTerminationDate;
+
+  /// No description provided for @groupTerminationDateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Date after which the objective of the group would have been completed'**
+  String get groupTerminationDateDescription;
 
   /// No description provided for @groupCreationSuccessful.
   ///

@@ -1,28 +1,23 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-
-import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
-import 'package:matrix/matrix.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/finance/new_group_type/new_group_type_view.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/finalize_group_create_step.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/group_currency_step.dart';
-import 'package:stawi/pages/finance/new_group_type/steps/group_name_step.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/group_periodicity_step.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/group_saving_amount_step.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/group_termination_date_step.dart';
 import 'package:stawi/pages/finance/new_group_type/steps/group_type_step.dart';
-import 'package:stawi/requests/payload/group_create_payload.dart';
+import 'package:stawi/services/stawi/event_service.dart';
+import 'package:stawi/services/stawi/payloads/group_create_payloads.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/widgets/matrix.dart';
 
 class NewGroupType extends StatefulWidget {
-  final CreateGroupType createGroupType;
-
-  const NewGroupType({this.createGroupType = CreateGroupType.group, super.key});
+  final sdk.Room room;
+  const NewGroupType({required this.room, super.key});
 
   @override
   NewGroupTypeController createState() => NewGroupTypeController();
@@ -84,14 +79,6 @@ class NewGroupTypeController extends State<NewGroupType> {
 
   bool loading = false;
 
-  CreateGroupType get createGroupType =>
-      _createGroupType ?? widget.createGroupType;
-
-  CreateGroupType? _createGroupType;
-
-  void setCreateGroupType(Set<CreateGroupType> b) =>
-      setState(() => _createGroupType = b.single);
-
   void setPublicGroup(bool b) =>
       setState(() => publicGroup = groupCanBeFound = b);
 
@@ -111,39 +98,26 @@ class NewGroupTypeController extends State<NewGroupType> {
     });
   }
 
-  Future<void> _createGroup() async {
-    if (!mounted) return;
-    context.go('/rooms/${payload.id}/invite');
-  }
+  Future<void> _sendGroupTypePayload() async {
+    loading = true;
+    error = null;
 
-  Future<void> _createSpace() async {
-    if (!mounted) return;
-    final spaceId = await Matrix.of(context).client.createRoom(
-      preset:
-          publicGroup
-              ? sdk.CreateRoomPreset.publicChat
-              : sdk.CreateRoomPreset.privateChat,
-      creationContent: {'type': RoomCreationTypes.mSpace},
-      visibility: publicGroup ? sdk.Visibility.public : null,
-      roomAliasName:
-          publicGroup
-              ? groupNameController.text.trim().toLowerCase().replaceAll(
-                ' ',
-                '_',
-              )
-              : null,
-      name: groupNameController.text.trim(),
-      powerLevelContentOverride: {'events_default': 100},
-      initialState: [
-        if (avatar != null)
-          sdk.StateEvent(
-            type: sdk.EventTypes.RoomAvatar,
-            content: {'url': avatarUrl.toString()},
-          ),
-      ],
-    );
-    if (!mounted) return;
-    context.pop<String>(spaceId);
+    final room = widget.room;
+    payload.groupName = room.name;
+    payload.description = room.topic;
+
+    try {
+      // Send the event using our service
+      await StawiEventService.sendOutEvent(
+        client: room.client,
+        roomId: room.id,
+        eventContent: payload,
+      );
+    } catch (e) {
+      error = 'Failed to save voting mode: ${e.toString()}';
+    } finally {
+      loading = false;
+    }
   }
 
   void submitAction([_]) async {
@@ -160,12 +134,7 @@ class NewGroupTypeController extends State<NewGroupType> {
 
       if (!mounted) return;
 
-      switch (createGroupType) {
-        case CreateGroupType.group:
-          await _createGroup();
-        case CreateGroupType.space:
-          await _createSpace();
-      }
+      await _sendGroupTypePayload();
     } catch (e, s) {
       sdk.Logs().d('Unable to create group', e, s);
       setState(() {
@@ -182,11 +151,6 @@ class NewGroupTypeController extends State<NewGroupType> {
         isActive: currentStep > 0,
         title: Text(L10n.of(context).groupType),
         content: GroupTypeStep(this),
-      ),
-      Step(
-        isActive: currentStep >= 1,
-        title: Text(L10n.of(context).groupName),
-        content: GroupNameStep(this),
       ),
     ];
 
@@ -274,5 +238,3 @@ class NewGroupTypeController extends State<NewGroupType> {
   @override
   Widget build(BuildContext context) => NewGroupTypeView(this);
 }
-
-enum CreateGroupType { group, space }

@@ -1,14 +1,16 @@
+import 'package:stawi/services/default/base_payload.dart';
+
 /// Request keys for Matrix custom events
 /// Defines the standard field name constants used across Matrix event content
-class RequestKey {
-  // Command identifier
-  static const String command = "command";
-
+class RequestKey extends BaseRequestKey {
   static const String reason = "reason";
 
-  // Group information
+  static const String groupType = "group_type";
+  static const String groupVisibilityIsPublic = "group_visibility_is_public";
   static const String groupName = "group_name";
+  static const String groupDescription = "group_description";
   static const String groupCode = "group_code";
+
   static const String groupSecret = "group_secret";
   static const String groupLoanTenure = "group_loan_tenure";
   static const String groupLoanGracePeriod = "group_loan_grace_period";
@@ -20,6 +22,7 @@ class RequestKey {
   static const String groupPeriodType = "group_period_type";
   static const String groupPeriodicSaving = "group_periodic_saving";
   static const String groupCurrency = "group_currency";
+  static const String groupTerminationDate = "group_termination_date";
   static const String groupMotionId = "group_motion_id";
   static const String groupMotionChoice = "group_motion_choice";
 

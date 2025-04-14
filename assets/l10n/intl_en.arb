@@ -2834,10 +2834,16 @@
   "periodicSetup": "Cycling parameters",
   "@periodicSetup": {},
 
-  "groupTerminationDate": "Group termination date",
-  "@groupTerminationDate": {},
-  "groupTerminationDateDescription": "Date after which the objective of the group would have been completed",
-  "@groupTerminationDateDescription": {},
+  "periodType": "Period type",
+  "@periodType": {},
+
+  "periodicTypeDescription": "Period type represents the duration between which members have an obligation towards their group",
+  "@periodicTypeDescription": {},
+
+  "periodTypeWeekly": "Weekly",
+  "periodTypeBiWeekly": "BiWeekly",
+  "periodTypeMonthly": "Monthly",
+
 
   "periodicSavingAmount": "Periodic Saving Amount",
   "@periodicSavingAmount": {},
@@ -2853,6 +2859,12 @@
       "groupName": {}
     }
   },
+
+  "groupTerminationDate": "Group termination date",
+  "@groupTerminationDate": {},
+  "groupTerminationDateDescription": "Date after which the objective of the group would have been completed",
+  "@groupTerminationDateDescription": {},
+
 
   "groupCreationSuccessful": "Successfully Queued Group Create Request",
   "@groupCreationSuccessful": {},

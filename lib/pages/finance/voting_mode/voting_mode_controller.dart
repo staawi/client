@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
-import '../../../services/models/matrix_events/voting_mode_event.dart';
-import '../../../services/matrix_event_service.dart';
+import 'package:stawi/services/default/event_type.dart';
+
+import '../../../services/stawi/event_service.dart';
+import '../../../services/stawi/payloads/voting_mode_event.dart';
 import 'voting_mode_model.dart';
 
 class VotingModeController with ChangeNotifier {
@@ -33,10 +35,10 @@ class VotingModeController with ChangeNotifier {
     try {
       // Using our new typed event system to get the voting mode
       final votingModeEvent =
-          await MatrixEventService.getCustomEvent<VotingModeEventContent>(
+          await StawiEventService.getRoomStateEvent<VotingModeEventContent>(
             client: room.client,
             roomId: room.id,
-            eventType: 'im.stawi.voting_mode',
+            eventType: EventType.groupVotingMode,
             fromJsonFactory: VotingModeEventContent.fromJson,
           );
 
@@ -77,13 +79,12 @@ class VotingModeController with ChangeNotifier {
       // Create a typed event content object
       final eventContent = VotingModeEventContent(
         mode: _votingMode,
-        updatedAt: DateTime.now().millisecondsSinceEpoch,
         thresholdPercentage:
             _votingMode == VotingMode.normal ? _thresholdPercentage : null,
       );
 
       // Send the event using our service
-      await MatrixEventService.sendCustomEvent(
+      await StawiEventService.sendOutEvent(
         client: room.client,
         roomId: room.id,
         eventContent: eventContent,

@@ -32,7 +32,7 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
       builder:
           (context) => SizedBox(
             height: MediaQuery.of(context).size.height * 0.85,
-            child: const NewGroupType(),
+            child: NewGroupType(room: widget.room),
           ),
     );
   }

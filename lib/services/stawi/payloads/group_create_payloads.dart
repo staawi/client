@@ -1,13 +1,15 @@
 //post.dart file
 
-import 'package:stawi/requests/keys.dart';
-import 'package:stawi/requests/payload/base_payload.dart';
+import 'package:stawi/services/default/base_payload.dart';
+import 'package:stawi/services/stawi/constants/request_commands.dart';
+import 'package:stawi/services/stawi/constants/request_key.dart';
 
-abstract class PayloadGroupCreate extends Payload {
+abstract class PayloadGroupCreate extends BaseEventContent {
   String? groupName;
   String? groupSecret;
   String? description;
   GroupType? groupType;
+  PeriodType? periodType;
   String? groupAgent;
   String? groupCurrency;
   bool? isPublic = false;
@@ -19,6 +21,7 @@ abstract class PayloadGroupCreate extends Payload {
     this.groupSecret,
     this.description,
     this.groupType,
+    this.periodType,
     this.groupAgent,
     this.groupCurrency,
     this.isPublic,
@@ -41,7 +44,6 @@ extension GroupTypeExtension on GroupType {
 }
 
 class PayloadGroupCreateDefault extends PayloadGroupCreate {
-  GroupType? groupPeriodType;
   String? groupSavingDay;
 
   int? periodicSaving;
@@ -61,7 +63,7 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
     super.isPublic,
     super.groupAgent,
     super.groupCurrency,
-    this.groupPeriodType,
+    super.periodType,
     this.groupSavingDay,
     this.periodicSaving,
     this.registrationFees,
@@ -72,8 +74,8 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
 
   factory PayloadGroupCreateDefault.fromJson(Map<String, dynamic> json) {
     return PayloadGroupCreateDefault(
-      id: json[RequestKey.id],
-      dateCreated: json[RequestKey.dateCreated],
+      id: json[BaseRequestKey.id],
+      dateCreated: json[BaseRequestKey.dateCreated],
       groupName: json[RequestKey.groupName],
       groupSecret: json[RequestKey.groupSecret],
       description: json[RequestKey.groupDescription],
@@ -81,7 +83,7 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
       isPublic: json[RequestKey.groupVisibilityIsPublic],
       groupCurrency: json[RequestKey.groupCurrency],
       groupAgent: json[RequestKey.agentNumber],
-      groupPeriodType: json[RequestKey.groupPeriodType],
+      periodType: json[RequestKey.groupPeriodType],
       groupSavingDay: json[RequestKey.groupSavingDay],
       periodicSaving: json[RequestKey.groupPeriodicSaving],
       registrationFees: json[RequestKey.groupRegistrationFee],
@@ -91,10 +93,14 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  @override
+  String get command => RequestCommand.groupRegistration;
+
+  @override
+  Map<String, dynamic> contentToJson() {
     return {
-      if (id != null) RequestKey.id: id,
-      if (dateCreated != null) RequestKey.dateCreated: dateCreated,
+      if (id != null) BaseRequestKey.id: id,
+      if (dateCreated != null) BaseRequestKey.dateCreated: dateCreated,
       if (groupName != null) RequestKey.groupName: groupName,
       if (groupSecret != null) RequestKey.groupSecret: groupSecret,
       if (description != null) RequestKey.groupDescription: description,
@@ -103,7 +109,7 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
       if (groupAgent != null) RequestKey.agentNumber: groupAgent,
       if (groupCurrency != null) RequestKey.groupCurrency: groupCurrency,
       if (groupAgent != null) RequestKey.agentNumber: groupAgent,
-      if (groupPeriodType != null) RequestKey.groupPeriodType: groupPeriodType,
+      if (periodType != null) RequestKey.groupPeriodType: periodType,
       if (groupSavingDay != null) RequestKey.groupSavingDay: groupSavingDay,
       if (periodicSaving != null)
         RequestKey.groupPeriodicSaving: periodicSaving,
@@ -114,6 +120,21 @@ class PayloadGroupCreateDefault extends PayloadGroupCreate {
       if (loanGracePeriod != null)
         RequestKey.groupLoanGracePeriod: loanGracePeriod,
     };
+  }
+}
+
+enum PeriodType { daily, weekly, biweekly, monthly }
+
+extension PeriodTypeExtension on PeriodType {
+  // Convert enum to string
+  String toJson() => name;
+
+  // Convert string to enum
+  static PeriodType fromJson(String value) {
+    return PeriodType.values.firstWhere(
+      (e) => e.name == value,
+      orElse: () => PeriodType.weekly, // Default if not found
+    );
   }
 }
 
@@ -132,8 +153,8 @@ class PayloadGroupCreateFunding extends PayloadGroupCreate {
 
   factory PayloadGroupCreateFunding.fromJson(Map<String, dynamic> json) {
     return PayloadGroupCreateFunding(
-      id: json[RequestKey.id],
-      dateCreated: json[RequestKey.dateCreated],
+      id: json[BaseRequestKey.id],
+      dateCreated: json[BaseRequestKey.dateCreated],
       groupName: json[RequestKey.groupName],
       groupSecret: json[RequestKey.groupSecret],
       description: json[RequestKey.groupDescription],
@@ -144,10 +165,14 @@ class PayloadGroupCreateFunding extends PayloadGroupCreate {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  @override
+  String get command => RequestCommand.groupRegistration;
+
+  @override
+  Map<String, dynamic> contentToJson() {
     return {
-      if (id != null) RequestKey.id: id,
-      if (dateCreated != null) RequestKey.dateCreated: dateCreated,
+      if (id != null) BaseRequestKey.id: id,
+      if (dateCreated != null) BaseRequestKey.dateCreated: dateCreated,
       if (groupName != null) RequestKey.groupName: groupName,
       if (groupSecret != null) RequestKey.groupSecret: groupSecret,
       if (description != null) RequestKey.groupDescription: description,
@@ -174,8 +199,8 @@ class PayloadGroupCreateVoluntary extends PayloadGroupCreate {
 
   factory PayloadGroupCreateVoluntary.fromJson(Map<String, dynamic> json) {
     return PayloadGroupCreateVoluntary(
-      id: json[RequestKey.id],
-      dateCreated: json[RequestKey.dateCreated],
+      id: json[BaseRequestKey.id],
+      dateCreated: json[BaseRequestKey.dateCreated],
       groupName: json[RequestKey.groupName],
       groupSecret: json[RequestKey.groupSecret],
       description: json[RequestKey.groupDescription],
@@ -186,10 +211,14 @@ class PayloadGroupCreateVoluntary extends PayloadGroupCreate {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  @override
+  String get command => RequestCommand.groupRegistration;
+
+  @override
+  Map<String, dynamic> contentToJson() {
     return {
-      if (id != null) RequestKey.id: id,
-      if (dateCreated != null) RequestKey.dateCreated: dateCreated,
+      if (id != null) BaseRequestKey.id: id,
+      if (dateCreated != null) BaseRequestKey.dateCreated: dateCreated,
       if (groupName != null) RequestKey.groupName: groupName,
       if (groupSecret != null) RequestKey.groupSecret: groupSecret,
       if (description != null) RequestKey.groupDescription: description,
@@ -219,8 +248,8 @@ class PayloadGroupCreateTemporary extends PayloadGroupCreate {
 
   factory PayloadGroupCreateTemporary.fromJson(Map<String, dynamic> json) {
     return PayloadGroupCreateTemporary(
-      id: json[RequestKey.id],
-      dateCreated: json[RequestKey.dateCreated],
+      id: json[BaseRequestKey.id],
+      dateCreated: json[BaseRequestKey.dateCreated],
       groupName: json[RequestKey.groupName],
       groupSecret: json[RequestKey.groupSecret],
       description: json[RequestKey.groupDescription],
@@ -232,10 +261,14 @@ class PayloadGroupCreateTemporary extends PayloadGroupCreate {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  @override
+  String get command => RequestCommand.groupRegistration;
+
+  @override
+  Map<String, dynamic> contentToJson() {
     return {
-      if (id != null) RequestKey.id: id,
-      if (dateCreated != null) RequestKey.dateCreated: dateCreated,
+      if (id != null) BaseRequestKey.id: id,
+      if (dateCreated != null) BaseRequestKey.dateCreated: dateCreated,
       if (groupName != null) RequestKey.groupName: groupName,
       if (groupSecret != null) RequestKey.groupSecret: groupSecret,
       if (description != null) RequestKey.groupDescription: description,
@@ -272,8 +305,8 @@ class PayloadGroupCreateMerryGoRound extends PayloadGroupCreate {
 
   factory PayloadGroupCreateMerryGoRound.fromJson(Map<String, dynamic> json) {
     return PayloadGroupCreateMerryGoRound(
-      id: json[RequestKey.id],
-      dateCreated: json[RequestKey.dateCreated],
+      id: json[BaseRequestKey.id],
+      dateCreated: json[BaseRequestKey.dateCreated],
       groupName: json[RequestKey.groupName],
       groupSecret: json[RequestKey.groupSecret],
       description: json[RequestKey.groupDescription],
@@ -287,10 +320,14 @@ class PayloadGroupCreateMerryGoRound extends PayloadGroupCreate {
     );
   }
 
-  Map<String, dynamic> toJson() {
+  @override
+  String get command => RequestCommand.groupRegistration;
+
+  @override
+  Map<String, dynamic> contentToJson() {
     return {
-      if (id != null) RequestKey.id: id,
-      if (dateCreated != null) RequestKey.dateCreated: dateCreated,
+      if (id != null) BaseRequestKey.id: id,
+      if (dateCreated != null) BaseRequestKey.dateCreated: dateCreated,
       if (groupName != null) RequestKey.groupName: groupName,
       if (groupSecret != null) RequestKey.groupSecret: groupSecret,
       if (description != null) RequestKey.groupDescription: description,

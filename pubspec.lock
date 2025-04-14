@@ -2383,6 +2383,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  xid:
+    dependency: "direct main"
+    description:
+      name: xid
+      sha256: "58b61c7c1234810afa500cde7556d7c407ce72154e0d5a8a5618690f03848dbd"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.1"
   xml:
     dependency: transitive
     description:

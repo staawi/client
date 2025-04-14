@@ -1,11 +1,9 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/new_group_type/new_group_type_view.dart';
 import 'package:stawi/pages/new_group_type/steps/finalize_group_create_step.dart';
@@ -15,7 +13,7 @@ import 'package:stawi/pages/new_group_type/steps/group_periodicity_step.dart';
 import 'package:stawi/pages/new_group_type/steps/group_saving_amount_step.dart';
 import 'package:stawi/pages/new_group_type/steps/group_termination_date_step.dart';
 import 'package:stawi/pages/new_group_type/steps/group_type_step.dart';
-import 'package:stawi/requests/payload/group_create_payload.dart';
+import 'package:stawi/services/stawi/payloads/group_create_payloads.dart';
 import 'package:stawi/utils/file_selector.dart';
 import 'package:stawi/widgets/matrix.dart';
 

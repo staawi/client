@@ -1,28 +1,8 @@
-import 'request_type.dart';
-import 'request_key.dart';
-import 'event_type.dart';
+import 'package:stawi/services/default/base_payload.dart';
+import 'package:stawi/services/default/event_type.dart';
 
-/// Base abstract class for all custom Matrix event content
-abstract class MatrixCustomEventContent {
-  /// Converts the event content to a JSON map
-  Map<String, dynamic> toJson() {
-    final json = contentToJson();
-    json[RequestKey.command] = command;
-    return json;
-  }
-
-  /// Internal method to convert content fields to JSON without the command field
-  Map<String, dynamic> contentToJson();
-
-  /// The command value to use for this event
-  String get command;
-
-  /// Event type used with setRoomStateWithKey
-  String get eventType;
-
-  /// Default state key used with setRoomStateWithKey
-  String get stateKey => '';
-}
+import '../constants/request_commands.dart';
+import '../constants/request_key.dart';
 
 /// Period types for group savings
 enum GroupPeriodType { weekly, biweekly, monthly }
@@ -31,7 +11,7 @@ enum GroupPeriodType { weekly, biweekly, monthly }
 enum GroupMotionChoice { yes, no }
 
 /// Event content for GROUP_CREATE command
-class GroupCreateEventContent extends MatrixCustomEventContent {
+class GroupCreateEventContent extends BaseEventContent {
   final String groupName;
   final String customerName;
   final String customerId;
@@ -63,10 +43,7 @@ class GroupCreateEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupRegistration;
-
-  @override
-  String get command => RequestType.groupRegistration;
+  String get command => RequestCommand.groupRegistration;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -88,10 +65,6 @@ class GroupCreateEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupCreateEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupCreateEventContent(
       groupName: json[RequestKey.groupName] as String,
       customerName: json[RequestKey.customerName] as String,
@@ -117,7 +90,7 @@ class GroupCreateEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_JOIN command
-class GroupJoinEventContent extends MatrixCustomEventContent {
+class GroupJoinEventContent extends BaseEventContent {
   final String groupCode;
   final String customerName;
   final String customerMsisdn;
@@ -131,10 +104,7 @@ class GroupJoinEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupJoin;
-
-  @override
-  String get command => RequestType.groupJoin;
+  String get command => RequestCommand.groupJoin;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -148,10 +118,6 @@ class GroupJoinEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupJoinEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupJoinEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       customerName: json[RequestKey.customerName] as String,
@@ -164,7 +130,7 @@ class GroupJoinEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_LOAN command
-class AccountLoanEventContent extends MatrixCustomEventContent {
+class AccountLoanEventContent extends BaseEventContent {
   final String groupCode;
   final GroupMotionChoice groupMotionChoice;
   final double groupLoanAmount;
@@ -180,13 +146,10 @@ class AccountLoanEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.accountLoanAccept;
-
-  @override
   String get command =>
       groupMotionChoice == GroupMotionChoice.yes
-          ? RequestType.accountLoanAccept
-          : RequestType.accountLoanReject;
+          ? RequestCommand.accountLoanAccept
+          : RequestCommand.accountLoanReject;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -200,10 +163,6 @@ class AccountLoanEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountLoanEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountLoanEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       groupMotionChoice: GroupMotionChoice.values.firstWhere(
@@ -217,7 +176,7 @@ class AccountLoanEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_TRANSFER command
-class AccountTransferEventContent extends MatrixCustomEventContent {
+class AccountTransferEventContent extends BaseEventContent {
   final String groupCode;
   final double transferAmount;
   final String targetCustomerId;
@@ -235,10 +194,7 @@ class AccountTransferEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.getFullEventType("account.transfer");
-
-  @override
-  String get command => RequestType.accountPaymentAssist;
+  String get command => RequestCommand.accountPaymentAssist;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -253,10 +209,6 @@ class AccountTransferEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountTransferEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountTransferEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       transferAmount: (json['transfer_amount'] as num).toDouble(),
@@ -269,7 +221,7 @@ class AccountTransferEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_JOIN_MOTION command
-class GroupJoinMotionEventContent extends MatrixCustomEventContent {
+class GroupJoinMotionEventContent extends BaseEventContent {
   final String groupCode;
   final String groupMotionId;
   final GroupMotionChoice groupMotionChoice;
@@ -281,10 +233,7 @@ class GroupJoinMotionEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupJoinMotion;
-
-  @override
-  String get command => RequestType.groupJoinMotion;
+  String get command => RequestCommand.groupJoinMotion;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -296,10 +245,6 @@ class GroupJoinMotionEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupJoinMotionEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupJoinMotionEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       groupMotionId: json[RequestKey.groupMotionId] as String,
@@ -311,17 +256,14 @@ class GroupJoinMotionEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_SHUTDOWN command
-class GroupShutdownEventContent extends MatrixCustomEventContent {
+class GroupShutdownEventContent extends BaseEventContent {
   final String groupCode;
   final String? shutdownReason;
 
   GroupShutdownEventContent({required this.groupCode, this.shutdownReason});
 
   @override
-  String get eventType => EventType.groupShutdown;
-
-  @override
-  String get command => RequestType.groupShutdown;
+  String get command => RequestCommand.groupShutdown;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -332,10 +274,6 @@ class GroupShutdownEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupShutdownEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupShutdownEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       shutdownReason: json[RequestKey.reason] as String?,
@@ -344,16 +282,13 @@ class GroupShutdownEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_BALANCE command
-class AccountBalanceEventContent extends MatrixCustomEventContent {
+class AccountBalanceEventContent extends BaseEventContent {
   final String groupCode;
 
   AccountBalanceEventContent({required this.groupCode});
 
   @override
-  String get eventType => EventType.accountSavings;
-
-  @override
-  String get command => RequestType.accountSavings;
+  String get command => RequestCommand.accountSavings;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -361,10 +296,6 @@ class AccountBalanceEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountBalanceEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountBalanceEventContent(
       groupCode: json[RequestKey.groupCode] as String,
     );
@@ -372,17 +303,17 @@ class AccountBalanceEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_CREATE_ABANDON command
-class GroupCreateAbandonEventContent extends MatrixCustomEventContent {
+class GroupCreateAbandonEventContent extends BaseEventContent {
   final String groupCode;
   final String? abandonReason;
 
   GroupCreateAbandonEventContent({required this.groupCode, this.abandonReason});
 
   @override
-  String get eventType => EventType.groupCreateAbandon;
+  String get eventType => EventType.uploadPartitionMessageAsPayload;
 
   @override
-  String get command => RequestType.groupCreateAbandon;
+  String get command => RequestCommand.groupCreateAbandon;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -393,10 +324,6 @@ class GroupCreateAbandonEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupCreateAbandonEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupCreateAbandonEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       abandonReason: json[RequestKey.reason] as String?,
@@ -405,7 +332,7 @@ class GroupCreateAbandonEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_JOIN_TRUSTED command
-class GroupJoinTrustedEventContent extends MatrixCustomEventContent {
+class GroupJoinTrustedEventContent extends BaseEventContent {
   final String groupCode;
   final String trustedMember;
   final String customerName;
@@ -421,10 +348,7 @@ class GroupJoinTrustedEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupJoinTrusted;
-
-  @override
-  String get command => RequestType.groupJoinTrusted;
+  String get command => RequestCommand.groupJoinTrusted;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -439,10 +363,6 @@ class GroupJoinTrustedEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupJoinTrustedEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupJoinTrustedEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       trustedMember: json[RequestKey.targetProfile] as String,
@@ -454,7 +374,7 @@ class GroupJoinTrustedEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_LEAVE_MOTION command
-class GroupLeaveMotionEventContent extends MatrixCustomEventContent {
+class GroupLeaveMotionEventContent extends BaseEventContent {
   final String groupCode;
   final String groupMotionId;
   final GroupMotionChoice groupMotionChoice;
@@ -466,10 +386,7 @@ class GroupLeaveMotionEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupLeaveMotion;
-
-  @override
-  String get command => RequestType.groupLeaveMotion;
+  String get command => RequestCommand.groupLeaveMotion;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -481,10 +398,6 @@ class GroupLeaveMotionEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupLeaveMotionEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupLeaveMotionEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       groupMotionId: json[RequestKey.groupMotionId] as String,
@@ -496,7 +409,7 @@ class GroupLeaveMotionEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_REMOVE_MOTION command
-class GroupRemoveMotionEventContent extends MatrixCustomEventContent {
+class GroupRemoveMotionEventContent extends BaseEventContent {
   final String groupCode;
   final String groupMotionId;
   final GroupMotionChoice groupMotionChoice;
@@ -508,10 +421,7 @@ class GroupRemoveMotionEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupRemoveMemberMotion;
-
-  @override
-  String get command => RequestType.groupRemoveMemberMotion;
+  String get command => RequestCommand.groupRemoveMemberMotion;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -523,10 +433,6 @@ class GroupRemoveMotionEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupRemoveMotionEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupRemoveMotionEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       groupMotionId: json[RequestKey.groupMotionId] as String,
@@ -538,7 +444,7 @@ class GroupRemoveMotionEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_REMOVE_MEMBER command
-class GroupRemoveMemberEventContent extends MatrixCustomEventContent {
+class GroupRemoveMemberEventContent extends BaseEventContent {
   final String groupCode;
   final String targetContact;
   final String? targetContactId;
@@ -552,10 +458,7 @@ class GroupRemoveMemberEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupRemoveMember;
-
-  @override
-  String get command => RequestType.groupRemoveMember;
+  String get command => RequestCommand.groupRemoveMember;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -568,10 +471,6 @@ class GroupRemoveMemberEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupRemoveMemberEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupRemoveMemberEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       targetContact: json[RequestKey.targetContact] as String,
@@ -582,7 +481,7 @@ class GroupRemoveMemberEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_LEAVE command
-class GroupLeaveEventContent extends MatrixCustomEventContent {
+class GroupLeaveEventContent extends BaseEventContent {
   final String groupCode;
   final String targetContact;
   final String? leaveReason;
@@ -594,10 +493,7 @@ class GroupLeaveEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupLeave;
-
-  @override
-  String get command => RequestType.groupLeave;
+  String get command => RequestCommand.groupLeave;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -609,10 +505,6 @@ class GroupLeaveEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupLeaveEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupLeaveEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       targetContact: json[RequestKey.targetContact] as String,
@@ -622,7 +514,7 @@ class GroupLeaveEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for GROUP_SHUTDOWN_MOTION command
-class GroupShutdownMotionEventContent extends MatrixCustomEventContent {
+class GroupShutdownMotionEventContent extends BaseEventContent {
   final String groupCode;
   final String groupMotionId;
   final GroupMotionChoice groupMotionChoice;
@@ -634,10 +526,7 @@ class GroupShutdownMotionEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.groupShutdownMotion;
-
-  @override
-  String get command => RequestType.groupShutdownMotion;
+  String get command => RequestCommand.groupShutdownMotion;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -649,10 +538,6 @@ class GroupShutdownMotionEventContent extends MatrixCustomEventContent {
   }
 
   factory GroupShutdownMotionEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return GroupShutdownMotionEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       groupMotionId: json[RequestKey.groupMotionId] as String,
@@ -664,7 +549,7 @@ class GroupShutdownMotionEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_CHANGE_LANGUAGE command
-class AccountChangeLanguageEventContent extends MatrixCustomEventContent {
+class AccountChangeLanguageEventContent extends BaseEventContent {
   final String groupCode;
   final String customerLanguage;
 
@@ -674,10 +559,7 @@ class AccountChangeLanguageEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.accountChangeLanguage;
-
-  @override
-  String get command => RequestType.accountChangeLanguage;
+  String get command => RequestCommand.accountChangeLanguage;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -690,10 +572,6 @@ class AccountChangeLanguageEventContent extends MatrixCustomEventContent {
   factory AccountChangeLanguageEventContent.fromJson(
     Map<String, dynamic> json,
   ) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountChangeLanguageEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       customerLanguage: json[RequestKey.customerLanguage] as String,
@@ -702,7 +580,7 @@ class AccountChangeLanguageEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_LOAN_BLOCK command
-class AccountLoanBlockEventContent extends MatrixCustomEventContent {
+class AccountLoanBlockEventContent extends BaseEventContent {
   final String groupCode;
   final String targetXid;
   final String? blockReason;
@@ -714,10 +592,7 @@ class AccountLoanBlockEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.accountLoanBlock;
-
-  @override
-  String get command => RequestType.accountLoanBlock;
+  String get command => RequestCommand.accountLoanBlock;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -729,10 +604,6 @@ class AccountLoanBlockEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountLoanBlockEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountLoanBlockEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       targetXid: json[RequestKey.targetXid] as String,
@@ -742,7 +613,7 @@ class AccountLoanBlockEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_LOAN_PREPAY command
-class AccountLoanPrepayEventContent extends MatrixCustomEventContent {
+class AccountLoanPrepayEventContent extends BaseEventContent {
   final String groupCode;
   final double? prepaymentAmount;
   final String? loanId;
@@ -754,10 +625,7 @@ class AccountLoanPrepayEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.accountLoanPrepay;
-
-  @override
-  String get command => RequestType.accountLoanPrepay;
+  String get command => RequestCommand.accountLoanPrepay;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -769,10 +637,6 @@ class AccountLoanPrepayEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountLoanPrepayEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountLoanPrepayEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       prepaymentAmount:
@@ -785,16 +649,13 @@ class AccountLoanPrepayEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_CREDIT_SCORE command
-class AccountCreditScoreEventContent extends MatrixCustomEventContent {
+class AccountCreditScoreEventContent extends BaseEventContent {
   final String groupCode;
 
   AccountCreditScoreEventContent({required this.groupCode});
 
   @override
-  String get eventType => EventType.accountCreditScore;
-
-  @override
-  String get command => RequestType.accountCreditScore;
+  String get command => RequestCommand.accountCreditScore;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -802,10 +663,6 @@ class AccountCreditScoreEventContent extends MatrixCustomEventContent {
   }
 
   factory AccountCreditScoreEventContent.fromJson(Map<String, dynamic> json) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountCreditScoreEventContent(
       groupCode: json[RequestKey.groupCode] as String,
     );
@@ -813,7 +670,7 @@ class AccountCreditScoreEventContent extends MatrixCustomEventContent {
 }
 
 /// Event content for ACCOUNT_MANAGE_PASSWORD command
-class AccountManagePasswordEventContent extends MatrixCustomEventContent {
+class AccountManagePasswordEventContent extends BaseEventContent {
   final String groupCode;
   final String customerId;
   final String customerPassword;
@@ -827,10 +684,7 @@ class AccountManagePasswordEventContent extends MatrixCustomEventContent {
   });
 
   @override
-  String get eventType => EventType.accountManagePassword;
-
-  @override
-  String get command => RequestType.accountManagePassword;
+  String get command => RequestCommand.accountManagePassword;
 
   @override
   Map<String, dynamic> contentToJson() {
@@ -845,10 +699,6 @@ class AccountManagePasswordEventContent extends MatrixCustomEventContent {
   factory AccountManagePasswordEventContent.fromJson(
     Map<String, dynamic> json,
   ) {
-    // Remove command field if present to avoid duplicate processing
-    final contentJson = Map<String, dynamic>.from(json);
-    contentJson.remove(RequestKey.command);
-
     return AccountManagePasswordEventContent(
       groupCode: json[RequestKey.groupCode] as String,
       customerId: json[RequestKey.customerId] as String,
