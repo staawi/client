@@ -53,9 +53,6 @@ class VotingModeController with ChangeNotifier {
             votingModeEvent.thresholdPercentage! <= maxThresholdPercentage) {
           _thresholdPercentage = votingModeEvent.thresholdPercentage!;
         }
-      } else {
-        // Default to normal voting mode if no event is found
-        _votingMode = VotingMode.normal;
       }
     } catch (e) {
       error = e.toString();

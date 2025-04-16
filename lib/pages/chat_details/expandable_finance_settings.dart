@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
+import 'package:stawi/pages/finance/group_settings/group_settings_controller.dart';
 import 'package:stawi/pages/finance/voting_mode/voting_mode_view.dart';
 import 'package:stawi/pages/finance/widgets/account_balance_view.dart';
 import 'package:stawi/services/default/event_type.dart';
@@ -45,8 +46,16 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
   }
 
   void _editSavingsParameters() {
-    // Navigate to savings parameters screen
-    context.push('/rooms/${widget.room.id}/details/savings_parameters');
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      useSafeArea: true,
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      builder: (context) => SizedBox(
+        height: MediaQuery.of(context).size.height * 0.85,
+        child: GroupSettingsController(room: widget.room).build(context),
+      ),
+    );
   }
 
   void _editVotingMode() {

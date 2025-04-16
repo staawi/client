@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:matrix/matrix.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/pages/finance/widgets/account_balance_view.dart';
+import 'package:stawi/services/default/event_type.dart';
+import 'package:stawi/services/stawi/event_service.dart';
+import 'package:stawi/services/stawi/payloads/response_payloads.dart';
 import 'package:stawi/utils/date_time_extension.dart';
 import 'package:stawi/utils/fluffy_share.dart';
 import 'package:stawi/utils/url_launcher.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/presence_builder.dart';
 import 'package:stawi/widgets/qr_code_viewer.dart';
+
 import '../../widgets/matrix.dart';
 import 'user_bottom_sheet.dart';
 
@@ -251,6 +254,38 @@ class UserBottomSheetView extends StatelessWidget {
                               : L10n.of(context).sendAMessage),
                     ),
                   ),
+                ),
+              // Account balance view - only show if user is from a room context
+              if (userId.isNotEmpty && controller.widget.user?.room != null)
+                FutureBuilder<LedgerAccountState?>(
+                  future: StawiEventService.getRoomStateEvent(
+                    client: client,
+                    roomId: controller.widget.user!.room.id,
+                    eventType: StawiEventState.ledgerAccounts,
+                    stateKey: userId,
+                    fromJsonFactory: LedgerAccountState.fromJson,
+                  ),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const Padding(
+                        padding: EdgeInsets.all(16.0),
+                        child: Center(
+                          child: CircularProgressIndicator.adaptive(),
+                        ),
+                      );
+                    }
+
+                    if (snapshot.hasData &&
+                        snapshot.data != null &&
+                        snapshot.data!.accounts.isNotEmpty) {
+                      return AccountBalanceView(
+                        ledgerState: snapshot.data!,
+                        onTap: null,
+                      );
+                    }
+
+                    return const SizedBox.shrink();
+                  },
                 ),
               if (controller.widget.onMention != null)
                 ListTile(

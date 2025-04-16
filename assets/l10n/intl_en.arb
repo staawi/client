@@ -3473,5 +3473,124 @@
   "@totalBalance": {
     "type": "String",
     "placeholders": {}
+  },
+  "groupSettings": "Group Settings",
+  "@groupSettings": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "saveChanges": "Save Changes",
+  "@saveChanges": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "back": "Back",
+  "@back": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "general": "General",
+  "@general": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "loans": "Loans",
+  "@loans": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "contributions": "Contributions",
+  "@contributions": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "settingsCount": "{n} settings",
+  "@settingsCount": {
+    "type": "String",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "loanTenure": "Loan Tenure",
+  "@loanTenure": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "loanTenureDescription": "The maximum number of weeks members can borrow for",
+  "@loanTenureDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "groupTenure": "Group Tenure",
+  "@groupTenure": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "groupTenureDescription": "The total duration of the group before shares are distributed",
+  "@groupTenureDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "interestRate": "Interest Rate",
+  "@interestRate": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "interestRateDescription": "The percentage charged on loans",
+  "@interestRateDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "socialFundContribution": "Social Fund Contribution",
+  "@socialFundContribution": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "socialFundContributionDescription": "The amount each member contributes to the social fund",
+  "@socialFundContributionDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "allowEarlyWithdrawal": "Allow Early Withdrawal",
+  "@allowEarlyWithdrawal": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "allowEarlyWithdrawalDescription": "Whether members can withdraw funds before the end of the group tenure",
+  "@allowEarlyWithdrawalDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "requireSavingsBeforeLoan": "Require Savings Before Loan",
+  "@requireSavingsBeforeLoan": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "requireSavingsBeforeLoanDescription": "Whether members must have savings before they can take a loan",
+  "@requireSavingsBeforeLoanDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "weeks": "weeks",
+  "@weeks": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "months": "months",
+  "@months": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "year": "year",
+  "@year": {
+    "type": "String",
+    "placeholders": {}
   }
 }

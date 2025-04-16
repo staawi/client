@@ -2746,4 +2746,72 @@ class L10nJa extends L10n {
 
   @override
   String get totalBalance => 'Total Balance';
+
+  @override
+  String get groupSettings => 'Group Settings';
+
+  @override
+  String get saveChanges => 'Save Changes';
+
+  @override
+  String get back => 'Back';
+
+  @override
+  String get general => 'General';
+
+  @override
+  String get loans => 'Loans';
+
+  @override
+  String get contributions => 'Contributions';
+
+  @override
+  String settingsCount(int n) {
+    return '$n settings';
+  }
+
+  @override
+  String get loanTenure => 'Loan Tenure';
+
+  @override
+  String get loanTenureDescription => 'The maximum number of weeks members can borrow for';
+
+  @override
+  String get groupTenure => 'Group Tenure';
+
+  @override
+  String get groupTenureDescription => 'The total duration of the group before shares are distributed';
+
+  @override
+  String get interestRate => 'Interest Rate';
+
+  @override
+  String get interestRateDescription => 'The percentage charged on loans';
+
+  @override
+  String get socialFundContribution => 'Social Fund Contribution';
+
+  @override
+  String get socialFundContributionDescription => 'The amount each member contributes to the social fund';
+
+  @override
+  String get allowEarlyWithdrawal => 'Allow Early Withdrawal';
+
+  @override
+  String get allowEarlyWithdrawalDescription => 'Whether members can withdraw funds before the end of the group tenure';
+
+  @override
+  String get requireSavingsBeforeLoan => 'Require Savings Before Loan';
+
+  @override
+  String get requireSavingsBeforeLoanDescription => 'Whether members must have savings before they can take a loan';
+
+  @override
+  String get weeks => 'weeks';
+
+  @override
+  String get months => 'months';
+
+  @override
+  String get year => 'year';
 }

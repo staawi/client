@@ -117,12 +117,6 @@ class StawiEventService {
         stateKey ?? "",
       );
 
-      if (event == null) {
-        print('No event found for type: $eventType');
-        return null;
-      }
-
-      print('Found event for type: $eventType');
       return fromJsonFactory(event as Map<String, dynamic>);
     } catch (e) {
       print('Error getting room state event: $e');

@@ -5045,6 +5045,138 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Total Balance'**
   String get totalBalance;
+
+  /// No description provided for @groupSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Settings'**
+  String get groupSettings;
+
+  /// No description provided for @saveChanges.
+  ///
+  /// In en, this message translates to:
+  /// **'Save Changes'**
+  String get saveChanges;
+
+  /// No description provided for @back.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get back;
+
+  /// No description provided for @general.
+  ///
+  /// In en, this message translates to:
+  /// **'General'**
+  String get general;
+
+  /// No description provided for @loans.
+  ///
+  /// In en, this message translates to:
+  /// **'Loans'**
+  String get loans;
+
+  /// No description provided for @contributions.
+  ///
+  /// In en, this message translates to:
+  /// **'Contributions'**
+  String get contributions;
+
+  /// No description provided for @settingsCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{n} settings'**
+  String settingsCount(int n);
+
+  /// No description provided for @loanTenure.
+  ///
+  /// In en, this message translates to:
+  /// **'Loan Tenure'**
+  String get loanTenure;
+
+  /// No description provided for @loanTenureDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The maximum number of weeks members can borrow for'**
+  String get loanTenureDescription;
+
+  /// No description provided for @groupTenure.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Tenure'**
+  String get groupTenure;
+
+  /// No description provided for @groupTenureDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The total duration of the group before shares are distributed'**
+  String get groupTenureDescription;
+
+  /// No description provided for @interestRate.
+  ///
+  /// In en, this message translates to:
+  /// **'Interest Rate'**
+  String get interestRate;
+
+  /// No description provided for @interestRateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The percentage charged on loans'**
+  String get interestRateDescription;
+
+  /// No description provided for @socialFundContribution.
+  ///
+  /// In en, this message translates to:
+  /// **'Social Fund Contribution'**
+  String get socialFundContribution;
+
+  /// No description provided for @socialFundContributionDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'The amount each member contributes to the social fund'**
+  String get socialFundContributionDescription;
+
+  /// No description provided for @allowEarlyWithdrawal.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Early Withdrawal'**
+  String get allowEarlyWithdrawal;
+
+  /// No description provided for @allowEarlyWithdrawalDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether members can withdraw funds before the end of the group tenure'**
+  String get allowEarlyWithdrawalDescription;
+
+  /// No description provided for @requireSavingsBeforeLoan.
+  ///
+  /// In en, this message translates to:
+  /// **'Require Savings Before Loan'**
+  String get requireSavingsBeforeLoan;
+
+  /// No description provided for @requireSavingsBeforeLoanDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Whether members must have savings before they can take a loan'**
+  String get requireSavingsBeforeLoanDescription;
+
+  /// No description provided for @weeks.
+  ///
+  /// In en, this message translates to:
+  /// **'weeks'**
+  String get weeks;
+
+  /// No description provided for @months.
+  ///
+  /// In en, this message translates to:
+  /// **'months'**
+  String get months;
+
+  /// No description provided for @year.
+  ///
+  /// In en, this message translates to:
+  /// **'year'**
+  String get year;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

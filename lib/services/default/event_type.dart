@@ -10,6 +10,8 @@ class StawiEventMessage {
   static const String registerGroup = "$prefix.group.registered";
 
   static const String groupVotingMode = "$prefix.voting.mode";
+  
+  static const String updateGroupSettings = "$prefix.update.group.settings";
 }
 
 /// StawiEventState for Matrix custom events
