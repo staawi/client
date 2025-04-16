@@ -15,7 +15,7 @@ class NewGroupTypeView extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final error = controller.error;
-    
+
     return Scaffold(
       appBar: AppBar(
         leading: Center(
@@ -26,32 +26,34 @@ class NewGroupTypeView extends StatelessWidget {
         title: Text(L10n.of(context).groupConfiguration),
       ),
       body: MaxWidthBody(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            AnimatedSize(
-              duration: FluffyThemes.animationDuration,
-              curve: FluffyThemes.animationCurve,
-              child: NewGroupTypeForm(controller),
-            ),
-            AnimatedSize(
-              duration: FluffyThemes.animationDuration,
-              curve: FluffyThemes.animationCurve,
-              child:
-                  error == null
-                      ? const SizedBox.shrink()
-                      : ListTile(
-                        leading: Icon(
-                          Icons.warning_outlined,
-                          color: theme.colorScheme.error,
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              AnimatedSize(
+                duration: FluffyThemes.animationDuration,
+                curve: FluffyThemes.animationCurve,
+                child: NewGroupTypeForm(controller),
+              ),
+              AnimatedSize(
+                duration: FluffyThemes.animationDuration,
+                curve: FluffyThemes.animationCurve,
+                child:
+                    error == null
+                        ? const SizedBox.shrink()
+                        : ListTile(
+                          leading: Icon(
+                            Icons.warning_outlined,
+                            color: theme.colorScheme.error,
+                          ),
+                          title: Text(
+                            error.toLocalizedString(context),
+                            style: TextStyle(color: theme.colorScheme.error),
+                          ),
                         ),
-                        title: Text(
-                          error.toLocalizedString(context),
-                          style: TextStyle(color: theme.colorScheme.error),
-                        ),
-                      ),
-            ),
-          ],
+              ),
+            ],
+          ),
         ),
       ),
     );

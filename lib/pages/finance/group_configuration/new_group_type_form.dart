@@ -34,6 +34,7 @@ class _NewGroupTypeFormState extends State<NewGroupTypeForm> {
           ),
         ),
         child: Stepper(
+          physics: const NeverScrollableScrollPhysics(),
           controlsBuilder: (context, details) {
             return Padding(
               padding: const EdgeInsets.only(top: 32),
@@ -69,7 +70,6 @@ class _NewGroupTypeFormState extends State<NewGroupTypeForm> {
             );
           },
           type: StepperType.vertical,
-          physics: const AlwaysScrollableScrollPhysics(),
           key: ValueKey(steps.length),
           steps: widget.controller.groupCreateSteps,
           currentStep: widget.controller.getCurrentStep,
