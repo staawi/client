@@ -10,14 +10,14 @@ class VotingModeController with ChangeNotifier {
   final Room room;
   bool loading = false;
   String? error;
-  VotingMode _votingMode = VotingMode.normal;
+  VotingMode? _votingMode;
   int _thresholdPercentage = defaultThresholdPercentage;
 
   VotingModeController({required this.room}) {
     _loadCurrentVotingMode();
   }
 
-  VotingMode get votingMode => _votingMode;
+  VotingMode? get votingMode => _votingMode;
 
   int get thresholdPercentage => _thresholdPercentage;
 
@@ -38,7 +38,7 @@ class VotingModeController with ChangeNotifier {
           await StawiEventService.getRoomStateEvent<VotingModeEventContent>(
             client: room.client,
             roomId: room.id,
-            eventType: EventType.groupVotingMode,
+            eventType: StawiEventMessage.groupVotingMode,
             fromJsonFactory: VotingModeEventContent.fromJson,
           );
 

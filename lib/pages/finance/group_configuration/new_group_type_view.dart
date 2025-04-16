@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/new_group_type.dart';
-import 'package:stawi/pages/new_group_type/new_group_type_form.dart';
+import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
+import 'package:stawi/pages/finance/group_configuration/new_group_type_form.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
 import 'package:stawi/widgets/layouts/max_width_body.dart';
 
@@ -15,8 +14,8 @@ class NewGroupTypeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-
     final error = controller.error;
+    
     return Scaffold(
       appBar: AppBar(
         leading: Center(
@@ -24,7 +23,7 @@ class NewGroupTypeView extends StatelessWidget {
             onPressed: controller.loading ? null : Navigator.of(context).pop,
           ),
         ),
-        title: Text(L10n.of(context).groupType),
+        title: Text(L10n.of(context).groupConfiguration),
       ),
       body: MaxWidthBody(
         child: Column(

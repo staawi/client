@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/new_group_type/new_group_type.dart';
+import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
 
-class FinalizeGroupCreateStep extends StatelessWidget {
+class SuccessGroupCreateStep extends StatelessWidget {
   final NewGroupTypeController controller;
 
-  const FinalizeGroupCreateStep(this.controller, {super.key});
+  const SuccessGroupCreateStep(this.controller, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +23,7 @@ class FinalizeGroupCreateStep extends StatelessWidget {
               child: Icon(Icons.info_outlined),
             ),
             subtitle: Text(
-              L10n.of(context).finalizeGroupCreationDescription(
+              L10n.of(context).groupCreationSuccessfulDescription(
                 controller.payload.groupName ?? "",
               ),
             ),

@@ -2797,6 +2797,8 @@
   "@groupName": {},
   "groupDescription": "Group description",
   "@groupDescription": {},
+  "groupConfiguration": "Group Configuration",
+  "@groupConfiguration": {},
   "groupType": "Group type",
   "@groupType": {},
   "groupTypeProduct": "Product Group",
@@ -2850,10 +2852,10 @@
  "periodicSavingAmountDescription": "Amount saved periodically by members of the group",
   "@periodicSavingAmountDescription": {},
 
-  "finalizeGroupCreation": "Finalize Create Group",
-  "@finalizeGroupCreation": {},
- "finalizeGroupCreationDescription": "A group with the name {groupName} will be created and setup in a moment",
-  "@finalizeGroupCreationDescription": {
+  "finalizeGroupConfiguration": "Finalize Group configuration",
+  "@finalizeGroupConfiguration": {},
+ "finalizeGroupConfigurationDescription": "Your group {groupName} will be configured shortly",
+  "@finalizeGroupConfigurationDescription": {
     "type": "text",
     "placeholders": {
       "groupName": {}
@@ -2868,7 +2870,7 @@
 
   "groupCreationSuccessful": "Successfully Queued Group Create Request",
   "@groupCreationSuccessful": {},
- "groupCreationSuccessfulDescription": "The request to create a group with the name {groupName} was successful, this will take a moment. \n\n Once created you will need to add all the members to the group by sharing the group link with them or choosing from your contacts",
+ "groupCreationSuccessfulDescription": "Group with the name {groupName} is being configured, this will take a moment. \n\n Add all the members to the group from your contacts",
   "@groupCreationSuccessfulDescription": {
     "type": "text",
     "placeholders": {
@@ -3247,7 +3249,7 @@
   "notificationRuleContainsDisplayName": "Contains Display Name",
   "notificationRuleContainsDisplayNameDescription": "Notifies the user when a message contains their display name.",
   "notificationRuleIsRoomMention": "Room Mention",
-  "notificationRuleIsRoomMentionDescription": "Notifies the user when there is a room mention.",
+  "notificationRuleIsRoomMentionDescription": "Notifies the user about room mentions.",
   "notificationRuleRoomnotif": "Room Notification",
   "notificationRuleRoomnotifDescription": "Notifies the user about room deactivation messages.",
   "notificationRuleTombstone": "Tombstone",
@@ -3407,13 +3409,68 @@
     "type": "String",
     "placeholders": {}
   },
-  "invite": "Invite",
-  "@invite": {
+
+  "errorFieldRequired": "field is empty, please fill it out",
+  "@errorFieldRequired": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+
+  "errorFieldShouldBeNumeric": "field is not a valid number",
+  "@errorFieldShouldBeNumeric": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+
+  "errorFieldShouldBeInTheFuture": "field is should be in the future",
+  "@errorFieldShouldBeInTheFuture": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": {}
+    }
+  },
+
+  "fixErrorsInStep": "errors exist in this step",
+  "@fixErrorsInStep": {
     "type": "String",
     "placeholders": {}
   },
-  "cancel": "Cancel",
-  "@cancel": {
+  "fixErrorsInStep": "Please fix the errors in this step before proceeding",
+  "@fixErrorsInStep": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "calendarSelection": "Savings Date",
+  "@calendarSelection": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "selectStartDate": "Select Start Date",
+  "@selectStartDate": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "startDateDescription": "Choose a starting date for your group savings. Future saving dates will be highlighted based on your period type.",
+  "@startDateDescription": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "groupSchedule": "Group Schedule",
+  "@groupSchedule": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "futureSavingDates": "Based on your selection, these are your next schedule dates:",
+  "@futureSavingDates": {
+    "type": "String",
+    "placeholders": {}
+  },
+  "totalBalance": "Total Balance",
+  "@totalBalance": {
     "type": "String",
     "placeholders": {}
   }

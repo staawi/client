@@ -1,6 +1,7 @@
 import 'package:matrix/matrix.dart';
 import 'package:stawi/services/default/base_payload.dart';
 import 'package:stawi/services/default/event_type.dart';
+import 'package:stawi/services/stawi/payloads/response_payloads.dart';
 import 'package:xid/xid.dart';
 
 /// A service to handle sending custom stawi events with typed payloads
@@ -36,7 +37,7 @@ class StawiEventService {
     // Send the event using sendMessage
     await client.sendMessage(
       roomId,
-      EventType.uploadPartitionMessageAsPayload,
+      StawiEventMessage.uploadPartition,
       transactionId,
       content,
     );
@@ -60,26 +61,26 @@ class StawiEventService {
   ///   eventContent: eventContent,
   /// );
   /// ```
-  static Future<void> setRoomStateEvent({
+  static Future<String> setRoomStateEvent({
     required Client client,
     required String roomId,
-    required BaseEventContent eventContent,
+    required BaseEventState eventState,
   }) async {
-    if (eventContent.eventType == null) {
+    if (eventState.eventType == null) {
       throw Exception(
-        'event type of event content ${eventContent.toString()} is null/not set',
+        'event type of event content ${eventState.toString()} is null/not set',
       );
     }
 
     // Convert the typed event content to JSON
-    final content = eventContent.toJson();
+    final content = eventState.toJson();
 
-    final stateKey = eventContent.stateKey ?? "";
+    final stateKey = eventState.stateKey ?? "";
 
     // Send the event using setRoomStateWithKey
-    await client.setRoomStateWithKey(
+    return await client.setRoomStateWithKey(
       roomId,
-      eventContent.eventType!,
+      eventState.eventType!,
       stateKey,
       content,
     );
@@ -110,23 +111,21 @@ class StawiEventService {
   }) async {
     try {
       // Get the room state event
-      final event = await client
-          .getRoomState(roomId)
-          .then(
-            (events) => events.firstWhere(
-              (event) =>
-                  event.type == eventType &&
-                  (stateKey != null && event.stateKey == stateKey),
-            ),
-          );
+      final event = await client.getRoomStateWithKey(
+        roomId,
+        eventType,
+        stateKey ?? "",
+      );
 
-      // Return null if no event found
-      if (event.content.isEmpty) {
+      if (event == null) {
+        print('No event found for type: $eventType');
         return null;
       }
 
-      return fromJsonFactory(event.content);
+      print('Found event for type: $eventType');
+      return fromJsonFactory(event as Map<String, dynamic>);
     } catch (e) {
+      print('Error getting room state event: $e');
       return null;
     }
   }

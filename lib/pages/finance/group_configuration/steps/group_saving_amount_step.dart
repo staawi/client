@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
-
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/finance/new_group_type/new_group_type.dart';
+import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
+import 'package:stawi/widgets/abstract_validated_widget.dart';
 
-class GroupSavingAmountStep extends StatelessWidget {
+class GroupSavingAmountStep extends ValidatedFieldsWidget {
   final NewGroupTypeController controller;
 
   const GroupSavingAmountStep(this.controller, {super.key});
+
+  @override
+  List<String> fieldsToValidate() {
+    return ['periodicSaving'];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,18 +22,26 @@ class GroupSavingAmountStep extends StatelessWidget {
         const SizedBox(height: 32),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: TextField(
+          child: TextFormField(
             autofocus: true,
             autocorrect: false,
             readOnly: controller.loading,
+            controller: controller.groupSavingAmountController,
+            keyboardType: TextInputType.number,
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.monetization_on_outlined),
               labelText: L10n.of(context).periodicSavingAmount,
+              errorText: controller.getFieldError('periodicSaving'),
             ),
+            validator: (_) => controller.getFieldError('periodicSaving'),
             onChanged: (value) {
               final payload = controller.payload;
-              payload.groupName = value;
+              // Fix: Update the correct property - periodicSaving, not groupName
+              payload.periodicSaving = int.tryParse(value);
               controller.setPayload(payload);
+
+              // Clear any error
+              controller.clearFieldError('periodicSaving');
             },
           ),
         ),

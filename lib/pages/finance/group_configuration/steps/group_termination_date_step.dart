@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/pages/finance/new_group_type/new_group_type.dart';
+import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
 import 'package:stawi/services/stawi/payloads/group_create_payloads.dart';
+import 'package:stawi/widgets/abstract_validated_widget.dart';
 
-class GroupTerminationDateStep extends StatelessWidget {
+class GroupTerminationDateStep extends ValidatedFieldsWidget {
   final NewGroupTypeController controller;
 
   const GroupTerminationDateStep(this.controller, {super.key});
+
+  @override
+  List<String> fieldsToValidate() {
+    return ['terminationDate'];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +23,7 @@ class GroupTerminationDateStep extends StatelessWidget {
         const SizedBox(height: 32),
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: TextField(
+          child: TextFormField(
             autofocus: true,
             autocorrect: false,
             readOnly: controller.loading,
@@ -25,7 +31,9 @@ class GroupTerminationDateStep extends StatelessWidget {
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.calendar_month),
               labelText: L10n.of(context).groupTerminationDate,
+              errorText: controller.getFieldError('terminationDate'),
             ),
+            validator: (_) => controller.getFieldError('terminationDate'),
             onTap: () async {
               final now = DateTime.now();
               final pickedDate = await showDatePicker(
@@ -36,7 +44,7 @@ class GroupTerminationDateStep extends StatelessWidget {
               );
 
               final payload = controller.payload;
-              if (payload is PayloadGroupCreateTemporary) {
+              if (payload is GroupCreateTemporaryPayload) {
                 if (payload.terminationDate == null ||
                     pickedDate != null &&
                         pickedDate.isAtSameMomentAs(payload.terminationDate!) ==
@@ -44,7 +52,12 @@ class GroupTerminationDateStep extends StatelessWidget {
                   payload.terminationDate = pickedDate;
                   controller.setPayload(payload);
                   controller.groupTerminationController.text =
-                      payload.terminationDate!.toIso8601String();
+                      payload.terminationDate != null
+                          ? payload.terminationDate!.toIso8601String()
+                          : '';
+
+                  // Clear any error
+                  controller.clearFieldError('terminationDate');
                 }
               }
             },

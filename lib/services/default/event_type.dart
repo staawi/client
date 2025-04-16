@@ -1,15 +1,23 @@
-/// Event types for Matrix custom events
+/// StawiEventMessage for Matrix custom events
 /// Defines the standard event types used across the application
-class EventType {
-  /// The configurable prefix for all event types
-  static const String prefix = "im.stawi";
+class StawiEventMessage {
+  /// The configurable prefix for all message types
+  static const String prefix = "im.stawi.message";
 
   // Group-related event types
-  static const String uploadPartitionMessageAsPayload =
-      "${prefix}upload.partition.message.as.payload";
+  static const String uploadPartition = "$prefix.upload.partition";
 
-  static const String groupRegisteredDetails =
-      "${prefix}group.registered.details";
+  static const String registerGroup = "$prefix.group.registered";
 
-  static const String groupVotingMode = "${prefix}voting_mode";
+  static const String groupVotingMode = "$prefix.voting.mode";
+}
+
+/// StawiEventState for Matrix custom events
+/// Defines the standard event types used across the application
+class StawiEventState {
+  /// The configurable prefix for all state types
+  static const String prefix = "im.stawi.state";
+
+  static const String groupDetail = "$prefix.group.detail";
+  static const String ledgerAccounts = "$prefix.ledger.accounts";
 }

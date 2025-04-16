@@ -4,7 +4,7 @@ import 'package:stawi/services/stawi/constants/request_commands.dart';
 
 /// Event content for the voting mode settings
 class VotingModeEventContent extends BaseEventContent {
-  final VotingMode mode;
+  final VotingMode? mode;
   final int? thresholdPercentage;
 
   VotingModeEventContent({required this.mode, this.thresholdPercentage});
@@ -15,7 +15,7 @@ class VotingModeEventContent extends BaseEventContent {
   @override
   Map<String, dynamic> contentToJson() {
     return {
-      'mode': mode.name,
+      'mode': mode?.name,
       if (mode == VotingMode.normal && thresholdPercentage != null)
         'threshold_percentage': thresholdPercentage,
     };

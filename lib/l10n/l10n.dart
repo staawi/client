@@ -3624,6 +3624,12 @@ abstract class L10n {
   /// **'Group description'**
   String get groupDescription;
 
+  /// No description provided for @groupConfiguration.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Configuration'**
+  String get groupConfiguration;
+
   /// No description provided for @groupType.
   ///
   /// In en, this message translates to:
@@ -3768,17 +3774,17 @@ abstract class L10n {
   /// **'Amount saved periodically by members of the group'**
   String get periodicSavingAmountDescription;
 
-  /// No description provided for @finalizeGroupCreation.
+  /// No description provided for @finalizeGroupConfiguration.
   ///
   /// In en, this message translates to:
-  /// **'Finalize Create Group'**
-  String get finalizeGroupCreation;
+  /// **'Finalize Group configuration'**
+  String get finalizeGroupConfiguration;
 
-  /// No description provided for @finalizeGroupCreationDescription.
+  /// No description provided for @finalizeGroupConfigurationDescription.
   ///
   /// In en, this message translates to:
-  /// **'A group with the name {groupName} will be created and setup in a moment'**
-  String finalizeGroupCreationDescription(Object groupName);
+  /// **'Your group {groupName} will be configured shortly'**
+  String finalizeGroupConfigurationDescription(Object groupName);
 
   /// No description provided for @groupTerminationDate.
   ///
@@ -3801,7 +3807,7 @@ abstract class L10n {
   /// No description provided for @groupCreationSuccessfulDescription.
   ///
   /// In en, this message translates to:
-  /// **'The request to create a group with the name {groupName} was successful, this will take a moment. \n\n Once created you will need to add all the members to the group by sharing the group link with them or choosing from your contacts'**
+  /// **'Group with the name {groupName} is being configured, this will take a moment. \n\n Add all the members to the group from your contacts'**
   String groupCreationSuccessfulDescription(Object groupName);
 
   /// No description provided for @createGroupAndInviteUsers.
@@ -4653,7 +4659,7 @@ abstract class L10n {
   /// No description provided for @notificationRuleIsRoomMentionDescription.
   ///
   /// In en, this message translates to:
-  /// **'Notifies the user when there is a room mention.'**
+  /// **'Notifies the user about room mentions.'**
   String get notificationRuleIsRoomMentionDescription;
 
   /// No description provided for @notificationRuleRoomnotif.
@@ -4979,6 +4985,66 @@ abstract class L10n {
   /// In en, this message translates to:
   /// **'Enter contact name'**
   String get enterContactName;
+
+  /// No description provided for @errorFieldRequired.
+  ///
+  /// In en, this message translates to:
+  /// **'field is empty, please fill it out'**
+  String errorFieldRequired(Object fieldName);
+
+  /// No description provided for @errorFieldShouldBeNumeric.
+  ///
+  /// In en, this message translates to:
+  /// **'field is not a valid number'**
+  String errorFieldShouldBeNumeric(Object fieldName);
+
+  /// No description provided for @errorFieldShouldBeInTheFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'field is should be in the future'**
+  String errorFieldShouldBeInTheFuture(Object fieldName);
+
+  /// No description provided for @fixErrorsInStep.
+  ///
+  /// In en, this message translates to:
+  /// **'Please fix the errors in this step before proceeding'**
+  String get fixErrorsInStep;
+
+  /// No description provided for @calendarSelection.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings Date'**
+  String get calendarSelection;
+
+  /// No description provided for @selectStartDate.
+  ///
+  /// In en, this message translates to:
+  /// **'Select Start Date'**
+  String get selectStartDate;
+
+  /// No description provided for @startDateDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a starting date for your group savings. Future saving dates will be highlighted based on your period type.'**
+  String get startDateDescription;
+
+  /// No description provided for @groupSchedule.
+  ///
+  /// In en, this message translates to:
+  /// **'Group Schedule'**
+  String get groupSchedule;
+
+  /// No description provided for @futureSavingDates.
+  ///
+  /// In en, this message translates to:
+  /// **'Based on your selection, these are your next schedule dates:'**
+  String get futureSavingDates;
+
+  /// No description provided for @totalBalance.
+  ///
+  /// In en, this message translates to:
+  /// **'Total Balance'**
+  String get totalBalance;
 }
 
 class _L10nDelegate extends LocalizationsDelegate<L10n> {

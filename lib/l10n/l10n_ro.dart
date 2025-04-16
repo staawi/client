@@ -1971,6 +1971,9 @@ class L10nRo extends L10n {
   String get groupDescription => 'Group description';
 
   @override
+  String get groupConfiguration => 'Group Configuration';
+
+  @override
   String get groupType => 'Group type';
 
   @override
@@ -2043,11 +2046,11 @@ class L10nRo extends L10n {
   String get periodicSavingAmountDescription => 'Amount saved periodically by members of the group';
 
   @override
-  String get finalizeGroupCreation => 'Finalize Create Group';
+  String get finalizeGroupConfiguration => 'Finalize Group configuration';
 
   @override
-  String finalizeGroupCreationDescription(Object groupName) {
-    return 'A group with the name $groupName will be created and setup in a moment';
+  String finalizeGroupConfigurationDescription(Object groupName) {
+    return 'Your group $groupName will be configured shortly';
   }
 
   @override
@@ -2061,7 +2064,7 @@ class L10nRo extends L10n {
 
   @override
   String groupCreationSuccessfulDescription(Object groupName) {
-    return 'The request to create a group with the name $groupName was successful, this will take a moment. \n\n Once created you will need to add all the members to the group by sharing the group link with them or choosing from your contacts';
+    return 'Group with the name $groupName is being configured, this will take a moment. \n\n Add all the members to the group from your contacts';
   }
 
   @override
@@ -2532,7 +2535,7 @@ class L10nRo extends L10n {
   String get notificationRuleIsRoomMention => 'Room Mention';
 
   @override
-  String get notificationRuleIsRoomMentionDescription => 'Notifies the user when there is a room mention.';
+  String get notificationRuleIsRoomMentionDescription => 'Notifies the user about room mentions.';
 
   @override
   String get notificationRuleRoomnotif => 'Room Notification';
@@ -2707,4 +2710,40 @@ class L10nRo extends L10n {
 
   @override
   String get enterContactName => 'Enter contact name';
+
+  @override
+  String errorFieldRequired(Object fieldName) {
+    return 'field is empty, please fill it out';
+  }
+
+  @override
+  String errorFieldShouldBeNumeric(Object fieldName) {
+    return 'field is not a valid number';
+  }
+
+  @override
+  String errorFieldShouldBeInTheFuture(Object fieldName) {
+    return 'field is should be in the future';
+  }
+
+  @override
+  String get fixErrorsInStep => 'Please fix the errors in this step before proceeding';
+
+  @override
+  String get calendarSelection => 'Savings Date';
+
+  @override
+  String get selectStartDate => 'Select Start Date';
+
+  @override
+  String get startDateDescription => 'Choose a starting date for your group savings. Future saving dates will be highlighted based on your period type.';
+
+  @override
+  String get groupSchedule => 'Group Schedule';
+
+  @override
+  String get futureSavingDates => 'Based on your selection, these are your next schedule dates:';
+
+  @override
+  String get totalBalance => 'Total Balance';
 }
