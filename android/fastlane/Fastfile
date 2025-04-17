@@ -48,7 +48,6 @@ platform :android do
       track: 'internal',
       aab: '../build/app/outputs/bundle/release/app-release.aab',
       version_code: "#{last_version+1}",
-      release_status: 'draft',
     )
   end
 
