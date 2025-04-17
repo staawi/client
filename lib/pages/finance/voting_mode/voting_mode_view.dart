@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:matrix/matrix.dart';
 import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/services/stawi/payloads/voting_mode_event.dart';
 import 'package:stawi/widgets/matrix.dart';
 
 import 'voting_mode_controller.dart';
-import 'voting_mode_model.dart';
 
 class VotingModeView extends StatefulWidget {
   final Room? room;
