@@ -1,14 +1,12 @@
 import 'dart:ui';
 
+import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'package:collection/collection.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/client_download_content_extension.dart';
@@ -37,7 +35,7 @@ Future<void> pushHelper(
     l10n ??= await lookupL10n(const Locale('en'));
     flutterLocalNotificationsPlugin.show(
       notification.roomId?.hashCode ?? 0,
-      l10n.newMessageInFluffyChat,
+      l10n.newMessageInStawi,
       l10n.openAppToReadMessages,
       NotificationDetails(
         iOS: const DarwinNotificationDetails(),
@@ -141,7 +139,7 @@ Future<void> _tryPushHelper(
   // Calculate the body
   final body =
       event.type == EventTypes.Encrypted
-          ? l10n.newMessageInFluffyChat
+          ? l10n.newMessageInStawi
           : await event.calcLocalizedBody(
             matrixLocals,
             plaintextBody: true,

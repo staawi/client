@@ -2665,7 +2665,7 @@ class L10nLt extends L10n {
   }
 
   @override
-  String countVotes(int votes, String percentage) {
+  String countVotes(int votes, num percentage) {
     String _temp0 = intl.Intl.pluralLogic(
       votes,
       locale: localeName,

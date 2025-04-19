@@ -1951,7 +1951,7 @@
   "screenSharingDetail": "Vu parta vor ecran in FuffyChat",
   "callingAccountDetails": "Permisse Stawi usar li app de telefonation nativ de Android.",
   "appearOnTop": "Aparir sur li supra",
-  "appearOnTopDetails": "Permisse li app aparir sur li supra (ne besonat si vu ja ha configurat Fluffychat quam conto de telefonation)",
+  "appearOnTopDetails": "Permisse li app aparir sur li supra (ne besonat si vu ja ha configurat Stawi quam conto de telefonation)",
   "otherCallingPermissions": "Microfone, cámera e altri permissiones de Stawi",
   "whyIsThisMessageEncrypted": "Pro quo ti missage es ínlectibil?",
   "noKeyForThisMessage": "To posse evenir si li missage esset inviat ante que vu ha apertet session sur ti aparate.\n\nEs anc possibil que li inviant ha blocat vor aparate o que un problema de conexione evenit.\n\nPosse vu leer li missage sur un altri session? Tunc vu posse transferer li missage! Ir a Parametres > Aparates e assecurar que vor aparates es verificat inter se. Quande vu re-aperte li chambre e ambi sessiones es in front, li claves va esser transmess automaticmen.\n\nNe vole vu perder li claves quande cludente session o cambiant aparate? Assegura que vu ha activat li archive de conversation in li parametres.",
@@ -2363,7 +2363,7 @@
     "type": "String",
     "placeholders": {
       "votes": { "type": "int" },
-      "percentage": { "type": "String" }
+      "percentage": { "type": "num" }
     }
   },
   "chatSettings": "Parametres de conversation",

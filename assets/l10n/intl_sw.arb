@@ -1416,7 +1416,7 @@
   "callingAccount": "Akaunti ya kupiga simu",
   "callingAccountDetails": "Inaruhusu Stawi kutumia programu ya kupiga simu ya asili ya android.",
   "appearOnTop": "Onyesha juu",
-  "appearOnTopDetails": "Inaruhusu programu kuonekana juu (sio lazima ikiwa tayari umeweka Fluffychat kama akaunti ya kupiga simu)",
+  "appearOnTopDetails": "Inaruhusu programu kuonekana juu (sio lazima ikiwa tayari umeweka Stawi kama akaunti ya kupiga simu)",
   "otherCallingPermissions": "Mikrofoni, kamera na ruhusa nyingine za Stawi",
   "whyIsThisMessageEncrypted": "Kwa nini ujumbe huu hauwezi kusomeka?",
   "noKeyForThisMessage": "Hii inaweza kutokea ikiwa ujumbe ulitumwa kabla hujaingia kwenye akaunti yako kwenye kifaa hiki.\n\nInawezekana pia kuwa mtumaji amezuia kifaa chako au kitu kimeenda vibaya na muunganisho wa intaneti.\n\nJe, unaweza kusoma ujumbe kwenye kikao kingine? Basi unaweza kuhamisha ujumbe kutoka kwake! Nenda kwenye Mipangilio > Vifaa na hakikisha kuwa vifaa vyako vimehakikishana. Unapofungua chumba mara inayofuata na vikao vyote viwili viko mbele, funguo zitahamishwa kiotomatiki.\n\nJe, hutaki kupoteza funguo unapoondoka au kubadilisha vifaa? Hakikisha kuwa umewezesha chelezo ya gumzo katika mipangilio.",
@@ -1971,7 +1971,7 @@
     "type": "String",
     "placeholders": {
       "votes": { "type": "int" },
-      "percentage": { "type": "String" }
+      "percentage": { "type": "num" }
     }
   },
   "chatSettings": "Mipangilio ya Gumzo",

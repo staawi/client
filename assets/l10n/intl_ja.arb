@@ -1099,7 +1099,7 @@
   "storeSecurlyOnThisDevice": "このデバイスに安全に保管する",
   "whyIsThisMessageEncrypted": "このメッセージが読めない理由",
   "otherCallingPermissions": "マイク、カメラ、その他Stawiの権限",
-  "appearOnTopDetails": "アプリをトップに表示できるようにする（すでに通話アカウントとしてFluffychatを設定している場合は必要ありません）",
+  "appearOnTopDetails": "アプリをトップに表示できるようにする（すでに通話アカウントとしてStawiを設定している場合は必要ありません）",
   "dehydrateTorLong": "TOR ユーザーの場合、ウィンドウを閉じる前にセッションをエクスポートすることをお勧めします。",
   "hydrateTorLong": "前回、TOR でセッションをエクスポートしましたか？すぐにインポートしてチャットを続けましょう。",
   "enableMultiAccounts": "(ベータ版) このデバイスで複数のアカウントを有効にする",
@@ -1481,7 +1481,7 @@
     "type": "String",
     "placeholders": {
       "votes": { "type": "int" },
-      "percentage": { "type": "String" }
+      "percentage": { "type": "num" }
     }
   },
   "chatSettings": "Chat Settings",

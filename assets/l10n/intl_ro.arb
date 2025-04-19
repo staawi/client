@@ -1368,7 +1368,7 @@
     "type": "String",
     "placeholders": {
       "votes": { "type": "int" },
-      "percentage": { "type": "String" }
+      "percentage": { "type": "num" }
     }
   },
   "chatSettings": "Chat Settings",

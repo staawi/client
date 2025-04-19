@@ -4920,7 +4920,7 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'{votes, plural, =1{1 vote} other{{votes} votes}} - {percentage}%'**
-  String countVotes(int votes, String percentage);
+  String countVotes(int votes, num percentage);
 
   /// No description provided for @chatSettings.
   ///
