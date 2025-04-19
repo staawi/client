@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:matrix/matrix.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/url_launcher.dart';
 import 'package:stawi/widgets/mxc_image.dart';
+
 import '../../widgets/avatar.dart';
 
 class StickerPickerDialog extends StatefulWidget {
@@ -141,7 +140,7 @@ class StickerPickerDialogState extends State<StickerPickerDialog> {
                             () =>
                                 UrlLauncher(
                                   context,
-                                  'https://matrix.to/#/#fluffychat-stickers:janian.de',
+                                  'https://matrix.to/#/#stawi-stickers:janian.de',
                                 ).launchUrl(),
                         icon: const Icon(Icons.explore_outlined),
                         label: Text(L10n.of(context).discover),

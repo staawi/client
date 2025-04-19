@@ -1,25 +1,24 @@
 import 'package:flutter/material.dart';
-
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:stawi/config/routes.dart';
 import 'package:stawi/config/themes.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/widgets/app_lock.dart';
 import 'package:stawi/widgets/theme_builder.dart';
+
 import '../config/app_config.dart';
 import '../utils/custom_scroll_behaviour.dart';
 import 'matrix.dart';
 
-class FluffyChatApp extends StatelessWidget {
+class StawiApp extends StatelessWidget {
   final Widget? testWidget;
   final List<Client> clients;
   final String? pincode;
   final SharedPreferences store;
 
-  const FluffyChatApp({
+  const StawiApp({
     super.key,
     this.testWidget,
     required this.clients,

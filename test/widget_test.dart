@@ -13,7 +13,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('Test if the stawi starts', (WidgetTester tester) async {
-    /* await tester.pumpWidget(FluffyChatApp(
+    /* await tester.pumpWidget(StawiApp(
       client: await prepareTestClient(),
     ));*/
   });

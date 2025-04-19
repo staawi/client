@@ -1,11 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-
 import 'package:collection/collection.dart';
 import 'package:desktop_notifications/desktop_notifications.dart';
+import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
@@ -13,9 +12,6 @@ import 'package:matrix/encryption.dart';
 import 'package:matrix/matrix.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:universal_html/html.dart' as html;
-import 'package:url_launcher/url_launcher_string.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/utils/client_manager.dart';
 import 'package:stawi/utils/init_with_restore.dart';
@@ -24,8 +20,11 @@ import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/utils/uia_request_manager.dart';
 import 'package:stawi/utils/voip_plugin.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
-import 'package:stawi/widgets/fluffy_chat_app.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
+import 'package:stawi/widgets/stawi_app.dart';
+import 'package:universal_html/html.dart' as html;
+import 'package:url_launcher/url_launcher_string.dart';
+
 import '../config/app_config.dart';
 import '../config/setting_keys.dart';
 import '../pages/key_verification/key_verification_dialog.dart';
@@ -169,7 +168,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
                 );
                 _registerSubs(_loginClientCandidate!.clientName);
                 _loginClientCandidate = null;
-                FluffyChatApp.router.go('/rooms');
+                StawiApp.router.go('/rooms');
               });
     return candidate;
   }
@@ -203,7 +202,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
   bool webHasFocus = true;
 
   String? get activeRoomId {
-    final route = FluffyChatApp.router.routeInformationProvider.value.uri.path;
+    final route = StawiApp.router.routeInformationProvider.value.uri.path;
     if (!route.startsWith('/rooms/')) return null;
     return route.split('/')[2];
   }
@@ -269,14 +268,14 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
                   KeyVerificationState.done,
                   KeyVerificationState.error,
                 }.contains(request.state)) {
-              FluffyChatApp.router.pop('dialog');
+              StawiApp.router.pop('dialog');
             }
             hidPopup = true;
           };
           request.onUpdate = null;
           hidPopup = true;
           await KeyVerificationDialog(request: request).show(
-            FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
+            StawiApp.router.routerDelegate.navigatorKey.currentContext ??
                 context,
           );
         });
@@ -290,19 +289,16 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         widget.clients.remove(c);
         ClientManager.removeClientNameFromStore(c.clientName, store);
         ScaffoldMessenger.of(
-          FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
-              context,
+          StawiApp.router.routerDelegate.navigatorKey.currentContext ?? context,
         ).showSnackBar(
           SnackBar(content: Text(L10n.of(context).oneClientLoggedOut)),
         );
 
         if (state != LoginState.loggedIn) {
-          FluffyChatApp.router.go('/rooms');
+          StawiApp.router.go('/rooms');
         }
       } else {
-        FluffyChatApp.router.go(
-          state == LoginState.loggedIn ? '/rooms' : '/home',
-        );
+        StawiApp.router.go(state == LoginState.loggedIn ? '/rooms' : '/home');
       }
     });
     onUiaRequest[name] ??= c.onUiaRequest.stream.listen(uiaRequestHandler);
@@ -343,11 +339,7 @@ class MatrixState extends State<Matrix> with WidgetsBindingObserver {
         onFcmError: (errorMsg, {Uri? link}) async {
           final result = await showOkCancelAlertDialog(
             context:
-                FluffyChatApp
-                    .router
-                    .routerDelegate
-                    .navigatorKey
-                    .currentContext ??
+                StawiApp.router.routerDelegate.navigatorKey.currentContext ??
                 context,
             title: L10n.of(context).pushNotificationsNotAvailable,
             message: errorMsg,

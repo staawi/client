@@ -1,6 +1,6 @@
-# FluffyChat AppImage
+# Stawi AppImage
 
-FluffyChat is provided as AppImage too. To Download, visit fluffychat.im.
+Stawi is provided as AppImage too. To Download, visit stawi.im.
 
 ## Building
 
@@ -10,15 +10,15 @@ FluffyChat is provided as AppImage too. To Download, visit fluffychat.im.
 flutter build linux
 
 # copy binaries to appimage dir
-cp -r build/linux/{x64,arm64}/release/bundle appimage/FluffyChat.AppDir
+cp -r build/linux/{x64,arm64}/release/bundle appimage/Stawi.AppDir
 cd appimage
 
 # prepare AppImage files
-cp Stawi.desktop FluffyChat.AppDir/
-mkdir -p FluffyChat.AppDir/usr/share/icons
-cp ../assets/logo.svg FluffyChat.AppDir/fluffychat.svg
-cp AppRun FluffyChat.AppDir
+cp Stawi.desktop Stawi.AppDir/
+mkdir -p Stawi.AppDir/usr/share/icons
+cp ../assets/logo.svg Stawi.AppDir/stawi.svg
+cp AppRun Stawi.AppDir
 
 # build the AppImage
-appimagetool FluffyChat.AppDir
+appimagetool Stawi.AppDir
 ```

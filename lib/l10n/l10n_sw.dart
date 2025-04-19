@@ -1778,7 +1778,7 @@ class L10nSw extends L10n {
   String get appearOnTop => 'Onyesha juu';
 
   @override
-  String get appearOnTopDetails => 'Inaruhusu programu kuonekana juu (sio lazima ikiwa tayari umeweka Fluffychat kama akaunti ya kupiga simu)';
+  String get appearOnTopDetails => 'Inaruhusu programu kuonekana juu (sio lazima ikiwa tayari umeweka Stawi kama akaunti ya kupiga simu)';
 
   @override
   String get otherCallingPermissions => 'Mikrofoni, kamera na ruhusa nyingine za Stawi';

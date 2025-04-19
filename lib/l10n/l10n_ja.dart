@@ -1778,7 +1778,7 @@ class L10nJa extends L10n {
   String get appearOnTop => 'Appear on top';
 
   @override
-  String get appearOnTopDetails => 'アプリをトップに表示できるようにする（すでに通話アカウントとしてFluffychatを設定している場合は必要ありません）';
+  String get appearOnTopDetails => 'アプリをトップに表示できるようにする（すでに通話アカウントとしてStawiを設定している場合は必要ありません）';
 
   @override
   String get otherCallingPermissions => 'マイク、カメラ、その他Stawiの権限';

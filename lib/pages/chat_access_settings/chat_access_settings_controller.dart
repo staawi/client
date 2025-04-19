@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart' hide Visibility;
-
 import 'package:matrix/matrix.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_access_settings/chat_access_settings_page.dart';
 import 'package:stawi/utils/localized_exception_extension.dart';
@@ -45,7 +43,7 @@ class ChatAccessSettingsController extends State<ChatAccessSettings> {
       joinRules.remove(JoinRules.knock);
     }
 
-    // Not yet supported in FluffyChat:
+    // Not yet supported in Stawi:
     joinRules.remove(JoinRules.restricted);
     joinRules.remove(JoinRules.knockRestricted);
 

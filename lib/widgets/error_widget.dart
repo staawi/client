@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-
 import 'package:stawi/utils/error_reporter.dart';
 
-class FluffyChatErrorWidget extends StatefulWidget {
+class StawiErrorWidget extends StatefulWidget {
   final FlutterErrorDetails details;
-  const FluffyChatErrorWidget(this.details, {super.key});
+  const StawiErrorWidget(this.details, {super.key});
 
   @override
-  State<FluffyChatErrorWidget> createState() => _FluffyChatErrorWidgetState();
+  State<StawiErrorWidget> createState() => _StawiErrorWidgetState();
 }
 
-class _FluffyChatErrorWidgetState extends State<FluffyChatErrorWidget> {
+class _StawiErrorWidgetState extends State<StawiErrorWidget> {
   static final Set<String> knownExceptions = {};
   @override
   void initState() {

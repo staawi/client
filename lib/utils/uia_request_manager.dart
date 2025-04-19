@@ -1,20 +1,18 @@
 import 'dart:async';
 
 import 'package:matrix/matrix.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_ok_cancel_alert_dialog.dart';
 import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
-import 'package:stawi/widgets/fluffy_chat_app.dart';
 import 'package:stawi/widgets/matrix.dart';
+import 'package:stawi/widgets/stawi_app.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 extension UiaRequestManager on MatrixState {
   Future uiaRequestHandler(UiaRequest uiaRequest) async {
     final l10n = L10n.of(context);
     final navigatorContext =
-        FluffyChatApp.router.routerDelegate.navigatorKey.currentContext ??
-        context;
+        StawiApp.router.routerDelegate.navigatorKey.currentContext ?? context;
     try {
       if (uiaRequest.state != UiaRequestState.waitForUser ||
           uiaRequest.nextStages.isEmpty) {

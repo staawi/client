@@ -18,7 +18,7 @@ abstract class SettingKeys {
   static const String unifiedPushEndpoint = 'im.stawi.unifiedpush.endpoint';
   static const String ownStatusMessage = 'im.stawi.status_msg';
   static const String dontAskForBootstrapKey =
-      'chat.fluffychat.dont_ask_bootstrap';
+      'chat.stawi.dont_ask_bootstrap';
   static const String autoplayImages = 'im.stawi.autoplay_images';
   static const String sendTypingNotifications =
       'im.stawi.send_typing_notifications';

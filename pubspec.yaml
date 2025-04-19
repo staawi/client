@@ -1,5 +1,5 @@
 name: stawi
-description: Chat with your friends.
+description: Simple and secure group chat with built-in automated savings and credit services
 publish_to: 'none'
 # On version bump also increase the build number for F-Droid
 version: 1.0.0+1
@@ -37,7 +37,7 @@ dependencies:
   flutter_foreground_task: ^8.17.0
   flutter_highlighter: ^0.1.1
   flutter_linkify: ^6.0.0
-  flutter_local_notifications: ^17.2.3
+  flutter_local_notifications: ^19.0.0
   flutter_localizations:
     sdk: flutter
   flutter_map: ^8.1.0
@@ -137,7 +137,7 @@ msix_config:
   logo_path: assets\logo.png
   capabilities: internetClient, location, microphone, webcam
   protocol_activation: https
-  app_uri_handler_hosts: stawi.antinvestor.com
+  app_uri_handler_hosts: app.stawi.im
   execution_alias: stawi
   sign_msix: false
   install_certificate: false

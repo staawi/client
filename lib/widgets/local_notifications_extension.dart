@@ -84,7 +84,7 @@ extension LocalNotificationsExtension on MatrixState {
         body: body,
         replacesId: linuxNotificationIds[roomId] ?? 0,
         appName: AppConfig.applicationName,
-        appIcon: 'fluffychat',
+        appIcon: 'stawi',
         actions: [
           NotificationAction(
             DesktopNotificationActions.openChat.name,

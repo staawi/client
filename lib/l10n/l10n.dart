@@ -3281,7 +3281,7 @@ abstract class L10n {
   /// No description provided for @appearOnTopDetails.
   ///
   /// In en, this message translates to:
-  /// **'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)'**
+  /// **'Allows the app to appear on top (not needed if you already have Stawi setup as a calling account)'**
   String get appearOnTopDetails;
 
   /// No description provided for @otherCallingPermissions.

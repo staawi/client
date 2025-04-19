@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 git apply ./scripts/enable-android-google-services.patch
-FLUFFYCHAT_ORIG_GROUP="im.fluffychat"
+FLUFFYCHAT_ORIG_GROUP="im.stawi"
 FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
-#FLUFFYCHAT_NEW_GROUP="com.example.fluffychat"
+#FLUFFYCHAT_NEW_GROUP="com.example.stawi"
 #FLUFFYCHAT_NEW_TEAM="ABCDE12345"
 
 # In some cases (ie: running beta XCode releases) some pods haven't updated their minimum version
@@ -30,6 +30,6 @@ FLUFFYCHAT_ORIG_TEAM="4NXF6Z997G"
 ### Make release build ###
 flutter build macos --release
 
-cp /usr/local/Cellar/libolm/**/lib/libolm.3.dylib build/macos/Build/Products/Release/FluffyChat.stawi/Contents/Frameworks/libolm.3.dylib
+cp /usr/local/Cellar/libolm/**/lib/libolm.3.dylib build/macos/Build/Products/Release/Stawi.stawi/Contents/Frameworks/libolm.3.dylib
 
-echo "Build build/macos/Build/Products/Release/FluffyChat.app"
+echo "Build build/macos/Build/Products/Release/Stawi.app"

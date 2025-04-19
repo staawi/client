@@ -1,17 +1,16 @@
-import 'package:flutter/material.dart';
-
 import 'package:collection/collection.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/utils/client_manager.dart';
 import 'package:stawi/utils/platform_infos.dart';
 import 'package:stawi/widgets/error_widget.dart';
+
 import 'config/setting_keys.dart';
 import 'utils/background_push.dart';
-import 'widgets/fluffy_chat_app.dart';
+import 'widgets/stawi_app.dart';
 
 void main() async {
   Logs().i('Welcome to ${AppConfig.applicationName} <3');
@@ -73,8 +72,8 @@ Future<void> startGui(List<Client> clients, SharedPreferences store) async {
   await firstClient?.roomsLoading;
   await firstClient?.accountDataLoading;
 
-  ErrorWidget.builder = (details) => FluffyChatErrorWidget(details);
-  runApp(FluffyChatApp(clients: clients, pincode: pin, store: store));
+  ErrorWidget.builder = (details) => StawiErrorWidget(details);
+  runApp(StawiApp(clients: clients, pincode: pin, store: store));
 }
 
 /// Watches the lifecycle changes to start the application when it

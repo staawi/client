@@ -1,1 +1,1 @@
-Simple secure group chat with built-in automated savings and credit service.
+Simple and secure group chat with built-in automated savings and credit services

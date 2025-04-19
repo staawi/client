@@ -1778,7 +1778,7 @@ class L10nLt extends L10n {
   String get appearOnTop => 'Rodyti viršuje';
 
   @override
-  String get appearOnTopDetails => 'Leidžia programėlę rodyti viršuje (nebūtina, jei jau esate nustatę Fluffychat kaip skambinimo paskyrą)';
+  String get appearOnTopDetails => 'Leidžia programėlę rodyti viršuje (nebūtina, jei jau esate nustatę Stawi kaip skambinimo paskyrą)';
 
   @override
   String get otherCallingPermissions => 'Mikrofonas, kamera ir kiti Stawi leidimai';

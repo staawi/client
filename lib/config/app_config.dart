@@ -22,15 +22,15 @@ abstract class AppConfig {
   static const Color primaryColorLight = Color(0xFFCCBDEA);
   static const Color secondaryColor = Color(0xFF41a2bc);
   static String _privacyUrl =
-      'https://github.com/krille-chan/fluffychat/blob/main/PRIVACY.md';
+      'https://github.com/krille-chan/stawi/blob/main/PRIVACY.md';
   static String get privacyUrl => _privacyUrl;
   static const String website = 'https://antinvestor.com';
   static const String enablePushTutorial =
-      'https://github.com/krille-chan/fluffychat/wiki/Push-Notifications-without-Google-Services';
+      'https://github.com/krille-chan/stawi/wiki/Push-Notifications-without-Google-Services';
   static const String encryptionTutorial =
-      'https://github.com/krille-chan/fluffychat/wiki/How-to-use-end-to-end-encryption-in-FluffyChat';
+      'https://github.com/krille-chan/stawi/wiki/How-to-use-end-to-end-encryption-in-Stawi';
   static const String startChatTutorial =
-      'https://github.com/krille-chan/fluffychat/wiki/How-to-Find-Users-in-FluffyChat';
+      'https://github.com/krille-chan/stawi/wiki/How-to-Find-Users-in-Stawi';
   static const String appId = 'im.stawi';
   static const String appOpenUrlScheme = 'im.stawi';
   static String _webBaseUrl = 'https://stawi.antinvestor.com';

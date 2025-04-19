@@ -1778,7 +1778,7 @@ class L10nIe extends L10n {
   String get appearOnTop => 'Aparir sur li supra';
 
   @override
-  String get appearOnTopDetails => 'Permisse li app aparir sur li supra (ne besonat si vu ja ha configurat Fluffychat quam conto de telefonation)';
+  String get appearOnTopDetails => 'Permisse li app aparir sur li supra (ne besonat si vu ja ha configurat Stawi quam conto de telefonation)';
 
   @override
   String get otherCallingPermissions => 'Microfone, cámera e altri permissiones de Stawi';

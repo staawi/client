@@ -1777,7 +1777,7 @@ class L10nSr extends L10n {
   String get appearOnTop => 'Appear on top';
 
   @override
-  String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)';
+  String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Stawi setup as a calling account)';
 
   @override
   String get otherCallingPermissions => 'Microphone, camera and other Stawi permissions';

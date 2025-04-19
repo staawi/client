@@ -21,20 +21,19 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:fcm_shared_isolate/fcm_shared_isolate.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import 'package:fcm_shared_isolate/fcm_shared_isolate.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_new_badger/flutter_new_badger.dart';
 import 'package:http/http.dart' as http;
 import 'package:matrix/matrix.dart';
+import 'package:stawi/l10n/l10n.dart';
+import 'package:stawi/utils/push_helper.dart';
+import 'package:stawi/widgets/stawi_app.dart';
 import 'package:unifiedpush/unifiedpush.dart';
 import 'package:unifiedpush_ui/unifiedpush_ui.dart';
 
-import 'package:stawi/l10n/l10n.dart';
-import 'package:stawi/utils/push_helper.dart';
-import 'package:stawi/widgets/fluffy_chat_app.dart';
 import '../config/app_config.dart';
 import '../config/setting_keys.dart';
 import '../widgets/matrix.dart';
@@ -336,7 +335,7 @@ class BackgroundPush {
             .waitForRoomInSync(roomId)
             .timeout(const Duration(seconds: 30));
       }
-      FluffyChatApp.router.go(
+      StawiApp.router.go(
         client.getRoomById(roomId)?.membership == Membership.invite
             ? '/rooms'
             : '/rooms/$roomId',

@@ -1,16 +1,14 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-
 import 'package:app_links/app_links.dart';
 import 'package:cross_file/cross_file.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
-
 import 'package:stawi/config/app_config.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/chat_list/chat_list_view.dart';
@@ -25,6 +23,7 @@ import 'package:stawi/widgets/adaptive_dialogs/show_text_input_dialog.dart';
 import 'package:stawi/widgets/avatar.dart';
 import 'package:stawi/widgets/future_loading_dialog.dart';
 import 'package:stawi/widgets/share_scaffold_dialog.dart';
+
 import '../../../utils/account_bundles.dart';
 import '../../config/setting_keys.dart';
 import '../../utils/url_launcher.dart';
@@ -167,7 +166,7 @@ class ChatListController extends State<ChatList>
   QueryPublicRoomsResponse? roomSearchResult;
 
   bool isSearching = false;
-  static const String _serverStoreNamespace = 'im.fluffychat.search.server';
+  static const String _serverStoreNamespace = 'im.stawi.search.server';
 
   void setServer() async {
     final newServer = await showTextInputDialog(
