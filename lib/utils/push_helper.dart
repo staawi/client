@@ -4,7 +4,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
 import 'package:matrix/matrix.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stawi/config/app_config.dart';
@@ -289,10 +288,6 @@ Future<void> _tryPushHelper(
 
   final title = event.room.getLocalizedDisplayname(MatrixLocals(l10n));
 
-  if (PlatformInfos.isAndroid && messagingStyleInformation == null) {
-    await _setShortcut(event, l10n, title, roomAvatarFile);
-  }
-
   await flutterLocalNotificationsPlugin.show(
     id,
     title,
@@ -301,34 +296,4 @@ Future<void> _tryPushHelper(
     payload: event.roomId,
   );
   Logs().v('Push helper has been completed!');
-}
-
-/// Creates a shortcut for Android platform but does not block displaying the
-/// notification. This is optional but provides a nicer view of the
-/// notification popup.
-Future<void> _setShortcut(
-  Event event,
-  L10n l10n,
-  String title,
-  Uint8List? avatarFile,
-) async {
-  final flutterShortcuts = FlutterShortcuts();
-  await flutterShortcuts.initialize(debug: !kReleaseMode);
-  await flutterShortcuts.pushShortcutItem(
-    shortcut: ShortcutItem(
-      id: event.room.id,
-      action: AppConfig.inviteLinkPrefix + event.room.id,
-      shortLabel: title,
-      conversationShortcut: true,
-      icon:
-          avatarFile == null
-              ? null
-              : ShortcutMemoryIcon(jpegImage: avatarFile).toString(),
-      shortcutIconAsset:
-          avatarFile == null
-              ? ShortcutIconAsset.androidAsset
-              : ShortcutIconAsset.memoryAsset,
-      isImportant: event.room.isFavourite,
-    ),
-  );
 }

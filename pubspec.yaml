@@ -44,15 +44,12 @@ dependencies:
   flutter_olm: ^2.0.0
   flutter_openssl_crypto: ^0.5.0
   flutter_secure_storage: ^9.2.2
-  flutter_shortcuts_new: ^2.0.0
   flutter_typeahead: ^5.2.0
   flutter_web_auth_2: ^5.0.0-alpha.0 # Version 4 blocked by https://github.com/MixinNetwork/flutter-plugins/issues/379
   flutter_webrtc: ^0.13.1+hotfix.1
   geolocator: ^13.0.1
   go_router: ^14.3.0
   handy_window: ^0.4.0
-  hive: ^2.2.3
-  hive_flutter: ^1.1.0
   html: ^0.15.4
   http: ^1.2.0
   image: ^4.1.7

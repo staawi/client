@@ -4,7 +4,6 @@ import 'package:app_links/app_links.dart';
 import 'package:cross_file/cross_file.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_shortcuts_new/flutter_shortcuts_new.dart';
 import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart' as sdk;
 import 'package:matrix/matrix.dart';
@@ -370,16 +369,6 @@ class ChatListController extends State<ChatList>
     _intentUriStreamSubscription = AppLinks().uriLinkStream.listen(
       _processIncomingUris,
     );
-
-    if (PlatformInfos.isAndroid) {
-      final shortcuts = FlutterShortcuts();
-      shortcuts.initialize().then(
-        (_) => shortcuts.listenAction((action) {
-          if (!mounted) return;
-          UrlLauncher(context, action).launchUrl();
-        }),
-      );
-    }
   }
 
   @override
