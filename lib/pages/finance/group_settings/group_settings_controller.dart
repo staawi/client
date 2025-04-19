@@ -77,9 +77,7 @@ class GroupSettingsController extends ChangeNotifier {
 
       // Initialize settings
       _originalSettings.clear();
-      _originalSettings.addAll(
-        Map<String, dynamic>.from(groupDetail.settings!),
-      );
+      _originalSettings.addAll(Map<String, dynamic>.from(groupDetail.settings));
 
       _currentSettings.clear();
       _currentSettings.addAll(_originalSettings);
@@ -170,6 +168,5 @@ class GroupSettingsController extends ChangeNotifier {
     await _loadGroupDetailState();
   }
 
-  @override
   Widget build(BuildContext context) => GroupSettingsView(this);
 }

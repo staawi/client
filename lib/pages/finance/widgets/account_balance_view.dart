@@ -7,53 +7,46 @@ class AccountBalanceView extends StatelessWidget {
   final LedgerAccountState ledgerState;
   final VoidCallback? onTap;
 
-  const AccountBalanceView({
-    super.key,
-    required this.ledgerState,
-    this.onTap,
-  });
+  const AccountBalanceView({super.key, required this.ledgerState, this.onTap});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    
+
     // Handle empty accounts list
     if (ledgerState.accounts.isEmpty) {
       return Card(
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         elevation: 2,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Center(
             child: Text(
-              'No accounts available', 
+              'No accounts available',
               style: theme.textTheme.titleMedium,
             ),
           ),
         ),
       );
     }
-    
+
     // Calculate total balance
     final totalBalance = ledgerState.accounts.fold<double>(
       0,
       (sum, account) => sum + account.balance,
     );
-    
+
     // Get currency from the first account or default to USD
-    final currency = ledgerState.accounts.isNotEmpty 
-        ? ledgerState.accounts.first.currency 
-        : 'USD';
-    
+    final currency =
+        ledgerState.accounts.isNotEmpty
+            ? ledgerState.accounts.first.currency
+            : 'USD';
+
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: InkWell(
         onTap: onTap,
         borderRadius: BorderRadius.circular(12),
@@ -71,10 +64,7 @@ class AccountBalanceView extends StatelessWidget {
                     style: theme.textTheme.titleMedium,
                   ),
                   Text(
-                    FormattedNumber.formatCurrency(
-                      totalBalance,
-                      currency,
-                    ),
+                    FormattedNumber.formatCurrency(totalBalance, currency),
                     style: theme.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       color: theme.colorScheme.primary,
@@ -83,13 +73,11 @@ class AccountBalanceView extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 16),
-              
+
               // Account list
-              ...ledgerState.accounts.map((account) => _buildAccountItem(
-                context, 
-                account,
-                theme,
-              )),
+              ...ledgerState.accounts.map(
+                (account) => _buildAccountItem(context, account, theme),
+              ),
             ],
           ),
         ),
@@ -98,14 +86,14 @@ class AccountBalanceView extends StatelessWidget {
   }
 
   Widget _buildAccountItem(
-    BuildContext context, 
+    BuildContext context,
     LedgerAccount account,
     ThemeData theme,
   ) {
     // Choose icon based on account type
     IconData icon;
     Color iconColor;
-    
+
     switch (account.accountType) {
       case 'savings':
         icon = Icons.savings_outlined;
@@ -135,14 +123,10 @@ class AccountBalanceView extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(8),
             decoration: BoxDecoration(
-              color: iconColor.withOpacity(0.1),
+              color: iconColor.withValues(alpha: 0.1),
               borderRadius: BorderRadius.circular(8),
             ),
-            child: Icon(
-              icon,
-              color: iconColor,
-              size: 20,
-            ),
+            child: Icon(icon, color: iconColor, size: 20),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -158,17 +142,14 @@ class AccountBalanceView extends StatelessWidget {
                 Text(
                   account.accountType.toUpperCase(),
                   style: theme.textTheme.bodySmall?.copyWith(
-                    color: theme.colorScheme.onSurface.withOpacity(0.6),
+                    color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
               ],
             ),
           ),
           Text(
-            FormattedNumber.formatCurrency(
-              account.balance,
-              account.currency,
-            ),
+            FormattedNumber.formatCurrency(account.balance, account.currency),
             style: theme.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w500,
             ),

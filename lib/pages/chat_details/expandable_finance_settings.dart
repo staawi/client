@@ -30,6 +30,8 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
   LedgerAccountState? ledgerAccountState;
   bool _isLoading = false;
 
+  bool get isLoading => _isLoading;
+
   void _setGroupType() {
     showModalBottomSheet(
       context: context,
@@ -82,22 +84,13 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
   }
 
   Future<LedgerAccountState?> _fetchLedgerAccountState(Room room) async {
-    print(
-      'Fetching ledger account state with event type: ${StawiEventState.ledgerAccounts}',
+    final ledgerState = await StawiEventService.getRoomStateEvent(
+      client: room.client,
+      roomId: room.id,
+      eventType: StawiEventState.ledgerAccounts,
+      fromJsonFactory: LedgerAccountState.fromJson,
     );
-    try {
-      final ledgerState = await StawiEventService.getRoomStateEvent(
-        client: room.client,
-        roomId: room.id,
-        eventType: StawiEventState.ledgerAccounts,
-        fromJsonFactory: LedgerAccountState.fromJson,
-      );
-      print('Ledger state fetched: ${ledgerState != null}');
-      return ledgerState;
-    } catch (e) {
-      print('Error fetching ledger state: $e');
-      return null;
-    }
+    return ledgerState;
   }
 
   Future<void> _loadData() async {
@@ -107,21 +100,10 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
 
     try {
       final groupDetail = await _groupDetailEvent(widget.room);
-      print('GroupDetail retrieved: ${groupDetail != null}');
 
       LedgerAccountState? ledgerAccount;
       if (groupDetail != null) {
         ledgerAccount = await _fetchLedgerAccountState(widget.room);
-        print('LedgerAccount retrieved: ${ledgerAccount != null}');
-        if (ledgerAccount != null) {
-          print('Number of accounts: ${ledgerAccount.accounts.length}');
-          print(
-            'Account types: ${ledgerAccount.accounts.map((e) => e.accountType).toList()}',
-          );
-          print(
-            'Balances: ${ledgerAccount.accounts.map((e) => e.balance).toList()}',
-          );
-        }
       }
 
       if (mounted) {
@@ -132,7 +114,7 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
         });
       }
     } catch (e) {
-      print('Error loading data: $e');
+      Logs().e('Error loading data', e);
       if (mounted) {
         setState(() {
           _isLoading = false;

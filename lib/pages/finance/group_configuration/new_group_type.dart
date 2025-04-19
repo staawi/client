@@ -207,13 +207,9 @@ class NewGroupTypeController extends State<NewGroupType> {
 
       // Create ledger accounts with the selected currency
       final currency = payload.groupCurrency ?? 'USD';
-      print('Creating ledger state with currency: $currency');
 
       // Create a ledger account state with random balances
       final accounts = LedgerAccountState.generateDefaultAccounts(currency);
-      print(
-        'Generated ${accounts.length} accounts with types: ${accounts.map((e) => e.accountType).toList()}',
-      );
 
       final ledgerState = LedgerAccountState(
         id: Xid().toString(),
@@ -221,18 +217,12 @@ class NewGroupTypeController extends State<NewGroupType> {
         accounts: accounts,
         dateCreated: DateTime.now().toIso8601String(),
       );
-      print('Created ledger state with id: ${ledgerState.id}');
 
-      // Send the ledger account state
-      print(
-        'Sending ledger state with event type: ${ledgerState.getEventKey()}',
-      );
       await StawiEventService.setRoomStateEvent(
         client: room.client,
         roomId: room.id,
         eventState: ledgerState,
       );
-      print('Successfully sent ledger account state');
     } catch (e) {
       error = 'Failed to save group configuration: ${e.toString()}';
     } finally {

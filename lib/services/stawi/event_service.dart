@@ -119,7 +119,7 @@ class StawiEventService {
 
       return fromJsonFactory(event as Map<String, dynamic>);
     } catch (e) {
-      print('Error getting room state event: $e');
+      Logs().e('Error getting room state event', e);
       return null;
     }
   }
