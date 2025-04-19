@@ -4,475 +4,475 @@ import 'l10n.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Japanese (`ja`).
-class L10nJa extends L10n {
-  L10nJa([String locale = 'ja']) : super(locale);
+/// The translations for Arabic (`ar`).
+class L10nAr extends L10n {
+  L10nAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get alwaysUse24HourFormat => 'false';
+  String get alwaysUse24HourFormat => 'خاطئ';
 
   @override
-  String get repeatPassword => 'パスワードを繰り返そ';
+  String get repeatPassword => 'أعد إدخال كلمة المرور';
 
   @override
-  String get notAnImage => 'Not an image file.';
+  String get notAnImage => 'ليس ملف صورة.';
 
   @override
-  String get remove => '消去';
+  String get remove => 'إزالة';
 
   @override
-  String get importNow => 'Import now';
+  String get importNow => 'استيراد الآن';
 
   @override
-  String get importEmojis => 'Import Emojis';
+  String get importEmojis => 'استيراد الرموز التعبيرية';
 
   @override
-  String get importFromZipFile => 'Import from .zip file';
+  String get importFromZipFile => 'استيراد من ملف .zip';
 
   @override
-  String get exportEmotePack => 'Export Emote pack as .zip';
+  String get exportEmotePack => 'تصدير حزمة الرموز التعبيرية كـ .zip';
 
   @override
-  String get replace => 'Replace';
+  String get replace => 'استبدال';
 
   @override
-  String get about => 'このアプリについて';
+  String get about => 'حول';
 
   @override
   String aboutHomeserver(String homeserver) {
-    return 'About $homeserver';
+    return 'حول $homeserver';
   }
 
   @override
-  String get accept => '承諾する';
+  String get accept => 'قبول';
 
   @override
   String acceptedTheInvitation(String username) {
-    return '👍$usernameが招待を承諾しました';
+    return '👍 $username قبل الدعوة';
   }
 
   @override
-  String get account => 'アカウント';
+  String get account => 'الحساب';
 
   @override
   String activatedEndToEndEncryption(String username) {
-    return '🔐$usernameがエンドツーエンド暗号化を有効にしました';
+    return '🔐 $username فعّل التشفير من الطرف إلى الطرف';
   }
 
   @override
-  String get addEmail => 'Eメールを追加';
+  String get addEmail => 'إضافة بريد إلكتروني';
 
   @override
-  String get confirmMatrixId => 'アカウントを削除するには、Matrix IDを確認してください。';
+  String get confirmMatrixId => 'يرجى تأكيد معرف Matrix الخاص بك لحذف حسابك.';
 
   @override
   String supposedMxid(String mxid) {
-    return 'This should be $mxid';
+    return 'يجب أن يكون هذا $mxid';
   }
 
   @override
-  String get addChatDescription => 'Add a chat description...';
+  String get addChatDescription => 'أضف وصفًا للدردشة...';
 
   @override
-  String get addToSpace => 'スペースに追加';
+  String get addToSpace => 'أضف إلى المساحة';
 
   @override
-  String get admin => '管理者';
+  String get admin => 'مشرف';
 
   @override
-  String get alias => 'エイリアス';
+  String get alias => 'اسم مستعار';
 
   @override
-  String get all => 'すべて';
+  String get all => 'الكل';
 
   @override
-  String get allChats => 'すべて会話';
+  String get allChats => 'جميع الدردشات';
 
   @override
-  String get commandHint_googly => 'ぎょろ目を送る';
+  String get commandHint_googly => 'أرسل عيون جاحظة';
 
   @override
-  String get commandHint_cuddle => 'Send a cuddle';
+  String get commandHint_cuddle => 'أرسل عناقًا';
 
   @override
-  String get commandHint_hug => 'ハグを送る';
+  String get commandHint_hug => 'أرسل حضنًا';
 
   @override
   String googlyEyesContent(String senderName) {
-    return '$senderName sends you googly eyes';
+    return '$senderName يرسل لك عيون جاحظة';
   }
 
   @override
   String cuddleContent(String senderName) {
-    return '$senderName cuddles you';
+    return '$senderName يعانقك';
   }
 
   @override
   String hugContent(String senderName) {
-    return '$senderName hugs you';
+    return '$senderName يحتضنك';
   }
 
   @override
   String answeredTheCall(String senderName) {
-    return '$senderNameは通話に出ました';
+    return '$senderName أجاب على المكالمة';
   }
 
   @override
-  String get anyoneCanJoin => '誰でも参加できる';
+  String get anyoneCanJoin => 'يمكن لأي شخص الانضمام';
 
   @override
-  String get appLock => 'アプリのロック';
+  String get appLock => 'قفل التطبيق';
 
   @override
-  String get appLockDescription => 'Lock the app when not using with a pin code';
+  String get appLockDescription => 'اقفل التطبيق عند عدم الاستخدام باستخدام رمز PIN';
 
   @override
-  String get archive => 'アーカイブ';
+  String get archive => 'أرشيف';
 
   @override
-  String get areGuestsAllowedToJoin => 'ゲストユーザーの参加を許可する';
+  String get areGuestsAllowedToJoin => 'هل يُسمح للضيوف بالانضمام';
 
   @override
-  String get areYouSure => 'これでよろしいですか？';
+  String get areYouSure => 'هل أنت متأكد؟';
 
   @override
-  String get areYouSureYouWantToLogout => 'ログアウトしてよろしいですか？';
+  String get areYouSureYouWantToLogout => 'هل أنت متأكد أنك تريد تسجيل الخروج؟';
 
   @override
-  String get askSSSSSign => '他の人を署名するためにはパスフレーズやリカバリーキーを入力してください。';
+  String get askSSSSSign => 'لكي تتمكن من توقيع الشخص الآخر، يرجى إدخال عبارة المرور أو مفتاح الاسترداد لمخزن الأمان الخاص بك.';
 
   @override
   String askVerificationRequest(String username) {
-    return '$usernameの検証リクエストを承認しますか？';
+    return 'قبول طلب التحقق هذا من $username؟';
   }
 
   @override
-  String get autoplayImages => 'GIFを自動的に再生する';
+  String get autoplayImages => 'تشغيل الملصقات والرموز التعبيرية المتحركة تلقائيًا';
 
   @override
   String badServerLoginTypesException(String serverVersions, String supportedVersions, Object suportedVersions) {
-    return 'ホームサーバーでサポートされているログインタイプ：\n$serverVersions\nアプリがサポートしているログインタイプ：\n$supportedVersions';
+    return 'يدعم الخادم أنواع تسجيل الدخول:\n$serverVersions\nلكن هذا التطبيق يدعم فقط:\n$supportedVersions';
   }
 
   @override
-  String get sendTypingNotifications => 'Send typing notifications';
+  String get sendTypingNotifications => 'إرسال إشعارات الكتابة';
 
   @override
-  String get swipeRightToLeftToReply => 'Swipe right to left to reply';
+  String get swipeRightToLeftToReply => 'اسحب من اليمين إلى اليسار للرد';
 
   @override
-  String get sendOnEnter => 'Enterで送信';
+  String get sendOnEnter => 'إرسال عند الضغط على Enter';
 
   @override
   String badServerVersionsException(String serverVersions, String supportedVersions, Object suportedVersions) {
-    return 'ホームサーバーでサポートされているバージョン：\n$serverVersions\nアプリでは$supportedVersionsしかサポートされていません';
+    return 'يدعم الخادم إصدارات Spec:\n$serverVersions\nلكن هذا التطبيق يدعم فقط $supportedVersions';
   }
 
   @override
   String countChatsAndCountParticipants(int chats, int participants) {
-    return '$chats chats and $participants participants';
+    return '$chats دردشات و $participants مشاركين';
   }
 
   @override
-  String get noMoreChatsFound => 'No more chats found...';
+  String get noMoreChatsFound => 'لم يتم العثور على المزيد من الدردشات...';
 
   @override
-  String get noChatsFoundHere => 'No chats found here yet. Start a new chat with someone by using the button below. ⤵️';
+  String get noChatsFoundHere => 'لم يتم العثور على دردشات هنا بعد. ابدأ دردشة جديدة مع شخص ما باستخدام الزر أدناه. ⤵️';
 
   @override
-  String get joinedChats => 'Joined chats';
+  String get joinedChats => 'الدردشات المنضمة';
 
   @override
-  String get unread => 'Unread';
+  String get unread => 'غير مقروء';
 
   @override
-  String get space => 'Space';
+  String get space => 'مساحة';
 
   @override
-  String get spaces => 'Spaces';
+  String get spaces => 'مساحات';
 
   @override
-  String get banFromChat => 'チャットからBANする';
+  String get banFromChat => 'حظر من الدردشة';
 
   @override
-  String get banned => 'BANされています';
+  String get banned => 'محظور';
 
   @override
   String bannedUser(String username, String targetName) {
-    return '$usernameが$targetNameをBANしました';
+    return '$username حظر $targetName';
   }
 
   @override
-  String get blockDevice => 'デバイスをブロックする';
+  String get blockDevice => 'حظر الجهاز';
 
   @override
-  String get blocked => 'ブロックしました';
+  String get blocked => 'محظور';
 
   @override
-  String get botMessages => 'ボットメッセージ';
+  String get botMessages => 'رسائل الروبوت';
 
   @override
-  String get cancel => 'キャンセル';
+  String get cancel => 'إلغاء';
 
   @override
   String cantOpenUri(String uri) {
-    return 'URIが開けません $uri';
+    return 'لا يمكن فتح URI $uri';
   }
 
   @override
-  String get changeDeviceName => 'デバイス名を変更';
+  String get changeDeviceName => 'تغيير اسم الجهاز';
 
   @override
   String changedTheChatAvatar(String username) {
-    return '$usernameがチャットアバターを変更しました';
+    return '$username غير صورة الدردشة';
   }
 
   @override
   String changedTheChatDescriptionTo(String username, String description) {
-    return '$usernameがチャットの説明を「$description」に変更しました';
+    return '$username غيّر وصف الدردشة إلى: \'$description\'';
   }
 
   @override
   String changedTheChatNameTo(String username, String chatname) {
-    return '$usernameがチャットの名前を「$chatname」に変更しました';
+    return '$username غيّر اسم الدردشة إلى: \'$chatname\'';
   }
 
   @override
   String changedTheChatPermissions(String username) {
-    return '$usernameがチャットの権限を変更しました';
+    return '$username غيّر أذونات الدردشة';
   }
 
   @override
   String changedTheDisplaynameTo(String username, String displayname) {
-    return '$usernameが表示名を「$displayname」に変更しました';
+    return '$username غيّر اسمه إلى $displayname';
   }
 
   @override
   String changedTheGuestAccessRules(String username) {
-    return '$usernameがゲストのアクセスルールを変更しました';
+    return '$username غيّر قواعد وصول الضيف';
   }
 
   @override
   String changedTheGuestAccessRulesTo(String username, String rules) {
-    return '$usernameがゲストのアクセスルールを$rulesに変更しました';
+    return '$username غيّر قواعد وصول الضيف إلى: $rules';
   }
 
   @override
   String changedTheHistoryVisibility(String username) {
-    return '$usernameが履歴の表示設定を変更しました';
+    return '$username غيّر رؤية السجل';
   }
 
   @override
   String changedTheHistoryVisibilityTo(String username, String rules) {
-    return '$usernameが履歴の表示設定を$rulesに変更しました';
+    return '$username غيّر رؤية السجل إلى: $rules';
   }
 
   @override
   String changedTheJoinRules(String username) {
-    return '$usernameが参加ルールを変更しました';
+    return '$username غيّر قواعد الانضمام';
   }
 
   @override
   String changedTheJoinRulesTo(String username, String joinRules) {
-    return '$usernameが参加ルールを$joinRulesに変更しました';
+    return '$username غيّر قواعد الانضمام إلى: $joinRules';
   }
 
   @override
   String changedTheProfileAvatar(String username) {
-    return '$usernameがアバターを変更しました';
+    return '$username غيّر صورة الملف الشخصي';
   }
 
   @override
   String changedTheRoomAliases(String username) {
-    return '$usernameが部屋のエイリアスを変更しました';
+    return '$username غيّر الأسماء المستعارة للغرفة';
   }
 
   @override
   String changedTheRoomInvitationLink(String username) {
-    return '$usernameが招待リンクを変更しました';
+    return '$username غيّر رابط الدعوة';
   }
 
   @override
-  String get changePassword => 'パスワードを変更';
+  String get changePassword => 'تغيير كلمة المرور';
 
   @override
-  String get changeTheHomeserver => 'ホームサーバーの変更';
+  String get changeTheHomeserver => 'تغيير الخادم الرئيسي';
 
   @override
-  String get changeTheme => 'スタイルを変更する';
+  String get changeTheme => 'تغيير النمط الخاص بك';
 
   @override
-  String get changeTheNameOfTheGroup => 'グループの名前を変更する';
+  String get changeTheNameOfTheGroup => 'تغيير اسم المجموعة';
 
   @override
-  String get changeYourAvatar => 'アバタるを変化しする';
+  String get changeYourAvatar => 'تغيير صورتك الشخصية';
 
   @override
-  String get channelCorruptedDecryptError => '暗号が破損しています';
+  String get channelCorruptedDecryptError => 'تم إفساد التشفير';
 
   @override
-  String get chat => 'チャット';
+  String get chat => 'دردشة';
 
   @override
-  String get yourChatBackupHasBeenSetUp => 'チャットバックアップを設定ました。';
+  String get yourChatBackupHasBeenSetUp => 'تم إعداد نسخة احتياطية للدردشة الخاصة بك.';
 
   @override
-  String get chatBackup => 'チャットのバックアップ';
+  String get chatBackup => 'نسخة احتياطية للدردشة';
 
   @override
-  String get chatBackupDescription => '古いメッセージはリカバリーキーで保護されます。紛失しないようにご注意ください。';
+  String get chatBackupDescription => 'تم تأمين رسائلك القديمة بمفتاح استرداد. يرجى التأكد من عدم فقدانه.';
 
   @override
-  String get chatDetails => 'チャットの詳細';
+  String get chatDetails => 'تفاصيل الدردشة';
 
   @override
-  String get chatHasBeenAddedToThisSpace => 'このスペースにチャットが追加されました';
+  String get chatHasBeenAddedToThisSpace => 'تمت إضافة الدردشة إلى هذه المساحة';
 
   @override
-  String get chats => 'チャット';
+  String get chats => 'الدردشات';
 
   @override
-  String get chooseAStrongPassword => '強いパスワードを選択してください';
+  String get chooseAStrongPassword => 'اختر كلمة مرور قوية';
 
   @override
-  String get clearArchive => 'アーカイブを消去';
+  String get clearArchive => 'مسح الأرشيف';
 
   @override
-  String get close => '閉じる';
+  String get close => 'إغلاق';
 
   @override
-  String get commandHint_markasdm => 'ダイレクトメッセージの部屋としてマークする';
+  String get commandHint_markasdm => 'تعيين كغرفة رسائل مباشرة لمعرف Matrix المحدد';
 
   @override
-  String get commandHint_markasgroup => 'グループとしてマーク';
+  String get commandHint_markasgroup => 'تعيين كمجموعة';
 
   @override
-  String get commandHint_ban => 'このユーザーを禁止する';
+  String get commandHint_ban => 'حظر المستخدم المحدد من هذه الغرفة';
 
   @override
-  String get commandHint_clearcache => 'キャッシュをクリアする';
+  String get commandHint_clearcache => 'مسح ذاكرة التخزين المؤقت';
 
   @override
-  String get commandHint_create => '空のグループチャットを作成\n暗号化を無効にするには、--no-encryption を使用';
+  String get commandHint_create => 'أنشئ دردشة جماعية فارغة\nاستخدم --no-encryption لتعطيل التشفير';
 
   @override
-  String get commandHint_discardsession => 'セッションを破棄';
+  String get commandHint_discardsession => 'تجاهل الجلسة';
 
   @override
-  String get commandHint_dm => 'ダイレクトチャットを開始する\n暗号化を無効にするには、--no-encryptionを使用してください';
+  String get commandHint_dm => 'ابدأ دردشة مباشرة\nاستخدم --no-encryption لتعطيل التشفير';
 
   @override
-  String get commandHint_html => 'HTML形式のテキストを送信';
+  String get commandHint_html => 'إرسال نص بتنسيق HTML';
 
   @override
-  String get commandHint_invite => '指定したユーザーをこの部屋に招待';
+  String get commandHint_invite => 'دعوة المستخدم المحدد إلى هذه الغرفة';
 
   @override
-  String get commandHint_join => '指定した部屋に参加';
+  String get commandHint_join => 'الانضمام إلى الغرفة المحددة';
 
   @override
-  String get commandHint_kick => 'Remove the given user from this room';
+  String get commandHint_kick => 'إزالة المستخدم المحدد من هذه الغرفة';
 
   @override
-  String get commandHint_leave => 'この部屋を退出';
+  String get commandHint_leave => 'مغادرة هذه الغرفة';
 
   @override
-  String get commandHint_me => 'Describe yourself';
+  String get commandHint_me => 'صف نفسك';
 
   @override
-  String get commandHint_myroomavatar => 'この部屋の写真を設定する (mxc-uriで)';
+  String get commandHint_myroomavatar => 'تعيين صورتك لهذه الغرفة (عن طريق mxc-uri)';
 
   @override
-  String get commandHint_myroomnick => 'この部屋の表示名を設定する';
+  String get commandHint_myroomnick => 'تعيين اسم العرض الخاص بك لهذه الغرفة';
 
   @override
-  String get commandHint_op => 'Set the given user\'s power level (default: 50)';
+  String get commandHint_op => 'تعيين مستوى صلاحيات المستخدم المحدد (افتراضي: 50)';
 
   @override
-  String get commandHint_plain => '書式設定されていないテキストを送信する';
+  String get commandHint_plain => 'إرسال نص غير منسق';
 
   @override
-  String get commandHint_react => 'リアクションとして返信を送信する';
+  String get commandHint_react => 'إرسال الرد كرد فعل';
 
   @override
-  String get commandHint_send => 'テキストを送信';
+  String get commandHint_send => 'إرسال نص';
 
   @override
-  String get commandHint_unban => 'Unban the given user from this room';
+  String get commandHint_unban => 'إلغاء حظر المستخدم المحدد من هذه الغرفة';
 
   @override
-  String get commandInvalid => 'コマンドが無効';
+  String get commandInvalid => 'أمر غير صالح';
 
   @override
   String commandMissing(String command) {
-    return '$command はコマンドではありません。';
+    return '$command ليس أمرًا.';
   }
 
   @override
-  String get compareEmojiMatch => '表示されている絵文字が他のデバイスで表示されているものと一致するか確認してください:';
+  String get compareEmojiMatch => 'يرجى مقارنة الرموز التعبيرية';
 
   @override
-  String get compareNumbersMatch => '表示されている数字が他のデバイスで表示されているものと一致するか確認してください:';
+  String get compareNumbersMatch => 'يرجى مقارنة الأرقام';
 
   @override
-  String get configureChat => 'チャットの設定';
+  String get configureChat => 'تهيئة الدردشة';
 
   @override
-  String get confirm => '確認';
+  String get confirm => 'تأكيد';
 
   @override
-  String get connect => '接続';
+  String get connect => 'اتصال';
 
   @override
-  String get contactHasBeenInvitedToTheGroup => '連絡先に登録された人が招待されました';
+  String get contactHasBeenInvitedToTheGroup => 'تمت دعوة جهة الاتصال إلى المجموعة';
 
   @override
-  String get containsDisplayName => '表示名を含んでいます';
+  String get containsDisplayName => 'يحتوي على اسم العرض';
 
   @override
-  String get containsUserName => 'ユーザー名を含んでいます';
+  String get containsUserName => 'يحتوي على اسم المستخدم';
 
   @override
-  String get contentHasBeenReported => 'サーバー管理者に通報されました';
+  String get contentHasBeenReported => 'تم الإبلاغ عن المحتوى لمسؤولي الخادم';
 
   @override
-  String get copiedToClipboard => 'クリップボードにコピーされました';
+  String get copiedToClipboard => 'تم النسخ إلى الحافظة';
 
   @override
-  String get copy => 'コピー';
+  String get copy => 'نسخ';
 
   @override
-  String get copyToClipboard => 'クリップボードにコピー';
+  String get copyToClipboard => 'نسخ إلى الحافظة';
 
   @override
   String couldNotDecryptMessage(String error) {
-    return 'メッセージを解読できませんでした: $error';
+    return 'تعذر فك تشفير الرسالة: $error';
   }
 
   @override
   String countParticipants(int count) {
-    return '$count名の参加者';
+    return '$count مشارك';
   }
 
   @override
-  String get create => '作成';
+  String get create => 'إنشاء';
 
   @override
   String createdTheChat(String username) {
-    return '💬 $usernameがチャットを作成しました';
+    return '💬 $username أنشأ الدردشة';
   }
 
   @override
-  String get createGroup => 'Create group';
+  String get createGroup => 'إنشاء مجموعة';
 
   @override
-  String get createNewSpace => '新しいスペース';
+  String get createNewSpace => 'مساحة جديدة';
 
   @override
-  String get currentlyActive => '現在アクティブです';
+  String get currentlyActive => 'نشط حاليًا';
 
   @override
-  String get darkTheme => 'ダーク';
+  String get darkTheme => 'داكن';
 
   @override
   String dateAndTimeOfDay(String date, String timeOfDay) {
@@ -486,171 +486,171 @@ class L10nJa extends L10n {
 
   @override
   String dateWithYear(String year, String month, String day) {
-    return '$year/$month/$day';
+    return '$year-$month-$day';
   }
 
   @override
-  String get deactivateAccountWarning => 'あなたのアカウントを無効化します。この操作は元に戻せません！よろしいですか？';
+  String get deactivateAccountWarning => 'سيؤدي ذلك إلى إلغاء تنشيط حساب المستخدم الخاص بك. لا يمكن التراجع عن هذا! هل أنت متأكد؟';
 
   @override
-  String get defaultPermissionLevel => 'デフォルトの権限レベル';
+  String get defaultPermissionLevel => 'مستوى الإذن الافتراضي للمستخدمين الجدد';
 
   @override
-  String get delete => '削除';
+  String get delete => 'حذف';
 
   @override
-  String get deleteAccount => 'アカウントの削除';
+  String get deleteAccount => 'حذف الحساب';
 
   @override
-  String get deleteMessage => 'メッセージの削除';
+  String get deleteMessage => 'حذف الرسالة';
 
   @override
-  String get device => 'デバイス';
+  String get device => 'جهاز';
 
   @override
-  String get deviceId => 'デバイスID';
+  String get deviceId => 'معرف الجهاز';
 
   @override
-  String get devices => 'デバイス';
+  String get devices => 'الأجهزة';
 
   @override
-  String get directChats => 'ダイレクトチャット';
+  String get directChats => 'دردشات مباشرة';
 
   @override
-  String get allRooms => 'すべてのグループチャット';
+  String get allRooms => 'جميع الدردشات الجماعية';
 
   @override
-  String get displaynameHasBeenChanged => '表示名が変更されました';
+  String get displaynameHasBeenChanged => 'تم تغيير اسم العرض';
 
   @override
-  String get downloadFile => 'ファイルをダウンロード';
+  String get downloadFile => 'تنزيل الملف';
 
   @override
-  String get edit => '編集';
+  String get edit => 'تعديل';
 
   @override
-  String get editBlockedServers => 'ブロックされたサーバーを編集';
+  String get editBlockedServers => 'تعديل الخوادم المحظورة';
 
   @override
-  String get chatPermissions => 'チャットの権限';
+  String get chatPermissions => 'أذونات الدردشة';
 
   @override
-  String get editDisplayname => '表示名を編集';
+  String get editDisplayname => 'تعديل اسم العرض';
 
   @override
-  String get editRoomAliases => 'ルームエイリアスを編集';
+  String get editRoomAliases => 'تعديل الأسماء المستعارة للغرفة';
 
   @override
-  String get editRoomAvatar => 'ルームアバターを編集';
+  String get editRoomAvatar => 'تعديل صورة الغرفة';
 
   @override
-  String get emoteExists => 'このエモートは既に存在します！';
+  String get emoteExists => 'الرمز التعبيري موجود بالفعل!';
 
   @override
-  String get emoteInvalid => '無効なエモートショートコード！';
+  String get emoteInvalid => 'اختصار الرمز التعبيري غير صالح!';
 
   @override
-  String get emoteKeyboardNoRecents => '最近使ったエモートがここに表示されます...';
+  String get emoteKeyboardNoRecents => 'ستظهر الرموز التعبيرية المستخدمة مؤخرًا هنا...';
 
   @override
-  String get emotePacks => 'ルーム用エモートパック';
+  String get emotePacks => 'حزم الرموز التعبيرية للغرفة';
 
   @override
-  String get emoteSettings => 'エモート設定';
+  String get emoteSettings => 'إعدادات الرموز التعبيرية';
 
   @override
-  String get globalChatId => 'グローバルチャットID';
+  String get globalChatId => 'معرف الدردشة العالمي';
 
   @override
-  String get accessAndVisibility => 'アクセスと表示設定';
+  String get accessAndVisibility => 'الوصول والرؤية';
 
   @override
-  String get accessAndVisibilityDescription => '誰がこのチャットに参加できるか、またどのように発見できるかを設定します。';
+  String get accessAndVisibilityDescription => 'من يُسمح له بالانضمام إلى هذه الدردشة وكيفية اكتشاف الدردشة.';
 
   @override
   String get calls => 'Calls';
 
   @override
-  String get customEmojisAndStickers => 'カスタム絵文字とステッカー';
+  String get customEmojisAndStickers => 'رموز تعبيرية وملصقات مخصصة';
 
   @override
-  String get customEmojisAndStickersBody => '任意のチャットで使えるカスタム絵文字やステッカーを追加または共有します。';
+  String get customEmojisAndStickersBody => 'أضف أو شارك رموزًا تعبيرية أو ملصقات مخصصة يمكن استخدامها في أي دردشة.';
 
   @override
-  String get emoteShortcode => 'エモートショートコード';
+  String get emoteShortcode => 'اختصار الرمز التعبيري';
 
   @override
-  String get emoteWarnNeedToPick => 'エモートショートコードと画像を選択してください！';
+  String get emoteWarnNeedToPick => 'تحتاج إلى اختيار اختصار للرمز التعبيري وصورة!';
 
   @override
-  String get emptyChat => '空のチャット';
+  String get emptyChat => 'دردشة فارغة';
 
   @override
-  String get enableEmotesGlobally => 'エモートパックを全体で有効にする';
+  String get enableEmotesGlobally => 'تمكين حزمة الرموز التعبيرية عالميًا';
 
   @override
-  String get enableEncryption => '暗号化を有効にする';
+  String get enableEncryption => 'تمكين التشفير';
 
   @override
-  String get enableEncryptionWarning => '一度有効にすると暗号化を解除できません。本当によろしいですか？';
+  String get enableEncryptionWarning => 'لن تتمكن من تعطيل التشفير بعد الآن. هل أنت متأكد؟';
 
   @override
-  String get encrypted => '暗号化';
+  String get encrypted => 'Encrypted';
 
   @override
-  String get encryption => '暗号化';
+  String get encryption => 'تشفير';
 
   @override
-  String get encryptionNotEnabled => '暗号化されていません';
+  String get encryptionNotEnabled => 'Encryption is not enabled';
 
   @override
   String endedTheCall(String senderName) {
-    return '$senderNameは通話を切断しました';
+    return '$senderName ended the call';
   }
 
   @override
-  String get enterAnEmailAddress => 'メールアドレスを入力してください';
+  String get enterAnEmailAddress => 'Enter an email address';
 
   @override
-  String get homeserver => 'ホームサーバー';
+  String get homeserver => 'Homeserver';
 
   @override
-  String get enterYourHomeserver => 'ホームサーバーを入力してください';
+  String get enterYourHomeserver => 'Enter your homeserver';
 
   @override
   String errorObtainingLocation(String error) {
-    return '位置情報の取得中にエラーが発生しました: $error';
+    return 'Error obtaining location: $error';
   }
 
   @override
-  String get everythingReady => 'すべての準備は完了しました！';
+  String get everythingReady => 'Everything ready!';
 
   @override
-  String get extremeOffensive => 'とても攻撃的';
+  String get extremeOffensive => 'Extremely offensive';
 
   @override
-  String get fileName => 'ファイル名';
+  String get fileName => 'File name';
 
   @override
   String get stawi => 'Stawi';
 
   @override
-  String get fontSize => 'フォントサイズ';
+  String get fontSize => 'Font size';
 
   @override
-  String get forward => '進む';
+  String get forward => 'إعادة توجيه';
 
   @override
-  String get fromJoining => '参加時点から閲覧可能';
+  String get fromJoining => 'From joining';
 
   @override
-  String get fromTheInvitation => '招待時点から閲覧可能';
+  String get fromTheInvitation => 'From the invitation';
 
   @override
-  String get goToTheNewRoom => '新規ルームへ';
+  String get goToTheNewRoom => 'Go to the new room';
 
   @override
-  String get group => 'グループ';
+  String get group => 'مجموعة';
 
   @override
   String get chatDescription => 'Chat description';
@@ -659,32 +659,32 @@ class L10nJa extends L10n {
   String get chatDescriptionHasBeenChanged => 'Chat description changed';
 
   @override
-  String get groupIsPublic => 'グループは公開されています';
+  String get groupIsPublic => 'Group is public';
 
   @override
-  String get groups => 'グループ';
+  String get groups => 'مجموعات';
 
   @override
   String groupWith(String displayname) {
-    return '$displaynameとグループを作成する';
+    return 'Group with $displayname';
   }
 
   @override
-  String get guestsAreForbidden => 'ゲストは許可されていません';
+  String get guestsAreForbidden => 'Guests are forbidden';
 
   @override
-  String get guestsCanJoin => 'ゲストが許可されています';
+  String get guestsCanJoin => 'Guests can join';
 
   @override
   String hasWithdrawnTheInvitationFor(String username, String targetName) {
-    return '$targetNameの招待を$usernameが取り下げました';
+    return '$username has withdrawn the invitation for $targetName';
   }
 
   @override
-  String get help => 'ヘルプ';
+  String get help => 'مساعدة';
 
   @override
-  String get hideRedactedEvents => '編集済みイベントを非表示にする';
+  String get hideRedactedEvents => 'Hide redacted events';
 
   @override
   String get hideRedactedMessages => 'Hide redacted messages';
@@ -696,13 +696,13 @@ class L10nJa extends L10n {
   String get hideInvalidOrUnknownMessageFormats => 'Hide invalid or unknown message formats';
 
   @override
-  String get howOffensiveIsThisContent => 'どのくらい攻撃的でしたか？';
+  String get howOffensiveIsThisContent => 'How offensive is this content?';
 
   @override
   String get id => 'ID';
 
   @override
-  String get identity => 'アイデンティティ';
+  String get identity => 'Identity';
 
   @override
   String get block => 'Block';
@@ -717,25 +717,25 @@ class L10nJa extends L10n {
   String get blockUsername => 'Ignore username';
 
   @override
-  String get iHaveClickedOnLink => 'リンクをクリックしました';
+  String get iHaveClickedOnLink => 'I have clicked on the link';
 
   @override
-  String get incorrectPassphraseOrKey => 'パスフレーズかリカバリーキーが間違っています';
+  String get incorrectPassphraseOrKey => 'Incorrect passphrase or recovery key';
 
   @override
-  String get inoffensive => '非攻撃的';
+  String get inoffensive => 'Inoffensive';
 
   @override
-  String get inviteContact => '連絡先から招待する';
+  String get inviteContact => 'Invite contact';
 
   @override
   String inviteContactToGroupQuestion(String contact, String groupName) {
-    return 'Do you want to invite $contact to the chat \"$groupName\"?';
+    return 'Do you want to invite $contact to the chat $groupName?';
   }
 
   @override
   String inviteContactToGroup(String groupName) {
-    return '連絡先から$groupNameに招待する';
+    return 'Invite contact to $groupName';
   }
 
   @override
@@ -748,7 +748,7 @@ class L10nJa extends L10n {
   String get invalidServerName => 'Invalid server name';
 
   @override
-  String get invited => '招待されました';
+  String get invited => 'مدعو';
 
   @override
   String get redactMessageDescription => 'The message will be redacted for all participants in this conversation. This cannot be undone.';
@@ -758,275 +758,275 @@ class L10nJa extends L10n {
 
   @override
   String invitedUser(String username, String targetName) {
-    return '📩 $username が $targetName を招待しました';
+    return '📩 $username invited $targetName';
   }
 
   @override
-  String get invitedUsersOnly => '招待されたユーザーのみ';
+  String get invitedUsersOnly => 'Invited users only';
 
   @override
-  String get inviteForMe => '自分への招待';
+  String get inviteForMe => 'Invite for me';
 
   @override
   String inviteText(String username, String link) {
-    return '$usernameがStawiにあなたを招待しました. \n1. Stawiをインストールしてください: https://stawi.im \n2. 新しくアカウントを作成するかサインインしてください\n3. 招待リンクを開いてください: $link';
+    return '$username invited you to stawi. Visit invitation link $link to connect';
   }
 
   @override
-  String get isTyping => 'が入力しています…';
+  String get isTyping => 'يكتب…';
 
   @override
   String joinedTheChat(String username) {
-    return '👋 $username がチャットに参加しました';
+    return '👋 $username joined the chat';
   }
 
   @override
-  String get joinRoom => '部屋に参加';
+  String get joinRoom => 'Join room';
 
   @override
   String kicked(String username, String targetName) {
-    return '👞 $username は $targetName をキックしました';
+    return '👞 $username kicked $targetName';
   }
 
   @override
   String kickedAndBanned(String username, String targetName) {
-    return '🙅 $username が $targetName をキックしブロックしました';
+    return '🙅 $username kicked and banned $targetName';
   }
 
   @override
-  String get kickFromChat => 'チャットからキックする';
+  String get kickFromChat => 'Kick from chat';
 
   @override
   String lastActiveAgo(String localizedTimeShort) {
-    return '最終アクティブ: $localizedTimeShort';
+    return 'Last active: $localizedTimeShort';
   }
 
   @override
-  String get leave => '退室する';
+  String get leave => 'Leave';
 
   @override
-  String get leftTheChat => '退室しました';
+  String get leftTheChat => 'Left the chat';
 
   @override
-  String get license => 'ライセンス';
+  String get license => 'License';
 
   @override
-  String get lightTheme => 'ライト';
+  String get lightTheme => 'Light';
 
   @override
   String loadCountMoreParticipants(int count) {
-    return 'あと$count名参加者を読み込む';
+    return 'Load $count more participants';
   }
 
   @override
-  String get dehydrate => 'セッションのエクスポートとデバイスの消去';
+  String get dehydrate => 'Export session and wipe device';
 
   @override
-  String get dehydrateWarning => 'この操作は元に戻せません。バックアップファイルを安全に保存してください。';
+  String get dehydrateWarning => 'This action cannot be undone. Ensure you safely store the backup file.';
 
   @override
-  String get dehydrateTor => 'TOR ユーザー: セッションをエクスポート';
+  String get dehydrateTor => 'TOR Users: Export session';
 
   @override
-  String get dehydrateTorLong => 'TOR ユーザーの場合、ウィンドウを閉じる前にセッションをエクスポートすることをお勧めします。';
+  String get dehydrateTorLong => 'For TOR users, it is recommended to export the session before closing the window.';
 
   @override
-  String get hydrateTor => 'TOR ユーザー: セッションのエクスポートをインポート';
+  String get hydrateTor => 'TOR Users: Import session export';
 
   @override
-  String get hydrateTorLong => '前回、TOR でセッションをエクスポートしましたか？すぐにインポートしてチャットを続けましょう。';
+  String get hydrateTorLong => 'Did you export your session last time on TOR? Quickly import it and continue chatting.';
 
   @override
   String get hydrate => 'Restore from backup file';
 
   @override
-  String get loadingPleaseWait => '読み込み中…お待ちください。';
+  String get loadingPleaseWait => 'Loading… Please wait.';
 
   @override
-  String get loadMore => '更に読み込む…';
+  String get loadMore => 'Load more…';
 
   @override
-  String get locationDisabledNotice => '位置情報サービスが無効になっています。位置情報を共有できるようにするには、位置情報サービスを有効にしてください。';
+  String get locationDisabledNotice => 'Location services are disabled. Please enable them to be able to share your location.';
 
   @override
-  String get locationPermissionDeniedNotice => '位置情報の権限が拒否されました。位置情報を共有できるように許可してください。';
+  String get locationPermissionDeniedNotice => 'Location permission denied. Please grant them to be able to share your location.';
 
   @override
   String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
 
   @override
-  String get login => 'ログイン';
+  String get login => 'Login';
 
   @override
   String logInTo(String homeserver) {
-    return '$homeserverにログインする';
+    return 'Log in to $homeserver';
   }
 
   @override
-  String get logout => 'ログアウト';
+  String get logout => 'Logout';
 
   @override
-  String get memberChanges => 'メンバーの変更';
+  String get memberChanges => 'Member changes';
 
   @override
-  String get mention => 'メンション';
+  String get mention => 'Mention';
 
   @override
-  String get messages => 'メッセージ';
+  String get messages => 'Messages';
 
   @override
   String get messagesStyle => 'Messages:';
 
   @override
-  String get moderator => 'モデレータ';
+  String get moderator => 'Moderator';
 
   @override
-  String get muteChat => 'チャットのミュート';
+  String get muteChat => 'Mute chat';
 
   @override
-  String get needPantalaimonWarning => '現時点では、エンドツーエンドの暗号化を使用するにはPantalaimonが必要であることに注意してください。';
+  String get needPantalaimonWarning => 'Please be aware that you need Pantalaimon to use end-to-end encryption for now.';
 
   @override
-  String get newChat => '新規チャット';
+  String get newChat => 'New chat';
 
   @override
-  String get newMessageInStawi => '💬 Stawiに新しいメッセージがあります';
+  String get newMessageInStawi => '💬 New message in Stawi';
 
   @override
-  String get newVerificationRequest => '認証リクエスト！';
+  String get newVerificationRequest => 'New verification request!';
 
   @override
-  String get next => '次へ';
+  String get next => 'Next';
 
   @override
-  String get no => 'いいえ';
+  String get no => 'No';
 
   @override
-  String get noConnectionToTheServer => 'サーバーに接続できません';
+  String get noConnectionToTheServer => 'No connection to the server';
 
   @override
-  String get noEmotesFound => 'Emoteは見つかりませんでした😕';
+  String get noEmotesFound => 'No emotes found. 😕';
 
   @override
-  String get noEncryptionForPublicRooms => 'ルームを非公開にした後暗号化を有効にできます。';
+  String get noEncryptionForPublicRooms => 'You can only activate encryption as soon as the room is no longer publicly accessible.';
 
   @override
-  String get noGoogleServicesWarning => 'あなたのスマホにはGoogleサービスがないようですね。プライバシーを保護するための良い選択です！プッシュ通知を受け取るには https://microg.org/ または https://unifiedpush.org/ を使うことをお勧めします。';
+  String get noGoogleServicesWarning => 'Firebase Cloud Messaging doesn\'t appear to be available on your device. To still receive push notifications, we recommend installing ntfy. With ntfy or another Unified Push provider you can receive push notifications in a data secure way. You can download ntfy from the PlayStore or from F-Droid.';
 
   @override
   String noMatrixServer(String server1, String server2) {
-    return '$server1 はMatrixのサーバーではありません。代わりに $server2 を使用しますか?';
+    return '$server1 is no matrix server, use $server2 instead?';
   }
 
   @override
   String get shareInviteLink => 'Share invite link';
 
   @override
-  String get scanQrCode => 'QRコードをスキャン';
+  String get scanQrCode => 'Scan QR code';
 
   @override
-  String get none => 'なし';
+  String get none => 'None';
 
   @override
-  String get noPasswordRecoveryDescription => 'パスワードを回復する方法をまだ追加していません。';
+  String get noPasswordRecoveryDescription => 'You have not added a way to recover your password yet.';
 
   @override
-  String get noPermission => '権限がありません';
+  String get noPermission => 'No permission';
 
   @override
-  String get noRoomsFound => '部屋は見つかりませんでした…';
+  String get noRoomsFound => 'No rooms found…';
 
   @override
-  String get notifications => '通知';
+  String get notifications => 'Notifications';
 
   @override
-  String get notificationsEnabledForThisAccount => 'このアカウントでは通知が有効です';
+  String get notificationsEnabledForThisAccount => 'Notifications enabled for this account';
 
   @override
   String numUsersTyping(int count) {
-    return '$count人が入力中…';
+    return '$count users are typing…';
   }
 
   @override
-  String get obtainingLocation => '位置情報を取得しています…';
+  String get obtainingLocation => 'Obtaining location…';
 
   @override
-  String get offensive => '攻撃的';
+  String get offensive => 'Offensive';
 
   @override
-  String get offline => 'オフライン';
+  String get offline => 'Offline';
 
   @override
-  String get ok => 'OK';
+  String get ok => 'Ok';
 
   @override
-  String get online => 'オンライン';
+  String get online => 'Online';
 
   @override
-  String get onlineKeyBackupEnabled => 'オンライン鍵バックアップは使用されています';
+  String get onlineKeyBackupEnabled => 'Online Key Backup is enabled';
 
   @override
-  String get oopsPushError => 'おっと！残念ながら、プッシュ通知の設定中にエラーが発生しました。';
+  String get oopsPushError => 'Oops! Unfortunately, an error occurred when setting up the push notifications.';
 
   @override
-  String get oopsSomethingWentWrong => 'おっと、何かがうまくいきませんでした…';
+  String get oopsSomethingWentWrong => 'Oops, something went wrong…';
 
   @override
-  String get openAppToReadMessages => 'アプリを開いてメッセージを確認してください';
+  String get openAppToReadMessages => 'Open app to read messages';
 
   @override
-  String get openCamera => 'カメラを開く';
+  String get openCamera => 'Open camera';
 
   @override
-  String get openVideoCamera => 'ビデオ用にカメラを開く';
+  String get openVideoCamera => 'Open camera for a video';
 
   @override
-  String get oneClientLoggedOut => 'クライアントの 1つがログアウトしました';
+  String get oneClientLoggedOut => 'One of your clients has been logged out';
 
   @override
-  String get addAccount => 'アカウントを追加';
+  String get addAccount => 'Add account';
 
   @override
-  String get editBundlesForAccount => 'このアカウントのバンドルを編集';
+  String get editBundlesForAccount => 'Edit bundles for this account';
 
   @override
-  String get addToBundle => 'バンドルに追加';
+  String get addToBundle => 'Add to bundle';
 
   @override
-  String get removeFromBundle => 'このバンドルから削除';
+  String get removeFromBundle => 'Remove from this bundle';
 
   @override
-  String get bundleName => 'バンドル名';
+  String get bundleName => 'Bundle name';
 
   @override
-  String get enableMultiAccounts => '(ベータ版) このデバイスで複数のアカウントを有効にする';
+  String get enableMultiAccounts => '(BETA) Enable multi accounts on this device';
 
   @override
   String get openInMaps => 'Open in maps';
 
   @override
-  String get link => 'リンク';
+  String get link => 'Link';
 
   @override
-  String get serverRequiresEmail => 'このサーバーは、登録のためにメールアドレスを検証する必要があります。';
+  String get serverRequiresEmail => 'This server needs to validate your email address for registration.';
 
   @override
-  String get or => 'または';
+  String get or => 'Or';
 
   @override
-  String get participant => '参加者';
+  String get participant => 'Participant';
 
   @override
-  String get passphraseOrKey => 'パスフレーズかリカバリーキー';
+  String get passphraseOrKey => 'passphrase or recovery key';
 
   @override
-  String get password => 'パスワード';
+  String get password => 'Password';
 
   @override
-  String get passwordForgotten => 'パスワードを忘れた';
+  String get passwordForgotten => 'Password forgotten';
 
   @override
-  String get passwordHasBeenChanged => 'パスワードが変更されました';
+  String get passwordHasBeenChanged => 'Password has been changed';
 
   @override
   String get hideMemberChangesInPublicChats => 'Hide member changes in public chats';
@@ -1044,63 +1044,63 @@ class L10nJa extends L10n {
   String get passwordRecoverySettings => 'Password recovery settings';
 
   @override
-  String get passwordRecovery => 'パスワードリカバリー';
+  String get passwordRecovery => 'Password recovery';
 
   @override
-  String get people => '人々';
+  String get people => 'People';
 
   @override
-  String get pickImage => '画像を選択してください';
+  String get pickImage => 'Pick an image';
 
   @override
-  String get pin => 'ピン';
+  String get pin => 'Pin';
 
   @override
   String play(String fileName) {
-    return '$fileNameを再生する';
+    return 'Play $fileName';
   }
 
   @override
-  String get pleaseChoose => '選択してください';
+  String get pleaseChoose => 'Please choose';
 
   @override
-  String get pleaseChooseAPasscode => 'パスコードを選んでください';
+  String get pleaseChooseAPasscode => 'Please choose a pass code';
 
   @override
-  String get pleaseClickOnLink => 'メールのリンクから進めてください。';
+  String get pleaseClickOnLink => 'Please click on the link in the email and then proceed.';
 
   @override
-  String get pleaseEnter4Digits => 'アプリのロック用に4桁の数字を入力してください。空欄の場合は無効になります。';
+  String get pleaseEnter4Digits => 'Please enter 4 digits or leave empty to disable app lock.';
 
   @override
-  String get pleaseEnterRecoveryKey => 'リカバリーキーを入力してください。';
+  String get pleaseEnterRecoveryKey => 'Please enter your recovery key:';
 
   @override
-  String get pleaseEnterYourPassword => 'パスワードを入力してください';
+  String get pleaseEnterYourPassword => 'Please enter your password';
 
   @override
-  String get pleaseEnterYourPin => 'PINを入力してください';
+  String get pleaseEnterYourPin => 'Please enter your pin';
 
   @override
-  String get pleaseEnterYourUsername => 'ユーザー名を入力してください';
+  String get pleaseEnterYourUsername => 'Please enter your username';
 
   @override
-  String get pleaseFollowInstructionsOnWeb => 'ウェブサイトにあるやり方を見てから次をタップしてください。';
+  String get pleaseFollowInstructionsOnWeb => 'Please follow the instructions on the website and tap on next.';
 
   @override
-  String get privacy => 'プライバシー';
+  String get privacy => 'Privacy';
 
   @override
-  String get publicRooms => '公開された部屋';
+  String get publicRooms => 'Public Rooms';
 
   @override
-  String get pushRules => 'ルールを追加する';
+  String get pushRules => 'Push rules';
 
   @override
-  String get reason => '理由';
+  String get reason => 'Reason';
 
   @override
-  String get recording => '録音中';
+  String get recording => 'Recording';
 
   @override
   String redactedBy(String username) {
@@ -1117,98 +1117,98 @@ class L10nJa extends L10n {
 
   @override
   String redactedAnEvent(String username) {
-    return '$usernameがイベントを編集しました';
+    return '$username redacted an event';
   }
 
   @override
-  String get redactMessage => 'メッセージを書く';
+  String get redactMessage => 'Redact message';
 
   @override
-  String get register => '登録';
+  String get register => 'Register';
 
   @override
-  String get reject => '拒否';
+  String get reject => 'Reject';
 
   @override
   String rejectedTheInvitation(String username) {
-    return '$usernameは招待を拒否しました';
+    return '$username rejected the invitation';
   }
 
   @override
-  String get rejoin => '再参加';
+  String get rejoin => 'Rejoin';
 
   @override
-  String get removeAllOtherDevices => '他のデバイスをすべて削除';
+  String get removeAllOtherDevices => 'Remove all other devices';
 
   @override
   String removedBy(String username) {
-    return '$usernameによって削除されました';
+    return 'Removed by $username';
   }
 
   @override
-  String get removeDevice => 'デバイスの削除';
+  String get removeDevice => 'Remove device';
 
   @override
-  String get unbanFromChat => 'チャットからのブロックを解除する';
+  String get unbanFromChat => 'Unban from chat';
 
   @override
-  String get removeYourAvatar => 'アバターを削除する';
+  String get removeYourAvatar => 'Remove your avatar';
 
   @override
-  String get replaceRoomWithNewerVersion => '部屋を新しいバージョンに変更する';
+  String get replaceRoomWithNewerVersion => 'Replace room with newer version';
 
   @override
-  String get reply => '返信';
+  String get reply => 'Reply';
 
   @override
-  String get reportMessage => 'メッセージを通報';
+  String get reportMessage => 'Report message';
 
   @override
-  String get requestPermission => '権限を要求する';
+  String get requestPermission => 'Request permission';
 
   @override
-  String get roomHasBeenUpgraded => '部屋はアップグレードされました';
+  String get roomHasBeenUpgraded => 'Room has been upgraded';
 
   @override
-  String get roomVersion => 'ルームバージョン';
+  String get roomVersion => 'Room version';
 
   @override
-  String get saveFile => 'ファイルを保存';
+  String get saveFile => 'Save file';
 
   @override
-  String get search => '検索';
+  String get search => 'Search';
 
   @override
-  String get security => 'セキュリティ';
+  String get security => 'Security';
 
   @override
-  String get recoveryKey => 'リカバリーキー';
+  String get recoveryKey => 'Recovery key';
 
   @override
-  String get recoveryKeyLost => 'リカバリーキーを紛失した場合';
+  String get recoveryKeyLost => 'Recovery key lost?';
 
   @override
   String seenByUser(String username) {
-    return '$usernameが既読';
+    return 'Seen by $username';
   }
 
   @override
-  String get send => '送信';
+  String get send => 'Send';
 
   @override
-  String get sendAMessage => 'メッセージを送信';
+  String get sendAMessage => 'Send a message';
 
   @override
-  String get sendAsText => 'テキストとして送信';
+  String get sendAsText => 'Send as text';
 
   @override
-  String get sendAudio => '音声の送信';
+  String get sendAudio => 'Send audio';
 
   @override
-  String get sendFile => 'ファイルを送信';
+  String get sendFile => 'Send file';
 
   @override
-  String get sendImage => '画像の送信';
+  String get sendImage => 'Send image';
 
   @override
   String sendImages(int count) {
@@ -1216,84 +1216,84 @@ class L10nJa extends L10n {
   }
 
   @override
-  String get sendMessages => 'メッセージを送る';
+  String get sendMessages => 'Send messages';
 
   @override
-  String get sendOriginal => 'オリジナルの送信';
+  String get sendOriginal => 'Send original';
 
   @override
-  String get sendSticker => 'ステッカーを送る';
+  String get sendSticker => 'Send sticker';
 
   @override
-  String get sendVideo => '動画を送信';
+  String get sendVideo => 'Send video';
 
   @override
   String sentAFile(String username) {
-    return '📁 $usernameはファイルを送信しました';
+    return '📁 $username sent a file';
   }
 
   @override
   String sentAnAudio(String username) {
-    return '🎤 $usernameは音声を送信しました';
+    return '🎤 $username sent an audio';
   }
 
   @override
   String sentAPicture(String username) {
-    return '🖼️ $usernameは画像を送信しました';
+    return '🖼️ $username sent a picture';
   }
 
   @override
   String sentASticker(String username) {
-    return '😊 $usernameはステッカーを送信しました';
+    return '😊 $username sent a sticker';
   }
 
   @override
   String sentAVideo(String username) {
-    return '🎥 $usernameは動画を送信しました';
+    return '🎥 $username sent a video';
   }
 
   @override
   String sentCallInformations(String senderName) {
-    return '$senderNameは通話情報を送信しました';
+    return '$senderName sent call information';
   }
 
   @override
   String get separateChatTypes => 'Separate Direct Chats and Groups';
 
   @override
-  String get setAsCanonicalAlias => 'メインエイリアスに設定';
+  String get setAsCanonicalAlias => 'Set as main alias';
 
   @override
-  String get setCustomEmotes => 'カスタムエモートの設定';
+  String get setCustomEmotes => 'Set custom emotes';
 
   @override
   String get setChatDescription => 'Set chat description';
 
   @override
-  String get setInvitationLink => '招待リンクを設定する';
+  String get setInvitationLink => 'Set invitation link';
 
   @override
-  String get setPermissionsLevel => '権限レベルをセット';
+  String get setPermissionsLevel => 'Set permissions level';
 
   @override
-  String get setStatus => 'ステータスの設定';
+  String get setStatus => 'Set status';
 
   @override
-  String get settings => '設定';
+  String get settings => 'Settings';
 
   @override
-  String get share => '共有';
+  String get share => 'Share';
 
   @override
   String sharedTheLocation(String username) {
-    return '$usernameは現在地を共有しました';
+    return '$username shared their location';
   }
 
   @override
-  String get shareLocation => '位置情報の共有';
+  String get shareLocation => 'Share location';
 
   @override
-  String get showPassword => 'パスワードを表示';
+  String get showPassword => 'Show password';
 
   @override
   String get presenceStyle => 'Presence:';
@@ -1302,39 +1302,39 @@ class L10nJa extends L10n {
   String get presencesToggle => 'Show status messages from other users';
 
   @override
-  String get singlesignon => 'シングルサインオン';
+  String get singlesignon => 'Single Sign on';
 
   @override
-  String get skip => 'スキップ';
+  String get skip => 'Skip';
 
   @override
-  String get sourceCode => 'ソースコード';
+  String get sourceCode => 'Source code';
 
   @override
-  String get spaceIsPublic => 'スペースは公開されています';
+  String get spaceIsPublic => 'Space is public';
 
   @override
-  String get spaceName => 'スペース名';
+  String get spaceName => 'Space name';
 
   @override
   String startedACall(String senderName) {
-    return '$senderNameは通話を開始しました';
+    return '$senderName started a call';
   }
 
   @override
-  String get startFirstChat => '最初のチャットを開始する';
+  String get startFirstChat => 'Start your first chat';
 
   @override
-  String get status => 'ステータス';
+  String get status => 'Status';
 
   @override
-  String get statusExampleMessage => 'お元気ですか？';
+  String get statusExampleMessage => 'How are you today?';
 
   @override
-  String get submit => '送信';
+  String get submit => 'Submit';
 
   @override
-  String get synchronizingPleaseWait => '同期中...お待ちください。';
+  String get synchronizingPleaseWait => 'Synchronizing… Please wait.';
 
   @override
   String synchronizingPleaseWaitCounter(String percentage) {
@@ -1342,290 +1342,290 @@ class L10nJa extends L10n {
   }
 
   @override
-  String get systemTheme => 'システム';
+  String get systemTheme => 'System';
 
   @override
-  String get theyDontMatch => '違います';
+  String get theyDontMatch => 'They Don\'t Match';
 
   @override
-  String get theyMatch => '一致しています';
+  String get theyMatch => 'They Match';
 
   @override
   String get title => 'Stawi';
 
   @override
-  String get toggleFavorite => 'お気に入り切り替え';
+  String get toggleFavorite => 'Toggle Favorite';
 
   @override
-  String get toggleMuted => 'ミュート切り替え';
+  String get toggleMuted => 'Toggle Muted';
 
   @override
-  String get toggleUnread => '既読/未読にマーク';
+  String get toggleUnread => 'Mark Read/Unread';
 
   @override
-  String get tooManyRequestsWarning => 'リクエストが多すぎます。また後で試してみてください！';
+  String get tooManyRequestsWarning => 'Too many requests. Please try again later!';
 
   @override
-  String get transferFromAnotherDevice => '違うデバイスから移行する';
+  String get transferFromAnotherDevice => 'Transfer from another device';
 
   @override
-  String get tryToSendAgain => '送信し直してみる';
+  String get tryToSendAgain => 'Try to send again';
 
   @override
-  String get unavailable => '不在';
+  String get unavailable => 'Unavailable';
 
   @override
   String unbannedUser(String username, String targetName) {
-    return '$usernameが$targetNameのBANを解除しました';
+    return '$username unbanned $targetName';
   }
 
   @override
-  String get unblockDevice => 'デバイスをブロック解除する';
+  String get unblockDevice => 'Unblock Device';
 
   @override
-  String get unknownDevice => '未知デバイス';
+  String get unknownDevice => 'Unknown device';
 
   @override
-  String get unknownEncryptionAlgorithm => '未知の暗号化アルゴリズム';
+  String get unknownEncryptionAlgorithm => 'Unknown encryption algorithm';
 
   @override
   String unknownEvent(String type) {
-    return '未知のイベント\'$type\'';
+    return 'Unknown event \'$type\'';
   }
 
   @override
-  String get unmuteChat => 'チャットをミュート解除する';
+  String get unmuteChat => 'Unmute chat';
 
   @override
-  String get unpin => 'ピンを外す';
+  String get unpin => 'Unpin';
 
   @override
   String unreadChats(int unreadCount) {
     String _temp0 = intl.Intl.pluralLogic(
       unreadCount,
       locale: localeName,
-      other: '$unreadCount件の未読メッセージ',
-      one: '1件の未読メッセージ',
+      other: '$unreadCount unread chats',
+      one: '1 unread chat',
     );
     return '$_temp0';
   }
 
   @override
   String userAndOthersAreTyping(String username, int count) {
-    return '$usernameと他$count名が入力しています…';
+    return '$username and $count others are typing…';
   }
 
   @override
   String userAndUserAreTyping(String username, String username2) {
-    return '$usernameと$username2が入力しています…';
+    return '$username and $username2 are typing…';
   }
 
   @override
   String userIsTyping(String username) {
-    return '$usernameが入力しています…';
+    return '$username is typing…';
   }
 
   @override
   String userLeftTheChat(String username) {
-    return '🚪 $usernameはチャットから退室しました';
+    return '🚪 $username left the chat';
   }
 
   @override
-  String get username => 'ユーザー名';
+  String get username => 'Username';
 
   @override
   String userSentUnknownEvent(String username, String type) {
-    return '$usernameは$typeイベントを送信しました';
+    return '$username sent a $type event';
   }
 
   @override
-  String get unverified => '未検証';
+  String get unverified => 'Unverified';
 
   @override
-  String get verified => '検証済み';
+  String get verified => 'Verified';
 
   @override
-  String get verify => '確認';
+  String get verify => 'Verify';
 
   @override
-  String get verifyStart => '確認を始める';
+  String get verifyStart => 'Start Verification';
 
   @override
-  String get verifySuccess => '確認が完了しました！';
+  String get verifySuccess => 'You successfully verified!';
 
   @override
-  String get verifyTitle => '他のアカウントを確認中';
+  String get verifyTitle => 'Verifying other account';
 
   @override
-  String get videoCall => '音声通話';
+  String get videoCall => 'Video call';
 
   @override
-  String get visibilityOfTheChatHistory => 'チャット履歴の表示';
+  String get visibilityOfTheChatHistory => 'Visibility of the chat history';
 
   @override
-  String get visibleForAllParticipants => 'すべての参加者が閲覧可能';
+  String get visibleForAllParticipants => 'Visible for all participants';
 
   @override
-  String get visibleForEveryone => 'すべての人が閲覧可能';
+  String get visibleForEveryone => 'Visible for everyone';
 
   @override
-  String get voiceMessage => 'ボイスメッセージ';
+  String get voiceMessage => 'Voice message';
 
   @override
-  String get waitingPartnerAcceptRequest => 'パートナーのリクエスト承諾待ちです...';
+  String get waitingPartnerAcceptRequest => 'Waiting for partner to accept the request…';
 
   @override
-  String get waitingPartnerEmoji => 'パートナーの絵文字承諾待ちです...';
+  String get waitingPartnerEmoji => 'Waiting for partner to accept the emoji…';
 
   @override
-  String get waitingPartnerNumbers => 'パートナーの数字承諾待ちです…';
+  String get waitingPartnerNumbers => 'Waiting for partner to accept the numbers…';
 
   @override
-  String get wallpaper => '壁紙';
+  String get wallpaper => 'Wallpaper:';
 
   @override
-  String get warning => '警告！';
+  String get warning => 'Warning!';
 
   @override
-  String get weSentYouAnEmail => 'あなたにメールを送信しました';
+  String get weSentYouAnEmail => 'We sent you an email';
 
   @override
-  String get whoCanPerformWhichAction => '誰がどの操作を実行できるか';
+  String get whoCanPerformWhichAction => 'Who can perform which action';
 
   @override
-  String get whoIsAllowedToJoinThisGroup => '誰がこのチャットに入れますか';
+  String get whoIsAllowedToJoinThisGroup => 'Who is allowed to join this group';
 
   @override
-  String get whyDoYouWantToReportThis => 'これを通報する理由';
+  String get whyDoYouWantToReportThis => 'Why do you want to report this?';
 
   @override
-  String get wipeChatBackup => 'チャットのバックアップを消去して、新しいリカバリーキーを作りますか？';
+  String get wipeChatBackup => 'Wipe your chat backup to create a new recovery key?';
 
   @override
-  String get withTheseAddressesRecoveryDescription => 'これらのアドレスを使用すると、パスワードを回復することができます。';
+  String get withTheseAddressesRecoveryDescription => 'With these addresses you can recover your password.';
 
   @override
-  String get writeAMessage => 'メッセージを入力してください…';
+  String get writeAMessage => 'Write a message…';
 
   @override
-  String get yes => 'はい';
+  String get yes => 'Yes';
 
   @override
-  String get you => 'あなた';
+  String get you => 'You';
 
   @override
-  String get youAreNoLongerParticipatingInThisChat => 'あなたはもうこのチャットの参加者ではありません';
+  String get youAreNoLongerParticipatingInThisChat => 'You are no longer participating in this chat';
 
   @override
-  String get youHaveBeenBannedFromThisChat => 'チャットからBANされてしまいました';
+  String get youHaveBeenBannedFromThisChat => 'You have been banned from this chat';
 
   @override
-  String get yourPublicKey => 'あなたの公開鍵';
+  String get yourPublicKey => 'Your public key';
 
   @override
-  String get messageInfo => 'メッセージの情報';
+  String get messageInfo => 'Message info';
 
   @override
-  String get time => '時間';
+  String get time => 'Time';
 
   @override
-  String get messageType => 'メッセージの種類';
+  String get messageType => 'Message Type';
 
   @override
-  String get sender => '送信者';
+  String get sender => 'Sender';
 
   @override
-  String get openGallery => 'ギャラリーを開く';
+  String get openGallery => 'Open gallery';
 
   @override
-  String get removeFromSpace => 'スペースから削除';
+  String get removeFromSpace => 'Remove from space';
 
   @override
-  String get addToSpaceDescription => 'このチャットを追加するスペースを選択してください。';
+  String get addToSpaceDescription => 'Select a space to add this chat to it.';
 
   @override
-  String get start => '開始';
+  String get start => 'Start';
 
   @override
-  String get pleaseEnterRecoveryKeyDescription => '古いメッセージを解除するには、以前のセッションで生成されたリカバリーキーを入力してください。リカバリーキーはパスワードではありません。';
+  String get pleaseEnterRecoveryKeyDescription => 'To unlock your old messages, please enter your recovery key that has been generated in a previous session. Your recovery key is NOT your password.';
 
   @override
-  String get publish => '公開';
+  String get publish => 'Publish';
 
   @override
   String videoWithSize(String size) {
-    return 'ビデオ ($size)';
+    return 'Video ($size)';
   }
 
   @override
-  String get openChat => 'チャットを開く';
+  String get openChat => 'Open Chat';
 
   @override
-  String get markAsRead => '既読にする';
+  String get markAsRead => 'Mark as read';
 
   @override
-  String get reportUser => 'ユーザーを報告';
+  String get reportUser => 'Report user';
 
   @override
   String get dismiss => 'Dismiss';
 
   @override
   String reactedWith(String sender, String reaction) {
-    return '$sender が $reaction で反応しました';
+    return '$sender reacted with $reaction';
   }
 
   @override
-  String get pinMessage => '部屋にピン留めする';
+  String get pinMessage => 'Pin to room';
 
   @override
-  String get confirmEventUnpin => 'イベントの固定を完全に解除してもよろしいですか？';
+  String get confirmEventUnpin => 'Are you sure to permanently unpin the event?';
 
   @override
-  String get emojis => '絵文字';
+  String get emojis => 'Emojis';
 
   @override
-  String get placeCall => '電話をかける';
+  String get placeCall => 'Place call';
 
   @override
-  String get voiceCall => '音声通話';
+  String get voiceCall => 'Voice call';
 
   @override
-  String get unsupportedAndroidVersion => 'サポートされていないAndroidのバージョン';
+  String get unsupportedAndroidVersion => 'Unsupported Android version';
 
   @override
-  String get unsupportedAndroidVersionLong => 'この機能を利用するには、より新しいAndroidのバージョンが必要です。アップデートまたはLineage OSのサポートをご確認ください。';
+  String get unsupportedAndroidVersionLong => 'This feature requires a newer Android version. Please check for updates or Lineage OS support.';
 
   @override
-  String get videoCallsBetaWarning => 'ビデオ通話は、現在ベータ版であることにご注意ください。すべてのプラットフォームで期待通りに動作しない、あるいはまったく動作しない可能性があります。';
+  String get videoCallsBetaWarning => 'Please note that video calls are currently in beta. They might not work as expected or work at all on all platforms.';
 
   @override
-  String get experimentalVideoCalls => '実験的なビデオ通話';
+  String get experimentalVideoCalls => 'Experimental video calls';
 
   @override
-  String get emailOrUsername => 'メールアドレスまたはユーザー名';
+  String get emailOrUsername => 'Email or username';
 
   @override
-  String get indexedDbErrorTitle => 'プライベートモードに関する問題';
+  String get indexedDbErrorTitle => 'Private mode issues';
 
   @override
   String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run Stawi.';
 
   @override
   String switchToAccount(String number) {
-    return 'アカウント $number に切り替える';
+    return 'Switch to account $number';
   }
 
   @override
-  String get nextAccount => '次のアカウント';
+  String get nextAccount => 'Next account';
 
   @override
-  String get previousAccount => '前のアカウント';
+  String get previousAccount => 'Previous account';
 
   @override
-  String get addWidget => 'ウィジェットを追加';
+  String get addWidget => 'Add widget';
 
   @override
-  String get widgetVideo => '動画';
+  String get widgetVideo => 'Video';
 
   @override
   String get widgetEtherpad => 'Text note';
@@ -1634,37 +1634,37 @@ class L10nJa extends L10n {
   String get widgetJitsi => 'Jitsi Meet';
 
   @override
-  String get widgetCustom => 'カスタム';
+  String get widgetCustom => 'Custom';
 
   @override
-  String get widgetName => '名称';
+  String get widgetName => 'Name';
 
   @override
-  String get widgetUrlError => '有効なURLではありません。';
+  String get widgetUrlError => 'This is not a valid URL.';
 
   @override
-  String get widgetNameError => '表示名を入力してください。';
+  String get widgetNameError => 'Please provide a display name.';
 
   @override
-  String get errorAddingWidget => 'ウィジェットの追加中にエラーが発生しました。';
+  String get errorAddingWidget => 'Error adding the widget.';
 
   @override
-  String get youRejectedTheInvitation => '招待を拒否しました';
+  String get youRejectedTheInvitation => 'You rejected the invitation';
 
   @override
-  String get youJoinedTheChat => 'チャットに参加しました';
+  String get youJoinedTheChat => 'You joined the chat';
 
   @override
-  String get youAcceptedTheInvitation => '👍 招待を承諾しました';
+  String get youAcceptedTheInvitation => '👍 You accepted the invitation';
 
   @override
   String youBannedUser(String user) {
-    return '$user を禁止しました';
+    return 'You banned $user';
   }
 
   @override
   String youHaveWithdrawnTheInvitationFor(String user) {
-    return '$user への招待を取り下げました';
+    return 'You have withdrawn the invitation for $user';
   }
 
   @override
@@ -1674,7 +1674,7 @@ class L10nJa extends L10n {
 
   @override
   String youInvitedBy(String user) {
-    return '📩 $user から招待されました';
+    return '📩 You have been invited by $user';
   }
 
   @override
@@ -1684,22 +1684,22 @@ class L10nJa extends L10n {
 
   @override
   String youInvitedUser(String user) {
-    return '📩 $user を招待しました';
+    return '📩 You invited $user';
   }
 
   @override
   String youKicked(String user) {
-    return '👞 $user をキックしました';
+    return '👞 You kicked $user';
   }
 
   @override
   String youKickedAndBanned(String user) {
-    return '🙅 $user をキックしてブロックしました';
+    return '🙅 You kicked and banned $user';
   }
 
   @override
   String youUnbannedUser(String user) {
-    return '$user の禁止を解除しました';
+    return 'You unbanned $user';
   }
 
   @override
@@ -1725,51 +1725,51 @@ class L10nJa extends L10n {
   String get knock => 'Knock';
 
   @override
-  String get users => 'ユーザー';
+  String get users => 'Users';
 
   @override
-  String get unlockOldMessages => '古いメッセージのロックを解除する';
+  String get unlockOldMessages => 'Unlock old messages';
 
   @override
-  String get storeInSecureStorageDescription => 'このデバイスの安全なストレージにリカバリーキーを保存。';
+  String get storeInSecureStorageDescription => 'Store the recovery key in the secure storage of this device.';
 
   @override
   String get saveKeyManuallyDescription => 'Save this key manually by triggering the system share dialog or clipboard.';
 
   @override
-  String get storeInAndroidKeystore => 'Android KeyStoreに保存する';
+  String get storeInAndroidKeystore => 'Store in Android KeyStore';
 
   @override
-  String get storeInAppleKeyChain => 'Apple KeyChainに保存';
+  String get storeInAppleKeyChain => 'Store in Apple KeyChain';
 
   @override
-  String get storeSecurlyOnThisDevice => 'このデバイスに安全に保管する';
+  String get storeSecurlyOnThisDevice => 'Store securely on this device';
 
   @override
   String countFiles(int count) {
-    return '$count個のファイル';
+    return '$count files';
   }
 
   @override
-  String get user => 'ユーザー';
+  String get user => 'User';
 
   @override
-  String get custom => 'カスタム';
+  String get custom => 'مخصص';
 
   @override
-  String get foregroundServiceRunning => 'この通知は、フォアグラウンド サービスの実行中に表示されます。';
+  String get foregroundServiceRunning => 'This notification appears when the foreground service is running.';
 
   @override
-  String get screenSharingTitle => '画面共有';
+  String get screenSharingTitle => 'screen sharing';
 
   @override
-  String get screenSharingDetail => 'FuffyChatで画面を共有しています';
+  String get screenSharingDetail => 'You are sharing your screen in FuffyChat';
 
   @override
-  String get callingPermissions => '通話の権限';
+  String get callingPermissions => 'Calling permissions';
 
   @override
-  String get callingAccount => '通話アカウント';
+  String get callingAccount => 'Calling account';
 
   @override
   String get callingAccountDetails => 'Allows Stawi to use the native android dialer app.';
@@ -1778,74 +1778,74 @@ class L10nJa extends L10n {
   String get appearOnTop => 'Appear on top';
 
   @override
-  String get appearOnTopDetails => 'アプリをトップに表示できるようにする（すでに通話アカウントとしてFluffychatを設定している場合は必要ありません）';
+  String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)';
 
   @override
-  String get otherCallingPermissions => 'マイク、カメラ、その他Stawiの権限';
+  String get otherCallingPermissions => 'Microphone, camera and other Stawi permissions';
 
   @override
-  String get whyIsThisMessageEncrypted => 'このメッセージが読めない理由';
+  String get whyIsThisMessageEncrypted => 'Why is this message unreadable?';
 
   @override
   String get noKeyForThisMessage => 'This can happen if the message was sent before you have signed in to your account at this device.\n\nIt is also possible that the sender has blocked your device or something went wrong with the internet connection.\n\nAre you able to read the message on another session? Then you can transfer the message from it! Go to Settings > Devices and make sure that your devices have verified each other. When you open the room the next time and both sessions are in the foreground, the keys will be transmitted automatically.\n\nDo you not want to lose the keys when logging out or switching devices? Make sure that you have enabled the chat backup in the settings.';
 
   @override
-  String get newGroup => '新しいグループ';
+  String get newGroup => 'New group';
 
   @override
-  String get newSpace => '新しいスペース';
+  String get newSpace => 'New space';
 
   @override
-  String get enterSpace => 'スペースに入る';
+  String get enterSpace => 'Enter space';
 
   @override
-  String get enterRoom => '部屋に入る';
+  String get enterRoom => 'Enter room';
 
   @override
-  String get allSpaces => 'すべてのスペース';
+  String get allSpaces => 'All spaces';
 
   @override
   String numChats(String number) {
-    return '$number チャット';
+    return '$number chats';
   }
 
   @override
-  String get hideUnimportantStateEvents => '重要でない状態イベントを非表示にする';
+  String get hideUnimportantStateEvents => 'Hide unimportant state events';
 
   @override
   String get hidePresences => 'Hide Status List?';
 
   @override
-  String get doNotShowAgain => '今後表示しない';
+  String get doNotShowAgain => 'Do not show again';
 
   @override
   String wasDirectChatDisplayName(String oldDisplayName) {
-    return '空のチャット (以前は $oldDisplayName)';
+    return 'Empty chat (was $oldDisplayName)';
   }
 
   @override
   String get newSpaceDescription => 'Spaces allows you to consolidate your chats and build private or public communities.';
 
   @override
-  String get encryptThisChat => 'このチャットを暗号化する';
+  String get encryptThisChat => 'Encrypt this chat';
 
   @override
-  String get disableEncryptionWarning => 'セキュリティ上の理由から、以前は暗号化が有効だったチャットで暗号化を無効にすることはできません。';
+  String get disableEncryptionWarning => 'For security reasons you can not disable encryption in a chat, where it has been enabled before.';
 
   @override
-  String get sorryThatsNotPossible => '申し訳ありません...それは不可能です';
+  String get sorryThatsNotPossible => 'Sorry... that is not possible';
 
   @override
-  String get deviceKeys => 'デバイスキー:';
+  String get deviceKeys => 'Device keys:';
 
   @override
-  String get reopenChat => 'チャットを再開する';
+  String get reopenChat => 'Reopen chat';
 
   @override
-  String get noBackupWarning => '警告！チャットのバックアップを有効にしないと、暗号化されたメッセージにアクセスできなくなります。ログアウトする前に、まずチャットのバックアップを有効にすることを強くお勧めします。';
+  String get noBackupWarning => 'Warning! Without enabling chat backup, you will lose access to your encrypted messages. It is highly recommended to enable the chat backup first before logging out.';
 
   @override
-  String get noOtherDevicesFound => '他のデバイスが見つかりません';
+  String get noOtherDevicesFound => 'No other devices found';
 
   @override
   String fileIsTooBigForServer(String max) {
@@ -1876,14 +1876,14 @@ class L10nJa extends L10n {
   String get report => 'report';
 
   @override
-  String get signInWithPassword => 'パスワードでログイン';
+  String get signInWithPassword => 'Sign in with password';
 
   @override
   String get pleaseTryAgainLaterOrChooseDifferentServer => 'Please try again later or choose a different server.';
 
   @override
   String signInWith(String provider) {
-    return '$providerでログイン';
+    return 'Sign in with $provider';
   }
 
   @override
@@ -1896,7 +1896,7 @@ class L10nJa extends L10n {
   String get setColorTheme => 'Set color theme:';
 
   @override
-  String get invite => 'Invite';
+  String get invite => 'دعوة';
 
   @override
   String get inviteGroupChat => '📨 Invite group chat';
@@ -2159,10 +2159,10 @@ class L10nJa extends L10n {
   String get searchMore => 'Search more...';
 
   @override
-  String get gallery => 'Gallery';
+  String get gallery => 'معرض الصور';
 
   @override
-  String get files => 'Files';
+  String get files => 'ملفات';
 
   @override
   String databaseBuildErrorBody(String url, String error) {
@@ -2730,88 +2730,88 @@ class L10nJa extends L10n {
   String get fixErrorsInStep => 'Please fix the errors in this step before proceeding';
 
   @override
-  String get calendarSelection => 'Savings Date';
+  String get calendarSelection => 'تاريخ الادخار';
 
   @override
-  String get selectStartDate => 'Select Start Date';
+  String get selectStartDate => 'اختر تاريخ البدء';
 
   @override
-  String get startDateDescription => 'Choose a starting date for your group savings. Future saving dates will be highlighted based on your period type.';
+  String get startDateDescription => 'اختر تاريخ بدء لادخار مجموعتك. سيتم تمييز تواريخ الادخار المستقبلية بناءً على نوع الفترة.';
 
   @override
-  String get groupSchedule => 'Group Schedule';
+  String get groupSchedule => 'جدول المجموعة';
 
   @override
-  String get futureSavingDates => 'Based on your selection, these are your next schedule dates:';
+  String get futureSavingDates => 'استنادًا إلى اختيارك، هذه هي تواريخ الجدول التالية:';
 
   @override
-  String get totalBalance => 'Total Balance';
+  String get totalBalance => 'إجمالي الرصيد';
 
   @override
-  String get groupSettings => 'Group Settings';
+  String get groupSettings => 'إعدادات المجموعة';
 
   @override
-  String get saveChanges => 'Save Changes';
+  String get saveChanges => 'حفظ التغييرات';
 
   @override
-  String get back => 'Back';
+  String get back => 'رجوع';
 
   @override
-  String get general => 'General';
+  String get general => 'عام';
 
   @override
-  String get loans => 'Loans';
+  String get loans => 'قروض';
 
   @override
-  String get contributions => 'Contributions';
+  String get contributions => 'مساهمات';
 
   @override
   String settingsCount(int n) {
-    return '$n settings';
+    return '$n إعدادات';
   }
 
   @override
-  String get loanTenure => 'Loan Tenure';
+  String get loanTenure => 'مدة القرض';
 
   @override
-  String get loanTenureDescription => 'The maximum number of weeks members can borrow for';
+  String get loanTenureDescription => 'الحد الأقصى لعدد الأسابيع التي يمكن للأعضاء الاقتراض خلالها';
 
   @override
-  String get groupTenure => 'Group Tenure';
+  String get groupTenure => 'مدة المجموعة';
 
   @override
-  String get groupTenureDescription => 'The total duration of the group before shares are distributed';
+  String get groupTenureDescription => 'إجمالي مدة المجموعة قبل توزيع الأسهم';
 
   @override
-  String get interestRate => 'Interest Rate';
+  String get interestRate => 'معدل الفائدة';
 
   @override
-  String get interestRateDescription => 'The percentage charged on loans';
+  String get interestRateDescription => 'النسبة المئوية المفروضة على القروض';
 
   @override
-  String get socialFundContribution => 'Social Fund Contribution';
+  String get socialFundContribution => 'مساهمة الصندوق الاجتماعي';
 
   @override
-  String get socialFundContributionDescription => 'The amount each member contributes to the social fund';
+  String get socialFundContributionDescription => 'المبلغ الذي يساهم به كل عضو في الصندوق الاجتماعي';
 
   @override
-  String get allowEarlyWithdrawal => 'Allow Early Withdrawal';
+  String get allowEarlyWithdrawal => 'السماح بالسحب المبكر';
 
   @override
-  String get allowEarlyWithdrawalDescription => 'Whether members can withdraw funds before the end of the group tenure';
+  String get allowEarlyWithdrawalDescription => 'ما إذا كان يمكن للأعضاء سحب الأموال قبل نهاية مدة المجموعة';
 
   @override
-  String get requireSavingsBeforeLoan => 'Require Savings Before Loan';
+  String get requireSavingsBeforeLoan => 'طلب ادخار قبل القرض';
 
   @override
-  String get requireSavingsBeforeLoanDescription => 'Whether members must have savings before they can take a loan';
+  String get requireSavingsBeforeLoanDescription => 'ما إذا كان يجب أن يكون لدى الأعضاء مدخرات قبل أن يتمكنوا من أخذ قرض';
 
   @override
-  String get weeks => 'weeks';
+  String get weeks => 'أسابيع';
 
   @override
-  String get months => 'months';
+  String get months => 'أشهر';
 
   @override
-  String get year => 'year';
+  String get year => 'سنة';
 }

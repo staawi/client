@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:matrix/matrix.dart';
 import 'package:stawi/l10n/l10n.dart';
 import 'package:stawi/pages/finance/group_configuration/new_group_type.dart';
@@ -51,10 +50,11 @@ class _ExpandableFinanceSettingsState extends State<ExpandableFinanceSettings> {
       isScrollControlled: true,
       useSafeArea: true,
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      builder: (context) => SizedBox(
-        height: MediaQuery.of(context).size.height * 0.85,
-        child: GroupSettingsController(room: widget.room).build(context),
-      ),
+      builder:
+          (context) => SizedBox(
+            height: MediaQuery.of(context).size.height * 0.85,
+            child: GroupSettingsController(room: widget.room).build(context),
+          ),
     );
   }
 

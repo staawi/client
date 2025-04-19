@@ -632,7 +632,7 @@ class L10nEn extends L10n {
   String get fileName => 'File name';
 
   @override
-  String get fluffychat => 'FluffyChat';
+  String get stawi => 'Stawi';
 
   @override
   String get fontSize => 'Font size';
@@ -729,7 +729,7 @@ class L10nEn extends L10n {
   String get inviteContact => 'Invite contact';
 
   @override
-  String inviteContactToGroupQuestion(Object contact, Object groupName) {
+  String inviteContactToGroupQuestion(String contact, String groupName) {
     return 'Do you want to invite $contact to the chat \"$groupName\"?';
   }
 
@@ -890,7 +890,7 @@ class L10nEn extends L10n {
   String get newChat => 'New chat';
 
   @override
-  String get newMessageInFluffyChat => '💬 New message in FluffyChat';
+  String get newMessageInStawi => '💬 New message in Stawi';
 
   @override
   String get newVerificationRequest => 'New verification request!';
@@ -1351,7 +1351,7 @@ class L10nEn extends L10n {
   String get theyMatch => 'They Match';
 
   @override
-  String get title => 'FluffyChat';
+  String get title => 'Stawi';
 
   @override
   String get toggleFavorite => 'Toggle Favorite';
@@ -1608,7 +1608,7 @@ class L10nEn extends L10n {
   String get indexedDbErrorTitle => 'Private mode issues';
 
   @override
-  String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run FluffyChat.';
+  String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run Stawi.';
 
   @override
   String switchToAccount(String number) {
@@ -1772,7 +1772,7 @@ class L10nEn extends L10n {
   String get callingAccount => 'Calling account';
 
   @override
-  String get callingAccountDetails => 'Allows FluffyChat to use the native android dialer app.';
+  String get callingAccountDetails => 'Allows Stawi to use the native android dialer app.';
 
   @override
   String get appearOnTop => 'Appear on top';
@@ -1781,7 +1781,7 @@ class L10nEn extends L10n {
   String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)';
 
   @override
-  String get otherCallingPermissions => 'Microphone, camera and other FluffyChat permissions';
+  String get otherCallingPermissions => 'Microphone, camera and other Stawi permissions';
 
   @override
   String get whyIsThisMessageEncrypted => 'Why is this message unreadable?';
@@ -2049,7 +2049,7 @@ class L10nEn extends L10n {
   String get finalizeGroupConfiguration => 'Finalize Group configuration';
 
   @override
-  String finalizeGroupConfigurationDescription(Object groupName) {
+  String finalizeGroupConfigurationDescription(String groupName) {
     return 'Your group $groupName will be configured shortly';
   }
 
@@ -2063,7 +2063,7 @@ class L10nEn extends L10n {
   String get groupCreationSuccessful => 'Successfully Queued Group Create Request';
 
   @override
-  String groupCreationSuccessfulDescription(Object groupName) {
+  String groupCreationSuccessfulDescription(String groupName) {
     return 'Group with the name $groupName is being configured, this will take a moment. \n\n Add all the members to the group from your contacts';
   }
 
@@ -2660,12 +2660,12 @@ class L10nEn extends L10n {
   String get deleteAnswer => 'Delete answer';
 
   @override
-  String startedAPoll(Object sender) {
+  String startedAPoll(String sender) {
     return '$sender started a poll';
   }
 
   @override
-  String countVotes(num votes, Object percentage) {
+  String countVotes(int votes, String percentage) {
     String _temp0 = intl.Intl.pluralLogic(
       votes,
       locale: localeName,
@@ -2712,17 +2712,17 @@ class L10nEn extends L10n {
   String get enterContactName => 'Enter contact name';
 
   @override
-  String errorFieldRequired(Object fieldName) {
+  String errorFieldRequired(String fieldName) {
     return 'field is empty, please fill it out';
   }
 
   @override
-  String errorFieldShouldBeNumeric(Object fieldName) {
+  String errorFieldShouldBeNumeric(String fieldName) {
     return 'field is not a valid number';
   }
 
   @override
-  String errorFieldShouldBeInTheFuture(Object fieldName) {
+  String errorFieldShouldBeInTheFuture(String fieldName) {
     return 'field is should be in the future';
   }
 

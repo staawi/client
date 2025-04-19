@@ -1,32 +1,19 @@
-FluffyChat is an open, nonprofit and cute Matrix messenger app for Ubuntu Touch, Android and iOS.
+Stawi – Transparent Group Credit & Savings, Powered by Chat
 
-Open
-Opensource and open development where everyone can join.
+Stawi is a modern solution for groups who save and lend together. Whether you’re a chama, a community group, or an informal circle, Stawi makes it easy to manage money collectively — with transparency, accountability, and zero paperwork.
 
-Nonprofit
-FluffyChat is donation funded.
+Built on secure, WhatsApp-style messaging, Stawi combines group chat with automated tools to help you:
 
-Cute ♥
-Cute design and many theme settings including a dark mode. 
+💬 Communicate easily with built-in group messaging
 
-One-to-one and group chats
-Unlimited groups and direct chats.
+💰 Track savings, contributions, loans, and repayments
 
-Easy
-FluffyChat is made as simple to use as possible.
+📊 Access real-time reports and transparent records
 
-Free
-Free to use for everyone without ads.
+⚙️ Automate reminders, contributions, and reconciliations
 
-Decentralized
-There is no "FluffyChat server" you are forced to use. Use the server you find trustworthy or host your own.
+🔒 Protect your data with strong privacy and encryption
 
-Compatible
-Compatible with Element, Fractal, Nheko and all Matrix messengers.
+We're on a mission to make group-based credit and savings simple, trustworthy, and fully automated — so your group can focus on growing, not managing.
 
-
-FluffyChat comes with a dream
-
-Imagine a world where everyone can choose the messenger they like and is still able to chat with all of their friends.
-A world where there are no companies spying on you when you send selfies to friends and your loved.
-And a world where apps are made for fluffyness and not for profit. ♥
+Download Stawi and experience the future of group financial collaboration.

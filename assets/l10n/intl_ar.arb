@@ -1,19 +1,28 @@
 {
-  "@@locale": "sr",
-  "@@last_modified": "2021-08-14 12:41:09.857024",
-  "about": "О програму",
-  "accept": "Прихвати",
-  "acceptedTheInvitation": "{username} прихвата позивницу",
-  "@acceptedTheInvitation": {
+  "@@locale": "ar",
+  "alwaysUse24HourFormat": "خاطئ",
+  "@alwaysUse24HourFormat": {
+    "description": "اضبط على صحيح لعرض الوقت دائمًا بتنسيق 24 ساعة."
+  },
+  "repeatPassword": "أعد إدخال كلمة المرور",
+  "notAnImage": "ليس ملف صورة.",
+  "remove": "إزالة",
+  "importNow": "استيراد الآن",
+  "importEmojis": "استيراد الرموز التعبيرية",
+  "importFromZipFile": "استيراد من ملف .zip",
+  "exportEmotePack": "تصدير حزمة الرموز التعبيرية كـ .zip",
+  "replace": "استبدال",
+  "about": "حول",
+  "aboutHomeserver": "حول {homeserver}",
+  "@aboutHomeserver": {
     "type": "String",
     "placeholders": {
-      "username": {
+      "homeserver": {
         "type": "String"
       }
     }
   },
-  "account": "Налог",
-  "activatedEndToEndEncryption": "{username} укључи шифровање с краја на крај",
+  "activatedEndToEndEncryption": "🔐 {username} فعّل التشفير من الطرف إلى الطرف",
   "@activatedEndToEndEncryption": {
     "type": "String",
     "placeholders": {
@@ -22,11 +31,7 @@
       }
     }
   },
-  "addEmail": "Додај е-адресу",
-  "admin": "Админ",
-  "alias": "алијас",
-  "all": "Сви",
-  "answeredTheCall": "{senderName} одговори на позив",
+  "answeredTheCall": "{senderName} أجاب على المكالمة",
   "@answeredTheCall": {
     "type": "String",
     "placeholders": {
@@ -35,49 +40,56 @@
       }
     }
   },
-  "anyoneCanJoin": "свако може да се придружи",
-  "appLock": "Закључавање апликације",
-  "archive": "Архива",
-  "areGuestsAllowedToJoin": "Да ли је гостима дозвољен приступ",
-  "areYouSure": "Сигурни сте?",
-  "areYouSureYouWantToLogout": "Заиста желите да се одјавите?",
-  "askSSSSSign": "Да бисте могли да пријавите другу особу, унесите своју безбедносну фразу или кључ опоравка.",
-  "askVerificationRequest": "Прихватате ли захтев за верификацију од корисника {username}?",
-  "@askVerificationRequest": {
+  "addEmail": "إضافة بريد إلكتروني",
+  "confirmMatrixId": "يرجى تأكيد معرف Matrix الخاص بك لحذف حسابك.",
+  "supposedMxid": "يجب أن يكون هذا {mxid}",
+  "@supposedMxid": {
     "type": "String",
     "placeholders": {
-      "username": {
+      "mxid": {
         "type": "String"
       }
     }
   },
-  "badServerLoginTypesException": "Домаћи сервер подржава начине пријаве:\n{serverVersions}\nали ова апликација подржава само:\n{supportedVersions}",
-  "@badServerLoginTypesException": {
+  "addChatDescription": "أضف وصفًا للدردشة...",
+  "addToSpace": "أضف إلى المساحة",
+  "admin": "مشرف",
+  "alias": "اسم مستعار",
+  "all": "الكل",
+  "allChats": "جميع الدردشات",
+  "commandHint_googly": "أرسل عيون جاحظة",
+  "commandHint_cuddle": "أرسل عناقًا",
+  "commandHint_hug": "أرسل حضنًا",
+  "googlyEyesContent": "{senderName} يرسل لك عيون جاحظة",
+  "@googlyEyesContent": {
     "type": "String",
     "placeholders": {
-      "serverVersions": {
-        "type": "String"
-      },
-      "supportedVersions": {
+      "senderName": {
         "type": "String"
       }
     }
   },
-  "badServerVersionsException": "Домаћи сервер подржава верзије:\n{serverVersions}\nали ова апликација подржава само {supportedVersions}",
-  "@badServerVersionsException": {
+  "cuddleContent": "{senderName} يعانقك",
+  "@cuddleContent": {
     "type": "String",
     "placeholders": {
-      "serverVersions": {
-        "type": "String"
-      },
-      "supportedVersions": {
+      "senderName": {
         "type": "String"
       }
     }
   },
-  "banFromChat": "Забрани у ћаскању",
-  "banned": "Забрањен",
-  "bannedUser": "{username} забрани корисника {targetName}",
+  "hugContent": "{senderName} يحتضنك",
+  "@hugContent": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "banFromChat": "حظر من الدردشة",
+  "banned": "محظور",
+  "bannedUser": "{username} حظر {targetName}",
   "@bannedUser": {
     "type": "String",
     "placeholders": {
@@ -89,12 +101,20 @@
       }
     }
   },
-  "blockDevice": "Блокирај уређај",
-  "blocked": "Блокиран",
-  "botMessages": "Поруке Бота",
-  "cancel": "Откажи",
-  "changeDeviceName": "Промени назив уређаја",
-  "changedTheChatAvatar": "{username} промени аватар ћаскања",
+  "blockDevice": "حظر الجهاز",
+  "blocked": "محظور",
+  "botMessages": "رسائل الروبوت",
+  "cantOpenUri": "لا يمكن فتح URI {uri}",
+  "@cantOpenUri": {
+    "type": "String",
+    "placeholders": {
+      "uri": {
+        "type": "String"
+      }
+    }
+  },
+  "changeDeviceName": "تغيير اسم الجهاز",
+  "changedTheChatAvatar": "{username} غير صورة الدردشة",
   "@changedTheChatAvatar": {
     "type": "String",
     "placeholders": {
@@ -103,7 +123,87 @@
       }
     }
   },
-  "changedTheChatDescriptionTo": "{username} промени опис ћаскања у: „{description}“",
+  "accept": "قبول",
+  "acceptedTheInvitation": "👍 {username} قبل الدعوة",
+  "@acceptedTheInvitation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "account": "الحساب",
+  "areGuestsAllowedToJoin": "هل يُسمح للضيوف بالانضمام",
+  "areYouSure": "هل أنت متأكد؟",
+  "areYouSureYouWantToLogout": "هل أنت متأكد أنك تريد تسجيل الخروج؟",
+  "askSSSSSign": "لكي تتمكن من توقيع الشخص الآخر، يرجى إدخال عبارة المرور أو مفتاح الاسترداد لمخزن الأمان الخاص بك.",
+  "askVerificationRequest": "قبول طلب التحقق هذا من {username}؟",
+  "@askVerificationRequest": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "autoplayImages": "تشغيل الملصقات والرموز التعبيرية المتحركة تلقائيًا",
+  "@autoplayImages": {
+    "type": "String",
+    "placeholder": {}
+  },
+  "badServerLoginTypesException": "يدعم الخادم أنواع تسجيل الدخول:\n{serverVersions}\nلكن هذا التطبيق يدعم فقط:\n{supportedVersions}",
+  "@badServerLoginTypesException": {
+    "type": "String",
+    "placeholders": {
+      "serverVersions": {
+        "type": "String"
+      },
+      "supportedVersions": {
+        "type": "String"
+      }
+    }
+  },
+  "sendTypingNotifications": "إرسال إشعارات الكتابة",
+  "swipeRightToLeftToReply": "اسحب من اليمين إلى اليسار للرد",
+  "sendOnEnter": "إرسال عند الضغط على Enter",
+  "badServerVersionsException": "يدعم الخادم إصدارات Spec:\n{serverVersions}\nلكن هذا التطبيق يدعم فقط {supportedVersions}",
+  "@badServerVersionsException": {
+    "type": "String",
+    "placeholders": {
+      "serverVersions": {
+        "type": "String"
+      },
+      "supportedVersions": {
+        "type": "String"
+      }
+    }
+  },
+  "countChatsAndCountParticipants": "{chats} دردشات و {participants} مشاركين",
+  "@countChatsAndCountParticipants": {
+    "type": "String",
+    "placeholders": {
+      "chats": {
+        "type": "int"
+      },
+      "participants": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreChatsFound": "لم يتم العثور على المزيد من الدردشات...",
+  "noChatsFoundHere": "لم يتم العثور على دردشات هنا بعد. ابدأ دردشة جديدة مع شخص ما باستخدام الزر أدناه. ⤵️",
+  "joinedChats": "الدردشات المنضمة",
+  "unread": "غير مقروء",
+  "space": "مساحة",
+  "spaces": "مساحات",
+  "anyoneCanJoin": "يمكن لأي شخص الانضمام",
+  "appLock": "قفل التطبيق",
+  "appLockDescription": "اقفل التطبيق عند عدم الاستخدام باستخدام رمز PIN",
+  "archive": "أرشيف",
+  "@@last_modified": "2021-08-14 12:38:37.885451",
+  "cancel": "إلغاء",
+  "changedTheChatDescriptionTo": "{username} غيّر وصف الدردشة إلى: '{description}'",
   "@changedTheChatDescriptionTo": {
     "type": "String",
     "placeholders": {
@@ -115,7 +215,7 @@
       }
     }
   },
-  "changedTheChatNameTo": "{username} промени назив ћаскања у: „{chatname}“",
+  "changedTheChatNameTo": "{username} غيّر اسم الدردشة إلى: '{chatname}'",
   "@changedTheChatNameTo": {
     "type": "String",
     "placeholders": {
@@ -127,7 +227,7 @@
       }
     }
   },
-  "changedTheChatPermissions": "{username} измени дозволе ћаскања",
+  "changedTheChatPermissions": "{username} غيّر أذونات الدردشة",
   "@changedTheChatPermissions": {
     "type": "String",
     "placeholders": {
@@ -136,7 +236,7 @@
       }
     }
   },
-  "changedTheDisplaynameTo": "{username} промени приказно име на: „{displayname}“",
+  "changedTheDisplaynameTo": "{username} غيّر اسمه إلى {displayname}",
   "@changedTheDisplaynameTo": {
     "type": "String",
     "placeholders": {
@@ -148,7 +248,7 @@
       }
     }
   },
-  "changedTheGuestAccessRules": "{username} измени правила за приступ гостију",
+  "changedTheGuestAccessRules": "{username} غيّر قواعد وصول الضيف",
   "@changedTheGuestAccessRules": {
     "type": "String",
     "placeholders": {
@@ -157,7 +257,7 @@
       }
     }
   },
-  "changedTheGuestAccessRulesTo": "{username} измени правила за приступ гостију на: {rules}",
+  "changedTheGuestAccessRulesTo": "{username} غيّر قواعد وصول الضيف إلى: {rules}",
   "@changedTheGuestAccessRulesTo": {
     "type": "String",
     "placeholders": {
@@ -169,7 +269,7 @@
       }
     }
   },
-  "changedTheHistoryVisibility": "{username} измени видљивост историје",
+  "changedTheHistoryVisibility": "{username} غيّر رؤية السجل",
   "@changedTheHistoryVisibility": {
     "type": "String",
     "placeholders": {
@@ -178,7 +278,7 @@
       }
     }
   },
-  "changedTheHistoryVisibilityTo": "{username} измени видљивост историје на: {rules}",
+  "changedTheHistoryVisibilityTo": "{username} غيّر رؤية السجل إلى: {rules}",
   "@changedTheHistoryVisibilityTo": {
     "type": "String",
     "placeholders": {
@@ -190,7 +290,7 @@
       }
     }
   },
-  "changedTheJoinRules": "{username} измени правила приступања",
+  "changedTheJoinRules": "{username} غيّر قواعد الانضمام",
   "@changedTheJoinRules": {
     "type": "String",
     "placeholders": {
@@ -199,7 +299,7 @@
       }
     }
   },
-  "changedTheJoinRulesTo": "{username} измени правила приступања на: {joinRules}",
+  "changedTheJoinRulesTo": "{username} غيّر قواعد الانضمام إلى: {joinRules}",
   "@changedTheJoinRulesTo": {
     "type": "String",
     "placeholders": {
@@ -211,7 +311,7 @@
       }
     }
   },
-  "changedTheProfileAvatar": "{username} измени свој аватар",
+  "changedTheProfileAvatar": "{username} غيّر صورة الملف الشخصي",
   "@changedTheProfileAvatar": {
     "type": "String",
     "placeholders": {
@@ -220,7 +320,7 @@
       }
     }
   },
-  "changedTheRoomAliases": "{username} измени алијас собе",
+  "changedTheRoomAliases": "{username} غيّر الأسماء المستعارة للغرفة",
   "@changedTheRoomAliases": {
     "type": "String",
     "placeholders": {
@@ -229,7 +329,7 @@
       }
     }
   },
-  "changedTheRoomInvitationLink": "{username} измени везу позивнице",
+  "changedTheRoomInvitationLink": "{username} غيّر رابط الدعوة",
   "@changedTheRoomInvitationLink": {
     "type": "String",
     "placeholders": {
@@ -238,98 +338,141 @@
       }
     }
   },
-  "changePassword": "Измени лозинку",
-  "changeTheHomeserver": "Промени домаћи сервер",
-  "changeTheme": "Измените изглед",
-  "changeTheNameOfTheGroup": "Измени назив групе",
-  "changeYourAvatar": "Измените свој аватар",
-  "channelCorruptedDecryptError": "Шифровање је покварено",
-  "chat": "Ћаскање",
-  "chatBackup": "Копија ћаскања",
-  "chatBackupDescription": "Ваша резервна копија ћаскања је обезбеђена кључем. Немојте да га изгубите.",
-  "chatDetails": "Детаљи ћаскања",
-  "chats": "Ћаскања",
-  "chooseAStrongPassword": "Изаберите јаку лозинку",
-  "clearArchive": "Очисти архиву",
-  "close": "Затвори",
-  "commandHint_ban": "Блокирај задатог корисника за ову собу",
+  "changePassword": "تغيير كلمة المرور",
+  "changeTheHomeserver": "تغيير الخادم الرئيسي",
+  "changeTheme": "تغيير النمط الخاص بك",
+  "changeTheNameOfTheGroup": "تغيير اسم المجموعة",
+  "changeYourAvatar": "تغيير صورتك الشخصية",
+  "channelCorruptedDecryptError": "تم إفساد التشفير",
+  "chat": "دردشة",
+  "yourChatBackupHasBeenSetUp": "تم إعداد نسخة احتياطية للدردشة الخاصة بك.",
+  "chatBackup": "نسخة احتياطية للدردشة",
+  "chatBackupDescription": "تم تأمين رسائلك القديمة بمفتاح استرداد. يرجى التأكد من عدم فقدانه.",
+  "chatDetails": "تفاصيل الدردشة",
+  "chatHasBeenAddedToThisSpace": "تمت إضافة الدردشة إلى هذه المساحة",
+  "chats": "الدردشات",
+  "chooseAStrongPassword": "اختر كلمة مرور قوية",
+  "clearArchive": "مسح الأرشيف",
+  "close": "إغلاق",
+  "commandHint_markasdm": "تعيين كغرفة رسائل مباشرة لمعرف Matrix المحدد",
+  "commandHint_markasgroup": "تعيين كمجموعة",
+  "commandHint_ban": "حظر المستخدم المحدد من هذه الغرفة",
   "@commandHint_ban": {
     "type": "String",
-    "description": "Usage hint for the command /ban"
+    "description": "تلميح استخدام للأمر /ban"
   },
-  "commandHint_html": "Шаљи ХТМЛ обликован текст",
+  "commandHint_clearcache": "مسح ذاكرة التخزين المؤقت",
+  "@commandHint_clearcache": {
+    "type": "String",
+    "description": "تلميح استخدام للأمر /clearcache"
+  },
+  "commandHint_create": "أنشئ دردشة جماعية فارغة\nاستخدم --no-encryption لتعطيل التشفير",
+  "@commandHint_create": {
+    "type": "String",
+    "description": "تلميح استخدام للأمر /create"
+  },
+  "commandHint_discardsession": "تجاهل الجلسة",
+  "@commandHint_discardsession": {
+    "type": "String",
+    "description": "تلميح استخدام للأمر /discardsession"
+  },
+  "commandHint_dm": "ابدأ دردشة مباشرة\nاستخدم --no-encryption لتعطيل التشفير",
+  "@commandHint_dm": {
+    "type": "String",
+    "description": "تلميح استخدام للأمر /dm"
+  },
+  "commandHint_html": "إرسال نص بتنسيق HTML",
   "@commandHint_html": {
     "type": "String",
-    "description": "Usage hint for the command /html"
+    "description": "تلميح استخدام للأمر /html"
   },
-  "commandHint_invite": "Позови задатог корисника у собу",
+  "commandHint_invite": "دعوة المستخدم المحدد إلى هذه الغرفة",
   "@commandHint_invite": {
     "type": "String",
-    "description": "Usage hint for the command /invite"
+    "description": "تلميح استخدام للأمر /invite"
   },
-  "commandHint_join": "Придружи се наведеној соби",
+  "commandHint_join": "الانضمام إلى الغرفة المحددة",
   "@commandHint_join": {
     "type": "String",
-    "description": "Usage hint for the command /join"
+    "description": "تلميح استخدام للأمر /join"
   },
-  "commandHint_kick": "Уклони задатог корисника из собе",
+  "commandHint_kick": "إزالة المستخدم المحدد من هذه الغرفة",
   "@commandHint_kick": {
     "type": "String",
-    "description": "Usage hint for the command /kick"
+    "description": "تلميح استخدام للأمر /kick"
   },
-  "commandHint_leave": "Напусти ову собу",
+  "commandHint_leave": "مغادرة هذه الغرفة",
   "@commandHint_leave": {
     "type": "String",
-    "description": "Usage hint for the command /leave"
+    "description": "تلميح استخدام للأمر /leave"
   },
-  "commandHint_me": "Опишите себе",
+  "commandHint_me": "صف نفسك",
   "@commandHint_me": {
     "type": "String",
-    "description": "Usage hint for the command /me"
+    "description": "تلميح استخدام للأمر /me"
   },
-  "commandHint_myroomnick": "Поставља ваш надимак за ову собу",
+  "commandHint_myroomavatar": "تعيين صورتك لهذه الغرفة (عن طريق mxc-uri)",
+  "@commandHint_myroomavatar": {
+    "type": "String",
+    "description": "تلميح استخدام للأمر /myroomavatar"
+  },
+  "commandHint_myroomnick": "تعيين اسم العرض الخاص بك لهذه الغرفة",
   "@commandHint_myroomnick": {
     "type": "String",
-    "description": "Usage hint for the command /myroomnick"
+    "description": "تلميح استخدام للأمر /myroomnick"
   },
-  "commandHint_op": "Подеси ниво задатог корисника (подразумевано: 50)",
+  "commandHint_op": "تعيين مستوى صلاحيات المستخدم المحدد (افتراضي: 50)",
   "@commandHint_op": {
     "type": "String",
-    "description": "Usage hint for the command /op"
+    "description": "تلميح استخدام للأمر /op"
   },
-  "commandHint_plain": "Шаљи неформатиран текст",
+  "commandHint_plain": "إرسال نص غير منسق",
   "@commandHint_plain": {
     "type": "String",
-    "description": "Usage hint for the command /plain"
+    "description": "تلميح استخدام للأمر /plain"
   },
-  "commandHint_react": "Шаљи одговор као реакцију",
+  "commandHint_react": "إرسال الرد كرد فعل",
   "@commandHint_react": {
     "type": "String",
-    "description": "Usage hint for the command /react"
+    "description": "تلميح استخدام للأمر /react"
   },
-  "commandHint_send": "Пошаљи текст",
+  "commandHint_send": "إرسال نص",
   "@commandHint_send": {
     "type": "String",
-    "description": "Usage hint for the command /send"
+    "description": "تلميح استخدام للأمر /send"
   },
-  "commandHint_unban": "Скини забрану задатом кориснику за ову собу",
+  "commandHint_unban": "إلغاء حظر المستخدم المحدد من هذه الغرفة",
   "@commandHint_unban": {
     "type": "String",
-    "description": "Usage hint for the command /unban"
+    "description": "تلميح استخدام للأمر /unban"
   },
-  "compareEmojiMatch": "Упоредите и проверите да су емоџији идентични као на другом уређају:",
-  "compareNumbersMatch": "Упоредите и проверите да су следећи бројеви идентични као на другом уређају:",
-  "configureChat": "Подешавање ћаскања",
-  "confirm": "Потврди",
-  "connect": "Повежи се",
-  "contactHasBeenInvitedToTheGroup": "Особа је позвана у групу",
-  "containsDisplayName": "Садржи приказно име",
-  "containsUserName": "Садржи корисничко име",
-  "contentHasBeenReported": "Садржај је пријављен администраторима сервера",
-  "copiedToClipboard": "Копирано у клипборд",
-  "copy": "Копирај",
-  "copyToClipboard": "Копирај у клипборд",
-  "couldNotDecryptMessage": "Не могу да дешифрујем поруку: {error}",
+  "commandInvalid": "أمر غير صالح",
+  "@commandInvalid": {
+    "type": "String"
+  },
+  "commandMissing": "{command} ليس أمرًا.",
+  "@commandMissing": {
+    "type": "String",
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    },
+    "description": "يشير إلى أن {command} ليس أمرًا صالحًا."
+  },
+  "compareEmojiMatch": "يرجى مقارنة الرموز التعبيرية",
+  "compareNumbersMatch": "يرجى مقارنة الأرقام",
+  "configureChat": "تهيئة الدردشة",
+  "confirm": "تأكيد",
+  "connect": "اتصال",
+  "contactHasBeenInvitedToTheGroup": "تمت دعوة جهة الاتصال إلى المجموعة",
+  "containsDisplayName": "يحتوي على اسم العرض",
+  "containsUserName": "يحتوي على اسم المستخدم",
+  "contentHasBeenReported": "تم الإبلاغ عن المحتوى لمسؤولي الخادم",
+  "copiedToClipboard": "تم النسخ إلى الحافظة",
+  "copy": "نسخ",
+  "copyToClipboard": "نسخ إلى الحافظة",
+  "couldNotDecryptMessage": "تعذر فك تشفير الرسالة: {error}",
   "@couldNotDecryptMessage": {
     "type": "String",
     "placeholders": {
@@ -338,7 +481,7 @@
       }
     }
   },
-  "countParticipants": "учесника: {count}",
+  "countParticipants": "{count} مشارك",
   "@countParticipants": {
     "type": "String",
     "placeholders": {
@@ -347,8 +490,8 @@
       }
     }
   },
-  "create": "Направи",
-  "createdTheChat": "{username} направи ћаскање",
+  "create": "إنشاء",
+  "createdTheChat": "💬 {username} أنشأ الدردشة",
   "@createdTheChat": {
     "type": "String",
     "placeholders": {
@@ -357,8 +500,10 @@
       }
     }
   },
-  "currentlyActive": "Тренутно активно",
-  "darkTheme": "тамни",
+  "createGroup": "إنشاء مجموعة",
+  "createNewSpace": "مساحة جديدة",
+  "currentlyActive": "نشط حاليًا",
+  "darkTheme": "داكن",
   "dateAndTimeOfDay": "{date}, {timeOfDay}",
   "@dateAndTimeOfDay": {
     "type": "String",
@@ -371,7 +516,7 @@
       }
     }
   },
-  "dateWithoutYear": "{day} {month}",
+  "dateWithoutYear": "{month}-{day}",
   "@dateWithoutYear": {
     "type": "String",
     "placeholders": {
@@ -383,7 +528,7 @@
       }
     }
   },
-  "dateWithYear": "{day} {month} {year}",
+  "dateWithYear": "{year}-{month}-{day}",
   "@dateWithYear": {
     "type": "String",
     "placeholders": {
@@ -398,36 +543,45 @@
       }
     }
   },
-  "deactivateAccountWarning": "Ово ће деактивирати ваш кориснички налог. Не може се повратити! Сигурни сте?",
-  "defaultPermissionLevel": "Подразумевани ниво приступа",
-  "delete": "Обриши",
-  "deleteAccount": "Обриши налог",
-  "deleteMessage": "Брисање поруке",
-  "device": "Уређај",
-  "deviceId": "ИД уређаја",
-  "devices": "Уређаји",
-  "directChats": "Директна ћаскања",
-  "displaynameHasBeenChanged": "Име за приказ је измењено",
-  "downloadFile": "Преузми фајл",
-  "edit": "Уреди",
-  "editBlockedServers": "Уреди блокиране сервере",
-  "editDisplayname": "Уреди име за приказ",
-  "editRoomAliases": "Уреди алијасе собе",
-  "editRoomAvatar": "Уређује аватар собе",
-  "emoteExists": "Емоти већ постоји!",
-  "emoteInvalid": "Неисправна скраћеница за емоти!",
-  "emotePacks": "Пакети емотија за собу",
-  "emoteSettings": "Поставке емотија",
-  "emoteShortcode": "скраћеница",
-  "emoteWarnNeedToPick": "Морате да изаберете скраћеницу и слику за емоти!",
-  "emptyChat": "празно ћаскање",
-  "enableEmotesGlobally": "Глобално укључи пакет емотија",
-  "enableEncryption": "Укључује шифровање",
-  "enableEncryptionWarning": "Шифровање више нећете моћи да искључите. Сигурни сте?",
-  "encrypted": "Шифровано",
-  "encryption": "Шифровање",
-  "encryptionNotEnabled": "Шифровање није укључено",
-  "endedTheCall": "{senderName} заврши позив",
+  "deactivateAccountWarning": "سيؤدي ذلك إلى إلغاء تنشيط حساب المستخدم الخاص بك. لا يمكن التراجع عن هذا! هل أنت متأكد؟",
+  "defaultPermissionLevel": "مستوى الإذن الافتراضي للمستخدمين الجدد",
+  "delete": "حذف",
+  "deleteAccount": "حذف الحساب",
+  "deleteMessage": "حذف الرسالة",
+  "device": "جهاز",
+  "deviceId": "معرف الجهاز",
+  "devices": "الأجهزة",
+  "directChats": "دردشات مباشرة",
+  "allRooms": "جميع الدردشات الجماعية",
+  "displaynameHasBeenChanged": "تم تغيير اسم العرض",
+  "downloadFile": "تنزيل الملف",
+  "edit": "تعديل",
+  "editBlockedServers": "تعديل الخوادم المحظورة",
+  "chatPermissions": "أذونات الدردشة",
+  "editDisplayname": "تعديل اسم العرض",
+  "editRoomAliases": "تعديل الأسماء المستعارة للغرفة",
+  "editRoomAvatar": "تعديل صورة الغرفة",
+  "emoteExists": "الرمز التعبيري موجود بالفعل!",
+  "emoteInvalid": "اختصار الرمز التعبيري غير صالح!",
+  "emoteKeyboardNoRecents": "ستظهر الرموز التعبيرية المستخدمة مؤخرًا هنا...",
+  "emotePacks": "حزم الرموز التعبيرية للغرفة",
+  "emoteSettings": "إعدادات الرموز التعبيرية",
+  "globalChatId": "معرف الدردشة العالمي",
+  "accessAndVisibility": "الوصول والرؤية",
+  "accessAndVisibilityDescription": "من يُسمح له بالانضمام إلى هذه الدردشة وكيفية اكتشاف الدردشة.",
+  "calls": "Calls",
+  "customEmojisAndStickers": "رموز تعبيرية وملصقات مخصصة",
+  "customEmojisAndStickersBody": "أضف أو شارك رموزًا تعبيرية أو ملصقات مخصصة يمكن استخدامها في أي دردشة.",
+  "emoteShortcode": "اختصار الرمز التعبيري",
+  "emoteWarnNeedToPick": "تحتاج إلى اختيار اختصار للرمز التعبيري وصورة!",
+  "emptyChat": "دردشة فارغة",
+  "enableEmotesGlobally": "تمكين حزمة الرموز التعبيرية عالميًا",
+  "enableEncryption": "تمكين التشفير",
+  "enableEncryptionWarning": "لن تتمكن من تعطيل التشفير بعد الآن. هل أنت متأكد؟",
+  "encrypted": "Encrypted",
+  "encryption": "تشفير",
+  "encryptionNotEnabled": "Encryption is not enabled",
+  "endedTheCall": "{senderName} ended the call",
   "@endedTheCall": {
     "type": "String",
     "placeholders": {
@@ -436,21 +590,33 @@
       }
     }
   },
-  "enterAnEmailAddress": "Унесите адресу е-поште",
-  "enterYourHomeserver": "Унесите свој домаћи сервер",
-  "everythingReady": "Све је спремно!",
-  "extremeOffensive": "Екстремно увредљив",
-  "fileName": "Назив фајла",
+  "enterAnEmailAddress": "Enter an email address",
+  "homeserver": "Homeserver",
+  "enterYourHomeserver": "Enter your homeserver",
+  "errorObtainingLocation": "Error obtaining location: {error}",
+  "@errorObtainingLocation": {
+    "type": "String",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "everythingReady": "Everything ready!",
+  "extremeOffensive": "Extremely offensive",
+  "fileName": "File name",
   "stawi": "Stawi",
-  "fontSize": "Величина фонта",
-  "forward": "Напред",
-  "fromJoining": "од приступања",
-  "fromTheInvitation": "од позивања",
-  "goToTheNewRoom": "Иди у нову собу",
-  "group": "Група",
-  "groupIsPublic": "Група је јавна",
-  "groups": "Групе",
-  "groupWith": "Група са корисником {displayname}",
+  "fontSize": "Font size",
+  "forward": "إعادة توجيه",
+  "fromJoining": "From joining",
+  "fromTheInvitation": "From the invitation",
+  "goToTheNewRoom": "Go to the new room",
+  "group": "مجموعة",
+  "chatDescription": "Chat description",
+  "chatDescriptionHasBeenChanged": "Chat description changed",
+  "groupIsPublic": "Group is public",
+  "groups": "مجموعات",
+  "groupWith": "Group with {displayname}",
   "@groupWith": {
     "type": "String",
     "placeholders": {
@@ -459,9 +625,9 @@
       }
     }
   },
-  "guestsAreForbidden": "гости су забрањени",
-  "guestsCanJoin": "гости могу приступити",
-  "hasWithdrawnTheInvitationFor": "{username} поништи позивницу за корисника {targetName}",
+  "guestsAreForbidden": "Guests are forbidden",
+  "guestsCanJoin": "Guests can join",
+  "hasWithdrawnTheInvitationFor": "{username} has withdrawn the invitation for {targetName}",
   "@hasWithdrawnTheInvitationFor": {
     "type": "String",
     "placeholders": {
@@ -473,650 +639,23 @@
       }
     }
   },
-  "help": "Помоћ",
-  "hideRedactedEvents": "Сакриј редиговане догађаје",
-  "hideUnknownEvents": "Сакриј непознате догађаје",
-  "howOffensiveIsThisContent": "Колико је увредљив овај садржај?",
-  "id": "ИД",
-  "identity": "Идентитет",
-  "ignore": "Игнориши",
-  "ignoredUsers": "Игнорисани корисници",
-  "iHaveClickedOnLink": "Кликнуо сам на везу",
-  "incorrectPassphraseOrKey": "Неисправна фраза или кључ опоравка",
-  "inoffensive": "Није увредљив",
-  "inviteContact": "Позивање особа",
-  "inviteContactToGroup": "Позови особу у групу {groupName}",
-  "@inviteContactToGroup": {
-    "type": "String",
-    "placeholders": {
-      "groupName": {
-        "type": "String"
-      }
-    }
-  },
-  "invited": "Позван",
-  "invitedUser": "{username} позва корисника {targetName}",
-  "@invitedUser": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "targetName": {
-        "type": "String"
-      }
-    }
-  },
-  "invitedUsersOnly": "само позвани корисници",
-  "inviteForMe": "Позивнице за мене",
-  "inviteText": "{username} вас позива у Stawi. \n1. Инсталирајте Stawi: https://stawi.im \n2. Региструјте се или пријавите \n3. Отворите везу позивнице: {link}",
-  "@inviteText": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "link": {
-        "type": "String"
-      }
-    }
-  },
-  "isTyping": "куца…",
-  "joinedTheChat": "{username} се придружи ћаскању",
-  "@joinedTheChat": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "joinRoom": "Придружи се соби",
-  "kicked": "{username} избаци корисника {targetName}",
-  "@kicked": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "targetName": {
-        "type": "String"
-      }
-    }
-  },
-  "kickedAndBanned": "{username} избаци и забрани корисника {targetName}",
-  "@kickedAndBanned": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "targetName": {
-        "type": "String"
-      }
-    }
-  },
-  "kickFromChat": "Избаци из ћаскања",
-  "lastActiveAgo": "Последња активност: {localizedTimeShort}",
-  "@lastActiveAgo": {
-    "type": "String",
-    "placeholders": {
-      "localizedTimeShort": {
-        "type": "String"
-      }
-    }
-  },
-  "leave": "Напусти",
-  "leftTheChat": "Напусти ћаскање",
-  "license": "Лиценца",
-  "lightTheme": "светли",
-  "loadCountMoreParticipants": "Учитај још {count} учесника",
-  "@loadCountMoreParticipants": {
-    "type": "String",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "loadingPleaseWait": "Учитавам… Сачекајте.",
-  "loadMore": "Учитај још…",
-  "login": "Пријава",
-  "logInTo": "Пријава на {homeserver}",
-  "@logInTo": {
-    "type": "String",
-    "placeholders": {
-      "homeserver": {
-        "type": "String"
-      }
-    }
-  },
-  "logout": "Одјава",
-  "memberChanges": "Измене чланова",
-  "mention": "Спомени",
-  "messages": "Поруке",
-  "moderator": "Модератор",
-  "muteChat": "Ућуткај ћаскање",
-  "needPantalaimonWarning": "За сада, потребан је Пантелејмон (Pantalaimon) да бисте користили шифровање с краја на крај.",
-  "newChat": "Ново ћаскање",
-  "newMessageInStawi": "Нова порука — Stawi",
-  "newVerificationRequest": "Нови захтев за верификацију!",
-  "next": "Следеће",
-  "no": "Не",
-  "noConnectionToTheServer": "Нема везе са сервером",
-  "noEmotesFound": "Нема емотија. 😕",
-  "noEncryptionForPublicRooms": "Шифровање се може активирати након што соба престане да буде јавно доступна.",
-  "noGoogleServicesWarning": "Чини се да немате Гугл услуге на телефону. То је добра одлука за вашу приватност! Да би се протурале нотификације у Stawi, препоручујемо коришћење https://microg.org/ или https://unifiedpush.org/",
-  "none": "Ништа",
-  "noPasswordRecoveryDescription": "Још нисте одредили начин за опоравак лозинке.",
-  "noPermission": "Нема дозвола",
-  "noRoomsFound": "Нисам нашао собе…",
-  "notifications": "Обавештења",
-  "notificationsEnabledForThisAccount": "Обавештења укључена за овај налог",
-  "numUsersTyping": "{count} корисника куца…",
-  "@numUsersTyping": {
-    "type": "String",
-    "placeholders": {
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "offensive": "Увредљив",
-  "offline": "Ван везе",
-  "ok": "у реду",
-  "online": "На вези",
-  "onlineKeyBackupEnabled": "Резерва кључева на мрежи је укључена",
-  "oopsPushError": "Нажалост, дошло је до грешке при подешавању дотурања обавештења.",
-  "oopsSomethingWentWrong": "Нешто је пошло наопако…",
-  "openAppToReadMessages": "Отворите апликацију да прочитате поруке",
-  "openCamera": "Отвори камеру",
-  "or": "или",
-  "participant": "Учесник",
-  "passphraseOrKey": "фраза или кључ опоравка",
-  "password": "Лозинка",
-  "passwordForgotten": "Заборављена лозинка",
-  "passwordHasBeenChanged": "Лозинка је промењена",
-  "passwordRecovery": "Опоравак лозинке",
-  "people": "Људи",
-  "pickImage": "Избор слике",
-  "pin": "Закачи",
-  "play": "Пусти {fileName}",
-  "@play": {
-    "type": "String",
-    "placeholders": {
-      "fileName": {
-        "type": "String"
-      }
-    }
-  },
-  "pleaseChoose": "Изаберите",
-  "pleaseChooseAPasscode": "Изаберите код за пролаз",
-  "pleaseClickOnLink": "Кликните на везу у примљеној е-пошти па наставите.",
-  "pleaseEnter4Digits": "Унесите 4 цифре или оставите празно да не закључавате апликацију.",
-  "pleaseEnterYourPassword": "Унесите своју лозинку",
-  "pleaseEnterYourPin": "Унесите свој пин",
-  "pleaseEnterYourUsername": "Унесите своје корисничко име",
-  "pleaseFollowInstructionsOnWeb": "Испратите упутства на веб сајту и тапните на „Следеће“.",
-  "privacy": "Приватност",
-  "publicRooms": "Јавне собе",
-  "pushRules": "Правила протурања",
-  "reason": "Разлог",
-  "recording": "Снимам",
-  "redactedAnEvent": "{username} редигова догађај",
-  "@redactedAnEvent": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "redactMessage": "Редигуј поруку",
-  "register": "Регистрација",
-  "reject": "Одбиј",
-  "rejectedTheInvitation": "{username} одби позивницу",
-  "@rejectedTheInvitation": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "rejoin": "Поново се придружи",
-  "remove": "Уклони",
-  "removeAllOtherDevices": "Уклони све остале уређаје",
-  "removedBy": "Уклонио корисник {username}",
-  "@removedBy": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "removeDevice": "Уклони уређај",
-  "unbanFromChat": "Уклони изгнанство",
-  "removeYourAvatar": "Уклоните свој аватар",
-  "renderRichContent": "Приказуј обогаћен садржај поруке",
-  "replaceRoomWithNewerVersion": "Замени собу новијом верзијом",
-  "reply": "Одговори",
-  "reportMessage": "Пријави поруку",
-  "requestPermission": "Затражи дозволу",
-  "roomHasBeenUpgraded": "Соба је надограђена",
-  "roomVersion": "Верзија собе",
-  "search": "Претражи",
-  "security": "Безбедност",
-  "seenByUser": "{username} прегледа",
-  "@seenByUser": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "send": "Пошаљи",
-  "sendAMessage": "Пошаљи поруку",
-  "sendAudio": "Пошаљи аудио",
-  "sendFile": "Пошаљи фајл",
-  "sendImage": "Пошаљи слику",
-  "sendMessages": "Слање порука",
-  "sendOriginal": "Пошаљи оригинал",
-  "sendVideo": "Пошаљи видео",
-  "sentAFile": "{username} посла фајл",
-  "@sentAFile": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "sentAnAudio": "{username} посла аудио",
-  "@sentAnAudio": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "sentAPicture": "{username} посла слику",
-  "@sentAPicture": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "sentASticker": "{username} посла налепницу",
-  "@sentASticker": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "sentAVideo": "{username} посла видео",
-  "@sentAVideo": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "sentCallInformations": "{senderName} посла податке о позиву",
-  "@sentCallInformations": {
-    "type": "String",
-    "placeholders": {
-      "senderName": {
-        "type": "String"
-      }
-    }
-  },
-  "setAsCanonicalAlias": "Постави као главни алијас",
-  "setCustomEmotes": "постави посебне емотије",
-  "setInvitationLink": "Поставља везу позивнице",
-  "setPermissionsLevel": "Одреди ниво дозволе",
-  "setStatus": "Постави статус",
-  "settings": "Поставке",
-  "share": "Подели",
-  "sharedTheLocation": "{username} подели локацију",
-  "@sharedTheLocation": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "showPassword": "Прикажи лозинку",
-  "singlesignon": "Јединствена пријава",
-  "skip": "Прескочи",
-  "sourceCode": "Изворни код",
-  "startedACall": "{senderName} започе позив",
-  "@startedACall": {
-    "type": "String",
-    "placeholders": {
-      "senderName": {
-        "type": "String"
-      }
-    }
-  },
-  "status": "Стање",
-  "statusExampleMessage": "Како сте данас?",
-  "submit": "Пошаљи",
-  "systemTheme": "системски",
-  "theyDontMatch": "Не поклапају се",
-  "theyMatch": "Поклапају се",
-  "title": "Stawi",
-  "@title": {
-    "description": "Title for the application",
-    "type": "String",
-    "placeholders": {}
-  },
-  "toggleFavorite": "Мењај омиљеност",
-  "toggleMuted": "Мењај ућутканост",
-  "toggleUnread": "Означи не/прочитано",
-  "tooManyRequestsWarning": "Превише упита. Покушајте касније!",
-  "transferFromAnotherDevice": "Пренос са другог уређаја",
-  "tryToSendAgain": "Покушај слање поново",
-  "unavailable": "Недоступно",
-  "unbannedUser": "{username} одблокира корисника {targetName}",
-  "@unbannedUser": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "targetName": {
-        "type": "String"
-      }
-    }
-  },
-  "unblockDevice": "Одблокирај уређај",
-  "unknownDevice": "Непознат уређај",
-  "unknownEncryptionAlgorithm": "Непознат алгоритам шифровања",
-  "unknownEvent": "Непознат догађај „{type}“",
-  "@unknownEvent": {
-    "type": "String",
-    "placeholders": {
-      "type": {
-        "type": "String"
-      }
-    }
-  },
-  "unmuteChat": "Врати обавештења",
-  "unpin": "Откачи",
-  "unreadChats": "{unreadCount, plural, other{непрочитаних ћаскања: {unreadCount}}}",
-  "@unreadChats": {
-    "type": "String",
-    "placeholders": {
-      "unreadCount": {
-        "type": "int"
-      }
-    }
-  },
-  "userAndOthersAreTyping": "{username} и {count} корисника куцају…",
-  "@userAndOthersAreTyping": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "count": {
-        "type": "int"
-      }
-    }
-  },
-  "userAndUserAreTyping": "{username} и {username2} куцају…",
-  "@userAndUserAreTyping": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "username2": {
-        "type": "String"
-      }
-    }
-  },
-  "userIsTyping": "{username} куца…",
-  "@userIsTyping": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "userLeftTheChat": "{username} напусти ћаскање",
-  "@userLeftTheChat": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      }
-    }
-  },
-  "username": "Корисничко име",
-  "userSentUnknownEvent": "{username} посла {type} догађај",
-  "@userSentUnknownEvent": {
-    "type": "String",
-    "placeholders": {
-      "username": {
-        "type": "String"
-      },
-      "type": {
-        "type": "String"
-      }
-    }
-  },
-  "verified": "Оверен",
-  "verify": "Верификуј",
-  "verifyStart": "Покрени верификацију",
-  "verifySuccess": "Успешно сте верификовали!",
-  "verifyTitle": "Верификујем други налог",
-  "videoCall": "Видео позив",
-  "visibilityOfTheChatHistory": "Одреди видљивост историје",
-  "visibleForAllParticipants": "видљиво свим учесницима",
-  "visibleForEveryone": "видљиво свима",
-  "voiceMessage": "Гласовна порука",
-  "waitingPartnerAcceptRequest": "Чекам да саговорник прихвати захтев…",
-  "waitingPartnerEmoji": "Чекам да саговорник прихвати емоџије…",
-  "waitingPartnerNumbers": "Чекам да саговорник прихвати бројеве…",
-  "wallpaper": "Тапета",
-  "warning": "Упозорење!",
-  "weSentYouAnEmail": "Послали смо вам е-пошту",
-  "whoCanPerformWhichAction": "ко може шта да ради",
-  "whoIsAllowedToJoinThisGroup": "Ко може да се придружи групи",
-  "whyDoYouWantToReportThis": "Зашто желите ово да пријавите?",
-  "wipeChatBackup": "Да обришем резервну копију како би направио нови сигурносни кључ?",
-  "withTheseAddressesRecoveryDescription": "Са овим адресама можете опоравити своју лозинку.",
-  "writeAMessage": "напишите поруку…",
-  "yes": "Да",
-  "you": "Ви",
-  "youAreNoLongerParticipatingInThisChat": "Више не учествујете у овом ћаскању",
-  "youHaveBeenBannedFromThisChat": "Забрањено вам је ово ћаскање",
-  "yourPublicKey": "Ваш јавни кључ",
-  "alwaysUse24HourFormat": "false",
-  "@alwaysUse24HourFormat": {
-    "description": "Set to true to always display time of day in 24 hour format."
-  },
-  "repeatPassword": "Repeat password",
-  "notAnImage": "Not an image file.",
-  "importNow": "Import now",
-  "importEmojis": "Import Emojis",
-  "importFromZipFile": "Import from .zip file",
-  "exportEmotePack": "Export Emote pack as .zip",
-  "replace": "Replace",
-  "aboutHomeserver": "About {homeserver}",
-  "@aboutHomeserver": {
-    "type": "String",
-    "placeholders": {
-      "homeserver": {
-        "type": "String"
-      }
-    }
-  },
-  "confirmMatrixId": "Please confirm your Matrix ID in order to delete your account.",
-  "supposedMxid": "This should be {mxid}",
-  "@supposedMxid": {
-    "type": "String",
-    "placeholders": {
-      "mxid": {
-        "type": "String"
-      }
-    }
-  },
-  "addChatDescription": "Add a chat description...",
-  "addToSpace": "Add to space",
-  "allChats": "All chats",
-  "commandHint_googly": "Send some googly eyes",
-  "commandHint_cuddle": "Send a cuddle",
-  "commandHint_hug": "Send a hug",
-  "googlyEyesContent": "{senderName} sends you googly eyes",
-  "@googlyEyesContent": {
-    "type": "String",
-    "placeholders": {
-      "senderName": {
-        "type": "String"
-      }
-    }
-  },
-  "cuddleContent": "{senderName} cuddles you",
-  "@cuddleContent": {
-    "type": "String",
-    "placeholders": {
-      "senderName": {
-        "type": "String"
-      }
-    }
-  },
-  "hugContent": "{senderName} hugs you",
-  "@hugContent": {
-    "type": "String",
-    "placeholders": {
-      "senderName": {
-        "type": "String"
-      }
-    }
-  },
-  "appLockDescription": "Lock the app when not using with a pin code",
-  "autoplayImages": "Automatically play animated stickers and emotes",
-  "@autoplayImages": {
-    "type": "String",
-    "placeholder": {}
-  },
-  "sendTypingNotifications": "Send typing notifications",
-  "swipeRightToLeftToReply": "Swipe right to left to reply",
-  "sendOnEnter": "Send on enter",
-  "countChatsAndCountParticipants": "{chats} chats and {participants} participants",
-  "@countChatsAndCountParticipants": {
-    "type": "String",
-    "placeholders": {
-      "chats": {
-        "type": "int"
-      },
-      "participants": {
-        "type": "int"
-      }
-    }
-  },
-  "noMoreChatsFound": "No more chats found...",
-  "noChatsFoundHere": "No chats found here yet. Start a new chat with someone by using the button below. ⤵️",
-  "joinedChats": "Joined chats",
-  "unread": "Unread",
-  "space": "Space",
-  "spaces": "Spaces",
-  "cantOpenUri": "Can't open the URI {uri}",
-  "@cantOpenUri": {
-    "type": "String",
-    "placeholders": {
-      "uri": {
-        "type": "String"
-      }
-    }
-  },
-  "yourChatBackupHasBeenSetUp": "Your chat backup has been set up.",
-  "chatHasBeenAddedToThisSpace": "Chat has been added to this space",
-  "commandHint_markasdm": "Mark as direct message room for the giving Matrix ID",
-  "commandHint_markasgroup": "Mark as group",
-  "commandHint_clearcache": "Clear cache",
-  "@commandHint_clearcache": {
-    "type": "String",
-    "description": "Usage hint for the command /clearcache"
-  },
-  "commandHint_create": "Create an empty group chat\nUse --no-encryption to disable encryption",
-  "@commandHint_create": {
-    "type": "String",
-    "description": "Usage hint for the command /create"
-  },
-  "commandHint_discardsession": "Discard session",
-  "@commandHint_discardsession": {
-    "type": "String",
-    "description": "Usage hint for the command /discardsession"
-  },
-  "commandHint_dm": "Start a direct chat\nUse --no-encryption to disable encryption",
-  "@commandHint_dm": {
-    "type": "String",
-    "description": "Usage hint for the command /dm"
-  },
-  "commandHint_myroomavatar": "Set your picture for this room (by mxc-uri)",
-  "@commandHint_myroomavatar": {
-    "type": "String",
-    "description": "Usage hint for the command /myroomavatar"
-  },
-  "commandInvalid": "Command invalid",
-  "@commandInvalid": {
-    "type": "String"
-  },
-  "commandMissing": "{command} is not a command.",
-  "@commandMissing": {
-    "type": "String",
-    "placeholders": {
-      "command": {
-        "type": "String"
-      }
-    },
-    "description": "State that {command} is not a valid /command."
-  },
-  "createGroup": "Create group",
-  "createNewSpace": "New space",
-  "allRooms": "All Group Chats",
-  "chatPermissions": "Chat permissions",
-  "emoteKeyboardNoRecents": "Recently-used emotes will appear here...",
-  "globalChatId": "Global chat ID",
-  "accessAndVisibility": "Access and visibility",
-  "accessAndVisibilityDescription": "Who is allowed to join this chat and how the chat can be discovered.",
-  "calls": "Calls",
-  "customEmojisAndStickers": "Custom emojis and stickers",
-  "customEmojisAndStickersBody": "Add or share custom emojis or stickers which can be used in any chat.",
-  "homeserver": "Homeserver",
-  "errorObtainingLocation": "Error obtaining location: {error}",
-  "@errorObtainingLocation": {
-    "type": "String",
-    "placeholders": {
-      "error": {
-        "type": "String"
-      }
-    }
-  },
-  "chatDescription": "Chat description",
-  "chatDescriptionHasBeenChanged": "Chat description changed",
+  "help": "مساعدة",
+  "hideRedactedEvents": "Hide redacted events",
   "hideRedactedMessages": "Hide redacted messages",
   "hideRedactedMessagesBody": "If someone redacts a message, this message won't be visible in the chat anymore.",
   "hideInvalidOrUnknownMessageFormats": "Hide invalid or unknown message formats",
+  "howOffensiveIsThisContent": "How offensive is this content?",
+  "id": "ID",
+  "identity": "Identity",
   "block": "Block",
   "blockedUsers": "Blocked users",
   "blockListDescription": "You can block users who are disturbing you. You won't be able to receive any messages or room invites from the users on your personal block list.",
   "blockUsername": "Ignore username",
-  "inviteContactToGroupQuestion": "Do you want to invite {contact} to the chat \"{groupName}\"?",
+  "iHaveClickedOnLink": "I have clicked on the link",
+  "incorrectPassphraseOrKey": "Incorrect passphrase or recovery key",
+  "inoffensive": "Inoffensive",
+  "inviteContact": "Invite contact",
+  "inviteContactToGroupQuestion": "Do you want to invite {contact} to the chat {groupName}?",
   "@inviteContactToGroupQuestion": {
     "type": "String",
     "placeholders": {
@@ -1128,11 +667,105 @@
       }
     }
   },
+  "inviteContactToGroup": "Invite contact to {groupName}",
+  "@inviteContactToGroup": {
+    "type": "String",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
   "noChatDescriptionYet": "No chat description created yet.",
   "tryAgain": "Try again",
   "invalidServerName": "Invalid server name",
+  "invited": "مدعو",
   "redactMessageDescription": "The message will be redacted for all participants in this conversation. This cannot be undone.",
   "optionalRedactReason": "(Optional) Reason for redacting this message...",
+  "invitedUser": "📩 {username} invited {targetName}",
+  "@invitedUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "invitedUsersOnly": "Invited users only",
+  "inviteForMe": "Invite for me",
+  "inviteText": "{username} invited you to stawi. Visit invitation link {link} to connect",
+  "@inviteText": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "isTyping": "يكتب…",
+  "joinedTheChat": "👋 {username} joined the chat",
+  "@joinedTheChat": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "joinRoom": "Join room",
+  "kicked": "👞 {username} kicked {targetName}",
+  "@kicked": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "kickedAndBanned": "🙅 {username} kicked and banned {targetName}",
+  "@kickedAndBanned": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "kickFromChat": "Kick from chat",
+  "lastActiveAgo": "Last active: {localizedTimeShort}",
+  "@lastActiveAgo": {
+    "type": "String",
+    "placeholders": {
+      "localizedTimeShort": {
+        "type": "String"
+      }
+    }
+  },
+  "leave": "Leave",
+  "leftTheChat": "Left the chat",
+  "license": "License",
+  "lightTheme": "Light",
+  "loadCountMoreParticipants": "Load {count} more participants",
+  "@loadCountMoreParticipants": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "dehydrate": "Export session and wipe device",
   "dehydrateWarning": "This action cannot be undone. Ensure you safely store the backup file.",
   "dehydrateTor": "TOR Users: Export session",
@@ -1140,10 +773,38 @@
   "hydrateTor": "TOR Users: Import session export",
   "hydrateTorLong": "Did you export your session last time on TOR? Quickly import it and continue chatting.",
   "hydrate": "Restore from backup file",
+  "loadingPleaseWait": "Loading… Please wait.",
+  "loadMore": "Load more…",
   "locationDisabledNotice": "Location services are disabled. Please enable them to be able to share your location.",
   "locationPermissionDeniedNotice": "Location permission denied. Please grant them to be able to share your location.",
   "contactPermissionDeniedNotice": "Contact permission denied. Please grant them to be able to connect with others.",
+  "login": "Login",
+  "logInTo": "Log in to {homeserver}",
+  "@logInTo": {
+    "type": "String",
+    "placeholders": {
+      "homeserver": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Logout",
+  "memberChanges": "Member changes",
+  "mention": "Mention",
+  "messages": "Messages",
   "messagesStyle": "Messages:",
+  "moderator": "Moderator",
+  "muteChat": "Mute chat",
+  "needPantalaimonWarning": "Please be aware that you need Pantalaimon to use end-to-end encryption for now.",
+  "newChat": "New chat",
+  "newMessageInStawi": "💬 New message in Stawi",
+  "newVerificationRequest": "New verification request!",
+  "next": "Next",
+  "no": "No",
+  "noConnectionToTheServer": "No connection to the server",
+  "noEmotesFound": "No emotes found. 😕",
+  "noEncryptionForPublicRooms": "You can only activate encryption as soon as the room is no longer publicly accessible.",
+  "noGoogleServicesWarning": "Firebase Cloud Messaging doesn't appear to be available on your device. To still receive push notifications, we recommend installing ntfy. With ntfy or another Unified Push provider you can receive push notifications in a data secure way. You can download ntfy from the PlayStore or from F-Droid.",
   "noMatrixServer": "{server1} is no matrix server, use {server2} instead?",
   "@noMatrixServer": {
     "type": "String",
@@ -1158,7 +819,31 @@
   },
   "shareInviteLink": "Share invite link",
   "scanQrCode": "Scan QR code",
+  "none": "None",
+  "noPasswordRecoveryDescription": "You have not added a way to recover your password yet.",
+  "noPermission": "No permission",
+  "noRoomsFound": "No rooms found…",
+  "notifications": "Notifications",
+  "notificationsEnabledForThisAccount": "Notifications enabled for this account",
+  "numUsersTyping": "{count} users are typing…",
+  "@numUsersTyping": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "obtainingLocation": "Obtaining location…",
+  "offensive": "Offensive",
+  "offline": "Offline",
+  "ok": "Ok",
+  "online": "Online",
+  "onlineKeyBackupEnabled": "Online Key Backup is enabled",
+  "oopsPushError": "Oops! Unfortunately, an error occurred when setting up the push notifications.",
+  "oopsSomethingWentWrong": "Oops, something went wrong…",
+  "openAppToReadMessages": "Open app to read messages",
+  "openCamera": "Open camera",
   "openVideoCamera": "Open camera for a video",
   "oneClientLoggedOut": "One of your clients has been logged out",
   "addAccount": "Add account",
@@ -1170,12 +855,44 @@
   "openInMaps": "Open in maps",
   "link": "Link",
   "serverRequiresEmail": "This server needs to validate your email address for registration.",
+  "or": "Or",
+  "participant": "Participant",
+  "passphraseOrKey": "passphrase or recovery key",
+  "password": "Password",
+  "passwordForgotten": "Password forgotten",
+  "passwordHasBeenChanged": "Password has been changed",
   "hideMemberChangesInPublicChats": "Hide member changes in public chats",
   "hideMemberChangesInPublicChatsBody": "Do not show in the chat timeline if someone joins or leaves a public chat to improve readability.",
   "overview": "Overview",
   "notifyMeFor": "Notify me for",
   "passwordRecoverySettings": "Password recovery settings",
+  "passwordRecovery": "Password recovery",
+  "people": "People",
+  "pickImage": "Pick an image",
+  "pin": "Pin",
+  "play": "Play {fileName}",
+  "@play": {
+    "type": "String",
+    "placeholders": {
+      "fileName": {
+        "type": "String"
+      }
+    }
+  },
+  "pleaseChoose": "Please choose",
+  "pleaseChooseAPasscode": "Please choose a pass code",
+  "pleaseClickOnLink": "Please click on the link in the email and then proceed.",
+  "pleaseEnter4Digits": "Please enter 4 digits or leave empty to disable app lock.",
   "pleaseEnterRecoveryKey": "Please enter your recovery key:",
+  "pleaseEnterYourPassword": "Please enter your password",
+  "pleaseEnterYourPin": "Please enter your pin",
+  "pleaseEnterYourUsername": "Please enter your username",
+  "pleaseFollowInstructionsOnWeb": "Please follow the instructions on the website and tap on next.",
+  "privacy": "Privacy",
+  "publicRooms": "Public Rooms",
+  "pushRules": "Push rules",
+  "reason": "Reason",
+  "recording": "Recording",
   "redactedBy": "Redacted by {username}",
   "@redactedBy": {
     "type": "String",
@@ -1198,13 +915,70 @@
       }
     }
   },
+  "redactedAnEvent": "{username} redacted an event",
+  "@redactedAnEvent": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "redactMessage": "Redact message",
+  "register": "Register",
+  "reject": "Reject",
+  "rejectedTheInvitation": "{username} rejected the invitation",
+  "@rejectedTheInvitation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "rejoin": "Rejoin",
+  "removeAllOtherDevices": "Remove all other devices",
+  "removedBy": "Removed by {username}",
+  "@removedBy": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "removeDevice": "Remove device",
+  "unbanFromChat": "Unban from chat",
+  "removeYourAvatar": "Remove your avatar",
+  "replaceRoomWithNewerVersion": "Replace room with newer version",
+  "reply": "Reply",
+  "reportMessage": "Report message",
+  "requestPermission": "Request permission",
+  "roomHasBeenUpgraded": "Room has been upgraded",
+  "roomVersion": "Room version",
   "saveFile": "Save file",
+  "search": "Search",
+  "security": "Security",
   "recoveryKey": "Recovery key",
   "recoveryKeyLost": "Recovery key lost?",
+  "seenByUser": "Seen by {username}",
+  "@seenByUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "send": "Send",
+  "sendAMessage": "Send a message",
   "sendAsText": "Send as text",
   "@sendAsText": {
     "type": "String"
   },
+  "sendAudio": "Send audio",
+  "sendFile": "Send file",
+  "sendImage": "Send image",
   "sendImages": "Send {count} image",
   "@sendImages": {
     "type": "String",
@@ -1214,15 +988,104 @@
       }
     }
   },
+  "sendMessages": "Send messages",
+  "sendOriginal": "Send original",
   "sendSticker": "Send sticker",
+  "sendVideo": "Send video",
+  "sentAFile": "📁 {username} sent a file",
+  "@sentAFile": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAnAudio": "🎤 {username} sent an audio",
+  "@sentAnAudio": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAPicture": "🖼️ {username} sent a picture",
+  "@sentAPicture": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentASticker": "😊 {username} sent a sticker",
+  "@sentASticker": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAVideo": "🎥 {username} sent a video",
+  "@sentAVideo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentCallInformations": "{senderName} sent call information",
+  "@sentCallInformations": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
   "separateChatTypes": "Separate Direct Chats and Groups",
+  "setAsCanonicalAlias": "Set as main alias",
+  "setCustomEmotes": "Set custom emotes",
   "setChatDescription": "Set chat description",
+  "setInvitationLink": "Set invitation link",
+  "setPermissionsLevel": "Set permissions level",
+  "setStatus": "Set status",
+  "settings": "Settings",
+  "share": "Share",
+  "sharedTheLocation": "{username} shared their location",
+  "@sharedTheLocation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
   "shareLocation": "Share location",
+  "showPassword": "Show password",
   "presenceStyle": "Presence:",
   "presencesToggle": "Show status messages from other users",
+  "singlesignon": "Single Sign on",
+  "skip": "Skip",
+  "sourceCode": "Source code",
   "spaceIsPublic": "Space is public",
   "spaceName": "Space name",
+  "startedACall": "{senderName} started a call",
+  "@startedACall": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
   "startFirstChat": "Start your first chat",
+  "status": "Status",
+  "statusExampleMessage": "How are you today?",
+  "submit": "Submit",
   "synchronizingPleaseWait": "Synchronizing… Please wait.",
   "synchronizingPleaseWaitCounter": " Synchronizing… ({percentage}%)",
   "@synchronizingPleaseWaitCounter": {
@@ -1233,7 +1096,140 @@
       }
     }
   },
+  "systemTheme": "System",
+  "theyDontMatch": "They Don't Match",
+  "theyMatch": "They Match",
+  "title": "Stawi",
+  "@title": {
+    "description": "Title for the application",
+    "type": "String",
+    "placeholders": {}
+  },
+  "toggleFavorite": "Toggle Favorite",
+  "toggleMuted": "Toggle Muted",
+  "toggleUnread": "Mark Read/Unread",
+  "tooManyRequestsWarning": "Too many requests. Please try again later!",
+  "transferFromAnotherDevice": "Transfer from another device",
+  "tryToSendAgain": "Try to send again",
+  "unavailable": "Unavailable",
+  "unbannedUser": "{username} unbanned {targetName}",
+  "@unbannedUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "unblockDevice": "Unblock Device",
+  "unknownDevice": "Unknown device",
+  "unknownEncryptionAlgorithm": "Unknown encryption algorithm",
+  "unknownEvent": "Unknown event '{type}'",
+  "@unknownEvent": {
+    "type": "String",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "unmuteChat": "Unmute chat",
+  "unpin": "Unpin",
+  "unreadChats": "{unreadCount, plural, =1{1 unread chat} other{{unreadCount} unread chats}}",
+  "@unreadChats": {
+    "type": "String",
+    "placeholders": {
+      "unreadCount": {
+        "type": "int"
+      }
+    }
+  },
+  "userAndOthersAreTyping": "{username} and {count} others are typing…",
+  "@userAndOthersAreTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "userAndUserAreTyping": "{username} and {username2} are typing…",
+  "@userAndUserAreTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "username2": {
+        "type": "String"
+      }
+    }
+  },
+  "userIsTyping": "{username} is typing…",
+  "@userIsTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "userLeftTheChat": "🚪 {username} left the chat",
+  "@userLeftTheChat": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "username": "Username",
+  "userSentUnknownEvent": "{username} sent a {type} event",
+  "@userSentUnknownEvent": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "type": {
+        "type": "String"
+      }
+    }
+  },
   "unverified": "Unverified",
+  "verified": "Verified",
+  "verify": "Verify",
+  "verifyStart": "Start Verification",
+  "verifySuccess": "You successfully verified!",
+  "verifyTitle": "Verifying other account",
+  "videoCall": "Video call",
+  "visibilityOfTheChatHistory": "Visibility of the chat history",
+  "visibleForAllParticipants": "Visible for all participants",
+  "visibleForEveryone": "Visible for everyone",
+  "voiceMessage": "Voice message",
+  "waitingPartnerAcceptRequest": "Waiting for partner to accept the request…",
+  "waitingPartnerEmoji": "Waiting for partner to accept the emoji…",
+  "waitingPartnerNumbers": "Waiting for partner to accept the numbers…",
+  "wallpaper": "Wallpaper:",
+  "warning": "Warning!",
+  "weSentYouAnEmail": "We sent you an email",
+  "whoCanPerformWhichAction": "Who can perform which action",
+  "whoIsAllowedToJoinThisGroup": "Who is allowed to join this group",
+  "whyDoYouWantToReportThis": "Why do you want to report this?",
+  "wipeChatBackup": "Wipe your chat backup to create a new recovery key?",
+  "withTheseAddressesRecoveryDescription": "With these addresses you can recover your password.",
+  "writeAMessage": "Write a message…",
+  "yes": "Yes",
+  "you": "You",
+  "youAreNoLongerParticipatingInThisChat": "You are no longer participating in this chat",
+  "youHaveBeenBannedFromThisChat": "You have been banned from this chat",
+  "yourPublicKey": "Your public key",
   "messageInfo": "Message info",
   "time": "Time",
   "messageType": "Message Type",
@@ -1412,7 +1408,7 @@
     }
   },
   "user": "User",
-  "custom": "Custom",
+  "custom": "مخصص",
   "foregroundServiceRunning": "This notification appears when the foreground service is running.",
   "screenSharingTitle": "screen sharing",
   "screenSharingDetail": "You are sharing your screen in FuffyChat",
@@ -1496,7 +1492,7 @@
   "profileNotFound": "The user could not be found on the server. Maybe there is a connection problem or the user doesn't exist.",
   "setTheme": "Set theme:",
   "setColorTheme": "Set color theme:",
-  "invite": "Invite",
+  "invite": "دعوة",
   "inviteGroupChat": "📨 Invite group chat",
   "invitePrivateChat": "📨 Invite private chat",
   "invalidInput": "Invalid input!",
@@ -1635,8 +1631,8 @@
     }
   },
   "searchMore": "Search more...",
-  "gallery": "Gallery",
-  "files": "Files",
+  "gallery": "معرض الصور",
+  "files": "ملفات",
   "databaseBuildErrorBody": "Unable to build the SQlite database. The app tries to use the legacy database for now. Please report this error to the developers at {url}. The error message is: {error}",
   "@databaseBuildErrorBody": {
     "type": "String",
@@ -1967,7 +1963,7 @@
   "@startedAPoll": {
     "type": "String",
     "placeholders": {
-      "sender": { "type": "String"}
+      "sender": { "type": "String" }
     }
   },
   "countVotes": "{votes, plural, =1{1 vote} other{{votes} votes}} - {percentage}%",
@@ -2012,19 +2008,19 @@
     }
   },
   "fixErrorsInStep": "Please fix the errors in this step before proceeding",
-  "calendarSelection": "Savings Date",
-  "selectStartDate": "Select Start Date",
-  "startDateDescription": "Choose a starting date for your group savings. Future saving dates will be highlighted based on your period type.",
-  "groupSchedule": "Group Schedule",
-  "futureSavingDates": "Based on your selection, these are your next schedule dates:",
-  "totalBalance": "Total Balance",
-  "groupSettings": "Group Settings",
-  "saveChanges": "Save Changes",
-  "back": "Back",
-  "general": "General",
-  "loans": "Loans",
-  "contributions": "Contributions",
-  "settingsCount": "{n} settings",
+  "calendarSelection": "تاريخ الادخار",
+  "selectStartDate": "اختر تاريخ البدء",
+  "startDateDescription": "اختر تاريخ بدء لادخار مجموعتك. سيتم تمييز تواريخ الادخار المستقبلية بناءً على نوع الفترة.",
+  "groupSchedule": "جدول المجموعة",
+  "futureSavingDates": "استنادًا إلى اختيارك، هذه هي تواريخ الجدول التالية:",
+  "totalBalance": "إجمالي الرصيد",
+  "groupSettings": "إعدادات المجموعة",
+  "saveChanges": "حفظ التغييرات",
+  "back": "رجوع",
+  "general": "عام",
+  "loans": "قروض",
+  "contributions": "مساهمات",
+  "settingsCount": "{n} إعدادات",
   "@settingsCount": {
     "type": "String",
     "placeholders": {
@@ -2033,19 +2029,76 @@
       }
     }
   },
-  "loanTenure": "Loan Tenure",
-  "loanTenureDescription": "The maximum number of weeks members can borrow for",
-  "groupTenure": "Group Tenure",
-  "groupTenureDescription": "The total duration of the group before shares are distributed",
-  "interestRate": "Interest Rate",
-  "interestRateDescription": "The percentage charged on loans",
-  "socialFundContribution": "Social Fund Contribution",
-  "socialFundContributionDescription": "The amount each member contributes to the social fund",
-  "allowEarlyWithdrawal": "Allow Early Withdrawal",
-  "allowEarlyWithdrawalDescription": "Whether members can withdraw funds before the end of the group tenure",
-  "requireSavingsBeforeLoan": "Require Savings Before Loan",
-  "requireSavingsBeforeLoanDescription": "Whether members must have savings before they can take a loan",
-  "weeks": "weeks",
-  "months": "months",
-  "year": "year"
+  "loanTenure": "مدة القرض",
+  "loanTenureDescription": "الحد الأقصى لعدد الأسابيع التي يمكن للأعضاء الاقتراض خلالها",
+  "groupTenure": "مدة المجموعة",
+  "groupTenureDescription": "إجمالي مدة المجموعة قبل توزيع الأسهم",
+  "interestRate": "معدل الفائدة",
+  "interestRateDescription": "النسبة المئوية المفروضة على القروض",
+  "socialFundContribution": "مساهمة الصندوق الاجتماعي",
+  "socialFundContributionDescription": "المبلغ الذي يساهم به كل عضو في الصندوق الاجتماعي",
+  "allowEarlyWithdrawal": "السماح بالسحب المبكر",
+  "allowEarlyWithdrawalDescription": "ما إذا كان يمكن للأعضاء سحب الأموال قبل نهاية مدة المجموعة",
+  "requireSavingsBeforeLoan": "طلب ادخار قبل القرض",
+  "requireSavingsBeforeLoanDescription": "ما إذا كان يجب أن يكون لدى الأعضاء مدخرات قبل أن يتمكنوا من أخذ قرض",
+  "weeks": "أسابيع",
+  "months": "أشهر",
+  "year": "سنة",
+  "createRoom": "إنشاء غرفة",
+  "created": "تم الإنشاء",
+  "currentPassword": "كلمة المرور الحالية",
+  "dark": "داكن",
+  "date": "تاريخ",
+  "dateOfBirth": "تاريخ الميلاد",
+  "day": "يوم",
+  "deactivateAccount": "إلغاء تنشيط الحساب",
+  "default": "افتراضي",
+  "deny": "رفض",
+  "description": "الوصف",
+  "details": "تفاصيل",
+  "disable": "تعطيل",
+  "disabled": "معطل",
+  "disconnect": "قطع الاتصال",
+  "displayName": "اسم العرض",
+  "done": "تم",
+  "download": "تنزيل",
+  "downloading": "جارٍ التنزيل",
+  "editProfile": "تعديل الملف الشخصي",
+  "email": "البريد الإلكتروني",
+  "emailAddress": "عنوان البريد الإلكتروني",
+  "enable": "تمكين",
+  "enabled": "مفعل",
+  "endToEndEncryption": "تشفير من الطرف إلى الطرف",
+  "enter": "دخول",
+  "enterPassword": "أدخل كلمة المرور",
+  "error": "خطأ",
+  "events": "الأحداث",
+  "exit": "خروج",
+  "expand": "توسيع",
+  "export": "تصدير",
+  "failed": "فشل",
+  "favorite": "مفضل",
+  "favorites": "المفضلة",
+  "feedback": "ملاحظات",
+  "file": "ملف",
+  "filter": "تصفية",
+  "find": "بحث",
+  "firstName": "الاسم الأول",
+  "forgotPassword": "نسيت كلمة المرور؟",
+  "from": "من",
+  "fullName": "الاسم الكامل",
+  "generate": "توليد",
+  "guest": "ضيف",
+  "hide": "إخفاء",
+  "home": "الرئيسية",
+  "hour": "ساعة",
+  "hours": "ساعات",
+  "ignore": "تجاهل",
+  "image": "صورة",
+  "images": "صور",
+  "import": "استيراد",
+  "inbox": "الوارد",
+  "info": "معلومات",
+  "information": "معلومات",
+  "invites": "دعوات"
 }

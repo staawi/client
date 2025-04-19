@@ -4,7 +4,6 @@ import 'package:stawi/services/default/event_type.dart';
 
 import '../../../services/stawi/event_service.dart';
 import '../../../services/stawi/payloads/voting_mode_event.dart';
-import 'voting_mode_model.dart';
 
 class VotingModeController with ChangeNotifier {
   final Room room;

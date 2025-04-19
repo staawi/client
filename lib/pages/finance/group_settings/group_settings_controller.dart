@@ -77,11 +77,9 @@ class GroupSettingsController extends ChangeNotifier {
 
       // Initialize settings
       _originalSettings.clear();
-      if (groupDetail.settings != null) {
-        _originalSettings.addAll(
-          Map<String, dynamic>.from(groupDetail.settings!),
-        );
-      }
+      _originalSettings.addAll(
+        Map<String, dynamic>.from(groupDetail.settings!),
+      );
 
       _currentSettings.clear();
       _currentSettings.addAll(_originalSettings);

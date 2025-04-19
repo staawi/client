@@ -4,14 +4,18 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
+import 'l10n_ar.dart' deferred as l10n_ar;
 import 'l10n_en.dart' deferred as l10n_en;
+import 'l10n_fr.dart' deferred as l10n_fr;
 import 'l10n_ie.dart' deferred as l10n_ie;
 import 'l10n_ja.dart' deferred as l10n_ja;
+import 'l10n_lg.dart' deferred as l10n_lg;
 import 'l10n_lt.dart' deferred as l10n_lt;
 import 'l10n_nb.dart' deferred as l10n_nb;
 import 'l10n_pt.dart' deferred as l10n_pt;
 import 'l10n_ro.dart' deferred as l10n_ro;
 import 'l10n_sr.dart' deferred as l10n_sr;
+import 'l10n_sw.dart' deferred as l10n_sw;
 
 // ignore_for_file: type=lint
 
@@ -97,15 +101,19 @@ abstract class L10n {
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
     Locale('en'),
+    Locale('ar'),
+    Locale('fr'),
     Locale('ie'),
     Locale('ja'),
+    Locale('lg'),
     Locale('lt'),
     Locale('nb'),
     Locale('pt'),
     Locale('pt', 'BR'),
     Locale('pt', 'PT'),
     Locale('ro'),
-    Locale('sr')
+    Locale('sr'),
+    Locale('sw')
   ];
 
   /// Set to true to always display time of day in 24 hour format.
@@ -1206,11 +1214,11 @@ abstract class L10n {
   /// **'File name'**
   String get fileName;
 
-  /// No description provided for @fluffychat.
+  /// No description provided for @stawi.
   ///
   /// In en, this message translates to:
-  /// **'FluffyChat'**
-  String get fluffychat;
+  /// **'Stawi'**
+  String get stawi;
 
   /// No description provided for @fontSize.
   ///
@@ -1396,7 +1404,7 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'Do you want to invite {contact} to the chat \"{groupName}\"?'**
-  String inviteContactToGroupQuestion(Object contact, Object groupName);
+  String inviteContactToGroupQuestion(String contact, String groupName);
 
   /// No description provided for @inviteContactToGroup.
   ///
@@ -1674,11 +1682,11 @@ abstract class L10n {
   /// **'New chat'**
   String get newChat;
 
-  /// No description provided for @newMessageInFluffyChat.
+  /// No description provided for @newMessageInStawi.
   ///
   /// In en, this message translates to:
-  /// **'💬 New message in FluffyChat'**
-  String get newMessageInFluffyChat;
+  /// **'💬 New message in Stawi'**
+  String get newMessageInStawi;
 
   /// No description provided for @newVerificationRequest.
   ///
@@ -2523,7 +2531,7 @@ abstract class L10n {
   /// Title for the application
   ///
   /// In en, this message translates to:
-  /// **'FluffyChat'**
+  /// **'Stawi'**
   String get title;
 
   /// No description provided for @toggleFavorite.
@@ -2985,7 +2993,7 @@ abstract class L10n {
   /// No description provided for @indexedDbErrorLong.
   ///
   /// In en, this message translates to:
-  /// **'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run FluffyChat.'**
+  /// **'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run Stawi.'**
   String get indexedDbErrorLong;
 
   /// No description provided for @switchToAccount.
@@ -3261,7 +3269,7 @@ abstract class L10n {
   /// No description provided for @callingAccountDetails.
   ///
   /// In en, this message translates to:
-  /// **'Allows FluffyChat to use the native android dialer app.'**
+  /// **'Allows Stawi to use the native android dialer app.'**
   String get callingAccountDetails;
 
   /// No description provided for @appearOnTop.
@@ -3279,7 +3287,7 @@ abstract class L10n {
   /// No description provided for @otherCallingPermissions.
   ///
   /// In en, this message translates to:
-  /// **'Microphone, camera and other FluffyChat permissions'**
+  /// **'Microphone, camera and other Stawi permissions'**
   String get otherCallingPermissions;
 
   /// No description provided for @whyIsThisMessageEncrypted.
@@ -3784,7 +3792,7 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'Your group {groupName} will be configured shortly'**
-  String finalizeGroupConfigurationDescription(Object groupName);
+  String finalizeGroupConfigurationDescription(String groupName);
 
   /// No description provided for @groupTerminationDate.
   ///
@@ -3808,7 +3816,7 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'Group with the name {groupName} is being configured, this will take a moment. \n\n Add all the members to the group from your contacts'**
-  String groupCreationSuccessfulDescription(Object groupName);
+  String groupCreationSuccessfulDescription(String groupName);
 
   /// No description provided for @createGroupAndInviteUsers.
   ///
@@ -4906,13 +4914,13 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'{sender} started a poll'**
-  String startedAPoll(Object sender);
+  String startedAPoll(String sender);
 
   /// No description provided for @countVotes.
   ///
   /// In en, this message translates to:
   /// **'{votes, plural, =1{1 vote} other{{votes} votes}} - {percentage}%'**
-  String countVotes(num votes, Object percentage);
+  String countVotes(int votes, String percentage);
 
   /// No description provided for @chatSettings.
   ///
@@ -4990,19 +4998,19 @@ abstract class L10n {
   ///
   /// In en, this message translates to:
   /// **'field is empty, please fill it out'**
-  String errorFieldRequired(Object fieldName);
+  String errorFieldRequired(String fieldName);
 
   /// No description provided for @errorFieldShouldBeNumeric.
   ///
   /// In en, this message translates to:
   /// **'field is not a valid number'**
-  String errorFieldShouldBeNumeric(Object fieldName);
+  String errorFieldShouldBeNumeric(String fieldName);
 
   /// No description provided for @errorFieldShouldBeInTheFuture.
   ///
   /// In en, this message translates to:
   /// **'field is should be in the future'**
-  String errorFieldShouldBeInTheFuture(Object fieldName);
+  String errorFieldShouldBeInTheFuture(String fieldName);
 
   /// No description provided for @fixErrorsInStep.
   ///
@@ -5188,7 +5196,7 @@ class _L10nDelegate extends LocalizationsDelegate<L10n> {
   }
 
   @override
-  bool isSupported(Locale locale) => <String>['en', 'ie', 'ja', 'lt', 'nb', 'pt', 'ro', 'sr'].contains(locale.languageCode);
+  bool isSupported(Locale locale) => <String>['ar', 'en', 'fr', 'ie', 'ja', 'lg', 'lt', 'nb', 'pt', 'ro', 'sr', 'sw'].contains(locale.languageCode);
 
   @override
   bool shouldReload(_L10nDelegate old) => false;
@@ -5209,14 +5217,18 @@ case 'PT': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPtPt());
 
   // Lookup logic when only language code is specified.
   switch (locale.languageCode) {
+    case 'ar': return l10n_ar.loadLibrary().then((dynamic _) => l10n_ar.L10nAr());
     case 'en': return l10n_en.loadLibrary().then((dynamic _) => l10n_en.L10nEn());
+    case 'fr': return l10n_fr.loadLibrary().then((dynamic _) => l10n_fr.L10nFr());
     case 'ie': return l10n_ie.loadLibrary().then((dynamic _) => l10n_ie.L10nIe());
     case 'ja': return l10n_ja.loadLibrary().then((dynamic _) => l10n_ja.L10nJa());
+    case 'lg': return l10n_lg.loadLibrary().then((dynamic _) => l10n_lg.L10nLg());
     case 'lt': return l10n_lt.loadLibrary().then((dynamic _) => l10n_lt.L10nLt());
     case 'nb': return l10n_nb.loadLibrary().then((dynamic _) => l10n_nb.L10nNb());
     case 'pt': return l10n_pt.loadLibrary().then((dynamic _) => l10n_pt.L10nPt());
     case 'ro': return l10n_ro.loadLibrary().then((dynamic _) => l10n_ro.L10nRo());
     case 'sr': return l10n_sr.loadLibrary().then((dynamic _) => l10n_sr.L10nSr());
+    case 'sw': return l10n_sw.loadLibrary().then((dynamic _) => l10n_sw.L10nSw());
   }
 
   throw FlutterError(

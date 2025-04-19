@@ -1,0 +1,2047 @@
+{
+  "@@locale": "sw",
+  "alwaysUse24HourFormat": "sivyo",
+  "@alwaysUse24HourFormat": {
+    "description": "Weka kuwa kweli ili kila wakati kuonyesha wakati wa siku kwa muundo wa saa 24."
+  },
+  "repeatPassword": "Rudia nenosiri",
+  "notAnImage": "Si faili la picha.",
+  "remove": "Ondoa",
+  "importNow": "Ingiza sasa",
+  "importEmojis": "Ingiza Emoji",
+  "importFromZipFile": "Ingiza kutoka faili la .zip",
+  "exportEmotePack": "Hamisha kifurushi cha Emoji kama .zip",
+  "replace": "Badilisha",
+  "about": "Kuhusu",
+  "aboutHomeserver": "Kuhusu {homeserver}",
+  "@aboutHomeserver": {
+    "type": "String",
+    "placeholders": {
+      "homeserver": {
+        "type": "String"
+      }
+    }
+  },
+  "accept": "Kubali",
+  "acceptedTheInvitation": "👍 {username} amekubali mwaliko",
+  "@acceptedTheInvitation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "account": "Akaunti",
+  "activatedEndToEndEncryption": "🔐 {username} amewasha usimbaji fiche wa mwisho hadi mwisho",
+  "@activatedEndToEndEncryption": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "addEmail": "Ongeza barua pepe",
+  "confirmMatrixId": "Tafadhali thibitisha kitambulisho chako cha Matrix ili kufuta akaunti yako.",
+  "supposedMxid": "Hii inapaswa kuwa {mxid}",
+  "@supposedMxid": {
+    "type": "String",
+    "placeholders": {
+      "mxid": {
+        "type": "String"
+      }
+    }
+  },
+  "addChatDescription": "Ongeza maelezo ya gumzo...",
+  "addToSpace": "Ongeza kwenye nafasi",
+  "admin": "Msimamizi",
+  "alias": "alama ya utambulisho",
+  "all": "Zote",
+  "allChats": "Gumzo zote",
+  "commandHint_googly": "Tuma macho yaliyotoka nje",
+  "commandHint_cuddle": "Tuma kumbatio",
+  "commandHint_hug": "Tuma kumbatio",
+  "googlyEyesContent": "{senderName} anakutumia macho yaliyotoka nje",
+  "@googlyEyesContent": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "cuddleContent": "{senderName} anakukumbatia",
+  "@cuddleContent": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "hugContent": "{senderName} anakukumbatia",
+  "@hugContent": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "answeredTheCall": "{senderName} amejibu simu",
+  "@answeredTheCall": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "anyoneCanJoin": "Mtu yeyote anaweza kujiunga",
+  "appLock": "Funga programu",
+  "appLockDescription": "Funga programu ikiwa haitumiki kwa kutumia nambari ya siri",
+  "archive": "Arifa",
+  "areGuestsAllowedToJoin": "Je, wageni wanaruhusiwa kujiunga",
+  "areYouSure": "Una uhakika?",
+  "areYouSureYouWantToLogout": "Una uhakika unataka kutoka?",
+  "askSSSSSign": "Ili uweze kusaini mtu mwingine, tafadhali weka nenosiri lako la kuhifadhi salama au ufunguo wa kurejesha.",
+  "askVerificationRequest": "Kubali ombi hili la uthibitishaji kutoka kwa {username}?",
+  "@askVerificationRequest": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "autoplayImages": "Cheza moja kwa moja stika na emoji zilizo na uhuishaji",
+  "@autoplayImages": {
+    "type": "String",
+    "placeholder": {}
+  },
+  "badServerLoginTypesException": "Seva inasaidia aina za kuingia:\n{serverVersions}\nLakini programu hii inasaidia tu:\n{supportedVersions}",
+  "@badServerLoginTypesException": {
+    "type": "String",
+    "placeholders": {
+      "serverVersions": {
+        "type": "String"
+      },
+      "supportedVersions": {
+        "type": "String"
+      }
+    }
+  },
+  "sendTypingNotifications": "Tuma arifa za kuchapa",
+  "swipeRightToLeftToReply": "Telezesha kulia kwenda kushoto kujibu",
+  "sendOnEnter": "Tuma kwa kubofya Enter",
+  "badServerVersionsException": "Seva inasaidia matoleo ya Spec:\n{serverVersions}\nLakini programu hii inasaidia tu {supportedVersions}",
+  "@badServerVersionsException": {
+    "type": "String",
+    "placeholders": {
+      "serverVersions": {
+        "type": "String"
+      },
+      "supportedVersions": {
+        "type": "String"
+      }
+    }
+  },
+  "countChatsAndCountParticipants": "{chats} gumzo na washiriki {participants}",
+  "@countChatsAndCountParticipants": {
+    "type": "String",
+    "placeholders": {
+      "chats": {
+        "type": "int"
+      },
+      "participants": {
+        "type": "int"
+      }
+    }
+  },
+  "noMoreChatsFound": "Hakuna gumzo zaidi zilizopatikana...",
+  "noChatsFoundHere": "Hakuna gumzo zilizopatikana hapa bado. Anza gumzo jipya na mtu kwa kutumia kitufe hapa chini. ⤵️",
+  "joinedChats": "Gumzo zilizojiunga",
+  "unread": "Haijasomwa",
+  "space": "Nafasi",
+  "spaces": "Nafasi",
+  "banFromChat": "Piga marufuku kutoka kwenye gumzo",
+  "banned": "Zuiwa",
+  "bannedUser": "{username} amemzuia {targetName}",
+  "@bannedUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "blockDevice": "Zuia kifaa",
+  "blocked": "Zuiwa",
+  "botMessages": "Ujumbe wa roboti",
+  "cancel": "Ghairi",
+  "cantOpenUri": "Imeshindikana kufungua URI {uri}",
+  "@cantOpenUri": {
+    "type": "String",
+    "placeholders": {
+      "uri": {
+        "type": "String"
+      }
+    }
+  },
+  "changeDeviceName": "Badilisha jina la kifaa",
+  "changedTheChatAvatar": "{username} amebadilisha avatar ya gumzo",
+  "@changedTheChatAvatar": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "@@last_modified": "2021-08-14 12:38:37.885451",
+  "changedTheChatDescriptionTo": "{username} amebadilisha maelezo ya gumzo kuwa: '{description}'",
+  "@changedTheChatDescriptionTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "description": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheChatNameTo": "{username} amebadilisha jina la gumzo kuwa: '{chatname}'",
+  "@changedTheChatNameTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "chatname": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheChatPermissions": "{username} amebadilisha ruhusa za gumzo",
+  "@changedTheChatPermissions": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheDisplaynameTo": "{username} amebadilisha jina lake la kuonyesha kuwa: '{displayname}'",
+  "@changedTheDisplaynameTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "displayname": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheGuestAccessRules": "{username} amebadilisha sheria za ufikiaji wa wageni",
+  "@changedTheGuestAccessRules": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheGuestAccessRulesTo": "{username} amebadilisha sheria za ufikiaji wa wageni kuwa: {rules}",
+  "@changedTheGuestAccessRulesTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "rules": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheHistoryVisibility": "{username} amebadilisha mwonekano wa historia",
+  "@changedTheHistoryVisibility": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheHistoryVisibilityTo": "{username} amebadilisha mwonekano wa historia kuwa: {rules}",
+  "@changedTheHistoryVisibilityTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "rules": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheJoinRules": "{username} amebadilisha sheria za kujiunga",
+  "@changedTheJoinRules": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheJoinRulesTo": "{username} amebadilisha sheria za kujiunga kuwa: {joinRules}",
+  "@changedTheJoinRulesTo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "joinRules": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheProfileAvatar": "{username} amebadilisha avatar yake",
+  "@changedTheProfileAvatar": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheRoomAliases": "{username} amebadilisha alama za chumba",
+  "@changedTheRoomAliases": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changedTheRoomInvitationLink": "{username} amebadilisha kiungo cha mwaliko",
+  "@changedTheRoomInvitationLink": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "changePassword": "Badilisha nenosiri",
+  "changeTheHomeserver": "Badilisha seva ya nyumbani",
+  "changeTheme": "Badilisha mtindo wako",
+  "changeTheNameOfTheGroup": "Badilisha jina la kikundi",
+  "changeYourAvatar": "Badilisha avatar yako",
+  "channelCorruptedDecryptError": "Usimbaji umeharibika",
+  "chat": "Gumzo",
+  "yourChatBackupHasBeenSetUp": "Chelezo yako ya gumzo imewekwa.",
+  "chatBackup": "Chelezo ya gumzo",
+  "chatBackupDescription": "Ujumbe wako wa zamani umehifadhiwa na ufunguo wa kurejesha. Tafadhali hakikisha huipotezi.",
+  "chatDetails": "Maelezo ya gumzo",
+  "chatHasBeenAddedToThisSpace": "Gumzo limeongezwa kwenye nafasi hii",
+  "chats": "Gumzo",
+  "chooseAStrongPassword": "Chagua nenosiri lenye nguvu",
+  "clearArchive": "Futa arifa",
+  "close": "Funga",
+  "commandHint_markasdm": "Tia alama kama chumba cha ujumbe wa moja kwa moja kwa kitambulisho cha Matrix kilichopewa",
+  "commandHint_markasgroup": "Tia alama kama kikundi",
+  "commandHint_ban": "Piga marufuku mtumiaji aliyetolewa kutoka chumba hiki",
+  "@commandHint_ban": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /ban"
+  },
+  "commandHint_clearcache": "Futa kache",
+  "@commandHint_clearcache": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /clearcache"
+  },
+  "commandHint_create": "Unda gumzo la kikundi tupu\nTumia --no-encryption kuzima usimbaji",
+  "@commandHint_create": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /create"
+  },
+  "commandHint_discardsession": "Futa kikao",
+  "@commandHint_discardsession": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /discardsession"
+  },
+  "commandHint_dm": "Anza gumzo la moja kwa moja\nTumia --no-encryption kuzima usimbaji",
+  "@commandHint_dm": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /dm"
+  },
+  "commandHint_html": "Tuma maandishi yaliyopangwa kwa HTML",
+  "@commandHint_html": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /html"
+  },
+  "commandHint_invite": "Mwalika mtumiaji aliyetolewa kwenye chumba hiki",
+  "@commandHint_invite": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /invite"
+  },
+  "commandHint_join": "Jiunge na chumba kilichopewa",
+  "@commandHint_join": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /join"
+  },
+  "commandHint_kick": "Ondoa mtumiaji aliyetolewa kutoka chumba hiki",
+  "@commandHint_kick": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /kick"
+  },
+  "commandHint_leave": "Ondoka kwenye chumba hiki",
+  "@commandHint_leave": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /leave"
+  },
+  "commandHint_me": "Jieleze",
+  "@commandHint_me": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /me"
+  },
+  "commandHint_myroomavatar": "Weka picha yako kwa chumba hiki (kwa mxc-uri)",
+  "@commandHint_myroomavatar": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /myroomavatar"
+  },
+  "commandHint_myroomnick": "Weka jina lako la kuonyesha kwa chumba hiki",
+  "@commandHint_myroomnick": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /myroomnick"
+  },
+  "commandHint_op": "Weka kiwango cha nguvu cha mtumiaji aliyetolewa (chaguo-msingi: 50)",
+  "@commandHint_op": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /op"
+  },
+  "commandHint_plain": "Tuma maandishi yasiyopangwa",
+  "@commandHint_plain": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /plain"
+  },
+  "commandHint_react": "Tuma jibu kama mmenyuko",
+  "@commandHint_react": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /react"
+  },
+  "commandHint_send": "Tuma maandishi",
+  "@commandHint_send": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /send"
+  },
+  "commandHint_unban": "Ondoa marufuku ya mtumiaji aliyetolewa kutoka chumba hiki",
+  "@commandHint_unban": {
+    "type": "String",
+    "description": "Maelezo ya matumizi ya amri /unban"
+  },
+  "commandInvalid": "Amri si sahihi",
+  "@commandInvalid": {
+    "type": "String"
+  },
+  "commandMissing": "{command} si amri.",
+  "@commandMissing": {
+    "type": "String",
+    "placeholders": {
+      "command": {
+        "type": "String"
+      }
+    },
+    "description": "Eleza kwamba {command} si amri sahihi ya /command."
+  },
+  "compareEmojiMatch": "Tafadhali linganisha emoji",
+  "compareNumbersMatch": "Tafadhali linganisha nambari",
+  "configureChat": "Sanidi gumzo",
+  "confirm": "Thibitisha",
+  "connect": "Unganisha",
+  "contactHasBeenInvitedToTheGroup": "Mawasiliano yamealikwa kwenye kikundi",
+  "containsDisplayName": "Ina jina la kuonyesha",
+  "containsUserName": "Ina jina la mtumiaji",
+  "contentHasBeenReported": "Yaliyomo yameripotiwa kwa wasimamizi wa seva",
+  "copiedToClipboard": "Imenakiliwa kwenye ubao wa kunakili",
+  "copy": "Nakili",
+  "copyToClipboard": "Nakili kwenye ubao wa kunakili",
+  "couldNotDecryptMessage": "Imeshindikana kufungua ujumbe: {error}",
+  "@couldNotDecryptMessage": {
+    "type": "String",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "countParticipants": "{count} washiriki",
+  "@countParticipants": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "create": "Unda",
+  "createdTheChat": "💬 {username} ameunda gumzo",
+  "@createdTheChat": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "createGroup": "Unda kikundi",
+  "createNewSpace": "Nafasi mpya",
+  "currentlyActive": "Kwa sasa inafanya kazi",
+  "darkTheme": "Giza",
+  "dateAndTimeOfDay": "{date}, {timeOfDay}",
+  "@dateAndTimeOfDay": {
+    "type": "String",
+    "placeholders": {
+      "date": {
+        "type": "String"
+      },
+      "timeOfDay": {
+        "type": "String"
+      }
+    }
+  },
+  "dateWithoutYear": "{month}-{day}",
+  "@dateWithoutYear": {
+    "type": "String",
+    "placeholders": {
+      "month": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "dateWithYear": "{year}-{month}-{day}",
+  "@dateWithYear": {
+    "type": "String",
+    "placeholders": {
+      "year": {
+        "type": "String"
+      },
+      "month": {
+        "type": "String"
+      },
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "deactivateAccountWarning": "Hii itazima akaunti yako ya mtumiaji. Hii haiwezi kubatilishwa! Una uhakika?",
+  "defaultPermissionLevel": "Kiwango cha ruhusa cha chaguo-msingi kwa watumiaji wapya",
+  "delete": "Futa",
+  "deleteAccount": "Futa akaunti",
+  "deleteMessage": "Futa ujumbe",
+  "device": "Kifaa",
+  "deviceId": "Kitambulisho cha kifaa",
+  "devices": "Vifaa",
+  "directChats": "Gumzo za moja kwa moja",
+  "allRooms": "Gumzo zote za Kikundi",
+  "displaynameHasBeenChanged": "Jina la kuonyesha limebadilishwa",
+  "downloadFile": "Pakua faili",
+  "edit": "Hariri",
+  "editBlockedServers": "Hariri seva zilizozuiwa",
+  "chatPermissions": "Ruhusa za gumzo",
+  "editDisplayname": "Hariri jina la kuonyesha",
+  "editRoomAliases": "Hariri alama za chumba",
+  "editRoomAvatar": "Hariri avatar ya chumba",
+  "emoteExists": "Emoji tayari ipo!",
+  "emoteInvalid": "Emoji shortcode si sahihi!",
+  "emoteKeyboardNoRecents": "Emoji zilizotumika hivi karibuni zitaonekana hapa...",
+  "emotePacks": "Vifurushi vya emoji kwa chumba",
+  "emoteSettings": "Mipangilio ya emoji",
+  "globalChatId": "Kitambulisho cha gumzo la kimataifa",
+  "accessAndVisibility": "Ufikiaji na mwonekano",
+  "accessAndVisibilityDescription": "Nani anaruhusiwa kujiunga na gumzo hili na jinsi gumzo linavyoweza kugunduliwa.",
+  "calls": "Simu",
+  "customEmojisAndStickers": "Emoji na stika maalum",
+  "customEmojisAndStickersBody": "Ongeza au shiriki emoji au stika maalum ambazo zinaweza kutumika katika gumzo lolote.",
+  "emoteShortcode": "Emoji shortcode",
+  "emoteWarnNeedToPick": "Unahitaji kuchagua emoji shortcode na picha!",
+  "emptyChat": "Gumzo tupu",
+  "enableEmotesGlobally": "Wezesha kifurushi cha emoji kimataifa",
+  "enableEncryption": "Wezesha usimbaji",
+  "enableEncryptionWarning": "Hutaweza kuzima usimbaji tena. Una uhakika?",
+  "encrypted": "Imesimbwa",
+  "encryption": "Usimbaji",
+  "encryptionNotEnabled": "Usimbaji haujawezeshwa",
+  "endedTheCall": "{senderName} amemaliza simu",
+  "@endedTheCall": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "enterAnEmailAddress": "Ingiza anwani ya barua pepe",
+  "homeserver": "Seva ya nyumbani",
+  "enterYourHomeserver": "Ingiza seva yako ya nyumbani",
+  "errorObtainingLocation": "Hitilafu ya kupata mahali: {error}",
+  "@errorObtainingLocation": {
+    "type": "String",
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "everythingReady": "Kila kitu kiko tayari!",
+  "extremeOffensive": "Matusi makubwa",
+  "fileName": "Jina la faili",
+  "stawi": "Stawi",
+  "fontSize": "Ukubwa wa fonti",
+  "forward": "Tuma mbele",
+  "fromJoining": "Kutoka kujiunga",
+  "fromTheInvitation": "Kutoka mwaliko",
+  "goToTheNewRoom": "Nenda kwenye chumba kipya",
+  "group": "Kikundi",
+  "chatDescription": "Maelezo ya gumzo",
+  "chatDescriptionHasBeenChanged": "Maelezo ya gumzo yamebadilishwa",
+  "groupIsPublic": "Kikundi ni cha umma",
+  "groups": "Vikundi",
+  "groupWith": "Kikundi na {displayname}",
+  "@groupWith": {
+    "type": "String",
+    "placeholders": {
+      "displayname": {
+        "type": "String"
+      }
+    }
+  },
+  "guestsAreForbidden": "Wageni wamezuiwa",
+  "guestsCanJoin": "Wageni wanaweza kujiunga",
+  "hasWithdrawnTheInvitationFor": "{username} amefuta mwaliko kwa {targetName}",
+  "@hasWithdrawnTheInvitationFor": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "help": "Msaada",
+  "hideRedactedEvents": "Ficha matukio yaliyofutwa",
+  "hideRedactedMessages": "Ficha ujumbe uliosafishwa",
+  "hideRedactedMessagesBody": "Ikiwa mtu atafuta ujumbe, ujumbe huu hautaonekana tena kwenye gumzo.",
+  "hideInvalidOrUnknownMessageFormats": "Ficha miundo ya ujumbe isiyo sahihi au isiyojulikana",
+  "howOffensiveIsThisContent": "Yaliyomo haya ni matusi kiasi gani?",
+  "id": "Kitambulisho",
+  "identity": "Utambulisho",
+  "block": "Zuia",
+  "blockedUsers": "Watumiaji waliopigwa marufuku",
+  "blockListDescription": "Unaweza kuzuia watumiaji wanaokusumbua. Hutaweza kupokea ujumbe wowote au mialiko ya chumba kutoka kwa watumiaji kwenye orodha yako ya kuzuia binafsi.",
+  "blockUsername": "Puuza jina la mtumiaji",
+  "iHaveClickedOnLink": "Nimebofya kiungo",
+  "incorrectPassphraseOrKey": "Kauli ya siri au ufunguo wa kurejesha si sahihi",
+  "inoffensive": "Sio matusi",
+  "inviteContact": "Mwalika mawasiliano",
+  "inviteContactToGroupQuestion": "Unataka kumwalika {contact} kwenye gumzo \"{groupName}\"?",
+  "@inviteContactToGroupQuestion": {
+    "type": "String",
+    "placeholders": {
+      "contact": {
+        "type": "String"
+      },
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
+  "inviteContactToGroup": "Mwalika mawasiliano kwa {groupName}",
+  "@inviteContactToGroup": {
+    "type": "String",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
+  "noChatDescriptionYet": "Hakuna maelezo ya gumzo yaliyoundwa bado.",
+  "tryAgain": "Jaribu tena",
+  "invalidServerName": "Jina la seva si sahihi",
+  "invited": "Mwalikwa",
+  "redactMessageDescription": "Ujumbe utaondolewa kwa washiriki wote katika mazungumzo haya. Hii haiwezi kubatilishwa.",
+  "optionalRedactReason": "(Hiari) Sababu ya kufuta ujumbe huu...",
+  "invitedUser": "📩 {username} amemwalika {targetName}",
+  "@invitedUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "invitedUsersOnly": "Watumiaji waliyoalikwa pekee",
+  "inviteForMe": "Mwalika kwa ajili yangu",
+  "inviteText": "{username} amekualika kwenye stawi. Tembelea kiungo cha mwaliko {link} ili kuungana",
+  "@inviteText": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "link": {
+        "type": "String"
+      }
+    }
+  },
+  "isTyping": "anachapa…",
+  "joinedTheChat": "👋 {username} amejiunga na gumzo",
+  "@joinedTheChat": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "joinRoom": "Jiunge na chumba",
+  "kicked": "👞 {username} amemfukuza {targetName}",
+  "@kicked": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "kickedAndBanned": "🙅 {username} amemfukuza na kumzuia {targetName}",
+  "@kickedAndBanned": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "kickFromChat": "Fukuza kutoka kwenye gumzo",
+  "lastActiveAgo": "Mara ya mwisho mtandaoni: {localizedTimeShort}",
+  "@lastActiveAgo": {
+    "type": "String",
+    "placeholders": {
+      "localizedTimeShort": {
+        "type": "String"
+      }
+    }
+  },
+  "leave": "Ondoka",
+  "leftTheChat": "Ameondoka kwenye gumzo",
+  "license": "Leseni",
+  "lightTheme": "Mandhari Nyepesi",
+  "loadCountMoreParticipants": "Pakia washiriki {count} zaidi",
+  "@loadCountMoreParticipants": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dehydrate": "Hamisha kikao na futa kifaa",
+  "dehydrateWarning": "Kitendo hiki hakiwezi kubatilishwa. Hakikisha umehifadhi faili ya chelezo kwa usalama.",
+  "dehydrateTor": "Watumiaji wa TOR: Hamisha kikao",
+  "dehydrateTorLong": "Kwa watumiaji wa TOR, inapendekezwa kuhifadhi kikao kabla ya kufunga dirisha.",
+  "hydrateTor": "Watumiaji wa TOR: Leta kikao kilichohamishwa",
+  "hydrateTorLong": "Je, ulitoa kikao chako mara ya mwisho kwenye TOR? Leta haraka na uendelee kuchati.",
+  "hydrate": "Rejesha kutoka faili la chelezo",
+  "loadingPleaseWait": "Inapakia… Tafadhali subiri.",
+  "loadMore": "Pakia zaidi…",
+  "locationDisabledNotice": "Huduma za mahali zimezimwa. Tafadhali ziwashe ili uweze kushiriki mahali pako.",
+  "locationPermissionDeniedNotice": "Ruhusa ya mahali imekataliwa. Tafadhali toa ruhusa ili uweze kushiriki mahali pako.",
+  "contactPermissionDeniedNotice": "Ruhusa ya mawasiliano imekataliwa. Tafadhali toa ruhusa ili uweze kuungana na wengine.",
+  "login": "Ingia",
+  "logInTo": "Ingia kwenye {homeserver}",
+  "@logInTo": {
+    "type": "String",
+    "placeholders": {
+      "homeserver": {
+        "type": "String"
+      }
+    }
+  },
+  "logout": "Toka",
+  "memberChanges": "Mabadiliko ya wanachama",
+  "mention": "Taja",
+  "messages": "Ujumbe",
+  "messagesStyle": "Ujumbe:",
+  "moderator": "Msimamizi",
+  "muteChat": "Zima sauti ya gumzo",
+  "needPantalaimonWarning": "Tafadhali fahamu kuwa unahitaji Pantalaimon kutumia usimbaji wa mwisho hadi mwisho kwa sasa.",
+  "newChat": "Gumzo jipya",
+  "newMessageInStawi": "💬 Ujumbe mpya katika Stawi",
+  "newVerificationRequest": "Ombi jipya la uthibitishaji!",
+  "next": "Ifuatayo",
+  "no": "Hapana",
+  "noConnectionToTheServer": "Hakuna muunganisho kwa seva",
+  "noEmotesFound": "Hakuna emoji zilizopatikana. 😕",
+  "noEncryptionForPublicRooms": "Unaweza tu kuwezesha usimbaji mara tu chumba hakipatikani tena hadharani.",
+  "noGoogleServicesWarning": "Firebase Cloud Messaging haionekani kupatikana kwenye kifaa chako. Ili bado kupokea arifa za kusukuma, tunapendekeza kusakinisha ntfy. Kwa ntfy au mtoa huduma mwingine wa Unified Push unaweza kupokea arifa za kusukuma kwa njia salama ya data. Unaweza kupakua ntfy kutoka PlayStore au kutoka F-Droid.",
+  "noMatrixServer": "{server1} si seva ya matrix, tumia {server2} badala yake?",
+  "@noMatrixServer": {
+    "type": "String",
+    "placeholders": {
+      "server1": {
+        "type": "String"
+      },
+      "server2": {
+        "type": "String"
+      }
+    }
+  },
+  "shareInviteLink": "Shiriki kiungo cha mwaliko",
+  "scanQrCode": "Changanua msimbo wa QR",
+  "none": "Hakuna",
+  "noPasswordRecoveryDescription": "Hujaongeza njia ya kurejesha nenosiri lako bado.",
+  "noPermission": "Hakuna ruhusa",
+  "noRoomsFound": "Hakuna vyumba vilivyopatikana…",
+  "notifications": "Arifa",
+  "notificationsEnabledForThisAccount": "Arifa zimewezeshwa kwa akaunti hii",
+  "numUsersTyping": "{count} watumiaji wanachapa…",
+  "@numUsersTyping": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "obtainingLocation": "Inapata mahali…",
+  "offensive": "Matusi",
+  "offline": "Nje ya mtandao",
+  "ok": "Sawa",
+  "online": "Mtandaoni",
+  "onlineKeyBackupEnabled": "Chelezo ya ufunguo mtandaoni imewezeshwa",
+  "oopsPushError": "Samahani! Hitilafu imetokea wakati wa kusanidi arifa za push.",
+  "oopsSomethingWentWrong": "Samahani, kuna hitilafu imetokea…",
+  "openAppToReadMessages": "Fungua programu kusoma ujumbe",
+  "openCamera": "Fungua kamera",
+  "openVideoCamera": "Fungua kamera kwa video",
+  "oneClientLoggedOut": "Mojawapo ya vifaa vyako vimetolewa",
+  "addAccount": "Ongeza akaunti",
+  "editBundlesForAccount": "Hariri vifurushi vya akaunti hii",
+  "addToBundle": "Ongeza kwenye kifurushi",
+  "removeFromBundle": "Ondoa kwenye kifurushi hiki",
+  "bundleName": "Jina la kifurushi",
+  "enableMultiAccounts": "(BETA) Wezesha akaunti nyingi kwenye kifaa hiki",
+  "openInMaps": "Fungua kwenye ramani",
+  "link": "Kiungo",
+  "serverRequiresEmail": "Seva hii inahitaji kuthibitisha anwani yako ya barua pepe kwa usajili.",
+  "or": "Au",
+  "participant": "Mshiriki",
+  "passphraseOrKey": "kauli ya siri au ufunguo wa kurejesha",
+  "password": "Nenosiri",
+  "passwordForgotten": "Umesahau nenosiri",
+  "passwordHasBeenChanged": "Nenosiri limebadilishwa",
+  "hideMemberChangesInPublicChats": "Ficha mabadiliko ya wanachama kwenye gumzo za umma",
+  "hideMemberChangesInPublicChatsBody": "Usionyeshe kwenye historia ya gumzo ikiwa mtu amejiunga au kuondoka ili kuboresha usomekaji.",
+  "overview": "Muhtasari",
+  "notifyMeFor": "Niarifu kwa",
+  "passwordRecoverySettings": "Mipangilio ya urejeshaji nenosiri",
+  "passwordRecovery": "Urejeshaji nenosiri",
+  "people": "Watu",
+  "pickImage": "Chagua picha",
+  "pin": "Bandika",
+  "play": "Cheza {fileName}",
+  "@play": {
+    "type": "String",
+    "placeholders": {
+      "fileName": {
+        "type": "String"
+      }
+    }
+  },
+  "pleaseChoose": "Tafadhali chagua",
+  "pleaseChooseAPasscode": "Tafadhali chagua nambari ya siri",
+  "pleaseClickOnLink": "Tafadhali bofya kiungo kwenye barua pepe kisha uendelee.",
+  "pleaseEnter4Digits": "Tafadhali ingiza tarakimu 4 au acha tupu ili kuzima kufunga programu.",
+  "pleaseEnterRecoveryKey": "Tafadhali ingiza ufunguo wako wa kurejesha:",
+  "pleaseEnterYourPassword": "Tafadhali ingiza nenosiri lako",
+  "pleaseEnterYourPin": "Tafadhali ingiza nambari yako ya siri",
+  "pleaseEnterYourUsername": "Tafadhali ingiza jina lako la mtumiaji",
+  "pleaseFollowInstructionsOnWeb": "Tafadhali fuata maagizo kwenye tovuti na gonga 'endelea'.",
+  "privacy": "Faragha",
+  "publicRooms": "Vyumba vya Umma",
+  "pushRules": "Sheria za arifa",
+  "reason": "Sababu",
+  "recording": "Inarekodi",
+  "redactedBy": "Imefutwa na {username}",
+  "@redactedBy": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "directChat": "Gumzo la moja kwa moja",
+  "redactedByBecause": "Imefutwa na {username} kwa sababu: \"{reason}\"",
+  "@redactedByBecause": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "reason": {
+        "type": "String"
+      }
+    }
+  },
+  "redactedAnEvent": "{username} amefuta tukio",
+  "@redactedAnEvent": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "redactMessage": "Futa ujumbe",
+  "register": "Jisajili",
+  "reject": "Kataa",
+  "rejectedTheInvitation": "{username} amekataa mwaliko",
+  "@rejectedTheInvitation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "rejoin": "Jiunge tena",
+  "removeAllOtherDevices": "Ondoa vifaa vingine vyote",
+  "removedBy": "Imeondolewa na {username}",
+  "@removedBy": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "removeDevice": "Ondoa kifaa",
+  "unbanFromChat": "Ruhusu kutoka kwenye marufuku ya gumzo",
+  "removeYourAvatar": "Ondoa avatar yako",
+  "replaceRoomWithNewerVersion": "Badilisha chumba na toleo jipya",
+  "reply": "Jibu",
+  "reportMessage": "Ripoti ujumbe",
+  "requestPermission": "Omba ruhusa",
+  "roomHasBeenUpgraded": "Chumba kimeboreshwa",
+  "roomVersion": "Toleo la chumba",
+  "saveFile": "Hifadhi faili",
+  "search": "Tafuta",
+  "security": "Usalama",
+  "recoveryKey": "Ufunguo wa urejeshaji",
+  "recoveryKeyLost": "Ufunguo wa urejeshaji umepotea?",
+  "seenByUser": "Imeonekana na {username}",
+  "@seenByUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "send": "Tuma",
+  "sendAMessage": "Tuma ujumbe",
+  "sendAsText": "Tuma kama maandishi",
+  "@sendAsText": {
+    "type": "String"
+  },
+  "sendAudio": "Tuma sauti",
+  "sendFile": "Tuma faili",
+  "sendImage": "Tuma picha",
+  "sendImages": "Tuma picha {count}",
+  "@sendImages": {
+    "type": "String",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "sendMessages": "Tuma ujumbe",
+  "sendOriginal": "Tuma asili",
+  "sendSticker": "Tuma stika",
+  "sendVideo": "Tuma video",
+  "sentAFile": "📁 {username} ametuma faili",
+  "@sentAFile": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAnAudio": "🎤 {username} ametuma sauti",
+  "@sentAnAudio": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAPicture": "🖼️ {username} ametuma picha",
+  "@sentAPicture": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentASticker": "😊 {username} ametuma stika",
+  "@sentASticker": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentAVideo": "🎥 {username} ametuma video",
+  "@sentAVideo": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "sentCallInformations": "{senderName} ametuma taarifa za simu",
+  "@sentCallInformations": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "separateChatTypes": "Tenganisha Gumzo za Moja kwa Moja na Vikundi",
+  "setAsCanonicalAlias": "Weka kama alama kuu",
+  "setCustomEmotes": "Weka emoji maalum",
+  "setChatDescription": "Weka maelezo ya gumzo",
+  "setInvitationLink": "Weka kiungo cha mwaliko",
+  "setPermissionsLevel": "Weka kiwango cha ruhusa",
+  "setStatus": "Weka hali",
+  "settings": "Mipangilio",
+  "share": "Shiriki",
+  "sharedTheLocation": "{username} ameshiriki mahali pake",
+  "@sharedTheLocation": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "shareLocation": "Shiriki mahali",
+  "showPassword": "Onyesha nenosiri",
+  "presenceStyle": "Hali:",
+  "presencesToggle": "Onyesha ujumbe wa hali kutoka kwa watumiaji wengine",
+  "singlesignon": "Ingia kwa mara moja",
+  "skip": "Ruka",
+  "sourceCode": "Msimbo wa chanzo",
+  "spaceIsPublic": "Nafasi ni ya umma",
+  "spaceName": "Jina la nafasi",
+  "startedACall": "{senderName} ameanzisha simu",
+  "@startedACall": {
+    "type": "String",
+    "placeholders": {
+      "senderName": {
+        "type": "String"
+      }
+    }
+  },
+  "startFirstChat": "Anza gumzo lako la kwanza",
+  "status": "Hali",
+  "statusExampleMessage": "Habari yako leo?",
+  "submit": "Wasilisha",
+  "synchronizingPleaseWait": "Inalinganisha… Tafadhali subiri.",
+  "synchronizingPleaseWaitCounter": " Inalinganisha… ({percentage}%)",
+  "@synchronizingPleaseWaitCounter": {
+    "type": "String",
+    "placeholders": {
+      "percentage": {
+        "type": "String"
+      }
+    }
+  },
+  "systemTheme": "Mfumo",
+  "theyDontMatch": "Havilingani",
+  "theyMatch": "Vinalingana",
+  "title": "Stawi",
+  "@title": {
+    "description": "Kichwa cha programu",
+    "type": "String",
+    "placeholders": {}
+  },
+  "toggleFavorite": "Badilisha kipendwa",
+  "toggleMuted": "Badilisha kimya",
+  "toggleUnread": "Tia alama kama imesomwa/haijasomwa",
+  "tooManyRequestsWarning": "Maombi mengi sana. Tafadhali jaribu tena baadaye!",
+  "transferFromAnotherDevice": "Hamisha kutoka kifaa kingine",
+  "tryToSendAgain": "Jaribu kutuma tena",
+  "unavailable": "Haipatikani",
+  "unbannedUser": "{username} amemruhusu {targetName}",
+  "@unbannedUser": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "targetName": {
+        "type": "String"
+      }
+    }
+  },
+  "unblockDevice": "Ruhusu kifaa",
+  "unknownDevice": "Kifaa kisichojulikana",
+  "unknownEncryptionAlgorithm": "Algorithimu ya usimbaji isiyojulikana",
+  "unknownEvent": "Tukio lisilojulikana '{type}'",
+  "@unknownEvent": {
+    "type": "String",
+    "placeholders": {
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "unmuteChat": "Ruhusu sauti ya gumzo",
+  "unpin": "Ondoa bandiko",
+  "unreadChats": "{unreadCount, plural, =1{1 gumzo haijasomwa} other{{unreadCount} gumzo haijasomwa}}",
+  "@unreadChats": {
+    "type": "String",
+    "placeholders": {
+      "unreadCount": {
+        "type": "int"
+      }
+    }
+  },
+  "userAndOthersAreTyping": "{username} na {count} wengine wanachapa…",
+  "@userAndOthersAreTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "userAndUserAreTyping": "{username} na {username2} wanachapa…",
+  "@userAndUserAreTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "username2": {
+        "type": "String"
+      }
+    }
+  },
+  "userIsTyping": "{username} anachapa…",
+  "@userIsTyping": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "userLeftTheChat": "🚪 {username} ameondoka kwenye gumzo",
+  "@userLeftTheChat": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      }
+    }
+  },
+  "username": "Jina la mtumiaji",
+  "userSentUnknownEvent": "{username} ametuma tukio la {type}",
+  "@userSentUnknownEvent": {
+    "type": "String",
+    "placeholders": {
+      "username": {
+        "type": "String"
+      },
+      "type": {
+        "type": "String"
+      }
+    }
+  },
+  "unverified": "Haijathibitishwa",
+  "verified": "Imethibitishwa",
+  "verify": "Thibitisha",
+  "verifyStart": "Anza Uthibitishaji",
+  "verifySuccess": "Umefanikiwa kuthibitisha!",
+  "verifyTitle": "Kuthibitisha akaunti nyingine",
+  "videoCall": "Simu ya video",
+  "visibilityOfTheChatHistory": "Mwonekano wa historia ya gumzo",
+  "visibleForAllParticipants": "Inaonekana kwa washiriki wote",
+  "visibleForEveryone": "Inaonekana kwa kila mtu",
+  "voiceMessage": "Ujumbe wa sauti",
+  "waitingPartnerAcceptRequest": "Inasubiri mshirika akubali ombi…",
+  "waitingPartnerEmoji": "Inasubiri mshirika akubali emoji…",
+  "waitingPartnerNumbers": "Inasubiri mshirika akubali nambari…",
+  "wallpaper": "Ukuta:",
+  "warning": "Onyo!",
+  "weSentYouAnEmail": "Tumekutumia barua pepe",
+  "whoCanPerformWhichAction": "Nani anaweza kufanya kitendo gani",
+  "whoIsAllowedToJoinThisGroup": "Nani anaruhusiwa kujiunga na kikundi hiki",
+  "whyDoYouWantToReportThis": "Kwa nini unataka kuripoti hili?",
+  "wipeChatBackup": "Futa chelezo ya gumzo ili kuunda ufunguo mpya wa urejeshaji?",
+  "withTheseAddressesRecoveryDescription": "Kwa anwani hizi unaweza kurejesha nenosiri lako.",
+  "writeAMessage": "Andika ujumbe…",
+  "yes": "Ndio",
+  "you": "Wewe",
+  "youAreNoLongerParticipatingInThisChat": "Hushiriki tena katika gumzo hili",
+  "youHaveBeenBannedFromThisChat": "Umezuiwa kutoka kwenye gumzo hili",
+  "yourPublicKey": "Ufunguo wako wa umma",
+  "messageInfo": "Taarifa za ujumbe",
+  "time": "Wakati",
+  "messageType": "Aina ya ujumbe",
+  "sender": "Mtumaji",
+  "openGallery": "Fungua galeri",
+  "removeFromSpace": "Ondoa kutoka nafasi",
+  "addToSpaceDescription": "Chagua nafasi ya kuongeza gumzo hili.",
+  "start": "Anza",
+  "pleaseEnterRecoveryKeyDescription": "Ili kufungua ujumbe wako wa zamani, tafadhali ingiza ufunguo wako wa urejeshaji ambao umeundwa katika kikao cha awali. Ufunguo wako wa urejeshaji SIYO nenosiri lako.",
+  "publish": "Chapisha",
+  "videoWithSize": "Video ({size})",
+  "@videoWithSize": {
+    "type": "String",
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "openChat": "Fungua Gumzo",
+  "markAsRead": "Tia alama kama imesomwa",
+  "reportUser": "Ripoti mtumiaji",
+  "dismiss": "Futa",
+  "reactedWith": "{sender} amejibu na {reaction}",
+  "@reactedWith": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      },
+      "reaction": {
+        "type": "String"
+      }
+    }
+  },
+  "pinMessage": "Bandika kwenye chumba",
+  "confirmEventUnpin": "Una uhakika wa kuondoa bandiko la tukio?",
+  "emojis": "Emoji",
+  "placeCall": "Piga simu",
+  "voiceCall": "Simu ya sauti",
+  "unsupportedAndroidVersion": "Toleo la Android halitumiki",
+  "unsupportedAndroidVersionLong": "Kipengele hiki kinahitaji toleo jipya la Android. Tafadhali angalia masasisho au msaada wa Lineage OS.",
+  "videoCallsBetaWarning": "Tafadhali fahamu kuwa simu za video ziko katika beta kwa sasa. Huenda hazitafanya kazi kama inavyotarajiwa au hazitafanya kazi kabisa kwenye majukwaa yote.",
+  "experimentalVideoCalls": "Simu za video za majaribio",
+  "emailOrUsername": "Barua pepe au jina la mtumiaji",
+  "indexedDbErrorTitle": "Masuala ya hali ya faragha",
+  "indexedDbErrorLong": "Hifadhi ya ujumbe haijawezeshwa katika hali ya faragha kwa chaguo-msingi.\nTafadhali tembelea\n - about:config\n - weka dom.indexedDB.privateBrowsing.enabled kuwa kweli\nVinginevyo, haiwezekani kuendesha Stawi.",
+  "switchToAccount": "Badilisha akaunti {number}",
+  "@switchToAccount": {
+    "type": "number",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "nextAccount": "Akaunti inayofuata",
+  "previousAccount": "Akaunti iliyopita",
+  "addWidget": "Ongeza wijeti",
+  "widgetVideo": "Video",
+  "widgetEtherpad": "Padi ya Maandishi",
+  "widgetJitsi": "Jitsi Meet",
+  "widgetCustom": "Maalum",
+  "widgetName": "Jina",
+  "widgetUrlError": "Hii si URL sahihi.",
+  "widgetNameError": "Tafadhali toa jina la kuonyesha.",
+  "errorAddingWidget": "Hitilafu ya kuongeza wijeti.",
+  "youRejectedTheInvitation": "Ulikataa mwaliko",
+  "youJoinedTheChat": "Umejiunga na gumzo",
+  "youAcceptedTheInvitation": "👍 Ulikubali mwaliko",
+  "youBannedUser": "Umemzuia {user}",
+  "@youBannedUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youHaveWithdrawnTheInvitationFor": "Umefuta mwaliko kwa {user}",
+  "@youHaveWithdrawnTheInvitationFor": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youInvitedToBy": "📩 Umealikwa kupitia kiungo kwa:\n{alias}",
+  "@youInvitedToBy": {
+    "placeholders": {
+      "alias": {
+        "type": "String"
+      }
+    }
+  },
+  "youInvitedBy": "📩 Umealikwa na {user}",
+  "@youInvitedBy": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "invitedBy": "📩 Amealikwa na {user}",
+  "@invitedBy": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youInvitedUser": "📩 Umealikwa {user}",
+  "@youInvitedUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youKicked": "👞 Umefukuza {user}",
+  "@youKicked": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youKickedAndBanned": "🙅 Umefukuza na kumzuia {user}",
+  "@youKickedAndBanned": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "youUnbannedUser": "Umemruhusu {user}",
+  "@youUnbannedUser": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "hasKnocked": "🚪 {user} amegonga",
+  "@hasKnocked": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "usersMustKnock": "Watumiaji lazima wagonge",
+  "noOneCanJoin": "Hakuna anayeweza kujiunga",
+  "userWouldLikeToChangeTheChat": "{user} angependa kujiunga na gumzo.",
+  "@userWouldLikeToChangeTheChat": {
+    "placeholders": {
+      "user": {
+        "type": "String"
+      }
+    }
+  },
+  "noPublicLinkHasBeenCreatedYet": "Hakuna kiungo cha umma kilichoundwa bado",
+  "knock": "Gonga",
+  "users": "Watumiaji",
+  "unlockOldMessages": "Fungua ujumbe wa zamani",
+  "storeInSecureStorageDescription": "Hifadhi ufunguo wa urejeshaji katika hifadhi salama ya kifaa hiki.",
+  "saveKeyManuallyDescription": "Hifadhi ufunguo huu kwa mikono kwa kuchochea dialog ya kushiriki mfumo au ubao wa kunakili.",
+  "storeInAndroidKeystore": "Hifadhi katika Android KeyStore",
+  "storeInAppleKeyChain": "Hifadhi katika Apple KeyChain",
+  "storeSecurlyOnThisDevice": "Hifadhi kwa usalama kwenye kifaa hiki",
+  "countFiles": "{count} faili",
+  "@countFiles": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "user": "Mtumiaji",
+  "custom": "Maalum",
+  "foregroundServiceRunning": "Arifa hii inaonekana wakati huduma ya mbele inaendesha.",
+  "screenSharingTitle": "kushiriki skrini",
+  "screenSharingDetail": "Unashiriki skrini yako katika FuffyChat",
+  "callingPermissions": "Ruhusa za kupiga simu",
+  "callingAccount": "Akaunti ya kupiga simu",
+  "callingAccountDetails": "Inaruhusu Stawi kutumia programu ya kupiga simu ya asili ya android.",
+  "appearOnTop": "Onyesha juu",
+  "appearOnTopDetails": "Inaruhusu programu kuonekana juu (sio lazima ikiwa tayari umeweka Fluffychat kama akaunti ya kupiga simu)",
+  "otherCallingPermissions": "Mikrofoni, kamera na ruhusa nyingine za Stawi",
+  "whyIsThisMessageEncrypted": "Kwa nini ujumbe huu hauwezi kusomeka?",
+  "noKeyForThisMessage": "Hii inaweza kutokea ikiwa ujumbe ulitumwa kabla hujaingia kwenye akaunti yako kwenye kifaa hiki.\n\nInawezekana pia kuwa mtumaji amezuia kifaa chako au kitu kimeenda vibaya na muunganisho wa intaneti.\n\nJe, unaweza kusoma ujumbe kwenye kikao kingine? Basi unaweza kuhamisha ujumbe kutoka kwake! Nenda kwenye Mipangilio > Vifaa na hakikisha kuwa vifaa vyako vimehakikishana. Unapofungua chumba mara inayofuata na vikao vyote viwili viko mbele, funguo zitahamishwa kiotomatiki.\n\nJe, hutaki kupoteza funguo unapoondoka au kubadilisha vifaa? Hakikisha kuwa umewezesha chelezo ya gumzo katika mipangilio.",
+  "newGroup": "Kikundi kipya",
+  "newSpace": "Nafasi mpya",
+  "enterSpace": "Ingiza nafasi",
+  "enterRoom": "Ingiza chumba",
+  "allSpaces": "Nafasi zote",
+  "numChats": "{number} gumzo",
+  "@numChats": {
+    "type": "number",
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "hideUnimportantStateEvents": "Ficha matukio yasiyo muhimu ya hali",
+  "hidePresences": "Ficha Orodha ya Hali?",
+  "doNotShowAgain": "Usionyeshe tena",
+  "wasDirectChatDisplayName": "Gumzo tupu (ilikuwa {oldDisplayName})",
+  "@wasDirectChatDisplayName": {
+    "type": "String",
+    "placeholders": {
+      "oldDisplayName": {
+        "type": "String"
+      }
+    }
+  },
+  "newSpaceDescription": "Nafasi hukuruhusu kuunganisha gumzo zako na kujenga jumuiya za kibinafsi au za umma.",
+  "encryptThisChat": "Simbua gumzo hili",
+  "disableEncryptionWarning": "Kwa sababu za usalama huwezi kuzima usimbaji katika gumzo, ambapo imewezeshwa hapo awali.",
+  "sorryThatsNotPossible": "Samahani... hiyo haiwezekani",
+  "deviceKeys": "Funguo za kifaa:",
+  "reopenChat": "Fungua tena gumzo",
+  "noBackupWarning": "Onyo! Bila kuwezesha chelezo ya gumzo, utapoteza ufikiaji wa ujumbe wako uliofichwa. Inapendekezwa sana kuwezesha chelezo ya gumzo kwanza kabla ya kutoka.",
+  "noOtherDevicesFound": "Hakuna vifaa vingine vilivyopatikana",
+  "fileIsTooBigForServer": "Haiwezi kutuma! Seva inasaidia tu viambatisho hadi {max}.",
+  "@fileIsTooBigForServer": {
+    "type": "String",
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "fileHasBeenSavedAt": "Faili imehifadhiwa katika {path}",
+  "@fileHasBeenSavedAt": {
+    "type": "String",
+    "placeholders": {
+      "path": {
+        "type": "String"
+      }
+    }
+  },
+  "jumpToLastReadMessage": "Ruka kwenye ujumbe wa mwisho ulio soma",
+  "readUpToHere": "Soma hadi hapa",
+  "jump": "Ruka",
+  "openLinkInBrowser": "Fungua kiungo kwenye kivinjari",
+  "reportErrorDescription": "😭 Oh hapana. Kitu kimeenda vibaya. Ikiwa unataka, unaweza kuripoti hitilafu hii kwa watengenezaji.",
+  "report": "Ripoti",
+  "signInWithPassword": "Ingia kwa nenosiri",
+  "pleaseTryAgainLaterOrChooseDifferentServer": "Tafadhali jaribu tena baadaye au chagua seva tofauti.",
+  "signInWith": "Ingia na {provider}",
+  "@signInWith": {
+    "type": "String",
+    "placeholders": {
+      "provider": {
+        "type": "String"
+      }
+    }
+  },
+  "profileNotFound": "Mtumiaji hakuweza kupatikana kwenye seva. Labda kuna tatizo la muunganisho au mtumiaji hayupo.",
+  "setTheme": "Weka mandhari:",
+  "setColorTheme": "Weka mandhari ya rangi:",
+  "invite": "Mwalika",
+  "inviteGroupChat": "📨 Mwalika gumzo la kikundi",
+  "invitePrivateChat": "📨 Mwalika gumzo la faragha",
+  "invalidInput": "Ingizo si sahihi!",
+  "wrongPinEntered": "Nambari ya siri si sahihi! Jaribu tena baada ya sekunde {seconds}...",
+  "@wrongPinEntered": {
+    "type": "String",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "pleaseEnterANumber": "Tafadhali ingiza nambari kubwa kuliko 0",
+  "archiveRoomDescription": "Gumzo litahamishwa kwenye kumbukumbu. Watumiaji wengine wataweza kuona kuwa umeondoka kwenye gumzo.",
+  "roomUpgradeDescription": "Gumzo litaanzishwa tena na toleo jipya la chumba. Washiriki wote watajulishwa kuwa wanahitaji kubadilisha gumzo jipya. Unaweza kujua zaidi kuhusu matoleo ya chumba kwenye https://spec.matrix.org/latest/rooms/",
+  "removeDevicesDescription": "Utatolewa kwenye kifaa hiki na hutaweza kupokea ujumbe tena.",
+  "banUserDescription": "Mtumiaji atazuiwa kutoka kwenye gumzo na hatoweza kuingia tena hadi atakapozuiwa.",
+  "unbanUserDescription": "Mtumiaji ataweza kuingia tena kwenye gumzo ikiwa atajaribu.",
+  "kickUserDescription": "Mtumiaji atafukuzwa kutoka kwenye gumzo lakini hatazuiwa. Katika gumzo za umma, mtumiaji anaweza kujiunga tena wakati wowote.",
+  "makeAdminDescription": "Ukifanya mtumiaji huyu kuwa msimamizi, huenda usiweze kubatilisha hili kwani watakuwa na ruhusa sawa na wewe.",
+  "pushNotificationsNotAvailable": "Arifa za kusukuma hazipatikani",
+  "learnMore": "Jifunze zaidi",
+  "yourGlobalUserIdIs": "Kitambulisho chako cha mtumiaji wa kimataifa ni: ",
+  "noUsersFoundWithQuery": "Samahani hakuna mtumiaji aliyepatikana na \"{query}\". Tafadhali angalia kama umeandika vibaya.",
+  "@noUsersFoundWithQuery": {
+    "type": "String",
+    "placeholders": {
+      "query": {
+        "type": "String"
+      }
+    }
+  },
+  "knocking": "Gonga",
+  "chatCanBeDiscoveredViaSearchOnServer": "Gumzo linaweza kugunduliwa kupitia utafutaji kwenye {server}",
+  "@chatCanBeDiscoveredViaSearchOnServer": {
+    "type": "String",
+    "placeholders": {
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "searchChatsRooms": "Tafuta #gumzo, @watumiaji...",
+  "nothingFound": "Hakuna kilichopatikana...",
+  "groupName": "Jina la kikundi",
+  "groupDescription": "Maelezo ya kikundi",
+  "groupConfiguration": "Usanidi wa Kikundi",
+  "groupType": "Aina ya Kikundi",
+  "groupTypeProduct": "Kikundi cha Bidhaa",
+  "groupTypeGrameen": "Kikundi cha Kawaida",
+  "groupTypeVoluntary": "Kikundi cha Hiari",
+  "groupTypeFunding": "Kikundi cha Ufadhili",
+  "groupTypeTemporary": "Kikundi cha Muda",
+  "groupTypeMerryGoRound": "Kikundi cha Merry Go Round",
+  "groupTypeDescriptionDefault": "Wanachama wanaweza kuweka akiba na kukopesha ndani ya kikundi mara kwa mara chini ya mbinu ya grameen. Mikopo ni sawa na kiasi cha pesa wanachoweka kulingana na mipangilio ya leverage inayoruhusiwa.",
+  "groupTypeDescriptionFunding": "Wanachama wa vikundi hivi huanzisha kwa lengo la kukopesha vikundi vya grameen na kupata faida. Hakuna muda maalum kwani wanachama huweka muda ambao wako tayari kufunga fedha zao kwa ajili ya kukopesha vikundi. Kuna uwezekano wa kufungwa kwa muda usiojulikana kwa baadhi ya fedha wakati vikundi vinapopigwa faini kwa kutofanya kazi.",
+  "groupTypeDescriptionTemporary": "Haya ni makundi yaliyoanzishwa kwa madhumuni maalum na tarehe ya mwisho, yanaweza kuwa kwa hafla kama vile kuchangisha fedha za mazishi, harusi na mikutano ya utambulisho.",
+  "groupTypeDescriptionVoluntary": "Vikundi vilivyopangwa ambavyo vina ratiba ya michango kutoka kwa wanachama. Hali hutokea katika maisha halisi kabla ya kikundi kufanya kitu kwa mtumiaji, mfano: 1. Katika mazingira ya kanisa, waumini wanaweza kuhitaji kutoa michango kila wiki kwa ajili ya sadaka za jumapili. kuwa na mchango wa 10% kila mwezi au kuwa na mchango wa kila mwaka. 2. Vyama vya walimu au vikundi vya wanachama huchangia ada fulani kila mara kwa ajili ya janga linalompata mwanachama, Wanaweza kuwa na hali kama vile ikiwa mwanachama hachangii basi wanapokuwa na matatizo hawatapata msaada sawa.",
+  "groupTypeDescriptionMerryGoRound": "Wanachama huchangia na kuwa na ratiba ya mtu mmoja kupokea sehemu ya akiba ya mara kwa mara. Hii inaweza kuwa 70% ya michango na michango mingine inagawanywa sawa mwishoni mwa mzunguko wa kikundi.",
+  "groupTypeDescriptionProduct": "Vikundi vya bidhaa ni vikundi vya mfumo vinavyosaidia na utendaji wa mfumo mzima",
+  "groupSecret": "Siri ya Kikundi",
+  "currency": "Sarafu",
+  "currencySelectDescription": "Inawakilisha Sarafu itakayotumika kwa kushughulikia fedha za kikundi",
+  "periodicSetup": "Vigezo vya Mzunguko",
+  "periodType": "Aina ya Kipindi",
+  "periodicTypeDescription": "Aina ya kipindi inawakilisha muda kati ya ambao wanachama wana wajibu kwa kikundi chao",
+  "periodTypeWeekly": "Kila Wiki",
+  "periodTypeBiWeekly": "Kila Wiki Mbili",
+  "periodTypeMonthly": "Kila Mwezi",
+  "periodicSavingAmount": "Kiasi cha Akiba ya Mara kwa Mara",
+  "periodicSavingAmountDescription": "Kiasi kinachowekwa mara kwa mara na wanachama wa kikundi",
+  "finalizeGroupConfiguration": "Kamilisha Usanidi wa Kikundi",
+  "finalizeGroupConfigurationDescription": "Kikundi chako {groupName} kitakuwa kimewekwa hivi karibuni",
+  "@finalizeGroupConfigurationDescription": {
+    "type": "String",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
+  "groupTerminationDate": "Tarehe ya Kukomesha Kikundi",
+  "groupTerminationDateDescription": "Tarehe baada ya lengo la kikundi litakuwa limekamilika",
+  "groupCreationSuccessful": "Ombi la Kuunda Kikundi Limefanikiwa",
+  "groupCreationSuccessfulDescription": "Kikundi chenye jina {groupName} kinasanidiwa, hii itachukua muda mfupi. \n\n Ongeza wanachama wote kwenye kikundi kutoka kwa mawasiliano yako",
+  "@groupCreationSuccessfulDescription": {
+    "type": "String",
+    "placeholders": {
+      "groupName": {
+        "type": "String"
+      }
+    }
+  },
+  "createGroupAndInviteUsers": "Unda kikundi na waalike watumiaji",
+  "groupCanBeFoundViaSearch": "Kikundi kinaweza kupatikana kupitia utafutaji",
+  "wrongRecoveryKey": "Samahani... hii haionekani kuwa ufunguo sahihi wa urejeshaji.",
+  "startConversation": "Anza mazungumzo",
+  "commandHint_sendraw": "Tuma json mbichi",
+  "databaseMigrationTitle": "Hifadhidata imeboreshwa",
+  "databaseMigrationBody": "Tafadhali subiri. Hii inaweza kuchukua muda.",
+  "leaveEmptyToClearStatus": "Acha tupu ili kufuta hali yako.",
+  "select": "Chagua",
+  "searchForUsers": "Tafuta @watumiaji...",
+  "pleaseEnterYourCurrentPassword": "Tafadhali ingiza nenosiri lako la sasa",
+  "newPassword": "Nenosiri jipya",
+  "pleaseChooseAStrongPassword": "Tafadhali chagua nenosiri lenye nguvu",
+  "passwordsDoNotMatch": "Nenosiri hayalingani",
+  "passwordIsWrong": "Nenosiri uliloingiza si sahihi",
+  "publicLink": "Kiungo cha umma",
+  "publicChatAddresses": "Anwani za gumzo za umma",
+  "createNewAddress": "Unda anwani mpya",
+  "joinSpace": "Jiunge na nafasi",
+  "publicSpaces": "Nafasi za umma",
+  "addChatOrSubSpace": "Ongeza gumzo au nafasi ndogo",
+  "subspace": "Nafasi ndogo",
+  "decline": "Kataa",
+  "thisDevice": "Kifaa hiki:",
+  "initAppError": "Hitilafu imetokea wakati wa kuanzisha programu",
+  "userRole": "Nafasi ya mtumiaji",
+  "minimumPowerLevel": "{level} ni kiwango cha chini cha nguvu.",
+  "@minimumPowerLevel": {
+    "type": "String",
+    "placeholders": {
+      "level": {
+        "type": "String"
+      }
+    }
+  },
+  "searchIn": "Tafuta katika gumzo \"{chat}\"...",
+  "@searchIn": {
+    "type": "String",
+    "placeholders": {
+      "chat": {
+        "type": "String"
+      }
+    }
+  },
+  "searchMore": "Tafuta zaidi...",
+  "gallery": "Galeri",
+  "files": "Faili",
+  "databaseBuildErrorBody": "Imeshindikana kujenga hifadhidata ya SQlite. Programu inajaribu kutumia hifadhidata ya zamani kwa sasa. Tafadhali ripoti hitilafu hii kwa watengenezaji kwenye {url}. Ujumbe wa hitilafu ni: {error}",
+  "@databaseBuildErrorBody": {
+    "type": "String",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "sessionLostBody": "Kikao chako kimepotea. Tafadhali ripoti hitilafu hii kwa watengenezaji kwenye {url}. Ujumbe wa hitilafu ni: {error}",
+  "@sessionLostBody": {
+    "type": "String",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "restoreSessionBody": "Programu sasa inajaribu kurejesha kikao chako kutoka kwenye chelezo. Tafadhali ripoti hitilafu hii kwa watengenezaji kwenye {url}. Ujumbe wa hitilafu ni: {error}",
+  "@restoreSessionBody": {
+    "type": "String",
+    "placeholders": {
+      "url": {
+        "type": "String"
+      },
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "forwardMessageTo": "Tuma ujumbe mbele kwa {roomName}?",
+  "@forwardMessageTo": {
+    "type": "String",
+    "placeholders": {
+      "roomName": {
+        "type": "String"
+      }
+    }
+  },
+  "sendReadReceipts": "Tuma risiti za kusoma",
+  "sendTypingNotificationsDescription": "Washiriki wengine katika gumzo wanaweza kuona unapochapa ujumbe mpya.",
+  "sendReadReceiptsDescription": "Washiriki wengine katika gumzo wanaweza kuona unapokuwa umesoma ujumbe.",
+  "formattedMessages": "Ujumbe uliopangwa",
+  "formattedMessagesDescription": "Onyesha maudhui tajiri ya ujumbe kama maandishi yenye ujasiri kwa kutumia markdown.",
+  "verifyOtherUser": "🔐 Thibitisha mtumiaji mwingine",
+  "verifyOtherUserDescription": "Ukithibitisha mtumiaji mwingine, unaweza kuwa na uhakika kwamba unajua unayeandika naye kweli. 💪\n\nUnapoanza uthibitishaji, wewe na mtumiaji mwingine mtaona dirisha ibukizi kwenye programu. Hapo utaona mfululizo wa emoji au nambari ambazo unapaswa kulinganisha na kila mmoja.\n\nNjia bora ya kufanya hivi ni kukutana au kuanza simu ya video. 👭",
+  "verifyOtherDevice": "🔐 Thibitisha kifaa kingine",
+  "verifyOtherDeviceDescription": "Unapothibitisha kifaa kingine, vifaa hivyo vinaweza kubadilishana funguo, kuongeza usalama wako kwa ujumla. 💪 Unapoanza uthibitishaji, dirisha ibukizi litaonekana kwenye programu kwenye vifaa vyote viwili. Hapo utaona mfululizo wa emoji au nambari ambazo unapaswa kulinganisha na kila mmoja. Ni bora kuwa na vifaa vyote karibu kabla ya kuanza uthibitishaji. 🤳",
+  "acceptedKeyVerification": "{sender} amekubali uthibitishaji wa ufunguo",
+  "@acceptedKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "canceledKeyVerification": "{sender} amekataa uthibitishaji wa ufunguo",
+  "@canceledKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "completedKeyVerification": "{sender} amekamilisha uthibitishaji wa ufunguo",
+  "@completedKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "isReadyForKeyVerification": "{sender} yuko tayari kwa uthibitishaji wa ufunguo",
+  "@isReadyForKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "requestedKeyVerification": "{sender} ameomba uthibitishaji wa ufunguo",
+  "@requestedKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "startedKeyVerification": "{sender} ameanza uthibitishaji wa ufunguo",
+  "@startedKeyVerification": {
+    "type": "String",
+    "placeholders": {
+      "sender": {
+        "type": "String"
+      }
+    }
+  },
+  "transparent": "Wazi",
+  "incomingMessages": "Ujumbe unaoingia",
+  "stickers": "Stika",
+  "discover": "Gundua",
+  "commandHint_ignore": "Puuza kitambulisho cha matrix kilichopewa",
+  "commandHint_unignore": "Ondoa kupuuza kitambulisho cha matrix kilichopewa",
+  "unreadChatsInApp": "{appname}: {unread} gumzo haijasomwa",
+  "@unreadChatsInApp": {
+    "type": "String",
+    "placeholders": {
+      "appname": {
+        "type": "String"
+      },
+      "unread": {
+        "type": "String"
+      }
+    }
+  },
+  "noDatabaseEncryption": "Usimbaji wa hifadhidata hauungwi mkono kwenye jukwaa hili",
+  "thereAreCountUsersBlocked": "Kwa sasa kuna {count} watumiaji waliopigwa marufuku.",
+  "@thereAreCountUsersBlocked": {
+    "type": "String",
+    "count": {}
+  },
+  "restricted": "Imewekewa vikwazo",
+  "knockRestricted": "Gonga imewekewa vikwazo",
+  "goToSpace": "Nenda kwenye nafasi: {space}",
+  "@goToSpace": {
+    "type": "String",
+    "space": {}
+  },
+  "markAsUnread": "Tia alama kama haijasomwa",
+  "userLevel": "{level} - Mtumiaji",
+  "@userLevel": {
+    "type": "String",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "moderatorLevel": "{level} - Msimamizi",
+  "@moderatorLevel": {
+    "type": "String",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "adminLevel": "{level} - Msimamizi Mkuu",
+  "@adminLevel": {
+    "type": "String",
+    "placeholders": {
+      "level": {
+        "type": "int"
+      }
+    }
+  },
+  "changeGeneralChatSettings": "Badilisha mipangilio ya jumla ya gumzo",
+  "inviteOtherUsers": "Mwalika watumiaji wengine kwenye gumzo hili",
+  "changeTheChatPermissions": "Badilisha ruhusa za gumzo",
+  "changeTheVisibilityOfChatHistory": "Badilisha mwonekano wa historia ya gumzo",
+  "changeTheCanonicalRoomAlias": "Badilisha anwani kuu ya umma ya gumzo",
+  "sendRoomNotifications": "Tuma arifa za @room",
+  "changeTheDescriptionOfTheGroup": "Badilisha maelezo ya gumzo",
+  "chatPermissionsDescription": "Fafanua ni kiwango gani cha nguvu kinachohitajika kwa vitendo fulani katika gumzo hili. Viwango vya nguvu 0, 50 na 100 kawaida vinawakilisha watumiaji, wasimamizi na wasimamizi wakuu, lakini upunguzaji wowote unawezekana.",
+  "updateInstalled": "🎉 Sasisho {version} limewekwa!",
+  "@updateInstalled": {
+    "type": "String",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "changelog": "Orodha ya mabadiliko",
+  "sendCanceled": "Kutuma kumesitishwa",
+  "loginWithMatrixId": "Ingia na Kitambulisho cha Matrix",
+  "discoverHomeservers": "Gundua seva za nyumbani",
+  "whatIsAHomeserver": "Seva ya nyumbani ni nini?",
+  "homeserverDescription": "Data zako zote zinahifadhiwa kwenye seva ya nyumbani, kama mtoa huduma wa barua pepe. Unaweza kuchagua seva ya nyumbani unayotaka kutumia, wakati bado unaweza kuwasiliana na kila mtu. Jifunze zaidi kwenye https://matrix.org.",
+  "doesNotSeemToBeAValidHomeserver": "Haionekani kuwa seva ya nyumbani inayooana. URL si sahihi?",
+  "calculatingFileSize": "Inakokotoa ukubwa wa faili...",
+  "prepareSendingAttachment": "Andaa kutuma kiambatisho...",
+  "sendingAttachment": "Inatuma kiambatisho...",
+  "generatingVideoThumbnail": "Inazalisha picha ndogo ya video...",
+  "compressVideo": "Inakandamiza video...",
+  "sendingAttachmentCountOfCount": "Inatuma kiambatisho {index} ya {length}...",
+  "@sendingAttachmentCountOfCount": {
+    "type": "int",
+    "placeholders": {
+      "index": {
+        "type": "int"
+      },
+      "length": {
+        "type": "int"
+      }
+    }
+  },
+  "serverLimitReached": "Kikomo cha seva kimefikiwa! Inasubiri sekunde {seconds}...",
+  "@serverLimitReached": {
+    "type": "int",
+    "placeholders": {
+      "seconds": {
+        "type": "int"
+      }
+    }
+  },
+  "oneOfYourDevicesIsNotVerified": "Moja ya vifaa vyako haijathibitishwa",
+  "noticeChatBackupDeviceVerification": "Kumbuka: Unapounganisha vifaa vyako vyote kwenye chelezo ya gumzo, vinathibitishwa kiotomatiki.",
+  "continueText": "Endelea",
+  "welcomeText": "Unda au jiunge na vikundi kwa lengo la kuweka akiba, kupata mkopo au kutoa mikopo kwa wanachama wengine",
+  "blur": "Punguza:",
+  "opacity": "Uwazi:",
+  "setWallpaper": "Weka ukuta",
+  "manageAccount": "Dhibiti akaunti",
+  "noContactInformationProvided": "Seva haijatoa taarifa yoyote halali ya mawasiliano",
+  "contactServerAdmin": "Wasiliana na msimamizi wa seva",
+  "contactServerSecurity": "Wasiliana na usalama wa seva",
+  "supportPage": "Ukurasa wa msaada",
+  "serverInformation": "Taarifa za seva:",
+  "name": "Jina",
+  "version": "Toleo",
+  "website": "Tovuti",
+  "compress": "Kandamiza",
+  "boldText": "Maandishi mazito",
+  "italicText": "Maandishi ya italiki",
+  "strikeThrough": "Futa maandishi",
+  "pleaseFillOut": "Tafadhali jaza",
+  "invalidUrl": "URL si sahihi",
+  "addLink": "Ongeza kiungo",
+  "unableToJoinChat": "Imeshindikana kujiunga na gumzo. Labda upande mwingine umefunga mazungumzo tayari.",
+  "previous": "Iliyopita",
+  "otherPartyNotLoggedIn": "Upande mwingine haujaingia kwa sasa na hivyo hauwezi kupokea ujumbe!",
+  "appWantsToUseForLogin": "Tumia '{server}' kuingia",
+  "@appWantsToUseForLogin": {
+    "type": "String",
+    "placeholders": {
+      "server": {
+        "type": "String"
+      }
+    }
+  },
+  "appWantsToUseForLoginDescription": "Unaruhusu programu na tovuti kushiriki taarifa kuhusu wewe.",
+  "open": "Fungua",
+  "waitingForServer": "Inasubiri seva...",
+  "appIntroduction": "Jiunge au unda vikundi vya mazungumzo vya kirafiki kwa lengo la kukua kifedha. Jifunze zaidi kwenye https://stawi.im au gusa *Endelea*.",
+  "newChatRequest": "📩 Ombi jipya la gumzo",
+  "contentNotificationSettings": "Mipangilio ya arifa za maudhui",
+  "generalNotificationSettings": "Mipangilio ya jumla ya arifa",
+  "roomNotificationSettings": "Mipangilio ya arifa za chumba",
+  "userSpecificNotificationSettings": "Mipangilio ya arifa maalum kwa mtumiaji",
+  "otherNotificationSettings": "Mipangilio mingine ya arifa",
+  "notificationRuleContainsUserName": "Ina Jina la Mtumiaji",
+  "notificationRuleContainsUserNameDescription": "Inamuarifu mtumiaji wakati ujumbe unapo jina lake la mtumiaji.",
+  "notificationRuleMaster": "Zima arifa zote",
+  "notificationRuleMasterDescription": "Inazima sheria zote nyingine na kuzima arifa zote.",
+  "notificationRuleSuppressNotices": "Zima Ujumbe wa Kiotomatiki",
+  "notificationRuleSuppressNoticesDescription": "Inazima arifa kutoka kwa wateja wa kiotomatiki kama roboti.",
+  "notificationRuleInviteForMe": "Mwaliko kwa Ajili Yangu",
+  "notificationRuleInviteForMeDescription": "Inamuarifu mtumiaji wakati anaalikwa kwenye chumba.",
+  "notificationRuleMemberEvent": "Tukio la Mwanachama",
+  "notificationRuleMemberEventDescription": "Inazima arifa za matukio ya uanachama.",
+  "notificationRuleIsUserMention": "Kutajwa kwa Mtumiaji",
+  "notificationRuleIsUserMentionDescription": "Inamuarifu mtumiaji wakati anatajwa moja kwa moja kwenye ujumbe.",
+  "notificationRuleContainsDisplayName": "Ina Jina la Kuonyesha",
+  "notificationRuleContainsDisplayNameDescription": "Inamuarifu mtumiaji wakati ujumbe unapo jina lake la kuonyesha.",
+  "notificationRuleIsRoomMention": "Kutajwa kwa Chumba",
+  "notificationRuleIsRoomMentionDescription": "Inamuarifu mtumiaji kuhusu kutajwa kwa chumba.",
+  "notificationRuleRoomnotif": "Arifa ya Chumba",
+  "notificationRuleRoomnotifDescription": "Inamuarifu mtumiaji kuhusu ujumbe wa kuzima chumba.",
+  "notificationRuleTombstone": "Tombstone",
+  "notificationRuleTombstoneDescription": "Inamuarifu mtumiaji kuhusu ujumbe wa kuzima chumba.",
+  "notificationRuleReaction": "Mmenyuko",
+  "notificationRuleReactionDescription": "Inazima arifa za mmenyuko.",
+  "notificationRuleRoomServerAcl": "ACL ya Seva ya Chumba",
+  "notificationRuleRoomServerAclDescription": "Inazima arifa za orodha za udhibiti wa ufikiaji wa seva ya chumba (ACL).",
+  "notificationRuleSuppressEdits": "Zima Uhariri",
+  "notificationRuleSuppressEditsDescription": "Inazima arifa za ujumbe uliosahihishwa.",
+  "notificationRuleCall": "Simu",
+  "notificationRuleCallDescription": "Inamuarifu mtumiaji kuhusu simu.",
+  "notificationRuleEncryptedRoomOneToOne": "Chumba Kilichosimbwa Kimoja kwa Kimoja",
+  "notificationRuleEncryptedRoomOneToOneDescription": "Inamuarifu mtumiaji kuhusu ujumbe katika vyumba vilivyosimbwa vya mtu mmoja mmoja.",
+  "notificationRuleRoomOneToOne": "Chumba Kimoja kwa Kimoja",
+  "notificationRuleRoomOneToOneDescription": "Inamuarifu mtumiaji kuhusu ujumbe katika vyumba vya mtu mmoja mmoja.",
+  "notificationRuleMessage": "Ujumbe",
+  "notificationRuleMessageDescription": "Inamuarifu mtumiaji kuhusu ujumbe wa kawaida.",
+  "notificationRuleEncrypted": "Imesimbwa",
+  "notificationRuleEncryptedDescription": "Inamuarifu mtumiaji kuhusu ujumbe katika vyumba vilivyosimbwa.",
+  "notificationRuleJitsi": "Jitsi",
+  "notificationRuleJitsiDescription": "Inamuarifu mtumiaji kuhusu matukio ya wijeti ya Jitsi.",
+  "notificationRuleServerAcl": "Zuia Matukio ya ACL ya Seva",
+  "notificationRuleServerAclDescription": "Inazuia arifa za matukio ya ACL ya Seva.",
+  "unknownPushRule": "Sheria isiyojulikana ya kusukuma '{rule}'",
+  "@unknownPushRule": {
+    "type": "String",
+    "placeholders": {
+      "rule": {
+        "type": "String"
+      }
+    }
+  },
+  "deletePushRuleCanNotBeUndone": "Ukifuta mpangilio huu wa arifa, huwezi kurudisha.",
+  "more": "Zaidi",
+  "shareKeysWith": "Shiriki funguo na...",
+  "shareKeysWithDescription": "Vifaa vipi vinaaminika ili viweze kusoma ujumbe wako katika gumzo zilizofichwa?",
+  "allDevices": "Vifaa vyote",
+  "crossVerifiedDevicesIfEnabled": "Vifaa vilivyohakikiwa vikifaa kimewezeshwa",
+  "crossVerifiedDevices": "Vifaa vilivyohakikiwa",
+  "verifiedDevicesOnly": "Vifaa vilivyothibitishwa pekee",
+  "poll": "Kura",
+  "question": "Swali",
+  "answer": "Jibu",
+  "resultsDisclosed": "Matokeo yamewekwa wazi",
+  "resultsUndisclosed": "Matokeo hayajawekwa wazi",
+  "addAnswer": "Ongeza jibu",
+  "deleteAnswer": "Futa jibu",
+  "startedAPoll": "{sender} ameanzisha kura",
+  "@startedAPoll": {
+    "type": "String",
+    "placeholders": {
+      "sender": { "type": "String"}
+    }
+  },
+  "countVotes": "{votes, plural, =1{1 kura} other{{votes} kura}} - {percentage}%",
+  "@countVotes": {
+    "type": "String",
+    "placeholders": {
+      "votes": { "type": "int" },
+      "percentage": { "type": "String" }
+    }
+  },
+  "chatSettings": "Mipangilio ya Gumzo",
+  "finance": "Fedha",
+  "savingsOptions": "Chaguo za Akiba",
+  "votingMode": "Mfumo wa Kupiga Kura",
+  "normalVoting": "Kupiga Kura Kwa Kawaida",
+  "delegatedVoting": "Kupiga Kura Kwa Kujitolea",
+  "normalVotingDescription": "Wanachama wote hupiga kura moja kwa moja kwenye mapendekezo. Kila mwanachama ana kura moja na maamuzi yanafanywa na wengi.",
+  "delegatedVotingDescription": "Wanachama wanaweza kujitolea mamlaka yao ya kupiga kura kwa wawakilishi wanaowatrust, kuruhusu kufanya maamuzi kulingana na utaalamu.",
+  "votingThreshold": "Asilimia ya Kupiga Kura",
+  "votingThresholdDescription": "Asilimia ya wanachama inayohitajika kupiga kura kwenye kauli kabla ya hatua kuchukuliwa au kufutwa.",
+  "save": "Hifadhi",
+  "enterContactName": "Ingiza jina la mawasiliano",
+  "errorFieldRequired": "Uga huu ni tupu, tafadhali jaza",
+  "@errorFieldRequired": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "errorFieldShouldBeNumeric": "Uga huu si nambari halali",
+  "@errorFieldShouldBeNumeric": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "errorFieldShouldBeInTheFuture": "Uga huu unapaswa kuwa katika siku zijazo",
+  "@errorFieldShouldBeInTheFuture": {
+    "type": "String",
+    "placeholders": {
+      "fieldName": { "type": "String" }
+    }
+  },
+  "fixErrorsInStep": "Tafadhali rekebisha makosa katika hatua hii kabla ya kuendelea",
+  "calendarSelection": "Tarehe ya Akiba",
+  "selectStartDate": "Chagua Tarehe ya Kuanzia",
+  "startDateDescription": "Chagua tarehe ya kuanzia kwa kikundi chako. Tarehe zinazofuata za akiba zitaelezwa kulingana na aina ya kipindi chako.",
+  "groupSchedule": "Ratiba ya Kikundi",
+  "futureSavingDates": "Kulingana na chaguo lako, hizi ni tarehe zako zinazofuata za akiba:",
+  "totalBalance": "Salio la Jumla",
+  "groupSettings": "Mipangilio ya Kikundi",
+  "saveChanges": "Hifadhi Mabadiliko",
+  "back": "Nyuma",
+  "general": "Jumla",
+  "loans": "Mikopo",
+  "contributions": "Michango",
+  "settingsCount": "Mipangilio {n}",
+  "@settingsCount": {
+    "type": "String",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "loanTenure": "Muda wa Mkopo",
+  "loanTenureDescription": "Idadi ya wiki ambazo wanachama wanaweza kukopa",
+  "groupTenure": "Muda wa Kikundi",
+  "groupTenureDescription": "Muda jumla wa kikundi kabla ya mgao wa hisa",
+  "interestRate": "Kiwango cha Riba",
+  "interestRateDescription": "Asilimia inayotozwa kwa mikopo",
+  "socialFundContribution": "Mchango wa Mfuko wa Kijamii",
+  "socialFundContributionDescription": "Kiasi ambacho kila mwanachama anachangia kwenye mfuko wa kijamii",
+  "allowEarlyWithdrawal": "Ruhusu Kutoa Mapema",
+  "allowEarlyWithdrawalDescription": "Iwapo wanachama wanaweza kutoa fedha kabla ya muda wa kikundi kuisha",
+  "requireSavingsBeforeLoan": "Hitaji Akiba Kabla ya Mkopo",
+  "requireSavingsBeforeLoanDescription": "Iwapo wanachama lazima wawe na akiba kabla ya kukopa",
+  "weeks": "wiki",
+  "months": "miezi",
+  "year": "mwaka"
+}

@@ -632,7 +632,7 @@ class L10nNb extends L10n {
   String get fileName => 'Filnavn';
 
   @override
-  String get fluffychat => 'FluffyChat';
+  String get stawi => 'Stawi';
 
   @override
   String get fontSize => 'Skriftstørrelse';
@@ -729,7 +729,7 @@ class L10nNb extends L10n {
   String get inviteContact => 'Inviter kontakt';
 
   @override
-  String inviteContactToGroupQuestion(Object contact, Object groupName) {
+  String inviteContactToGroupQuestion(String contact, String groupName) {
     return 'Do you want to invite $contact to the chat \"$groupName\"?';
   }
 
@@ -769,7 +769,7 @@ class L10nNb extends L10n {
 
   @override
   String inviteText(String username, String link) {
-    return '$username har invitert deg til FluffyChat. \n1. Installer FluffyChat: https://fluffychat.im \n2. Registrer deg eller logg inn \n3. Åpne invitasjonslenken: $link';
+    return '$username har invitert deg til Stawi. \n1. Installer Stawi: https://stawi.im \n2. Registrer deg eller logg inn \n3. Åpne invitasjonslenken: $link';
   }
 
   @override
@@ -890,7 +890,7 @@ class L10nNb extends L10n {
   String get newChat => 'Ny sludring';
 
   @override
-  String get newMessageInFluffyChat => 'Ny melding i FluffyChat';
+  String get newMessageInStawi => 'Ny melding i Stawi';
 
   @override
   String get newVerificationRequest => 'Ny bekreftelsesforespørsel!';
@@ -911,7 +911,7 @@ class L10nNb extends L10n {
   String get noEncryptionForPublicRooms => 'You can only activate encryption as soon as the room is no longer publicly accessible.';
 
   @override
-  String get noGoogleServicesWarning => 'Bruk https://microg.org/ for å få Google-tjenester (uten at det går ut over personvernet) for å få push-merknader i FluffyChat:';
+  String get noGoogleServicesWarning => 'Bruk https://microg.org/ for å få Google-tjenester (uten at det går ut over personvernet) for å få push-merknader i Stawi:';
 
   @override
   String noMatrixServer(String server1, String server2) {
@@ -1351,7 +1351,7 @@ class L10nNb extends L10n {
   String get theyMatch => 'Samsvarer';
 
   @override
-  String get title => 'FluffyChat';
+  String get title => 'Stawi';
 
   @override
   String get toggleFavorite => 'Veksle favorittmerking';
@@ -1607,7 +1607,7 @@ class L10nNb extends L10n {
   String get indexedDbErrorTitle => 'Private mode issues';
 
   @override
-  String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run FluffyChat.';
+  String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run Stawi.';
 
   @override
   String switchToAccount(String number) {
@@ -1771,7 +1771,7 @@ class L10nNb extends L10n {
   String get callingAccount => 'Calling account';
 
   @override
-  String get callingAccountDetails => 'Allows FluffyChat to use the native android dialer app.';
+  String get callingAccountDetails => 'Allows Stawi to use the native android dialer app.';
 
   @override
   String get appearOnTop => 'Appear on top';
@@ -1780,7 +1780,7 @@ class L10nNb extends L10n {
   String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)';
 
   @override
-  String get otherCallingPermissions => 'Microphone, camera and other FluffyChat permissions';
+  String get otherCallingPermissions => 'Microphone, camera and other Stawi permissions';
 
   @override
   String get whyIsThisMessageEncrypted => 'Why is this message unreadable?';
@@ -2048,7 +2048,7 @@ class L10nNb extends L10n {
   String get finalizeGroupConfiguration => 'Finalize Group configuration';
 
   @override
-  String finalizeGroupConfigurationDescription(Object groupName) {
+  String finalizeGroupConfigurationDescription(String groupName) {
     return 'Your group $groupName will be configured shortly';
   }
 
@@ -2062,7 +2062,7 @@ class L10nNb extends L10n {
   String get groupCreationSuccessful => 'Successfully Queued Group Create Request';
 
   @override
-  String groupCreationSuccessfulDescription(Object groupName) {
+  String groupCreationSuccessfulDescription(String groupName) {
     return 'Group with the name $groupName is being configured, this will take a moment. \n\n Add all the members to the group from your contacts';
   }
 
@@ -2659,12 +2659,12 @@ class L10nNb extends L10n {
   String get deleteAnswer => 'Delete answer';
 
   @override
-  String startedAPoll(Object sender) {
+  String startedAPoll(String sender) {
     return '$sender started a poll';
   }
 
   @override
-  String countVotes(num votes, Object percentage) {
+  String countVotes(int votes, String percentage) {
     String _temp0 = intl.Intl.pluralLogic(
       votes,
       locale: localeName,
@@ -2711,17 +2711,17 @@ class L10nNb extends L10n {
   String get enterContactName => 'Enter contact name';
 
   @override
-  String errorFieldRequired(Object fieldName) {
+  String errorFieldRequired(String fieldName) {
     return 'field is empty, please fill it out';
   }
 
   @override
-  String errorFieldShouldBeNumeric(Object fieldName) {
+  String errorFieldShouldBeNumeric(String fieldName) {
     return 'field is not a valid number';
   }
 
   @override
-  String errorFieldShouldBeInTheFuture(Object fieldName) {
+  String errorFieldShouldBeInTheFuture(String fieldName) {
     return 'field is should be in the future';
   }
 

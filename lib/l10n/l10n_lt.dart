@@ -632,7 +632,7 @@ class L10nLt extends L10n {
   String get fileName => 'Failo vardas';
 
   @override
-  String get fluffychat => 'FluffyChat';
+  String get stawi => 'Stawi';
 
   @override
   String get fontSize => 'Šrifto dydis';
@@ -729,7 +729,7 @@ class L10nLt extends L10n {
   String get inviteContact => 'Pakviesti kontaktą';
 
   @override
-  String inviteContactToGroupQuestion(Object contact, Object groupName) {
+  String inviteContactToGroupQuestion(String contact, String groupName) {
     return 'Do you want to invite $contact to the chat \"$groupName\"?';
   }
 
@@ -769,7 +769,7 @@ class L10nLt extends L10n {
 
   @override
   String inviteText(String username, String link) {
-    return '$username pakvietė jus prisijungti prie FluffyChat. \n1. Įdiekite FluffyChat: https://fluffychat.im \n2. Prisiregistruokite arba prisijunkite \n3. Atidarykite pakvietimo nuorodą: $link';
+    return '$username pakvietė jus prisijungti prie Stawi. \n1. Įdiekite Stawi: https://stawi.im \n2. Prisiregistruokite arba prisijunkite \n3. Atidarykite pakvietimo nuorodą: $link';
   }
 
   @override
@@ -890,7 +890,7 @@ class L10nLt extends L10n {
   String get newChat => 'Naujas pokalbis';
 
   @override
-  String get newMessageInFluffyChat => '💬 Nauja žinutė FluffyChat\'e';
+  String get newMessageInStawi => '💬 Nauja žinutė Stawi\'e';
 
   @override
   String get newVerificationRequest => 'Nauja patvirtinimo užklausa!';
@@ -911,7 +911,7 @@ class L10nLt extends L10n {
   String get noEncryptionForPublicRooms => 'Šifravimą galite suaktyvinti tik tada, kai kambarys nebebus viešai pasiekiamas.';
 
   @override
-  String get noGoogleServicesWarning => 'Atrodo, kad jūsų telefone nėra Google Services. Tai geras sprendimas jūsų privatumui! Norėdami gauti tiesioginius pranešimus FluffyChat, rekomenduojame naudoti https://microg.org/ arba https://unifiedpush.org/.';
+  String get noGoogleServicesWarning => 'Atrodo, kad jūsų telefone nėra Google Services. Tai geras sprendimas jūsų privatumui! Norėdami gauti tiesioginius pranešimus Stawi, rekomenduojame naudoti https://microg.org/ arba https://unifiedpush.org/.';
 
   @override
   String noMatrixServer(String server1, String server2) {
@@ -1351,7 +1351,7 @@ class L10nLt extends L10n {
   String get theyMatch => 'Jie sutampa';
 
   @override
-  String get title => 'FluffyChat';
+  String get title => 'Stawi';
 
   @override
   String get toggleFavorite => 'Perjungti parankinius';
@@ -1608,7 +1608,7 @@ class L10nLt extends L10n {
   String get indexedDbErrorTitle => 'Privataus režimo problemos';
 
   @override
-  String get indexedDbErrorLong => 'Deja, pagal numatytuosius nustatymus žinučių saugojimas privačiame režime nėra įjungtas.\nPrašome apsilankyti\n - about:config\n - nustatykite dom.indexedDB.privateBrowsing.enabled į true\nPriešingu atveju FluffyChat paleisti neįmanoma.';
+  String get indexedDbErrorLong => 'Deja, pagal numatytuosius nustatymus žinučių saugojimas privačiame režime nėra įjungtas.\nPrašome apsilankyti\n - about:config\n - nustatykite dom.indexedDB.privateBrowsing.enabled į true\nPriešingu atveju Stawi paleisti neįmanoma.';
 
   @override
   String switchToAccount(String number) {
@@ -1772,7 +1772,7 @@ class L10nLt extends L10n {
   String get callingAccount => 'Skambinimo paskyra';
 
   @override
-  String get callingAccountDetails => 'Leidžia FluffyChat naudoti vietinę Android rinkiklio programą.';
+  String get callingAccountDetails => 'Leidžia Stawi naudoti vietinę Android rinkiklio programą.';
 
   @override
   String get appearOnTop => 'Rodyti viršuje';
@@ -1781,7 +1781,7 @@ class L10nLt extends L10n {
   String get appearOnTopDetails => 'Leidžia programėlę rodyti viršuje (nebūtina, jei jau esate nustatę Fluffychat kaip skambinimo paskyrą)';
 
   @override
-  String get otherCallingPermissions => 'Mikrofonas, kamera ir kiti FluffyChat leidimai';
+  String get otherCallingPermissions => 'Mikrofonas, kamera ir kiti Stawi leidimai';
 
   @override
   String get whyIsThisMessageEncrypted => 'Kodėl ši žinutė neperskaitoma?';
@@ -2049,7 +2049,7 @@ class L10nLt extends L10n {
   String get finalizeGroupConfiguration => 'Finalize Group configuration';
 
   @override
-  String finalizeGroupConfigurationDescription(Object groupName) {
+  String finalizeGroupConfigurationDescription(String groupName) {
     return 'Your group $groupName will be configured shortly';
   }
 
@@ -2063,7 +2063,7 @@ class L10nLt extends L10n {
   String get groupCreationSuccessful => 'Successfully Queued Group Create Request';
 
   @override
-  String groupCreationSuccessfulDescription(Object groupName) {
+  String groupCreationSuccessfulDescription(String groupName) {
     return 'Group with the name $groupName is being configured, this will take a moment. \n\n Add all the members to the group from your contacts';
   }
 
@@ -2660,12 +2660,12 @@ class L10nLt extends L10n {
   String get deleteAnswer => 'Delete answer';
 
   @override
-  String startedAPoll(Object sender) {
+  String startedAPoll(String sender) {
     return '$sender started a poll';
   }
 
   @override
-  String countVotes(num votes, Object percentage) {
+  String countVotes(int votes, String percentage) {
     String _temp0 = intl.Intl.pluralLogic(
       votes,
       locale: localeName,
@@ -2712,17 +2712,17 @@ class L10nLt extends L10n {
   String get enterContactName => 'Enter contact name';
 
   @override
-  String errorFieldRequired(Object fieldName) {
+  String errorFieldRequired(String fieldName) {
     return 'field is empty, please fill it out';
   }
 
   @override
-  String errorFieldShouldBeNumeric(Object fieldName) {
+  String errorFieldShouldBeNumeric(String fieldName) {
     return 'field is not a valid number';
   }
 
   @override
-  String errorFieldShouldBeInTheFuture(Object fieldName) {
+  String errorFieldShouldBeInTheFuture(String fieldName) {
     return 'field is should be in the future';
   }
 

@@ -4,350 +4,350 @@ import 'l10n.dart';
 
 // ignore_for_file: type=lint
 
-/// The translations for Romanian Moldavian Moldovan (`ro`).
-class L10nRo extends L10n {
-  L10nRo([String locale = 'ro']) : super(locale);
+/// The translations for French (`fr`).
+class L10nFr extends L10n {
+  L10nFr([String locale = 'fr']) : super(locale);
 
   @override
-  String get alwaysUse24HourFormat => 'false';
+  String get alwaysUse24HourFormat => 'faux';
 
   @override
-  String get repeatPassword => 'Repeat password';
+  String get repeatPassword => 'Répéter le mot de passe';
 
   @override
-  String get notAnImage => 'Not an image file.';
+  String get notAnImage => 'Ce n\'est pas un fichier image.';
 
   @override
-  String get remove => 'Remove';
+  String get remove => 'Supprimer';
 
   @override
-  String get importNow => 'Import now';
+  String get importNow => 'Importer maintenant';
 
   @override
-  String get importEmojis => 'Import Emojis';
+  String get importEmojis => 'Importer des Emojis';
 
   @override
-  String get importFromZipFile => 'Import from .zip file';
+  String get importFromZipFile => 'Importer depuis un fichier .zip';
 
   @override
-  String get exportEmotePack => 'Export Emote pack as .zip';
+  String get exportEmotePack => 'Exporter le pack d\'emojis en .zip';
 
   @override
-  String get replace => 'Replace';
+  String get replace => 'Remplacer';
 
   @override
-  String get about => 'Despre';
+  String get about => 'À propos';
 
   @override
   String aboutHomeserver(String homeserver) {
-    return 'About $homeserver';
+    return 'À propos de $homeserver';
   }
 
   @override
-  String get accept => 'Accept';
+  String get accept => 'Accepter';
 
   @override
   String acceptedTheInvitation(String username) {
-    return '$username a aceptat invitați';
+    return '👍 $username a accepté l\'invitation';
   }
 
   @override
-  String get account => 'Cont';
+  String get account => 'Compte';
 
   @override
   String activatedEndToEndEncryption(String username) {
-    return '$username a activat criptarea end-to-end';
+    return '🔐 $username a activé le chiffrement de bout en bout';
   }
 
   @override
-  String get addEmail => 'Add email';
+  String get addEmail => 'Ajouter un e-mail';
 
   @override
-  String get confirmMatrixId => 'Please confirm your Matrix ID in order to delete your account.';
+  String get confirmMatrixId => 'Veuillez confirmer votre identifiant Matrix pour supprimer votre compte.';
 
   @override
   String supposedMxid(String mxid) {
-    return 'This should be $mxid';
+    return 'Cela devrait être $mxid';
   }
 
   @override
-  String get addChatDescription => 'Adăugați o descriere pentru chat...';
+  String get addChatDescription => 'Ajouter une description de chat...';
 
   @override
-  String get addToSpace => 'Adăugați în spațiu';
+  String get addToSpace => 'Ajouter à l\'espace';
 
   @override
-  String get admin => 'Administrator';
+  String get admin => 'Administrateur';
 
   @override
-  String get alias => 'poreclă';
+  String get alias => 'alias';
 
   @override
-  String get all => 'Toate';
+  String get all => 'Tout';
 
   @override
-  String get allChats => 'All chats';
+  String get allChats => 'Toutes les discussions';
 
   @override
-  String get commandHint_googly => 'Trimiteți niște ochi de gogoașă';
+  String get commandHint_googly => 'Envoyer des yeux globuleux';
 
   @override
-  String get commandHint_cuddle => 'Trimiteți o îmbrățișare';
+  String get commandHint_cuddle => 'Envoyer un câlin';
 
   @override
-  String get commandHint_hug => 'Trimiteți o îmbrățișare';
+  String get commandHint_hug => 'Envoyer une étreinte';
 
   @override
   String googlyEyesContent(String senderName) {
-    return '$senderName vă trimite ochi de gogoașă';
+    return '$senderName vous envoie des yeux globuleux';
   }
 
   @override
   String cuddleContent(String senderName) {
-    return '$senderName cuddles you';
+    return '$senderName vous fait un câlin';
   }
 
   @override
   String hugContent(String senderName) {
-    return '$senderName hugs you';
+    return '$senderName vous serre dans ses bras';
   }
 
   @override
   String answeredTheCall(String senderName) {
-    return '$senderName a acceptat apelul';
+    return '$senderName a répondu à l\'appel';
   }
 
   @override
-  String get anyoneCanJoin => 'Oricine se poate alătura';
+  String get anyoneCanJoin => 'N\'importe qui peut rejoindre';
 
   @override
-  String get appLock => 'App lock';
+  String get appLock => 'Verrouillage de l\'application';
 
   @override
-  String get appLockDescription => 'Lock the app when not using with a pin code';
+  String get appLockDescription => 'Verrouillez l\'application lorsqu\'elle n\'est pas utilisée avec un code PIN';
 
   @override
-  String get archive => 'Arhivă';
+  String get archive => 'Archiver';
 
   @override
-  String get areGuestsAllowedToJoin => 'Vizitatorii \"guest\" se pot alătura';
+  String get areGuestsAllowedToJoin => 'Les invités sont-ils autorisés à rejoindre';
 
   @override
-  String get areYouSure => 'Ești sigur?';
+  String get areYouSure => 'Êtes-vous sûr ?';
 
   @override
-  String get areYouSureYouWantToLogout => 'Are you sure you want to log out?';
+  String get areYouSureYouWantToLogout => 'Êtes-vous sûr de vouloir vous déconnecter ?';
 
   @override
-  String get askSSSSSign => 'Pentru a putea conecta cealaltă persoană, te rog introdu parola sau cheia ta de recuperare.';
+  String get askSSSSSign => 'Pour pouvoir signer l\'autre personne, veuillez entrer votre phrase secrète ou clé de récupération de magasin sécurisé.';
 
   @override
   String askVerificationRequest(String username) {
-    return 'Accepți cererea de verificare de la $username?';
+    return 'Accepter cette demande de vérification de $username ?';
   }
 
   @override
-  String get autoplayImages => 'Automatically play animated stickers and emotes';
+  String get autoplayImages => 'Lire automatiquement les autocollants et emojis animés';
 
   @override
   String badServerLoginTypesException(String serverVersions, String supportedVersions, Object suportedVersions) {
-    return 'The homeserver supports the login types:\n$serverVersions\nBut this app supports only:\n$supportedVersions';
+    return 'Le serveur prend en charge les types de connexion :\n$serverVersions\nMais cette application ne prend en charge que :\n$supportedVersions';
   }
 
   @override
-  String get sendTypingNotifications => 'Send typing notifications';
+  String get sendTypingNotifications => 'Envoyer des notifications de frappe';
 
   @override
-  String get swipeRightToLeftToReply => 'Swipe right to left to reply';
+  String get swipeRightToLeftToReply => 'Glissez de droite à gauche pour répondre';
 
   @override
-  String get sendOnEnter => 'Send on enter';
+  String get sendOnEnter => 'Envoyer avec Entrée';
 
   @override
   String badServerVersionsException(String serverVersions, String supportedVersions, Object suportedVersions) {
-    return 'The homeserver supports the Spec versions:\n$serverVersions\nBut this app supports only $supportedVersions';
+    return 'Le serveur prend en charge les versions du Spec :\n$serverVersions\nMais cette application ne prend en charge que $supportedVersions';
   }
 
   @override
   String countChatsAndCountParticipants(int chats, int participants) {
-    return '$chats chats and $participants participants';
+    return '$chats discussions et $participants participants';
   }
 
   @override
-  String get noMoreChatsFound => 'No more chats found...';
+  String get noMoreChatsFound => 'Plus de discussions trouvées...';
 
   @override
-  String get noChatsFoundHere => 'No chats found here yet. Start a new chat with someone by using the button below. ⤵️';
+  String get noChatsFoundHere => 'Aucune discussion trouvée ici pour l\'instant. Commencez une nouvelle discussion avec quelqu\'un en utilisant le bouton ci-dessous. ⤵️';
 
   @override
-  String get joinedChats => 'Joined chats';
+  String get joinedChats => 'Discussions rejointes';
 
   @override
-  String get unread => 'Unread';
+  String get unread => 'Non lu';
 
   @override
-  String get space => 'Space';
+  String get space => 'Espace';
 
   @override
-  String get spaces => 'Spaces';
+  String get spaces => 'Espaces';
 
   @override
-  String get banFromChat => 'Interzis din conversație';
+  String get banFromChat => 'Bannir de la discussion';
 
   @override
-  String get banned => 'Interzis';
+  String get banned => 'Banni';
 
   @override
   String bannedUser(String username, String targetName) {
-    return '$username a interzis pe $targetName';
+    return '$username a banni $targetName';
   }
 
   @override
-  String get blockDevice => 'Blochează dispozitivul';
+  String get blockDevice => 'Bloquer l\'appareil';
 
   @override
-  String get blocked => 'Blocked';
+  String get blocked => 'Bloqué';
 
   @override
-  String get botMessages => 'Bot messages';
+  String get botMessages => 'Messages du bot';
 
   @override
-  String get cancel => 'Anulează';
+  String get cancel => 'Annuler';
 
   @override
   String cantOpenUri(String uri) {
-    return 'Can\'t open the URI $uri';
+    return 'Impossible d\'ouvrir l\'URI $uri';
   }
 
   @override
-  String get changeDeviceName => 'Schimbă numele dispozitiv';
+  String get changeDeviceName => 'Changer le nom de l\'appareil';
 
   @override
   String changedTheChatAvatar(String username) {
-    return '$username a schimbat poza conversați';
+    return '$username a changé l\'avatar du chat';
   }
 
   @override
   String changedTheChatDescriptionTo(String username, String description) {
-    return '$username a schimbat descrierea grupului în \'$description\'';
+    return '$username a changé la description du chat en : \'$description\'';
   }
 
   @override
   String changedTheChatNameTo(String username, String chatname) {
-    return '$username a schimbat porecla în \'$chatname\'';
+    return '$username a changé le nom du chat en : \'$chatname\'';
   }
 
   @override
   String changedTheChatPermissions(String username) {
-    return '$username changed the chat permissions';
+    return '$username a modifié les autorisations du chat';
   }
 
   @override
   String changedTheDisplaynameTo(String username, String displayname) {
-    return '$username changed their displayname to: \'$displayname\'';
+    return '$username a changé son nom d\'affichage en : \'$displayname\'';
   }
 
   @override
   String changedTheGuestAccessRules(String username) {
-    return '$username changed the guest access rules';
+    return '$username a modifié les règles d\'accès des invités';
   }
 
   @override
   String changedTheGuestAccessRulesTo(String username, String rules) {
-    return '$username changed the guest access rules to: $rules';
+    return '$username a modifié les règles d\'accès des invités en : $rules';
   }
 
   @override
   String changedTheHistoryVisibility(String username) {
-    return '$username changed the history visibility';
+    return '$username a modifié la visibilité de l\'historique';
   }
 
   @override
   String changedTheHistoryVisibilityTo(String username, String rules) {
-    return '$username changed the history visibility to: $rules';
+    return '$username a modifié la visibilité de l\'historique en : $rules';
   }
 
   @override
   String changedTheJoinRules(String username) {
-    return '$username changed the join rules';
+    return '$username a modifié les règles de participation';
   }
 
   @override
   String changedTheJoinRulesTo(String username, String joinRules) {
-    return '$username changed the join rules to: $joinRules';
+    return '$username a modifié les règles de participation en : $joinRules';
   }
 
   @override
   String changedTheProfileAvatar(String username) {
-    return '$username changed their avatar';
+    return '$username a changé son avatar';
   }
 
   @override
   String changedTheRoomAliases(String username) {
-    return '$username changed the room aliases';
+    return '$username a modifié les alias de la salle';
   }
 
   @override
   String changedTheRoomInvitationLink(String username) {
-    return '$username a schimbat linkul de invitație';
+    return '$username a modifié le lien d\'invitation';
   }
 
   @override
-  String get changePassword => 'Schimbați parola';
+  String get changePassword => 'Changer le mot de passe';
 
   @override
-  String get changeTheHomeserver => 'Change the homeserver';
+  String get changeTheHomeserver => 'Changer le serveur principal';
 
   @override
-  String get changeTheme => 'Change your style';
+  String get changeTheme => 'Changer votre style';
 
   @override
-  String get changeTheNameOfTheGroup => 'Change the name of the group';
+  String get changeTheNameOfTheGroup => 'Changer le nom du groupe';
 
   @override
   String get changeYourAvatar => 'Change your avatar';
 
   @override
-  String get channelCorruptedDecryptError => 'The encryption has been corrupted';
+  String get channelCorruptedDecryptError => 'Le chiffrement a été corrompu';
 
   @override
-  String get chat => 'Chat';
+  String get chat => 'Discussion';
 
   @override
-  String get yourChatBackupHasBeenSetUp => 'Your chat backup has been set up.';
+  String get yourChatBackupHasBeenSetUp => 'La sauvegarde de votre discussion a été configurée.';
 
   @override
-  String get chatBackup => 'Chat backup';
+  String get chatBackup => 'Sauvegarde de discussion';
 
   @override
-  String get chatBackupDescription => 'Your old messages are secured with a recovery key. Please make sure you don\'t lose it.';
+  String get chatBackupDescription => 'Vos anciens messages sont sécurisés par une clé de récupération. Veuillez vous assurer de ne pas la perdre.';
 
   @override
-  String get chatDetails => 'Chat details';
+  String get chatDetails => 'Détails du chat';
 
   @override
-  String get chatHasBeenAddedToThisSpace => 'Chat has been added to this space';
+  String get chatHasBeenAddedToThisSpace => 'Le chat a été ajouté à cet espace';
 
   @override
-  String get chats => 'Chaturi';
+  String get chats => 'Discussions';
 
   @override
-  String get chooseAStrongPassword => 'Choose a strong password';
+  String get chooseAStrongPassword => 'Choisissez un mot de passe fort';
 
   @override
-  String get clearArchive => 'Clear archive';
+  String get clearArchive => 'Vider l\'archive';
 
   @override
-  String get close => 'Close';
+  String get close => 'Fermer';
 
   @override
-  String get commandHint_markasdm => 'Mark as direct message room for the giving Matrix ID';
+  String get commandHint_markasdm => 'Marquer comme salon de message direct pour l\'ID Matrix fourni';
 
   @override
-  String get commandHint_markasgroup => 'Mark as group';
+  String get commandHint_markasgroup => 'Marquer comme groupe';
 
   @override
-  String get commandHint_ban => 'Ban the given user from this room';
+  String get commandHint_ban => 'Bannir l\'utilisateur spécifié de cette salle';
 
   @override
   String get commandHint_clearcache => 'Clear cache';
@@ -368,85 +368,85 @@ class L10nRo extends L10n {
   String get commandHint_invite => 'Invite the given user to this room';
 
   @override
-  String get commandHint_join => 'Join the given room';
+  String get commandHint_join => 'Rejoindre la salle spécifiée';
 
   @override
-  String get commandHint_kick => 'Remove the given user from this room';
+  String get commandHint_kick => 'Retirer l\'utilisateur spécifié de cette salle';
 
   @override
-  String get commandHint_leave => 'Leave this room';
+  String get commandHint_leave => 'Quitter cette salle';
 
   @override
-  String get commandHint_me => 'Describe yourself';
+  String get commandHint_me => 'Vous décrire';
 
   @override
-  String get commandHint_myroomavatar => 'Set your picture for this room (by mxc-uri)';
+  String get commandHint_myroomavatar => 'Définir votre image pour cette salle (par URI mxc)';
 
   @override
-  String get commandHint_myroomnick => 'Set your display name for this room';
+  String get commandHint_myroomnick => 'Définir votre nom d\'affichage pour cette salle';
 
   @override
-  String get commandHint_op => 'Set the given user\'s power level (default: 50)';
+  String get commandHint_op => 'Définir le niveau de pouvoir de l\'utilisateur spécifié (par défaut : 50)';
 
   @override
-  String get commandHint_plain => 'Send unformatted text';
+  String get commandHint_plain => 'Envoyer du texte non formaté';
 
   @override
-  String get commandHint_react => 'Send reply as a reaction';
+  String get commandHint_react => 'Envoyer la réponse en tant que réaction';
 
   @override
-  String get commandHint_send => 'Send text';
+  String get commandHint_send => 'Envoyer du texte';
 
   @override
-  String get commandHint_unban => 'Dezinterziceți utilizatorul ales din această cameră';
+  String get commandHint_unban => 'Annuler le bannissement de l\'utilisateur spécifié de cette salle';
 
   @override
-  String get commandInvalid => 'Command invalid';
+  String get commandInvalid => 'Commande invalide';
 
   @override
   String commandMissing(String command) {
-    return '$command nu este o comandă.';
+    return '$command n\'est pas une commande.';
   }
 
   @override
-  String get compareEmojiMatch => 'Please compare the emojis';
+  String get compareEmojiMatch => 'Veuillez comparer les emojis';
 
   @override
-  String get compareNumbersMatch => 'Please compare the numbers';
+  String get compareNumbersMatch => 'Veuillez comparer les nombres';
 
   @override
-  String get configureChat => 'Configure chat';
+  String get configureChat => 'Configurer le chat';
 
   @override
-  String get confirm => 'Confirm';
+  String get confirm => 'Confirmer';
 
   @override
-  String get connect => 'Connect';
+  String get connect => 'Se connecter';
 
   @override
-  String get contactHasBeenInvitedToTheGroup => 'Contact has been invited to the group';
+  String get contactHasBeenInvitedToTheGroup => 'Le contact a été invité au groupe';
 
   @override
-  String get containsDisplayName => 'Contains display name';
+  String get containsDisplayName => 'Contient le nom d\'affichage';
 
   @override
-  String get containsUserName => 'Contains username';
+  String get containsUserName => 'Contient le nom d\'utilisateur';
 
   @override
-  String get contentHasBeenReported => 'The content has been reported to the server admins';
+  String get contentHasBeenReported => 'Le contenu a été signalé aux administrateurs du serveur';
 
   @override
-  String get copiedToClipboard => 'Copied to clipboard';
+  String get copiedToClipboard => 'Copié dans le presse-papiers';
 
   @override
-  String get copy => 'Copiați';
+  String get copy => 'Copier';
 
   @override
-  String get copyToClipboard => 'Copy to clipboard';
+  String get copyToClipboard => 'Copier dans le presse-papiers';
 
   @override
   String couldNotDecryptMessage(String error) {
-    return 'Could not decrypt message: $error';
+    return 'Impossible de déchiffrer le message : $error';
   }
 
   @override
@@ -455,24 +455,24 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get create => 'Create';
+  String get create => 'Créer';
 
   @override
   String createdTheChat(String username) {
-    return '💬 $username created the chat';
+    return '💬 $username a créé le chat';
   }
 
   @override
-  String get createGroup => 'Create group';
+  String get createGroup => 'Créer un groupe';
 
   @override
-  String get createNewSpace => 'New space';
+  String get createNewSpace => 'Nouvel espace';
 
   @override
-  String get currentlyActive => 'Currently active';
+  String get currentlyActive => 'Actuellement actif';
 
   @override
-  String get darkTheme => 'Dark';
+  String get darkTheme => 'Sombre';
 
   @override
   String dateAndTimeOfDay(String date, String timeOfDay) {
@@ -481,7 +481,7 @@ class L10nRo extends L10n {
 
   @override
   String dateWithoutYear(String month, String day) {
-    return '$month-$day';
+    return '$day-$month';
   }
 
   @override
@@ -499,100 +499,100 @@ class L10nRo extends L10n {
   String get delete => 'Delete';
 
   @override
-  String get deleteAccount => 'Șterge cont';
+  String get deleteAccount => 'Delete account';
 
   @override
-  String get deleteMessage => 'Șterge mesaj';
+  String get deleteMessage => 'Delete message';
 
   @override
   String get device => 'Device';
 
   @override
-  String get deviceId => 'ID-ul Dispozitiv';
+  String get deviceId => 'Device ID';
 
   @override
-  String get devices => 'Dispozitive';
+  String get devices => 'Devices';
 
   @override
-  String get directChats => 'Chaturi directe';
+  String get directChats => 'Direct Chats';
 
   @override
-  String get allRooms => 'Toate chaturile de grup';
+  String get allRooms => 'All Group Chats';
 
   @override
-  String get displaynameHasBeenChanged => 'Numele afișat a fost schimbat';
+  String get displaynameHasBeenChanged => 'Displayname has been changed';
 
   @override
-  String get downloadFile => 'Descarcă fișier';
+  String get downloadFile => 'Download file';
 
   @override
   String get edit => 'Edit';
 
   @override
-  String get editBlockedServers => 'Editează serverele blocate';
+  String get editBlockedServers => 'Edit blocked servers';
 
   @override
-  String get chatPermissions => 'Permisiuni de chat';
+  String get chatPermissions => 'Chat permissions';
 
   @override
-  String get editDisplayname => 'Editează numele afișat';
+  String get editDisplayname => 'Edit displayname';
 
   @override
-  String get editRoomAliases => 'Editează aliasurile camerei';
+  String get editRoomAliases => 'Edit room aliases';
 
   @override
-  String get editRoomAvatar => 'Editează avatarul camerei';
+  String get editRoomAvatar => 'Edit room avatar';
 
   @override
-  String get emoteExists => 'Emoji-ul există deja!';
+  String get emoteExists => 'Emote already exists!';
 
   @override
-  String get emoteInvalid => 'Cod scurt pentru emoji invalid!';
+  String get emoteInvalid => 'Invalid emote shortcode!';
 
   @override
-  String get emoteKeyboardNoRecents => 'Emoji-urile folosite recent vor apărea aici...';
+  String get emoteKeyboardNoRecents => 'Recently-used emotes will appear here...';
 
   @override
-  String get emotePacks => 'Pachete de emoji pentru cameră';
+  String get emotePacks => 'Emote packs for room';
 
   @override
-  String get emoteSettings => 'Setări emoji';
+  String get emoteSettings => 'Emote Settings';
 
   @override
-  String get globalChatId => 'ID de chat global';
+  String get globalChatId => 'Global chat ID';
 
   @override
-  String get accessAndVisibility => 'Acces și vizibilitate';
+  String get accessAndVisibility => 'Access and visibility';
 
   @override
-  String get accessAndVisibilityDescription => 'Cine are permisiunea să se alăture acestui chat și cum poate fi descoperit chatul.';
+  String get accessAndVisibilityDescription => 'Who is allowed to join this chat and how the chat can be discovered.';
 
   @override
   String get calls => 'Calls';
 
   @override
-  String get customEmojisAndStickers => 'Emoji și autocolante personalizate';
+  String get customEmojisAndStickers => 'Custom emojis and stickers';
 
   @override
-  String get customEmojisAndStickersBody => 'Adaugă sau împărtășește emoji și autocolante personalizate care pot fi folosite în orice chat.';
+  String get customEmojisAndStickersBody => 'Add or share custom emojis or stickers which can be used in any chat.';
 
   @override
-  String get emoteShortcode => 'Cod scurt emoji';
+  String get emoteShortcode => 'Emote shortcode';
 
   @override
-  String get emoteWarnNeedToPick => 'Trebuie să alegi un cod scurt pentru emoji și o imagine!';
+  String get emoteWarnNeedToPick => 'You need to pick an emote shortcode and an image!';
 
   @override
-  String get emptyChat => 'Chat gol';
+  String get emptyChat => 'Empty chat';
 
   @override
-  String get enableEmotesGlobally => 'Activează pachetul de emoji global';
+  String get enableEmotesGlobally => 'Enable emote pack globally';
 
   @override
-  String get enableEncryption => 'Activează criptarea';
+  String get enableEncryption => 'Enable encryption';
 
   @override
-  String get enableEncryptionWarning => 'Activând criptare, nu mai puteți să o dezactivați în viitor. Sunteți sigur?';
+  String get enableEncryptionWarning => 'You won\'t be able to disable the encryption anymore. Are you sure?';
 
   @override
   String get encrypted => 'Encrypted';
@@ -605,7 +605,7 @@ class L10nRo extends L10n {
 
   @override
   String endedTheCall(String senderName) {
-    return '$senderName a terminat apelul';
+    return '$senderName ended the call';
   }
 
   @override
@@ -615,7 +615,7 @@ class L10nRo extends L10n {
   String get homeserver => 'Homeserver';
 
   @override
-  String get enterYourHomeserver => 'Introduceți homeserverul vostru';
+  String get enterYourHomeserver => 'Enter your homeserver';
 
   @override
   String errorObtainingLocation(String error) {
@@ -623,50 +623,50 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get everythingReady => 'Everything ready!';
+  String get everythingReady => 'Tout est prêt !';
 
   @override
-  String get extremeOffensive => 'Extremely offensive';
+  String get extremeOffensive => 'Extrêmement offensant';
 
   @override
-  String get fileName => 'File name';
+  String get fileName => 'Nom du fichier';
 
   @override
   String get stawi => 'Stawi';
 
   @override
-  String get fontSize => 'Font size';
+  String get fontSize => 'Taille de la police';
 
   @override
-  String get forward => 'Forward';
+  String get forward => 'Transférer';
 
   @override
-  String get fromJoining => 'From joining';
+  String get fromJoining => 'Depuis l\'adhésion';
 
   @override
-  String get fromTheInvitation => 'From the invitation';
+  String get fromTheInvitation => 'Depuis l\'invitation';
 
   @override
-  String get goToTheNewRoom => 'Go to the new room';
+  String get goToTheNewRoom => 'Aller à la nouvelle salle';
 
   @override
-  String get group => 'Group';
+  String get group => 'Groupe';
 
   @override
-  String get chatDescription => 'Chat description';
+  String get chatDescription => 'Description de la discussion';
 
   @override
-  String get chatDescriptionHasBeenChanged => 'Chat description changed';
+  String get chatDescriptionHasBeenChanged => 'La description de la discussion a été modifiée';
 
   @override
-  String get groupIsPublic => 'Group is public';
+  String get groupIsPublic => 'Le groupe est public';
 
   @override
-  String get groups => 'Groups';
+  String get groups => 'Groupes';
 
   @override
   String groupWith(String displayname) {
-    return 'Grup cu $displayname';
+    return 'Groupe avec $displayname';
   }
 
   @override
@@ -677,11 +677,11 @@ class L10nRo extends L10n {
 
   @override
   String hasWithdrawnTheInvitationFor(String username, String targetName) {
-    return '$username a retras invitația pentru $targetName';
+    return '$username has withdrawn the invitation for $targetName';
   }
 
   @override
-  String get help => 'Ajutor';
+  String get help => 'Help';
 
   @override
   String get hideRedactedEvents => 'Hide redacted events';
@@ -696,7 +696,7 @@ class L10nRo extends L10n {
   String get hideInvalidOrUnknownMessageFormats => 'Hide invalid or unknown message formats';
 
   @override
-  String get howOffensiveIsThisContent => 'Cât de ofensiv este acest conținut?';
+  String get howOffensiveIsThisContent => 'How offensive is this content?';
 
   @override
   String get id => 'ID';
@@ -748,7 +748,7 @@ class L10nRo extends L10n {
   String get invalidServerName => 'Invalid server name';
 
   @override
-  String get invited => 'Invitat';
+  String get invited => 'Invited';
 
   @override
   String get redactMessageDescription => 'The message will be redacted for all participants in this conversation. This cannot be undone.';
@@ -762,10 +762,10 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get invitedUsersOnly => 'Numai utilizatori invitați';
+  String get invitedUsersOnly => 'Invited users only';
 
   @override
-  String get inviteForMe => 'Invitați pentru mine';
+  String get inviteForMe => 'Invite for me';
 
   @override
   String inviteText(String username, String link) {
@@ -794,7 +794,7 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get kickFromChat => 'Dați afară din chat';
+  String get kickFromChat => 'Kick from chat';
 
   @override
   String lastActiveAgo(String localizedTimeShort) {
@@ -855,7 +855,7 @@ class L10nRo extends L10n {
   String get contactPermissionDeniedNotice => 'Contact permission denied. Please grant them to be able to connect with others.';
 
   @override
-  String get login => 'Conectați-vă';
+  String get login => 'Login';
 
   @override
   String logInTo(String homeserver) {
@@ -896,13 +896,13 @@ class L10nRo extends L10n {
   String get newVerificationRequest => 'New verification request!';
 
   @override
-  String get next => 'Următor';
+  String get next => 'Next';
 
   @override
-  String get no => 'Nu';
+  String get no => 'No';
 
   @override
-  String get noConnectionToTheServer => 'Fără conexiune la server';
+  String get noConnectionToTheServer => 'No connection to the server';
 
   @override
   String get noEmotesFound => 'No emotes found. 😕';
@@ -928,7 +928,7 @@ class L10nRo extends L10n {
   String get none => 'None';
 
   @override
-  String get noPasswordRecoveryDescription => 'Nu ați adăugat încă nici un mod de recuperare pentru parola voastră.';
+  String get noPasswordRecoveryDescription => 'You have not added a way to recover your password yet.';
 
   @override
   String get noPermission => 'No permission';
@@ -937,7 +937,7 @@ class L10nRo extends L10n {
   String get noRoomsFound => 'No rooms found…';
 
   @override
-  String get notifications => 'Notificări';
+  String get notifications => 'Notifications';
 
   @override
   String get notificationsEnabledForThisAccount => 'Notifications enabled for this account';
@@ -963,7 +963,7 @@ class L10nRo extends L10n {
   String get online => 'Online';
 
   @override
-  String get onlineKeyBackupEnabled => 'Backup de cheie online este activat';
+  String get onlineKeyBackupEnabled => 'Online Key Backup is enabled';
 
   @override
   String get oopsPushError => 'Oops! Unfortunately, an error occurred when setting up the push notifications.';
@@ -972,13 +972,13 @@ class L10nRo extends L10n {
   String get oopsSomethingWentWrong => 'Oops, something went wrong…';
 
   @override
-  String get openAppToReadMessages => 'Deschideți aplicația să citiți mesajele';
+  String get openAppToReadMessages => 'Open app to read messages';
 
   @override
-  String get openCamera => 'Deschideți camera';
+  String get openCamera => 'Open camera';
 
   @override
-  String get openVideoCamera => 'Deschideți camera pentru video';
+  String get openVideoCamera => 'Open camera for a video';
 
   @override
   String get oneClientLoggedOut => 'One of your clients has been logged out';
@@ -993,16 +993,16 @@ class L10nRo extends L10n {
   String get addToBundle => 'Add to bundle';
 
   @override
-  String get removeFromBundle => 'Stergeți din acest pachet';
+  String get removeFromBundle => 'Remove from this bundle';
 
   @override
   String get bundleName => 'Bundle name';
 
   @override
-  String get enableMultiAccounts => '(BETA) Activați multiple conturi pe acest dispozitiv';
+  String get enableMultiAccounts => '(BETA) Enable multi accounts on this device';
 
   @override
-  String get openInMaps => 'Deschideți pe hartă';
+  String get openInMaps => 'Open in maps';
 
   @override
   String get link => 'Link';
@@ -1079,7 +1079,7 @@ class L10nRo extends L10n {
   String get pleaseEnterYourPassword => 'Please enter your password';
 
   @override
-  String get pleaseEnterYourPin => 'Vă rugăm să introduceți pinul vostru';
+  String get pleaseEnterYourPin => 'Please enter your pin';
 
   @override
   String get pleaseEnterYourUsername => 'Please enter your username';
@@ -1088,19 +1088,19 @@ class L10nRo extends L10n {
   String get pleaseFollowInstructionsOnWeb => 'Please follow the instructions on the website and tap on next.';
 
   @override
-  String get privacy => 'Confidențialitate';
+  String get privacy => 'Privacy';
 
   @override
   String get publicRooms => 'Public Rooms';
 
   @override
-  String get pushRules => 'Regulile Push';
+  String get pushRules => 'Push rules';
 
   @override
   String get reason => 'Reason';
 
   @override
-  String get recording => 'Înregistrare';
+  String get recording => 'Recording';
 
   @override
   String redactedBy(String username) {
@@ -1121,10 +1121,10 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get redactMessage => 'Redactați mesaj';
+  String get redactMessage => 'Redact message';
 
   @override
-  String get register => 'Înregistrați-vă';
+  String get register => 'Register';
 
   @override
   String get reject => 'Reject';
@@ -1135,18 +1135,18 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get rejoin => 'Reintrați';
+  String get rejoin => 'Rejoin';
 
   @override
   String get removeAllOtherDevices => 'Remove all other devices';
 
   @override
   String removedBy(String username) {
-    return 'Eliminat de $username';
+    return 'Removed by $username';
   }
 
   @override
-  String get removeDevice => 'Eliminați dispozitivul';
+  String get removeDevice => 'Remove device';
 
   @override
   String get unbanFromChat => 'Unban from chat';
@@ -1170,7 +1170,7 @@ class L10nRo extends L10n {
   String get roomHasBeenUpgraded => 'Room has been upgraded';
 
   @override
-  String get roomVersion => 'Versiunea camerei';
+  String get roomVersion => 'Room version';
 
   @override
   String get saveFile => 'Save file';
@@ -1179,7 +1179,7 @@ class L10nRo extends L10n {
   String get search => 'Search';
 
   @override
-  String get security => 'Securitate';
+  String get security => 'Security';
 
   @override
   String get recoveryKey => 'Recovery key';
@@ -1205,7 +1205,7 @@ class L10nRo extends L10n {
   String get sendAudio => 'Send audio';
 
   @override
-  String get sendFile => 'Trimiteți fișier';
+  String get sendFile => 'Send file';
 
   @override
   String get sendImage => 'Send image';
@@ -1216,7 +1216,7 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get sendMessages => 'Trimiteți mesaje';
+  String get sendMessages => 'Send messages';
 
   @override
   String get sendOriginal => 'Send original';
@@ -1244,97 +1244,97 @@ class L10nRo extends L10n {
 
   @override
   String sentASticker(String username) {
-    return '😊 $username sent a sticker';
+    return '😊 $username a envoyé un autocollant';
   }
 
   @override
   String sentAVideo(String username) {
-    return '🎥 $username sent a video';
+    return '🎥 $username a envoyé une vidéo';
   }
 
   @override
   String sentCallInformations(String senderName) {
-    return '$senderName a trimis informație de apel';
+    return '$senderName a envoyé des informations d\'appel';
   }
 
   @override
-  String get separateChatTypes => 'Separate Direct Chats and Groups';
+  String get separateChatTypes => 'Séparer les discussions directes et les groupes';
 
   @override
-  String get setAsCanonicalAlias => 'Set as main alias';
+  String get setAsCanonicalAlias => 'Définir comme alias principal';
 
   @override
-  String get setCustomEmotes => 'Set custom emotes';
+  String get setCustomEmotes => 'Définir des émoticônes personnalisées';
 
   @override
-  String get setChatDescription => 'Set chat description';
+  String get setChatDescription => 'Définir la description de la discussion';
 
   @override
-  String get setInvitationLink => 'Set invitation link';
+  String get setInvitationLink => 'Définir le lien d\'invitation';
 
   @override
-  String get setPermissionsLevel => 'Set permissions level';
+  String get setPermissionsLevel => 'Définir le niveau d\'autorisation';
 
   @override
-  String get setStatus => 'Stabiliți status';
+  String get setStatus => 'Définir le statut';
 
   @override
-  String get settings => 'Configurări';
+  String get settings => 'Paramètres';
 
   @override
-  String get share => 'Partajați';
+  String get share => 'Partager';
 
   @override
   String sharedTheLocation(String username) {
-    return '$username shared their location';
+    return '$username a partagé sa localisation';
   }
 
   @override
-  String get shareLocation => 'Partajați locația';
+  String get shareLocation => 'Partager la localisation';
 
   @override
-  String get showPassword => 'Afișați parola';
+  String get showPassword => 'Afficher le mot de passe';
 
   @override
-  String get presenceStyle => 'Presence:';
+  String get presenceStyle => 'Présence :';
 
   @override
-  String get presencesToggle => 'Show status messages from other users';
+  String get presencesToggle => 'Afficher les messages de statut des autres utilisateurs';
 
   @override
-  String get singlesignon => 'Single Sign on';
+  String get singlesignon => 'Authentification unique';
 
   @override
-  String get skip => 'Săriți peste';
+  String get skip => 'Passer';
 
   @override
-  String get sourceCode => 'Codul surs';
+  String get sourceCode => 'Code source';
 
   @override
-  String get spaceIsPublic => 'Spațiul este public';
+  String get spaceIsPublic => 'L\'espace est public';
 
   @override
-  String get spaceName => 'Numele spațiului';
+  String get spaceName => 'Nom de l\'espace';
 
   @override
   String startedACall(String senderName) {
-    return '$senderName started a call';
+    return '$senderName a démarré un appel';
   }
 
   @override
-  String get startFirstChat => 'Start your first chat';
+  String get startFirstChat => 'Commencez votre première discussion';
 
   @override
-  String get status => 'Status';
+  String get status => 'Statut';
 
   @override
-  String get statusExampleMessage => 'How are you today?';
+  String get statusExampleMessage => 'Comment allez-vous aujourd\'hui ?';
 
   @override
-  String get submit => 'Trimiteți';
+  String get submit => 'Soumettre';
 
   @override
-  String get synchronizingPleaseWait => 'Synchronizing… Please wait.';
+  String get synchronizingPleaseWait => 'Synchronisation… Veuillez patienter.';
 
   @override
   String synchronizingPleaseWaitCounter(String percentage) {
@@ -1342,70 +1342,70 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get systemTheme => 'System';
+  String get systemTheme => 'Système';
 
   @override
-  String get theyDontMatch => 'They Don\'t Match';
+  String get theyDontMatch => 'Ils ne correspondent pas';
 
   @override
-  String get theyMatch => 'They Match';
+  String get theyMatch => 'Ils correspondent';
 
   @override
   String get title => 'Stawi';
 
   @override
-  String get toggleFavorite => 'Comutați favoritul';
+  String get toggleFavorite => 'Ajouter/Retirer des favoris';
 
   @override
-  String get toggleMuted => 'Toggle Muted';
+  String get toggleMuted => 'Activer/Désactiver le mode silencieux';
 
   @override
-  String get toggleUnread => 'Mark Read/Unread';
+  String get toggleUnread => 'Marquer comme lu/non lu';
 
   @override
-  String get tooManyRequestsWarning => 'Too many requests. Please try again later!';
+  String get tooManyRequestsWarning => 'Trop de requêtes. Veuillez réessayer plus tard !';
 
   @override
-  String get transferFromAnotherDevice => 'Transfer from another device';
+  String get transferFromAnotherDevice => 'Transférer depuis un autre appareil';
 
   @override
-  String get tryToSendAgain => 'Try to send again';
+  String get tryToSendAgain => 'Essayer d\'envoyer à nouveau';
 
   @override
-  String get unavailable => 'Unavailable';
+  String get unavailable => 'Indisponible';
 
   @override
   String unbannedUser(String username, String targetName) {
-    return '$username a ridicat interzicerea lui $targetName';
+    return '$username a débloqué $targetName';
   }
 
   @override
-  String get unblockDevice => 'Debloca dispozitiv';
+  String get unblockDevice => 'Débloquer l\'appareil';
 
   @override
-  String get unknownDevice => 'Dispozitiv necunoscut';
+  String get unknownDevice => 'Appareil inconnu';
 
   @override
-  String get unknownEncryptionAlgorithm => 'Algoritm de criptare necunoscut';
+  String get unknownEncryptionAlgorithm => 'Algorithme de chiffrement inconnu';
 
   @override
   String unknownEvent(String type) {
-    return 'Unknown event \'$type\'';
+    return 'Événement inconnu \'$type\'';
   }
 
   @override
-  String get unmuteChat => 'Dezamuțați chat';
+  String get unmuteChat => 'Unmute chat';
 
   @override
-  String get unpin => 'Anulează fixarea';
+  String get unpin => 'Unpin';
 
   @override
   String unreadChats(int unreadCount) {
     String _temp0 = intl.Intl.pluralLogic(
       unreadCount,
       locale: localeName,
-      other: '$unreadCount chaturi necitite',
-      one: 'Un chat necitit',
+      other: '$unreadCount unread chats',
+      one: '1 unread chat',
     );
     return '$_temp0';
   }
@@ -1422,7 +1422,7 @@ class L10nRo extends L10n {
 
   @override
   String userIsTyping(String username) {
-    return '$username tastează…';
+    return '$username is typing…';
   }
 
   @override
@@ -1445,13 +1445,13 @@ class L10nRo extends L10n {
   String get verified => 'Verified';
 
   @override
-  String get verify => 'Verificați';
+  String get verify => 'Verify';
 
   @override
   String get verifyStart => 'Start Verification';
 
   @override
-  String get verifySuccess => 'A reușit verificarea!';
+  String get verifySuccess => 'You successfully verified!';
 
   @override
   String get verifyTitle => 'Verifying other account';
@@ -1469,443 +1469,443 @@ class L10nRo extends L10n {
   String get visibleForEveryone => 'Visible for everyone';
 
   @override
-  String get voiceMessage => 'Mesaj vocal';
+  String get voiceMessage => 'Message vocal';
 
   @override
-  String get waitingPartnerAcceptRequest => 'Waiting for partner to accept the request…';
+  String get waitingPartnerAcceptRequest => 'En attente que le partenaire accepte la demande…';
 
   @override
-  String get waitingPartnerEmoji => 'Waiting for partner to accept the emoji…';
+  String get waitingPartnerEmoji => 'En attente que le partenaire accepte l\'emoji…';
 
   @override
-  String get waitingPartnerNumbers => 'Waiting for partner to accept the numbers…';
+  String get waitingPartnerNumbers => 'En attente que le partenaire accepte les numéros…';
 
   @override
-  String get wallpaper => 'Imagine de fundal';
+  String get wallpaper => 'Fond d\'écran :';
 
   @override
-  String get warning => 'Warning!';
+  String get warning => 'Avertissement !';
 
   @override
-  String get weSentYouAnEmail => 'V-am trimis un email';
+  String get weSentYouAnEmail => 'Nous vous avons envoyé un e-mail';
 
   @override
-  String get whoCanPerformWhichAction => 'Who can perform which action';
+  String get whoCanPerformWhichAction => 'Qui peut effectuer quelle action';
 
   @override
-  String get whoIsAllowedToJoinThisGroup => 'Who is allowed to join this group';
+  String get whoIsAllowedToJoinThisGroup => 'Qui est autorisé à rejoindre ce groupe';
 
   @override
-  String get whyDoYouWantToReportThis => 'Why do you want to report this?';
+  String get whyDoYouWantToReportThis => 'Pourquoi voulez-vous signaler ceci ?';
 
   @override
-  String get wipeChatBackup => 'Wipe your chat backup to create a new recovery key?';
+  String get wipeChatBackup => 'Effacer votre sauvegarde de discussion pour créer une nouvelle clé de récupération ?';
 
   @override
-  String get withTheseAddressesRecoveryDescription => 'With these addresses you can recover your password.';
+  String get withTheseAddressesRecoveryDescription => 'Avec ces adresses, vous pouvez récupérer votre mot de passe.';
 
   @override
-  String get writeAMessage => 'Write a message…';
+  String get writeAMessage => 'Écrire un message…';
 
   @override
-  String get yes => 'Yes';
+  String get yes => 'Oui';
 
   @override
-  String get you => 'You';
+  String get you => 'Vous';
 
   @override
-  String get youAreNoLongerParticipatingInThisChat => 'Nu mai participați în acest chat';
+  String get youAreNoLongerParticipatingInThisChat => 'Vous ne participez plus à cette discussion';
 
   @override
-  String get youHaveBeenBannedFromThisChat => 'You have been banned from this chat';
+  String get youHaveBeenBannedFromThisChat => 'Vous avez été banni de cette discussion';
 
   @override
-  String get yourPublicKey => 'Cheia voastră publică';
+  String get yourPublicKey => 'Votre clé publique';
 
   @override
-  String get messageInfo => 'Message info';
+  String get messageInfo => 'Infos du message';
 
   @override
-  String get time => 'Time';
+  String get time => 'Heure';
 
   @override
-  String get messageType => 'Message Type';
+  String get messageType => 'Type de message';
 
   @override
-  String get sender => 'Sender';
+  String get sender => 'Expéditeur';
 
   @override
-  String get openGallery => 'Open gallery';
+  String get openGallery => 'Ouvrir la galerie';
 
   @override
-  String get removeFromSpace => 'Remove from space';
+  String get removeFromSpace => 'Retirer de l\'espace';
 
   @override
-  String get addToSpaceDescription => 'Alegeți un spațiu în care să adăugați acest chat.';
+  String get addToSpaceDescription => 'Sélectionnez un espace pour ajouter cette discussion.';
 
   @override
-  String get start => 'Start';
+  String get start => 'Démarrer';
 
   @override
-  String get pleaseEnterRecoveryKeyDescription => 'To unlock your old messages, please enter your recovery key that has been generated in a previous session. Your recovery key is NOT your password.';
+  String get pleaseEnterRecoveryKeyDescription => 'Pour déverrouiller vos anciens messages, veuillez entrer votre clé de récupération générée lors d\'une session précédente. Votre clé de récupération n\'est PAS votre mot de passe.';
 
   @override
-  String get publish => 'Publish';
+  String get publish => 'Publier';
 
   @override
   String videoWithSize(String size) {
-    return 'Video ($size)';
+    return 'Vidéo ($size)';
   }
 
   @override
-  String get openChat => 'Deschideți Chat';
+  String get openChat => 'Ouvrir la discussion';
 
   @override
-  String get markAsRead => 'Mark as read';
+  String get markAsRead => 'Marquer comme lu';
 
   @override
-  String get reportUser => 'Report user';
+  String get reportUser => 'Signaler l\'utilisateur';
 
   @override
-  String get dismiss => 'Dismiss';
+  String get dismiss => 'Ignorer';
 
   @override
   String reactedWith(String sender, String reaction) {
-    return '$sender a reacționat cu $reaction';
+    return '$sender a réagi avec $reaction';
   }
 
   @override
-  String get pinMessage => 'Pin to room';
+  String get pinMessage => 'Épingler dans la salle';
 
   @override
-  String get confirmEventUnpin => 'Are you sure to permanently unpin the event?';
+  String get confirmEventUnpin => 'Voulez-vous vraiment désépingler définitivement l\'événement ?';
 
   @override
-  String get emojis => 'Emojis';
+  String get emojis => 'Émojis';
 
   @override
-  String get placeCall => 'Faceți apel';
+  String get placeCall => 'Passer un appel';
 
   @override
-  String get voiceCall => 'Apel vocal';
+  String get voiceCall => 'Appel vocal';
 
   @override
-  String get unsupportedAndroidVersion => 'Versiune de Android nesuportat';
+  String get unsupportedAndroidVersion => 'Version Android non prise en charge';
 
   @override
-  String get unsupportedAndroidVersionLong => 'This feature requires a newer Android version. Please check for updates or Lineage OS support.';
+  String get unsupportedAndroidVersionLong => 'Cette fonctionnalité nécessite une version Android plus récente. Veuillez vérifier les mises à jour ou le support Lineage OS.';
 
   @override
-  String get videoCallsBetaWarning => 'Please note that video calls are currently in beta. They might not work as expected or work at all on all platforms.';
+  String get videoCallsBetaWarning => 'Veuillez noter que les appels vidéo sont actuellement en version bêta. Ils peuvent ne pas fonctionner comme prévu ou ne pas fonctionner du tout sur toutes les plateformes.';
 
   @override
-  String get experimentalVideoCalls => 'Experimental video calls';
+  String get experimentalVideoCalls => 'Appels vidéo expérimentaux';
 
   @override
-  String get emailOrUsername => 'Email sau nume de utilizator';
+  String get emailOrUsername => 'E-mail ou nom d\'utilisateur';
 
   @override
-  String get indexedDbErrorTitle => 'Private mode issues';
+  String get indexedDbErrorTitle => 'Problèmes en mode privé';
 
   @override
-  String get indexedDbErrorLong => 'The message storage is unfortunately not enabled in private mode by default.\nPlease visit\n - about:config\n - set dom.indexedDB.privateBrowsing.enabled to true\nOtherwise, it is not possible to run Stawi.';
+  String get indexedDbErrorLong => 'Le stockage des messages n\'est malheureusement pas activé par défaut en mode privé.\nVeuillez visiter\n - about:config\n - définir dom.indexedDB.privateBrowsing.enabled à true\nSinon, il n\'est pas possible d\'exécuter Stawi.';
 
   @override
   String switchToAccount(String number) {
-    return 'Switch to account $number';
+    return 'Basculer vers le compte $number';
   }
 
   @override
-  String get nextAccount => 'Next account';
+  String get nextAccount => 'Compte suivant';
 
   @override
-  String get previousAccount => 'Contul anterior';
+  String get previousAccount => 'Compte précédent';
 
   @override
-  String get addWidget => 'Add widget';
+  String get addWidget => 'Ajouter un widget';
 
   @override
-  String get widgetVideo => 'Video';
+  String get widgetVideo => 'Vidéo';
 
   @override
-  String get widgetEtherpad => 'Text note';
+  String get widgetEtherpad => 'Note de texte';
 
   @override
   String get widgetJitsi => 'Jitsi Meet';
 
   @override
-  String get widgetCustom => 'Personalizat';
+  String get widgetCustom => 'Personnalisé';
 
   @override
-  String get widgetName => 'Nume';
+  String get widgetName => 'Nom';
 
   @override
-  String get widgetUrlError => 'This is not a valid URL.';
+  String get widgetUrlError => 'Ceci n\'est pas une URL valide.';
 
   @override
-  String get widgetNameError => 'Please provide a display name.';
+  String get widgetNameError => 'Veuillez fournir un nom d\'affichage.';
 
   @override
-  String get errorAddingWidget => 'Error adding the widget.';
+  String get errorAddingWidget => 'Erreur lors de l\'ajout du widget.';
 
   @override
-  String get youRejectedTheInvitation => 'You rejected the invitation';
+  String get youRejectedTheInvitation => 'Vous avez rejeté l\'invitation';
 
   @override
-  String get youJoinedTheChat => 'You joined the chat';
+  String get youJoinedTheChat => 'Vous avez rejoint la discussion';
 
   @override
-  String get youAcceptedTheInvitation => '👍 You accepted the invitation';
+  String get youAcceptedTheInvitation => '👍 Vous avez accepté l\'invitation';
 
   @override
   String youBannedUser(String user) {
-    return 'Ați interzis pe $user';
+    return 'Vous avez banni $user';
   }
 
   @override
   String youHaveWithdrawnTheInvitationFor(String user) {
-    return 'You have withdrawn the invitation for $user';
+    return 'Vous avez retiré l\'invitation pour $user';
   }
 
   @override
   String youInvitedToBy(String alias) {
-    return '📩 You have been invited via link to:\n$alias';
+    return '📩 Vous avez été invité via un lien à :\n$alias';
   }
 
   @override
   String youInvitedBy(String user) {
-    return '📩 You have been invited by $user';
+    return '📩 Vous avez été invité par $user';
   }
 
   @override
   String invitedBy(String user) {
-    return '📩 Invited by $user';
+    return '📩 Invité par $user';
   }
 
   @override
   String youInvitedUser(String user) {
-    return '📩 You invited $user';
+    return '📩 Vous avez invité $user';
   }
 
   @override
   String youKicked(String user) {
-    return '👞 You kicked $user';
+    return '👞 Vous avez expulsé $user';
   }
 
   @override
   String youKickedAndBanned(String user) {
-    return '🙅 You kicked and banned $user';
+    return '🙅 Vous avez expulsé et banni $user';
   }
 
   @override
   String youUnbannedUser(String user) {
-    return 'You unbanned $user';
+    return 'Vous avez débloqué $user';
   }
 
   @override
   String hasKnocked(String user) {
-    return '🚪 $user has knocked';
+    return '🚪 $user a frappé';
   }
 
   @override
-  String get usersMustKnock => 'Users must knock';
+  String get usersMustKnock => 'Les utilisateurs doivent frapper';
 
   @override
-  String get noOneCanJoin => 'No one can join';
+  String get noOneCanJoin => 'Personne ne peut rejoindre';
 
   @override
   String userWouldLikeToChangeTheChat(String user) {
-    return '$user would like to join the chat.';
+    return '$user souhaite rejoindre la discussion.';
   }
 
   @override
-  String get noPublicLinkHasBeenCreatedYet => 'No public link has been created yet';
+  String get noPublicLinkHasBeenCreatedYet => 'Aucun lien public n\'a encore été créé';
 
   @override
-  String get knock => 'Knock';
+  String get knock => 'Frapper';
 
   @override
-  String get users => 'Users';
+  String get users => 'Utilisateurs';
 
   @override
-  String get unlockOldMessages => 'Unlock old messages';
+  String get unlockOldMessages => 'Déverrouiller les anciens messages';
 
   @override
-  String get storeInSecureStorageDescription => 'Store the recovery key in the secure storage of this device.';
+  String get storeInSecureStorageDescription => 'Stocker la clé de récupération dans le stockage sécurisé de cet appareil.';
 
   @override
-  String get saveKeyManuallyDescription => 'Save this key manually by triggering the system share dialog or clipboard.';
+  String get saveKeyManuallyDescription => 'Enregistrez cette clé manuellement en utilisant le partage système ou le presse-papiers.';
 
   @override
-  String get storeInAndroidKeystore => 'Store in Android KeyStore';
+  String get storeInAndroidKeystore => 'Stocker dans Android KeyStore';
 
   @override
-  String get storeInAppleKeyChain => 'Store in Apple KeyChain';
+  String get storeInAppleKeyChain => 'Stocker dans Apple KeyChain';
 
   @override
-  String get storeSecurlyOnThisDevice => 'Store securely on this device';
+  String get storeSecurlyOnThisDevice => 'Stocker en toute sécurité sur cet appareil';
 
   @override
   String countFiles(int count) {
-    return '$count files';
+    return '$count fichiers';
   }
 
   @override
-  String get user => 'User';
+  String get user => 'Utilisateur';
 
   @override
-  String get custom => 'Custom';
+  String get custom => 'Personnalisé';
 
   @override
-  String get foregroundServiceRunning => 'This notification appears when the foreground service is running.';
+  String get foregroundServiceRunning => 'Cette notification apparaît lorsque le service au premier plan est actif.';
 
   @override
-  String get screenSharingTitle => 'partajarea de ecran';
+  String get screenSharingTitle => 'partage d\'écran';
 
   @override
-  String get screenSharingDetail => 'You are sharing your screen in FuffyChat';
+  String get screenSharingDetail => 'Vous partagez votre écran dans Stawi';
 
   @override
-  String get callingPermissions => 'Calling permissions';
+  String get callingPermissions => 'Autorisations d\'appel';
 
   @override
-  String get callingAccount => 'Calling account';
+  String get callingAccount => 'Compte d\'appel';
 
   @override
-  String get callingAccountDetails => 'Allows Stawi to use the native android dialer app.';
+  String get callingAccountDetails => 'Autorise Stawi à utiliser l\'application de numérotation Android native.';
 
   @override
-  String get appearOnTop => 'Appear on top';
+  String get appearOnTop => 'Apparaître au-dessus';
 
   @override
-  String get appearOnTopDetails => 'Allows the app to appear on top (not needed if you already have Fluffychat setup as a calling account)';
+  String get appearOnTopDetails => 'Permet à l\'application d\'apparaître au-dessus (inutile si Stawi est déjà configuré comme compte d\'appel)';
 
   @override
-  String get otherCallingPermissions => 'Microphone, camera and other Stawi permissions';
+  String get otherCallingPermissions => 'Microphone, caméra et autres autorisations Stawi';
 
   @override
-  String get whyIsThisMessageEncrypted => 'Why is this message unreadable?';
+  String get whyIsThisMessageEncrypted => 'Pourquoi ce message est-il illisible ?';
 
   @override
-  String get noKeyForThisMessage => 'This can happen if the message was sent before you have signed in to your account at this device.\n\nIt is also possible that the sender has blocked your device or something went wrong with the internet connection.\n\nAre you able to read the message on another session? Then you can transfer the message from it! Go to Settings > Devices and make sure that your devices have verified each other. When you open the room the next time and both sessions are in the foreground, the keys will be transmitted automatically.\n\nDo you not want to lose the keys when logging out or switching devices? Make sure that you have enabled the chat backup in the settings.';
+  String get noKeyForThisMessage => 'Cela peut arriver si le message a été envoyé avant que vous ne vous soyez connecté à votre compte sur cet appareil.\n\nIl est également possible que l\'expéditeur ait bloqué votre appareil ou qu\'il y ait eu un problème de connexion Internet.\n\nPouvez-vous lire le message sur une autre session ? Dans ce cas, vous pouvez transférer le message depuis celle-ci ! Allez dans Paramètres > Appareils et assurez-vous que vos appareils se sont vérifiés mutuellement. Lorsque vous ouvrez à nouveau la salle et que les deux sessions sont au premier plan, les clés seront transmises automatiquement.\n\nVous ne voulez pas perdre les clés lors de la déconnexion ou du changement d\'appareil ? Assurez-vous d\'avoir activé la sauvegarde de discussion dans les paramètres.';
 
   @override
-  String get newGroup => 'Grup nou';
+  String get newGroup => 'Nouveau groupe';
 
   @override
-  String get newSpace => 'New space';
+  String get newSpace => 'Nouvel espace';
 
   @override
-  String get enterSpace => 'Enter space';
+  String get enterSpace => 'Entrer dans l\'espace';
 
   @override
-  String get enterRoom => 'Enter room';
+  String get enterRoom => 'Entrer dans la salle';
 
   @override
-  String get allSpaces => 'All spaces';
+  String get allSpaces => 'Tous les espaces';
 
   @override
   String numChats(String number) {
-    return '$number chats';
+    return '$number discussions';
   }
 
   @override
-  String get hideUnimportantStateEvents => 'Hide unimportant state events';
+  String get hideUnimportantStateEvents => 'Masquer les événements d\'état non importants';
 
   @override
-  String get hidePresences => 'Hide Status List?';
+  String get hidePresences => 'Masquer la liste des statuts ?';
 
   @override
-  String get doNotShowAgain => 'Do not show again';
+  String get doNotShowAgain => 'Ne plus afficher';
 
   @override
   String wasDirectChatDisplayName(String oldDisplayName) {
-    return 'Empty chat (was $oldDisplayName)';
+    return 'Discussion vide (était $oldDisplayName)';
   }
 
   @override
-  String get newSpaceDescription => 'Spaces allows you to consolidate your chats and build private or public communities.';
+  String get newSpaceDescription => 'Les espaces vous permettent de regrouper vos discussions et de créer des communautés privées ou publiques.';
 
   @override
-  String get encryptThisChat => 'Encrypt this chat';
+  String get encryptThisChat => 'Chiffrer cette discussion';
 
   @override
-  String get disableEncryptionWarning => 'For security reasons you can not disable encryption in a chat, where it has been enabled before.';
+  String get disableEncryptionWarning => 'Pour des raisons de sécurité, vous ne pouvez pas désactiver le chiffrement dans une discussion où il a déjà été activé.';
 
   @override
-  String get sorryThatsNotPossible => 'Scuze... acest nu este posibil';
+  String get sorryThatsNotPossible => 'Désolé... ce n\'est pas possible';
 
   @override
-  String get deviceKeys => 'Device keys:';
+  String get deviceKeys => 'Clés de l\'appareil :';
 
   @override
-  String get reopenChat => 'Reopen chat';
+  String get reopenChat => 'Rouvrir la discussion';
 
   @override
-  String get noBackupWarning => 'Warning! Without enabling chat backup, you will lose access to your encrypted messages. It is highly recommended to enable the chat backup first before logging out.';
+  String get noBackupWarning => 'Avertissement ! Sans activer la sauvegarde de discussion, vous perdrez l\'accès à vos messages chiffrés. Il est fortement recommandé d\'activer d\'abord la sauvegarde avant de vous déconnecter.';
 
   @override
-  String get noOtherDevicesFound => 'No other devices found';
+  String get noOtherDevicesFound => 'Aucun autre appareil trouvé';
 
   @override
   String fileIsTooBigForServer(String max) {
-    return 'Serverul reportează că fișierul este prea mare să fie trimis.';
+    return 'Impossible d\'envoyer ! Le serveur ne prend en charge que les pièces jointes jusqu\'à $max.';
   }
 
   @override
   String fileHasBeenSavedAt(String path) {
-    return 'File has been saved at $path';
+    return 'Le fichier a été enregistré à $path';
   }
 
   @override
-  String get jumpToLastReadMessage => 'Jump to last read message';
+  String get jumpToLastReadMessage => 'Aller au dernier message lu';
 
   @override
-  String get readUpToHere => 'Read up to here';
+  String get readUpToHere => 'Lu jusqu\'ici';
 
   @override
-  String get jump => 'Jump';
+  String get jump => 'Aller à';
 
   @override
-  String get openLinkInBrowser => 'Open link in browser';
+  String get openLinkInBrowser => 'Ouvrir le lien dans le navigateur';
 
   @override
-  String get reportErrorDescription => '😭 Oh no. Something went wrong. If you want, you can report this bug to the developers.';
+  String get reportErrorDescription => '😭 Oh non. Une erreur s\'est produite. Si vous le souhaitez, vous pouvez signaler ce bug aux développeurs.';
 
   @override
-  String get report => 'report';
+  String get report => 'signaler';
 
   @override
-  String get signInWithPassword => 'Sign in with password';
+  String get signInWithPassword => 'Se connecter avec un mot de passe';
 
   @override
-  String get pleaseTryAgainLaterOrChooseDifferentServer => 'Please try again later or choose a different server.';
+  String get pleaseTryAgainLaterOrChooseDifferentServer => 'Veuillez réessayer plus tard ou choisir un autre serveur.';
 
   @override
   String signInWith(String provider) {
-    return 'Sign in with $provider';
+    return 'Se connecter avec $provider';
   }
 
   @override
-  String get profileNotFound => 'The user could not be found on the server. Maybe there is a connection problem or the user doesn\'t exist.';
+  String get profileNotFound => 'L\'utilisateur n\'a pas pu être trouvé sur le serveur. Il se peut qu\'il y ait un problème de connexion ou que l\'utilisateur n\'existe pas.';
 
   @override
-  String get setTheme => 'Set theme:';
+  String get setTheme => 'Définir le thème :';
 
   @override
-  String get setColorTheme => 'Set color theme:';
+  String get setColorTheme => 'Définir le thème de couleur :';
 
   @override
-  String get invite => 'Invite';
+  String get invite => 'Inviter';
 
   @override
-  String get inviteGroupChat => '📨 Invite group chat';
+  String get inviteGroupChat => '📨 Inviter à une discussion de groupe';
 
   @override
-  String get invitePrivateChat => '📨 Invite private chat';
+  String get invitePrivateChat => '📨 Inviter à une discussion privée';
 
   @override
-  String get invalidInput => 'Invalid input!';
+  String get invalidInput => 'Entrée invalide !';
 
   @override
   String wrongPinEntered(int seconds) {
@@ -1937,17 +1937,17 @@ class L10nRo extends L10n {
   String get makeAdminDescription => 'Once you make this user admin, you may not be able to undo this as they will then have the same permissions as you.';
 
   @override
-  String get pushNotificationsNotAvailable => 'Push notifications not available';
+  String get pushNotificationsNotAvailable => 'Notifications push non disponibles';
 
   @override
-  String get learnMore => 'Learn more';
+  String get learnMore => 'En savoir plus';
 
   @override
-  String get yourGlobalUserIdIs => 'Your global user-ID is: ';
+  String get yourGlobalUserIdIs => 'Votre identifiant utilisateur global est : ';
 
   @override
   String noUsersFoundWithQuery(String query) {
-    return 'Unfortunately no user could be found with \"$query\". Please check whether you made a typo.';
+    return 'Malheureusement, aucun utilisateur n\'a pu être trouvé avec \"$query\". Veuillez vérifier si vous n\'avez pas fait de faute de frappe.';
   }
 
   @override
@@ -1955,214 +1955,214 @@ class L10nRo extends L10n {
 
   @override
   String chatCanBeDiscoveredViaSearchOnServer(String server) {
-    return 'Chat can be discovered via the search on $server';
+    return 'La discussion peut être découverte via la recherche sur $server';
   }
 
   @override
-  String get searchChatsRooms => 'Search for #chats, @users...';
+  String get searchChatsRooms => 'Rechercher des #discussions, @utilisateurs...';
 
   @override
   String get nothingFound => 'Nothing found...';
 
   @override
-  String get groupName => 'Group name';
+  String get groupName => 'Nom du groupe';
 
   @override
-  String get groupDescription => 'Group description';
+  String get groupDescription => 'Description du groupe';
 
   @override
-  String get groupConfiguration => 'Group Configuration';
+  String get groupConfiguration => 'Configuration du groupe';
 
   @override
-  String get groupType => 'Group type';
+  String get groupType => 'Type de groupe';
 
   @override
-  String get groupTypeProduct => 'Product Group';
+  String get groupTypeProduct => 'Groupe produit';
 
   @override
-  String get groupTypeGrameen => 'Default Group';
+  String get groupTypeGrameen => 'Groupe par défaut';
 
   @override
-  String get groupTypeVoluntary => 'Voluntary Group';
+  String get groupTypeVoluntary => 'Groupe volontaire';
 
   @override
-  String get groupTypeFunding => 'Funding Group';
+  String get groupTypeFunding => 'Groupe de financement';
 
   @override
-  String get groupTypeTemporary => 'Temporary Group';
+  String get groupTypeTemporary => 'Groupe temporaire';
 
   @override
-  String get groupTypeMerryGoRound => 'Merry Go Round Group';
+  String get groupTypeMerryGoRound => 'Groupe Tontine';
 
   @override
-  String get groupTypeDescriptionDefault => 'Members are able to save and lend themselves within the group periodically under the grameen methodology. Loans are proportional to the amount of money they save based on allowed leverage settings.';
+  String get groupTypeDescriptionDefault => 'Les membres peuvent économiser et se prêter périodiquement au sein du groupe selon la méthodologie grameen. Les prêts sont proportionnels au montant économisé selon les paramètres de levier autorisés.';
 
   @override
-  String get groupTypeDescriptionFunding => 'Members of these groups start them for the purpose of lending to grameen groups and gaining some profit. There is no tenure as the members only set a duration in which they are willing to lock their funds for lending to groups. There is a chance of experiencing indefinate lock on some funds when groups are penalized for inactivity.';
+  String get groupTypeDescriptionFunding => 'Les membres de ces groupes les créent pour prêter à des groupes grameen et en tirer un profit. Il n\'y a pas de durée fixe, les membres définissent la période durant laquelle ils acceptent de bloquer leurs fonds pour le prêt. Certains fonds peuvent être bloqués indéfiniment si les groupes sont pénalisés pour inactivité.';
 
   @override
-  String get groupTypeDescriptionTemporary => 'These are groups setup with very specific purposes with a definite deadline, they can be for occasions such as funeral fund raisers, wedding and introduction meetings.';
+  String get groupTypeDescriptionTemporary => 'Ce sont des groupes créés pour des objectifs très spécifiques avec une date limite définie, par exemple pour des collectes de fonds funéraires, des mariages ou des réunions d\'introduction.';
 
   @override
-  String get groupTypeDescriptionVoluntary => 'Organized groups that have a schedule of contribution from the members. Conditions occur in real life before the group does something for the user, example : 1. In church setup, believers may need to make contributions on a weekly basis towards sunday offerings. have a monthly 10% contribution or have a yearly contribution. 2. Teacher unions or groups members contribute a certain fees every so often towards a calamity befalling a member, They may have a conditions such that in case a member does not contribute then when they have issues they will not receive similar assistance.';
+  String get groupTypeDescriptionVoluntary => 'Groupes organisés avec un calendrier de contributions des membres. Certaines conditions réelles doivent être remplies avant que le groupe n\'agisse pour un utilisateur. Exemples : 1. Dans une église, les fidèles doivent contribuer chaque semaine aux offrandes du dimanche, faire une contribution mensuelle de 10 % ou une contribution annuelle. 2. Les syndicats d\'enseignants ou groupes similaires contribuent régulièrement à une caisse de solidarité pour les membres en difficulté, avec la condition que si un membre ne contribue pas, il ne recevra pas d\'aide en cas de besoin.';
 
   @override
-  String get groupTypeDescriptionMerryGoRound => 'Members contribute and have a schedule of a single individual receiving a portion of the periodic savings. This can be say 70% of the contributions with the rest of the contributions shared out equally at the end of the groups cycle.';
+  String get groupTypeDescriptionMerryGoRound => 'Les membres contribuent et un calendrier détermine qu\'un seul individu reçoit une partie des économies périodiques à chaque cycle. Par exemple, 70 % des contributions vont à une personne et le reste est partagé entre tous à la fin du cycle.';
 
   @override
-  String get groupTypeDescriptionProduct => 'Product groups are system groups that aid with the functionality of the whole system';
+  String get groupTypeDescriptionProduct => 'Les groupes produits sont des groupes système qui facilitent le fonctionnement global du système';
 
   @override
-  String get groupSecret => 'Group secret';
+  String get groupSecret => 'Secret du groupe';
 
   @override
-  String get currency => 'Currency';
+  String get currency => 'Devise';
 
   @override
-  String get currencySelectDescription => 'Represents the Currency that will be utilized for handling group funds';
+  String get currencySelectDescription => 'Représente la devise qui sera utilisée pour gérer les fonds du groupe';
 
   @override
-  String get periodicSetup => 'Cycling parameters';
+  String get periodicSetup => 'Paramètres de cycle';
 
   @override
-  String get periodType => 'Period type';
+  String get periodType => 'Type de période';
 
   @override
-  String get periodicTypeDescription => 'Period type represents the duration between which members have an obligation towards their group';
+  String get periodicTypeDescription => 'Le type de période représente la durée entre laquelle les membres ont une obligation envers leur groupe';
 
   @override
-  String get periodTypeWeekly => 'Weekly';
+  String get periodTypeWeekly => 'Hebdomadaire';
 
   @override
-  String get periodTypeBiWeekly => 'BiWeekly';
+  String get periodTypeBiWeekly => 'Bihebdomadaire';
 
   @override
-  String get periodTypeMonthly => 'Monthly';
+  String get periodTypeMonthly => 'Mensuel';
 
   @override
-  String get periodicSavingAmount => 'Periodic Saving Amount';
+  String get periodicSavingAmount => 'Montant d\'épargne périodique';
 
   @override
-  String get periodicSavingAmountDescription => 'Amount saved periodically by members of the group';
+  String get periodicSavingAmountDescription => 'Montant économisé périodiquement par les membres du groupe';
 
   @override
-  String get finalizeGroupConfiguration => 'Finalize Group configuration';
+  String get finalizeGroupConfiguration => 'Finaliser la configuration du groupe';
 
   @override
   String finalizeGroupConfigurationDescription(String groupName) {
-    return 'Your group $groupName will be configured shortly';
+    return 'Votre groupe $groupName sera configuré sous peu';
   }
 
   @override
-  String get groupTerminationDate => 'Group termination date';
+  String get groupTerminationDate => 'Date de fin du groupe';
 
   @override
-  String get groupTerminationDateDescription => 'Date after which the objective of the group would have been completed';
+  String get groupTerminationDateDescription => 'Date après laquelle l\'objectif du groupe aurait été accompli';
 
   @override
-  String get groupCreationSuccessful => 'Successfully Queued Group Create Request';
+  String get groupCreationSuccessful => 'Group creation request queued successfully';
 
   @override
   String groupCreationSuccessfulDescription(String groupName) {
-    return 'Group with the name $groupName is being configured, this will take a moment. \n\n Add all the members to the group from your contacts';
+    return 'Le groupe nommé $groupName est en cours de configuration, cela prendra un moment. \n\n Ajoutez tous les membres au groupe depuis vos contacts.';
   }
 
   @override
-  String get createGroupAndInviteUsers => 'Create a group and invite users';
+  String get createGroupAndInviteUsers => 'Créer un groupe et inviter des utilisateurs';
 
   @override
-  String get groupCanBeFoundViaSearch => 'Group can be found via search';
+  String get groupCanBeFoundViaSearch => 'Le groupe peut être trouvé via la recherche';
 
   @override
-  String get wrongRecoveryKey => 'Sorry... this does not seem to be the correct recovery key.';
+  String get wrongRecoveryKey => 'Désolé... cela ne semble pas être la bonne clé de récupération.';
 
   @override
-  String get startConversation => 'Start conversation';
+  String get startConversation => 'Démarrer une conversation';
 
   @override
-  String get commandHint_sendraw => 'Send raw json';
+  String get commandHint_sendraw => 'Envoyer le json brut';
 
   @override
-  String get databaseMigrationTitle => 'Database is optimized';
+  String get databaseMigrationTitle => 'La base de données est optimisée';
 
   @override
-  String get databaseMigrationBody => 'Please wait. This may take a moment.';
+  String get databaseMigrationBody => 'Veuillez patienter. Cela peut prendre un moment.';
 
   @override
-  String get leaveEmptyToClearStatus => 'Leave empty to clear your status.';
+  String get leaveEmptyToClearStatus => 'Laissez vide pour effacer votre statut.';
 
   @override
-  String get select => 'Select';
+  String get select => 'Sélectionner';
 
   @override
-  String get searchForUsers => 'Search for @users...';
+  String get searchForUsers => 'Rechercher des @utilisateurs...';
 
   @override
-  String get pleaseEnterYourCurrentPassword => 'Please enter your current password';
+  String get pleaseEnterYourCurrentPassword => 'Veuillez entrer votre mot de passe actuel';
 
   @override
-  String get newPassword => 'New password';
+  String get newPassword => 'Nouveau mot de passe';
 
   @override
-  String get pleaseChooseAStrongPassword => 'Please choose a strong password';
+  String get pleaseChooseAStrongPassword => 'Veuillez choisir un mot de passe fort';
 
   @override
-  String get passwordsDoNotMatch => 'Passwords do not match';
+  String get passwordsDoNotMatch => 'Les mots de passe ne correspondent pas';
 
   @override
-  String get passwordIsWrong => 'Your entered password is wrong';
+  String get passwordIsWrong => 'Le mot de passe saisi est incorrect';
 
   @override
-  String get publicLink => 'Public link';
+  String get publicLink => 'Lien public';
 
   @override
-  String get publicChatAddresses => 'Public chat addresses';
+  String get publicChatAddresses => 'Adresses de discussion publiques';
 
   @override
-  String get createNewAddress => 'Create new address';
+  String get createNewAddress => 'Créer une nouvelle adresse';
 
   @override
-  String get joinSpace => 'Join space';
+  String get joinSpace => 'Rejoindre un espace';
 
   @override
-  String get publicSpaces => 'Public spaces';
+  String get publicSpaces => 'Espaces publics';
 
   @override
-  String get addChatOrSubSpace => 'Add chat or sub space';
+  String get addChatOrSubSpace => 'Ajouter une discussion ou un sous-espace';
 
   @override
-  String get subspace => 'Subspace';
+  String get subspace => 'Sous-espace';
 
   @override
-  String get decline => 'Decline';
+  String get decline => 'Refuser';
 
   @override
-  String get thisDevice => 'This device:';
+  String get thisDevice => 'Cet appareil :';
 
   @override
-  String get initAppError => 'An error occured while init the app';
+  String get initAppError => 'Une erreur s\'est produite lors de l\'initialisation de l\'application';
 
   @override
-  String get userRole => 'User role';
+  String get userRole => 'Rôle de l\'utilisateur';
 
   @override
   String minimumPowerLevel(String level) {
-    return '$level is the minimum power level.';
+    return '$level est le niveau de pouvoir minimum.';
   }
 
   @override
   String searchIn(String chat) {
-    return 'Search in chat \"$chat\"...';
+    return 'Rechercher dans la discussion \"$chat\"...';
   }
 
   @override
-  String get searchMore => 'Search more...';
+  String get searchMore => 'Rechercher plus...';
 
   @override
-  String get gallery => 'Gallery';
+  String get gallery => 'Galerie';
 
   @override
-  String get files => 'Files';
+  String get files => 'Fichiers';
 
   @override
   String databaseBuildErrorBody(String url, String error) {
@@ -2171,159 +2171,159 @@ class L10nRo extends L10n {
 
   @override
   String sessionLostBody(String url, String error) {
-    return 'Your session is lost. Please report this error to the developers at $url. The error message is: $error';
+    return 'Votre session est perdue. Veuillez signaler cette erreur aux développeurs à $url. Le message d\'erreur est : $error';
   }
 
   @override
   String restoreSessionBody(String url, String error) {
-    return 'The app now tries to restore your session from the backup. Please report this error to the developers at $url. The error message is: $error';
+    return 'L\'application tente maintenant de restaurer votre session à partir de la sauvegarde. Veuillez signaler cette erreur aux développeurs à $url. Le message d\'erreur est : $error';
   }
 
   @override
   String forwardMessageTo(String roomName) {
-    return 'Forward message to $roomName?';
+    return 'Transférer le message à $roomName ?';
   }
 
   @override
-  String get sendReadReceipts => 'Send read receipts';
+  String get sendReadReceipts => 'Envoyer les accusés de lecture';
 
   @override
-  String get sendTypingNotificationsDescription => 'Other participants in a chat can see when you are typing a new message.';
+  String get sendTypingNotificationsDescription => 'Les autres participants à une discussion peuvent voir lorsque vous écrivez un nouveau message.';
 
   @override
-  String get sendReadReceiptsDescription => 'Other participants in a chat can see when you have read a message.';
+  String get sendReadReceiptsDescription => 'Les autres participants à une discussion peuvent voir lorsque vous avez lu un message.';
 
   @override
-  String get formattedMessages => 'Formatted messages';
+  String get formattedMessages => 'Messages formatés';
 
   @override
-  String get formattedMessagesDescription => 'Display rich message content like bold text using markdown.';
+  String get formattedMessagesDescription => 'Afficher un contenu enrichi comme du texte en gras avec le markdown.';
 
   @override
-  String get verifyOtherUser => '🔐 Verify other user';
+  String get verifyOtherUser => '🔐 Vérifier un autre utilisateur';
 
   @override
-  String get verifyOtherUserDescription => 'If you verify another user, you can be sure that you know who you are really writing to. 💪\n\nWhen you start a verification, you and the other user will see a popup in the app. There you will then see a series of emojis or numbers that you have to compare with each other.\n\nThe best way to do this is to meet up or start a video call. 👭';
+  String get verifyOtherUserDescription => 'Si vous vérifiez un autre utilisateur, vous pouvez être sûr de savoir à qui vous écrivez réellement. 💪\n\nLorsque vous lancez une vérification, vous et l\'autre utilisateur verrez une fenêtre contextuelle dans l\'application. Vous y verrez une série d\'emojis ou de chiffres à comparer.\n\nLe mieux est de se rencontrer ou de lancer un appel vidéo. 👭';
 
   @override
-  String get verifyOtherDevice => '🔐 Verify other device';
+  String get verifyOtherDevice => '🔐 Vérifier un autre appareil';
 
   @override
-  String get verifyOtherDeviceDescription => 'When you verify another device, those devices can exchange keys, increasing your overall security. 💪 When you start a verification, a popup will appear in the app on both devices. There you will then see a series of emojis or numbers that you have to compare with each other. It\'s best to have both devices handy before you start the verification. 🤳';
+  String get verifyOtherDeviceDescription => 'Lorsque vous vérifiez un autre appareil, ces appareils peuvent échanger des clés, augmentant ainsi votre sécurité globale. 💪 Lorsque vous lancez une vérification, une fenêtre contextuelle apparaîtra sur les deux appareils. Vous y verrez une série d\'emojis ou de chiffres à comparer. Il est préférable d\'avoir les deux appareils à portée de main avant de commencer la vérification. 🤳';
 
   @override
   String acceptedKeyVerification(String sender) {
-    return '$sender accepted key verification';
+    return '$sender a accepté la vérification de clé';
   }
 
   @override
   String canceledKeyVerification(String sender) {
-    return '$sender canceled key verification';
+    return '$sender a annulé la vérification de clé';
   }
 
   @override
   String completedKeyVerification(String sender) {
-    return '$sender completed key verification';
+    return '$sender a terminé la vérification de clé';
   }
 
   @override
   String isReadyForKeyVerification(String sender) {
-    return '$sender is ready for key verification';
+    return '$sender est prêt pour la vérification de clé';
   }
 
   @override
   String requestedKeyVerification(String sender) {
-    return '$sender requested key verification';
+    return '$sender a demandé une vérification de clé';
   }
 
   @override
   String startedKeyVerification(String sender) {
-    return '$sender started key verification';
+    return '$sender a démarré la vérification de clé';
   }
 
   @override
   String get transparent => 'Transparent';
 
   @override
-  String get incomingMessages => 'Incoming messages';
+  String get incomingMessages => 'Messages entrants';
 
   @override
   String get stickers => 'Stickers';
 
   @override
-  String get discover => 'Discover';
+  String get discover => 'Découvrir';
 
   @override
-  String get commandHint_ignore => 'Ignore the given matrix ID';
+  String get commandHint_ignore => 'Ignorer l\'identifiant Matrix donné';
 
   @override
-  String get commandHint_unignore => 'Unignore the given matrix ID';
+  String get commandHint_unignore => 'Ne plus ignorer l\'identifiant Matrix donné';
 
   @override
   String unreadChatsInApp(String appname, String unread) {
-    return '$appname: $unread unread chats';
+    return '$appname : $unread discussions non lues';
   }
 
   @override
-  String get noDatabaseEncryption => 'Database encryption is not supported on this platform';
+  String get noDatabaseEncryption => 'Le chiffrement de la base de données n\'est pas pris en charge sur cette plateforme';
 
   @override
   String thereAreCountUsersBlocked(Object count) {
-    return 'Right now there are $count users blocked.';
+    return 'Il y a actuellement $count utilisateurs bloqués.';
   }
 
   @override
-  String get restricted => 'Restricted';
+  String get restricted => 'Restreint';
 
   @override
-  String get knockRestricted => 'Knock restricted';
+  String get knockRestricted => 'Coup frappé restreint';
 
   @override
   String goToSpace(Object space) {
-    return 'Go to space: $space';
+    return 'Aller à l\'espace : $space';
   }
 
   @override
-  String get markAsUnread => 'Mark as unread';
+  String get markAsUnread => 'Marquer comme non lu';
 
   @override
   String userLevel(int level) {
-    return '$level - User';
+    return '$level - Utilisateur';
   }
 
   @override
   String moderatorLevel(int level) {
-    return '$level - Moderator';
+    return '$level - Modérateur';
   }
 
   @override
   String adminLevel(int level) {
-    return '$level - Admin';
+    return '$level - Administrateur';
   }
 
   @override
-  String get changeGeneralChatSettings => 'Change general chat settings';
+  String get changeGeneralChatSettings => 'Modifier les paramètres généraux de la discussion';
 
   @override
-  String get inviteOtherUsers => 'Invite other users to this chat';
+  String get inviteOtherUsers => 'Inviter d\'autres utilisateurs à cette discussion';
 
   @override
-  String get changeTheChatPermissions => 'Change the chat permissions';
+  String get changeTheChatPermissions => 'Modifier les autorisations de la discussion';
 
   @override
-  String get changeTheVisibilityOfChatHistory => 'Change the visibility of the chat history';
+  String get changeTheVisibilityOfChatHistory => 'Modifier la visibilité de l\'historique de la discussion';
 
   @override
-  String get changeTheCanonicalRoomAlias => 'Change the main public chat address';
+  String get changeTheCanonicalRoomAlias => 'Modifier l\'adresse publique principale de la discussion';
 
   @override
-  String get sendRoomNotifications => 'Send a @room notifications';
+  String get sendRoomNotifications => 'Envoyer une notification @room';
 
   @override
-  String get changeTheDescriptionOfTheGroup => 'Change the description of the chat';
+  String get changeTheDescriptionOfTheGroup => 'Modifier la description de la discussion';
 
   @override
-  String get chatPermissionsDescription => 'Define which power level is necessary for certain actions in this chat. The power levels 0, 50 and 100 are usually representing users, moderators and admins, but any gradation is possible.';
+  String get chatPermissionsDescription => 'Définissez le niveau de pouvoir nécessaire pour certaines actions dans cette discussion. Les niveaux 0, 50 et 100 représentent généralement les utilisateurs, modérateurs et administrateurs, mais toute gradation est possible.';
 
   @override
   String updateInstalled(String version) {
@@ -2331,40 +2331,40 @@ class L10nRo extends L10n {
   }
 
   @override
-  String get changelog => 'Changelog';
+  String get changelog => 'Journal des modifications';
 
   @override
-  String get sendCanceled => 'Sending canceled';
+  String get sendCanceled => 'Envoi annulé';
 
   @override
-  String get loginWithMatrixId => 'Login with Matrix-ID';
+  String get loginWithMatrixId => 'Connexion avec Matrix-ID';
 
   @override
-  String get discoverHomeservers => 'Discover homeservers';
+  String get discoverHomeservers => 'Découvrir les serveurs d\'accueil';
 
   @override
-  String get whatIsAHomeserver => 'What is a homeserver?';
+  String get whatIsAHomeserver => 'Qu\'est-ce qu\'un serveur d\'accueil ?';
 
   @override
-  String get homeserverDescription => 'All your data is stored on the homeserver, just like an email provider. You can choose which homeserver you want to use, while you can still communicate with everyone. Learn more at at https://matrix.org.';
+  String get homeserverDescription => 'Toutes vos données sont stockées sur le serveur d\'accueil, comme chez un fournisseur de messagerie. Vous pouvez choisir le serveur d\'accueil que vous souhaitez utiliser, tout en communiquant avec tout le monde. En savoir plus sur https://matrix.org.';
 
   @override
-  String get doesNotSeemToBeAValidHomeserver => 'Doesn\'t seem to be a compatible homeserver. Wrong URL?';
+  String get doesNotSeemToBeAValidHomeserver => 'Cela ne semble pas être un serveur d\'accueil compatible. Mauvaise URL ?';
 
   @override
-  String get calculatingFileSize => 'Calculating file size...';
+  String get calculatingFileSize => 'Calcul du poids du fichier...';
 
   @override
-  String get prepareSendingAttachment => 'Prepare sending attachment...';
+  String get prepareSendingAttachment => 'Préparation de l\'envoi de la pièce jointe...';
 
   @override
-  String get sendingAttachment => 'Sending attachment...';
+  String get sendingAttachment => 'Envoi de la pièce jointe...';
 
   @override
-  String get generatingVideoThumbnail => 'Generating video thumbnail...';
+  String get generatingVideoThumbnail => 'Génération de la miniature vidéo...';
 
   @override
-  String get compressVideo => 'Compressing video...';
+  String get compressVideo => 'Compression de la vidéo...';
 
   @override
   String sendingAttachmentCountOfCount(int index, int length) {
@@ -2373,68 +2373,68 @@ class L10nRo extends L10n {
 
   @override
   String serverLimitReached(int seconds) {
-    return 'Server limit reached! Waiting $seconds seconds...';
+    return 'Limite du serveur atteinte ! Attente de $seconds secondes...';
   }
 
   @override
-  String get oneOfYourDevicesIsNotVerified => 'One of your devices is not verified';
+  String get oneOfYourDevicesIsNotVerified => 'L\'un de vos appareils n\'est pas vérifié';
 
   @override
-  String get noticeChatBackupDeviceVerification => 'Note: When you connect all your devices to the chat backup, they are automatically verified.';
+  String get noticeChatBackupDeviceVerification => 'Note : Lorsque vous connectez tous vos appareils à la sauvegarde de discussion, ils sont automatiquement vérifiés.';
 
   @override
-  String get continueText => 'Continue';
+  String get continueText => 'Continuer';
 
   @override
-  String get welcomeText => 'Create or join groups with the aim of saving, getting credit or offering loans to other members';
+  String get welcomeText => 'Créez ou rejoignez des groupes dans le but d\'épargner, d\'obtenir du crédit ou d\'offrir des prêts à d\'autres membres';
 
   @override
-  String get blur => 'Blur:';
+  String get blur => 'Flou :';
 
   @override
-  String get opacity => 'Opacity:';
+  String get opacity => 'Opacité :';
 
   @override
-  String get setWallpaper => 'Set wallpaper';
+  String get setWallpaper => 'Définir le fond d\'écran';
 
   @override
-  String get manageAccount => 'Manage account';
+  String get manageAccount => 'Gérer le compte';
 
   @override
-  String get noContactInformationProvided => 'Server does not provide any valid contact information';
+  String get noContactInformationProvided => 'Aucune information de contact valide n\'est fournie par le serveur';
 
   @override
-  String get contactServerAdmin => 'Contact server admin';
+  String get contactServerAdmin => 'Contacter l\'administrateur du serveur';
 
   @override
-  String get contactServerSecurity => 'Contact server security';
+  String get contactServerSecurity => 'Contacter la sécurité du serveur';
 
   @override
-  String get supportPage => 'Support page';
+  String get supportPage => 'Page d\'assistance';
 
   @override
-  String get serverInformation => 'Server information:';
+  String get serverInformation => 'Informations sur le serveur :';
 
   @override
-  String get name => 'Name';
+  String get name => 'Nom';
 
   @override
   String get version => 'Version';
 
   @override
-  String get website => 'Website';
+  String get website => 'Site web';
 
   @override
-  String get compress => 'Compress';
+  String get compress => 'Compresser';
 
   @override
-  String get boldText => 'Bold text';
+  String get boldText => 'Texte en gras';
 
   @override
-  String get italicText => 'Italic text';
+  String get italicText => 'Texte en italique';
 
   @override
-  String get strikeThrough => 'Strikethrough';
+  String get strikeThrough => 'Barré';
 
   @override
   String get pleaseFillOut => 'Please fill out';
