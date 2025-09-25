@@ -7,7 +7,7 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'stawi.im';
+  static String _defaultHomeserver = 'chamamobile.com';
   static String get defaultHomeserver => _defaultHomeserver;
   static String _partitionId = '9bsv0s0hijjg02qk7l1g';
   static String get partitionId => _partitionId;
