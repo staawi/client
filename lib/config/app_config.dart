@@ -7,7 +7,7 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'chamamobile.com';
+  static String _defaultHomeserver = 'stawi.im';
   static String get defaultHomeserver => _defaultHomeserver;
   static String _partitionId = '9bsv0s0hijjg02qk7l1g';
   static String get partitionId => _partitionId;
@@ -65,7 +65,7 @@ abstract class AppConfig {
   static const String pushNotificationsChannelId = 'stawi_push';
   static const String pushNotificationsAppId = 'im.stawi';
   static const String pushNotificationsGatewayUrl =
-      'https://stawi.antinvestor.com/_matrix/push/v1/notify';
+      'https://stawi.im/_matrix/push/v1/notify';
   static const String pushNotificationsPusherFormat = 'event_id_only';
   static const double borderRadius = 18.0;
   static const double columnWidth = 360.0;
