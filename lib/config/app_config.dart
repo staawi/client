@@ -7,9 +7,9 @@ abstract class AppConfig {
   static String get applicationName => _applicationName;
   static String? _applicationWelcomeMessage;
   static String? get applicationWelcomeMessage => _applicationWelcomeMessage;
-  static String _defaultHomeserver = 'matrix.org';
+  static String _defaultHomeserver = 'stawi.im';
   static String get defaultHomeserver => _defaultHomeserver;
-  static String _partitionId = '9bsv0s0hijjg02qks6i0';
+  static String _partitionId = '9bsv0s0hijjg02qk7l1g';
   static String get partitionId => _partitionId;
 
   static double fontSizeFactor = 1;
@@ -22,28 +22,28 @@ abstract class AppConfig {
   static const Color primaryColorLight = Color(0xFFCCBDEA);
   static const Color secondaryColor = Color(0xFF41a2bc);
   static String _privacyUrl =
-      'https://github.com/krille-chan/stawi/blob/main/PRIVACY.md';
+      'https://stawi.im/docs/privacy';
   static String get privacyUrl => _privacyUrl;
-  static const String website = 'https://antinvestor.com';
+  static const String website = 'https://stawi.im';
   static const String enablePushTutorial =
-      'https://github.com/krille-chan/stawi/wiki/Push-Notifications-without-Google-Services';
+      'https://stawi.im/docs/Push-Notifications-without-Google-Services';
   static const String encryptionTutorial =
-      'https://github.com/krille-chan/stawi/wiki/How-to-use-end-to-end-encryption-in-Stawi';
+      'https://stawi.im/docs/How-to-use-end-to-end-encryption-in-Stawi';
   static const String startChatTutorial =
-      'https://github.com/krille-chan/stawi/wiki/How-to-Find-Users-in-Stawi';
+      'https://stawi.im/docs/how-to-connect-with-users';
   static const String appId = 'im.stawi';
   static const String appOpenUrlScheme = 'im.stawi';
-  static String _webBaseUrl = 'https://stawi.antinvestor.com';
+  static String _webBaseUrl = 'https://stawi.im';
   static String get webBaseUrl => _webBaseUrl;
-  static const String sourceCodeUrl = 'https://github.com/antinvestor/client';
+  static const String sourceCodeUrl = 'https://github.com/antinvestor/matrix';
   static const String supportUrl =
-      'https://github.com/antinvestor/client/issues';
+      'https://github.com/antinvestor/matrix/issues';
   static const String changelogUrl =
-      'https://github.com/antinvestor/client/blob/main/CHANGELOG.md';
+      'https://github.com/antinvestor/matrix/blob/main/CHANGELOG.md';
   static final Uri newIssueUrl = Uri(
     scheme: 'https',
-    host: 'github.com',
-    path: '/antinvestor/client/issues/new',
+    host: 'stawi.im',
+    path: '/issues/new',
   );
   static bool renderHtml = true;
   static bool hideRedactedEvents = false;
@@ -59,7 +59,7 @@ abstract class AppConfig {
   static bool experimentalVoip = false;
   static const bool hideTypingUsernames = false;
   static const bool hideAllStateEvents = false;
-  static const String inviteLinkPrefix = 'https://matrix.to/#/';
+  static const String inviteLinkPrefix = 'https://stawi.im/#/';
   static const String deepLinkPrefix = 'im.stawi://chat/';
   static const String schemePrefix = 'matrix:';
   static const String pushNotificationsChannelId = 'stawi_push';
@@ -71,7 +71,7 @@ abstract class AppConfig {
   static const double columnWidth = 360.0;
   static final Uri homeserverList = Uri(
     scheme: 'https',
-    host: 'stawi.antinvestor.com',
+    host: 'stawi.im',
     path: 'servers.json',
   );
 
