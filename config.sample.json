@@ -1,10 +1,10 @@
 {
   "application_name": "Stawi",
   "application_welcome_message": null,
-  "partition_id": "9bsv0s0hijjg02qks6i0",
-  "default_homeserver": "chamamobile.com",
-  "web_base_url": "https://chamamobile.com",
-  "privacy_url": "https://chamamobile.com/en/privacy.html",
+  "partition_id": "9bsv0s0hijjg02qk7l1g",
+  "default_homeserver": "matrix.stawi.im",
+  "web_base_url": "https://stawi.im",
+  "privacy_url": "https://stawi.im/en/privacy.html",
   "render_html": false,
   "hide_redacted_events": false,
   "hide_unknown_events": false

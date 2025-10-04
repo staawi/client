@@ -69,6 +69,7 @@ class HomeserverPickerController extends State<HomeserverPicker> {
       this.loginFlows = loginFlows;
       return ssoLoginAction();
     } catch (e) {
+      Logs().e('Failed to check homeserver', e);
       setState(
         () =>
             error = (e).toLocalizedString(
